@@ -1,0 +1,28 @@
+# Wordpress files #
+###################
+.htaccess
+wp-config.php
+wp-content/upgrade/
+sitemap.xml
+*.log
+wp-content/cache/
+wp-content/plugins/*/cache/*
+wp-content/backups/
+sitemap.xml.gz
+
+# Development environment #
+###########################
+.vagrant
+Vagrantfile
+*.sublime*
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
