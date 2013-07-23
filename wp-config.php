@@ -91,5 +91,9 @@ define('WP_CACHE', true);
 define('FTP_USER', 'ec2-user');
 define('FTP_PASS', 'doMzU5YDRAL');
 define('FTP_HOST', 'localhost:21');
+if ( $_SERVER['SERVER_NAME']=='localhost' ) {
+	define('WP_HOME','http://dev');
+	define('WP_SITEURL','http://dev');
+}
 
 require_once(ABSPATH . 'wp-settings.php');
