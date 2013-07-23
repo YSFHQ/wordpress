@@ -1,8 +1,8 @@
 # Wordpress files #
 ###################
 .htaccess
-assets
-media
+/assets
+/media
 wp-content/upgrade/
 sitemap.xml
 *.log
