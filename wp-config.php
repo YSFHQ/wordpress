@@ -88,4 +88,8 @@ if ( !defined('ABSPATH') )
 
 /** Sets up WordPress vars and included files. */
 define('WP_CACHE', true);
+define('FTP_USER', 'ec2-user');
+define('FTP_PASS', 'doMzU5YDRAL');
+define('FTP_HOST', 'localhost:21');
+
 require_once(ABSPATH . 'wp-settings.php');

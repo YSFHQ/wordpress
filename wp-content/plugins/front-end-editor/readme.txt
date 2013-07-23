@@ -1,12 +1,11 @@
 === Front-end Editor ===
-Contributors: scribu, Jotschi
-Tags: inline, editor, edit-in-place, visual, wysiwyg
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WB35NBVGWMS3E&item_name=Front-end%20Editor
-Requires at least: 3.2
-Tested up to: 3.4
-Stable tag: 2.3
-License: GPLv3 or later
-License URI: http://www.gnu.org/licenses/gpl.html
+Contributors: scribu, Jotschi  
+Tags: inline, editor, edit-in-place, visual, wysiwyg  
+Requires at least: 3.2  
+Tested up to: 3.6  
+Stable tag: 2.3.1  
+License: GPLv3 or later  
+License URI: http://www.gnu.org/licenses/gpl.html  
 
 Edit content inline, without going to the admin area.
 
@@ -14,15 +13,23 @@ Edit content inline, without going to the admin area.
 
 Front-end Editor is a plugin that lets you make changes to your content *directly* from your site. No need to load the admin backend just to correct a typo.
 
+It makes the same [capability](http://codex.wordpress.org/Roles_and_Capabilities) checks, so that if a user isn't allowed to edit something in wp-admin, they aren't allowed to edit it in the front-end either.
+
+You can edit posts, pages, custom post types, comments, widgets and many [more elements](http://github.com/scribu/wp-front-end-editor/wiki/List-of-editable-elements).
+
 **Goals:**
 
 * save as many trips to the backend as possible
 * compatible with any theme, out of the box
 * light and fast
 
-You can edit posts, pages, custom post types, comments, widgets and many [more elements](http://github.com/scribu/wp-front-end-editor/wiki/List-of-editable-elements).
+**Support and development:**
 
-Credits:
+[Support](http://wordpress.org/support/plugin/front-end-editor) is handled by the lovely [designsimply](http://wordpress.org/support/profile/designsimply).
+
+I am not developing the plugin anymore; only applying the patches that other people send via [Github](https://github.com/scribu/wp-front-end-editor/).
+
+**Credits:**
 
 * [Aloha Editor](http://aloha-editor.org) for the fantastic WYSIWYG editing component
 
@@ -30,7 +37,7 @@ Links: [**Documentation**](http://github.com/scribu/wp-front-end-editor/wiki) | 
 
 == Installation ==
 
-See http://codex.wordpress.org/Managing_Plugins#Installing_Plugins
+See <http://codex.wordpress.org/Managing_Plugins#Installing_Plugins>
 
 == Frequently Asked Questions ==
 
@@ -41,11 +48,11 @@ Make sure your host is running PHP 5. The only foolproof way to do this is to ad
 `var_dump(PHP_VERSION);`
 <br>
 
-= Nothing happens after activating it =
+= I can't see the edit buttons =
 
 1. Make sure you're logged in and have the appropriate capabilities.
 2. See [Common Mistakes in Themes](http://scribu.net/wordpress/front-end-editor/common-mistakes-in-themes.html).
-3. [Check for JavaScript errors](http://webmasters.stackexchange.com/questions/8525/how-to-open-the-javascript-console-in-different-browsers).
+3. [Check for JavaScript errors](http://codex.wordpress.org/Using_Your_Browser_to_Diagnose_JavaScript_Errors).
 
 = Can you change the wysiwyg editor to TinyMCE? =
 
@@ -68,8 +75,11 @@ To avoid problems with WP Super Cache or W3 Total Cache, I recommend disabling c
 == Changelog ==
 
 = 2.3.1 =
+* update to Aloha 0.23.12
 * add placeholder for post thumbnails
 * fix changing thumbnails to a newly uploaded image. props adrichey
+* update translations: Polish (props toszcze) and Estonian (props petskratt).
+* added Simplified Chinese translation (props 倡萌)
 
 = 2.3 =
 * make Save/Cancel buttons hover in place of the Edit button
@@ -83,12 +93,12 @@ To avoid problems with WP Super Cache or W3 Total Cache, I recommend disabling c
 * update to Aloha 0.20.6
 * enable align buttons in Aloha
 * enable highlighting of elements editable by Aloha
-* add 'fee_rich_clean' filter
-* fix 'type' parameter for editable_option()
+* add `'fee_rich_clean'` filter
+* fix 'type' parameter for `editable_option()`
 
 = 2.2 =
 * introduce groups of editable elements
-* introduced fee_insert_dummy_post() for creating posts
+* introduced `fee_insert_dummy_post()` for creating posts
 * prevent warnings caused by faulty widgets
 * update to Aloha 0.20.0
 * switch to Coco
@@ -107,7 +117,7 @@ To avoid problems with WP Super Cache or W3 Total Cache, I recommend disabling c
 
 = 2.1.1 =
 * added option to disable dropdown for categories
-* added single_term_title field
+* added `single_term_title` field
 * set field name as title attribute on placeholders
 * use background color as base for ajax loading overlay
 * fixed issue with right-aligned images in content
@@ -129,9 +139,9 @@ To avoid problems with WP Super Cache or W3 Total Cache, I recommend disabling c
 = 2.0 =
 * replaced double-click action with an 'Edit' overlay
 * added dropdown for editing terms in hierarchical taxonomies
-* introduced front_end_editor_wrap filter
-* introduced fee_cleditor_css filter
-* introduced fee_cleditor_height filter
+* introduced `front_end_editor_wrap` filter
+* introduced `fee_cleditor_css` filter
+* introduced `fee_cleditor_height` filter
 * [more info](http://scribu.net/wordpress/front-end-editor/fee-2-0.html)
 
 = 1.9.3 =
@@ -139,7 +149,7 @@ To avoid problems with WP Super Cache or W3 Total Cache, I recommend disabling c
 * fixed encoding issues with paragraph editing
 * fixed image fields handling
 * fixed typo which made spinner not show
-* check 'edit_theme_options' capability instead of 'edit_themes'
+* check `'edit_theme_options'` capability instead of `'edit_themes'`
 * [more info](http://scribu.net/wordpress/front-end-editor/fee-1-9-3.html)
 
 = 1.9.2.1 =
@@ -150,8 +160,8 @@ To avoid problems with WP Super Cache or W3 Total Cache, I recommend disabling c
 * nicEdit: Google Docs like link tooltip
 * nicEdit: expose 'bgcolor' button
 * iPhone style tooltip
-* make the_tags() work no matter what args are used
-* apply esc_attr() to data attributes
+* make `the_tags()` work no matter what args are used
+* apply `esc_attr()` to data attributes
 
 = 1.9.1 =
 * re-added nicEdit to text widgets
@@ -195,12 +205,12 @@ To avoid problems with WP Super Cache or W3 Total Cache, I recommend disabling c
 * dropped Growfield from textareas
 * load CSS only when needed
 * standardized CSS ids and classes
-* renamed hooks from 'front_ed_*' to 'front_end_editor_*'
+* renamed hooks from `'front_ed_*'` to `'front_end_editor_*'`
 * fixed: when editing the post content, the post date isn't updated
 * fixed: when editing tags, the input bounces to a new line
 * fixed: after editing linked post title, the title is not linked anymore
-* fixed: editable_post_meta() doesn't work outside The Loop
-* fixed: warning when a NULL is passed to FEE_Field_Base::wrap()
+* fixed: `editable_post_meta()` doesn't work outside The Loop
+* fixed: warning when a NULL is passed to `FEE_Field_Base::wrap()`
 * [more info](http://scribu.net/wordpress/front-end-editor/fee-1-7.html)
 
 = 1.6.1 =
@@ -211,7 +221,7 @@ To avoid problems with WP Super Cache or W3 Total Cache, I recommend disabling c
 * added editing of custom fields with multiple values
 * added editing of any widget title
 * improved script loading
-* added placeholder to editable_post_meta
+* added placeholder to `editable_post_meta`
 * fixed issue with comment paragraphs
 * fixed issues with the $post global
 * [more info](http://scribu.net/wordpress/front-end-editor/fee-1-6.html)
@@ -232,7 +242,7 @@ To avoid problems with WP Super Cache or W3 Total Cache, I recommend disabling c
 
 = 1.4 =
 * new editable fields: category title and tag title
-* added $echo parameter to editable_post_meta()
+* added $echo parameter to `editable_post_meta()`
 * easier way to restrict editable content
 * don't load CSS & JS if the current user can't edit any of the fields
 * switched from Autogrow to Growfield (fixes IE compatibility)
@@ -285,13 +295,13 @@ To avoid problems with WP Super Cache or W3 Total Cache, I recommend disabling c
 * [more info](http://scribu.net/wordpress/front-end-editor/fee-1-1.html)
 
 = 1.0.6 =
-* fixed links with target="_blank"
+* fixed links with `target="_blank"`
 * inputs and textareas are focused after double-clicking
 * added Russian translation
 
 = 1.0.5 =
 * added align buttons, fixed autogrow issue
-* the_title and the_tags improvements
+* `the_title` and `the_tags` improvements
 * added Swedish translation
 
 = 1.0 =

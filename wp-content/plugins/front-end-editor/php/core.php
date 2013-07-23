@@ -118,27 +118,50 @@ Aloha.settings = {
 		format: {
 			config: ['b', 'i', 'del', 'sub', 'sup', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'pre', 'removeFormat'],
 		}
+	},
+	toolbar: {
+		tabs: [
+			{
+				label: "tab.insert.label",
+				showOn: { scope: 'Aloha.continuoustext' },
+				components: [
+					["createTable", "characterPicker", "insertLink",
+					  "insertImage", "insertAbbr", "insertToc",
+					  "insertHorizontalRule", "insertTag"],
+					['wpImage']
+				]
+			}
+		]
 	}
 };
 </script>
 <?php
 	$plugins = array(
+		'common/ui',
 		'common/format',
 		'common/align',
 		'common/list',
 		'common/link',
 		'common/table',
 		'common/undo',
+		'common/contenthandler',
 		'common/paste',
 		'common/block',
 		'extra/cite',
-		'fee/wpImage',
+		'common/image',
+	#	'fee/wpImage',
 	);
+
+	// add require.js which is a prerequisite for Aloha Editor
+	echo html( 'script', array(
+		'src' => plugins_url( 'lib/aloha-editor/lib/require.js', FEE_MAIN_FILE )
+	) ) . "\n";
 
 	echo html( 'script', array(
 		'src' => plugins_url( 'lib/aloha-editor/lib/aloha.js', FEE_MAIN_FILE ),
 		'data-aloha-plugins' => implode( ',', $plugins )
 	) ) . "\n";
+
 }
 
 		scbUtil::do_scripts( self::$js_dependencies );
