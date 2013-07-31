@@ -357,7 +357,7 @@ video {
 .entry-content img,
 .comment-content img,
 .widget img,
-img.header-image,
+/*img.header-image,*/
 .author-avatar img,
 img.wp-post-image {
 	/* Add fancy borders to all WordPress-added images but not things like badges and icons and the like */
