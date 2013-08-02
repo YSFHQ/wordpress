@@ -18,6 +18,7 @@ test.php
 # Wordpress files #
 ###################
 .htaccess
+wp-config.php
 wp-content/upgrade/
 sitemap.xml
 *.log
@@ -28,10 +29,10 @@ sitemap.xml.gz
 
 # Development environment #
 ###########################
+.gitignore
 .vagrant
 Vagrantfile
 *.sublime*
-padmin/
 
 # OS generated files #
 ######################
