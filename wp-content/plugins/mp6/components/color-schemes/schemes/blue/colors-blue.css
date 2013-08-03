@@ -1,0 +1,241 @@
+/*------------------------------------------------------------------------------
+
+Howdy! This is the CSS file that makes MP6 blue by
+overriding MP6's default styles.
+
+------------------------------------------------------------------------------*/
+
+html {
+	background: #fff;
+}
+
+kbd, code {
+	background: #f5f5f5;
+}
+
+
+/*------------------------------------------------------------------------------
+  Admin Menu
+------------------------------------------------------------------------------*/
+
+#adminmenuback,
+#adminmenuwrap {
+	background: #1e8cbe;
+}
+
+#adminmenu a,
+#adminmenu a:hover {
+	color: #fff;
+}
+
+#adminmenu div.wp-menu-image:before {
+	color: #fff;
+}
+
+#adminmenu li.menu-top:hover,
+#adminmenu li.opensub > a.menu-top,
+#adminmenu li > a.menu-top:focus {
+	background-color: #36a3ca;
+ 	color: #fff;
+}
+
+#adminmenu li:hover div.wp-menu-image:before {
+	color: #fff;
+}
+
+ul#adminmenu a.wp-has-current-submenu:after,
+ul#adminmenu > li.current > a.current:after {
+    border-right-color: #fff;
+}
+
+#adminmenu li.wp-has-current-submenu a.wp-has-current-submenu,
+#adminmenu li.current a.menu-top,
+.folded #adminmenu li.wp-has-current-submenu,
+.folded #adminmenu li.current.menu-top,
+#adminmenu .wp-menu-arrow,
+#adminmenu .wp-has-current-submenu .wp-submenu .wp-submenu-head,
+#adminmenu .wp-menu-arrow div {
+	background: #36a3ca;
+}
+
+#adminmenu .wp-submenu a,
+.folded #adminmenu a.wp-has-current-submenu:focus + .wp-submenu a,
+.folded #adminmenu .wp-has-current-submenu .wp-submenu a {
+	color: #dee8ec;
+}
+
+#adminmenu .wp-has-current-submenu .wp-submenu,
+.no-js li.wp-has-current-submenu:hover .wp-submenu,
+#adminmenu a.wp-has-current-submenu:focus + .wp-submenu,
+#adminmenu .wp-has-current-submenu .wp-submenu.sub-open,
+#adminmenu .wp-has-current-submenu.opensub .wp-submenu {
+	background-color: #0074a2;
+}
+
+#adminmenu .wp-has-current-submenu .wp-submenu a,
+.no-js li.wp-has-current-submenu:hover .wp-submenu a,
+#adminmenu a.wp-has-current-submenu:focus + .wp-submenu a,
+#adminmenu .wp-has-current-submenu .wp-submenu.sub-open a,
+#adminmenu .wp-has-current-submenu.opensub .wp-submenu a {
+	color: #dee8ec;
+}
+
+#adminmenu .wp-has-current-submenu .wp-submenu a:hover,
+.no-js li.wp-has-current-submenu:hover .wp-submenu a:hover,
+#adminmenu a.wp-has-current-submenu:focus + .wp-submenu a:hover,
+.folded #adminmenu a.wp-has-current-submenu:focus + .wp-submenu a:hover,
+.folded #adminmenu .wp-has-current-submenu .wp-submenu a:hover {
+	color: #fff;
+}
+
+#adminmenu .wp-submenu,
+.folded #adminmenu a.wp-has-current-submenu:focus + .wp-submenu,
+.folded #adminmenu .wp-has-current-submenu .wp-submenu {
+	background-color: #0074a2;
+	-webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+#adminmenu li.wp-has-submenu.wp-not-current-submenu.opensub:hover:after {
+	border-right-color: #0074a2;
+}
+
+#adminmenu .wp-submenu a,
+.folded #adminmenu a.wp-has-current-submenu:focus + .wp-submenu a,
+.folded #adminmenu .wp-has-current-submenu .wp-submenu a {
+	color: #fff;
+}
+
+#adminmenu .wp-submenu a:hover {
+	color: #78c8e6;
+}
+
+/* Collapse Button */
+#collapse-menu,
+#collapse-button div:after {
+	color: #dee8ec;
+}
+
+#collapse-menu:hover,
+#collapse-menu:hover #collapse-button div:after {
+	color: #fff;
+}
+
+/* Update/Comment bubble */
+#adminmenu li.current a .awaiting-mod,
+#adminmenu li a.wp-has-current-submenu .update-plugins {
+	background-color: #e66f00;
+}
+
+#adminmenu .awaiting-mod,
+#adminmenu .update-plugins,
+#sidemenu a .update-plugins,
+#rightnow .reallynow {
+	background-color: #e66f00;
+}
+
+
+/*------------------------------------------------------------------------------
+  Section Title
+------------------------------------------------------------------------------*/
+
+.widget .widget-top,
+.postbox h3,
+.stuffbox h3,
+.control-section .accordion-section-title,
+h3.dashboard-widget-title,
+h3.dashboard-widget-title span,
+h3.dashboard-widget-title small,
+.sidebar-name,
+#nav-menu-header,
+#nav-menu-footer,
+.menu-item-handle,
+.checkbox,
+.side-info,
+.widefat thead th,
+.widefat tfoot th,
+.wrap .add-new-h2,
+.wrap .add-new-h2:active,
+#add-new-comment a {
+	background: #f6f6f6;
+}
+
+.alternate, .alt {
+	background: #f9f9f9;
+}
+
+.form-table th,
+.form-table td {
+	border-bottom-color: #f1f1f1;
+}
+
+/* Shadows */
+.widget,
+.menu-item-settings,
+#widget-list .widget-top,
+.postbox,
+#menu-management .menu-edit,
+.manage-menus,
+table.widefat,
+.stuffbox,
+p.popular-tags,
+.widgets-holder-wrap,
+.welcome-panel,
+.wp-editor-container,
+#post-status-info,
+.popular-tags,
+.feature-filter,
+div.updated,
+.press-this #message {
+	-webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+	box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+#screen-meta {
+	-webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Page Navigation Tabs */
+.nav-tab {
+	background: #f5f5f5;
+}
+
+.nav-tab-active,
+.nav-tab-active:hover {
+	background: #fff;
+	border-bottom-color: #fff;
+}
+
+/* Help Menu */
+#contextual-help-back,
+.contextual-help-tabs .active,
+.contextual-help-tabs .active a,
+.contextual-help-tabs .active a:hover {
+	background: #FBFBFB;
+}
+
+
+/*------------------------------------------------------------------------------
+  Login Screen
+------------------------------------------------------------------------------*/
+
+body.login {
+	background: #f9f9f9;
+}
+
+.login form,
+.login .message {
+	-webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+	box-shadow: 1 1px 4px rgba(0,0,0,0.2);
+}
+
+
+/*------------------------------------------------------------------------------
+  Custom Icons
+------------------------------------------------------------------------------*/
+
+#adminmenu #toplevel_page_jetpack .wp-menu-image,
+#adminmenu #toplevel_page_jetpack:hover .wp-menu-image {
+	background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDIwIDIwIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnIGlkPSJqZXRwYWNrIj4NCgk8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNOC41LDE3Ljk2M0w3Ljk0NiwxNy4yNWMtMC42ODgsMC4yNDMtMS41MjgsMC4zOTEtMi40NDYsMC4zOTFzLTEuNzU4LTAuMTQ2LTIuNDQ3LTAuMzkxTDIuNSwxNy45NjMNCgkJYzAsMC43MTEsMS4zNDMsMS4yODcsMywxLjI4N1M4LjUsMTguNjc0LDguNSwxNy45NjN6Ii8+DQoJPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTEwLjY3NSwxNi45NjNsMC41NTQtMC43MTNjMC42ODksMC4yNDMsMS41MjgsMC4zOTEsMi40NDYsMC4zOTFzMS43NTctMC4xNDYsMi40NDYtMC4zOTFsMC41NTQsMC43MTMNCgkJYzAsMC43MTEtMS4zNDMsMS4yODctMywxLjI4N1MxMC42NzUsMTcuNjc0LDEwLjY3NSwxNi45NjN6Ii8+DQoJPGc+DQoJCTxyZWN0IHg9IjQiIHk9IjEwIiBmaWxsPSIjRkZGRkZGIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIi8+DQoJCTxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0xNS4wNDMsMS4wNDNjLTAuNDEyLTAuMjI5LTAuOTA4LTAuMzc1LTEuNDU1LTAuMzc1Yy0wLjU1MywwLjAwMS0xLjA1MSwwLjE0OC0xLjQ2MywwLjM4MQ0KCQkJYy0wLjg3OCwwLjg4My0xLjU5OCwyLjU0Ni0yLjA0NSw0LjY0M0MxMC4xMDUsNS43ODksMTAuMTI1LDUuODk5LDEwLjE0OCw2SDguOTc3QzguNTE1LDQuMDgxLDcuODI0LDIuNTU4LDYuOTk0LDEuNzIzDQoJCQlDNi41NzIsMS40ODUsNi4wNjQsMS4zMzQsNS41LDEuMzM0QzQuOTM5LDEuMzMzLDQuNDM0LDEuNDgxLDQuMDE0LDEuNzE2Yy0xLjUyMSwxLjUyMS0yLjYwMiw1LjI5Ni0yLjYwMiw5LjcyMg0KCQkJYzAsMS42NDYsMC4xNTQsMy4xOTgsMC40Miw0LjU4NEMyLjU2MiwxNi42MDQsMy45MjIsMTcsNS41LDE3czIuOTM5LTAuMzk2LDMuNjY4LTAuOTc5QzkuMjkxLDE1LjM4MSw5LjM4NywxNC43MDQsOS40NTcsMTRoMS4xNTkNCgkJCWMtMC4wNDYsMC40NTEtMC4wOTEsMC45MDYtMC4xNTksMS4zMzNDMTEuMjE1LDE1LjczOCwxMi4zMjYsMTYsMTMuNTg4LDE2YzEuNTQ0LDAsMi44NzUtMC4zODksMy41OS0wLjk1OA0KCQkJYzAuMjYtMS4zNTQsMC40MS0yLjg3NCwwLjQxLTQuNDg1QzE3LjU4OCw2LjIyNSwxNi41MzEsMi41MzEsMTUuMDQzLDEuMDQzeiBNNiw5djNINS42MjNjMC4xMTcsMS4wNTUsMC4zMTksMi4wNzcsMC42MjcsM2gtMg0KCQkJYy0wLjMwOC0wLjkyMy0wLjUxLTEuOTQ1LTAuNjI3LTNIM1Y5aDAuNTM1QzMuNjEzLDcuNTkyLDMuODQ2LDYuMjEzLDQuMjUsNWgyQzUuODQ2LDYuMjEzLDUuNjEzLDcuNTkyLDUuNTM1LDlINnogTTUuNSwzLjYyNQ0KCQkJYy0wLjgyOCwwLTEuNS0wLjMzNi0xLjUtMC43NXMwLjY3Mi0wLjc1LDEuNS0wLjc1UzcsMi40NjEsNywyLjg3NVM2LjMyOCwzLjYyNSw1LjUsMy42MjV6IE05LjUzNSwxMw0KCQkJYzAuMDMxLTAuNTExLDAuMDUzLTEuMDI5LDAuMDUzLTEuNTYyQzkuNTg4LDkuODUsOS40NDMsOC4zNSw5LjE5NSw3aDEuMTc0YzAuMjUsMS4zNDYsMC4zOTMsMi44NDgsMC4zOTMsNC40MzgNCgkJCWMwLDAuNTM3LTAuMDI5LDEuMDU0LTAuMDYyLDEuNTYySDkuNTM1eiBNMTIuMTI1LDIuMTVjMC0wLjQxNCwwLjY3Mi0wLjc1LDEuNS0wLjc1czEuNSwwLjMzNiwxLjUsMC43NXMtMC42NzIsMC43NS0xLjUsMC43NQ0KCQkJUzEyLjEyNSwyLjU2NCwxMi4xMjUsMi4xNXogTTE2LDExaC0wLjYyM2MtMC4xMTcsMS4wNTUtMC4zMTgsMi4wNzctMC42MjcsM2gtMmMwLjMwOS0wLjkyMywwLjUxLTEuOTQ1LDAuNjI3LTNIMTNWOGgwLjQ2NQ0KCQkJYy0wLjA3OC0xLjQwOC0wLjMxMS0yLjc4Ny0wLjcxNS00aDJjMC40MDQsMS4yMTMsMC42MzcsMi41OTIsMC43MTUsNEgxNlYxMXoiLz4NCgkJPHJlY3QgeD0iMTQiIHk9IjkiIGZpbGw9IiNGRkZGRkYiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiLz4NCgk8L2c+DQo8L2c+DQo8L3N2Zz4NCg==") !important;
+}

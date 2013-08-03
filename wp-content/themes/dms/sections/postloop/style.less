@@ -1,0 +1,168 @@
+
+.hentry {
+	.entry-title{
+		margin:0;
+	}
+
+}
+
+.entry_content{
+	img {
+		max-width: 100%;
+	}
+	> :first-child{
+		margin-top: 0;
+	}
+	> :last-child{
+		margin-bottom: 0;
+	}
+}
+
+.fpost .post-excerpt {
+	font-size: 1.03em;
+	line-height: 1.55em;
+}
+
+.tags {
+	font-size: 86%;
+	opacity: .7;
+	.note{
+		.noteText();
+	}
+}
+
+.pledit{
+	opacity: .7;
+	&:hover{
+		opacity: 1;
+	}
+}
+
+// Belongs under postloop
+
+// Hentry format/sizing needs to be moved to be conextual
+// Henry is going to represent all long form text styling
+
+.post-meta .c_img,
+.hentry .c_img{
+	display: block;
+	text-align: center;
+}
+
+.multi-post {
+	.hentry {
+		margin: 0 0 @baseLineHeight;
+		.hentry-pad{
+			padding: 0 0 @baseLineHeight;
+		}
+	}
+	
+	
+	.clip_box{
+		margin: 0 0 @baseLineHeight;
+		border-color: @dark-base;
+		.clip{
+			width:47%;
+			clear: none;
+			float: left;
+			margin: 0;
+			.hentry-pad{
+				padding: 0 0 @baseLineHeight/2;
+			}
+			&.clip-right{
+				float: right;
+			}
+			.clip-header {
+				padding: 4px 0 4px 0;
+				display: table-cell;
+				width: 10000px;
+			}
+			.clip-thumb{
+				a{
+					float:left;
+					margin-right: 10px;
+				}
+				img{
+					padding: 2px;
+					display:block;
+					margin:0 0 0.4em;
+				}
+			}
+			
+			.post-excerpt{
+				font-size: 90%;
+				line-height: 1.6em;
+				margin-bottom:1.5em;
+			}
+
+			.entry-title,
+			.metabar{
+				padding: 0;
+			}
+		}
+	}
+
+}
+
+
+.post-header .post-thumb.img{
+	margin: 0 10px 5px 0;
+	&.alignright{
+		margin: 0 0 5px 10px
+	}
+}
+
+
+/* @ Posts */
+.fpost{
+	.post-excerpt .post-thumb.img {
+		margin-right: 13px
+	}
+	.media {
+		.post-thumb.img {
+			margin-right: 20px;
+		}	
+		.img img{
+			max-width: 100%;
+			height: auto;
+			margin: 0 auto;
+		}
+	}
+	.textcontent {
+		margin: 20px 10px 0 0;
+	}
+	
+	.post-excerpt {
+		margin: .6em 0;
+	}
+	&.post .entry{
+		margin-bottom: 1em;
+		padding: 1em 0;
+	}
+}
+
+.full_img {
+	margin-bottom: 15px;
+}
+
+
+.post-meta {
+	margin-bottom: 1.71em;
+	&.post-nocontent{
+		margin-bottom: 0;
+	}
+	.post-title-section{
+		padding-bottom: 6px;
+	}
+	.metabar{
+		font-size: @smallerText;
+		line-height: 1.6em;
+		em{
+			
+			opacity: .7;
+			font-style: normal;
+			
+		}
+	}
+}
+
