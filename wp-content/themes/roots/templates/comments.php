@@ -5,7 +5,7 @@
 
  if (have_comments()) : ?>
   <section id="comments">
-    <h3><?php printf(_n('One Response to &ldquo;%2$s&rdquo;', '%1$s Responses to &ldquo;%2$s&rdquo;', get_comments_number(), 'roots'), number_format_i18n(get_comments_number()), get_the_title()); ?></h3>
+    <h3>Comments<?php //printf(_n('One Response to &ldquo;%2$s&rdquo;', '%1$s Responses to &ldquo;%2$s&rdquo;', get_comments_number(), 'roots'), number_format_i18n(get_comments_number()), get_the_title()); ?></h3>
 
     <ol class="media-list">
       <?php wp_list_comments(array('walker' => new Roots_Walker_Comment)); ?>
@@ -30,6 +30,7 @@
     </div>
     <?php endif; ?>
   </section><!-- /#comments -->
+  <hr>
 <?php endif; ?>
 
 <?php if (!have_comments() && !comments_open() && !is_page() && post_type_supports(get_post_type(), 'comments')) : ?>
@@ -41,8 +42,8 @@
 <?php endif; ?>
 
 <?php if (comments_open()) : ?>
-  <section id="respond">
-    <h3><?php comment_form_title(__('Leave a Reply', 'roots'), __('Leave a Reply to %s', 'roots')); ?></h3>
+  <section id="respond" class="post-comment">
+    <h3><?php comment_form_title(__('Leave a Comment', 'roots'), __('Leave a Reply to %s', 'roots')); ?></h3>
     <p class="cancel-comment-reply"><?php cancel_comment_reply_link(); ?></p>
     <?php if (get_option('comment_registration') && !is_user_logged_in()) : ?>
       <p><?php printf(__('You must be <a href="%s">logged in</a> to post a comment.', 'roots'), wp_login_url(get_permalink())); ?></p>
@@ -55,15 +56,15 @@
           </p>
         <?php else : ?>
           <label for="author"><?php _e('Name', 'roots'); if ($req) _e(' (required)', 'roots'); ?></label>
-          <input type="text" class="text" name="author" id="author" value="<?php echo esc_attr($comment_author); ?>" size="22" <?php if ($req) echo 'aria-required="true"'; ?>>
+          <input type="text" class="text" name="author" id="author" class="span7" value="<?php echo esc_attr($comment_author); ?>" size="22" <?php if ($req) echo 'aria-required="true"'; ?>>
           <label for="email"><?php _e('Email (will not be published)', 'roots'); if ($req) _e(' (required)', 'roots'); ?></label>
-          <input type="email" class="text" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" size="22" <?php if ($req) echo 'aria-required="true"'; ?>>
+          <input type="email" class="text" name="email" id="email" class="span7" value="<?php echo esc_attr($comment_author_email); ?>" size="22" <?php if ($req) echo 'aria-required="true"'; ?>>
           <label for="url"><?php _e('Website', 'roots'); ?></label>
-          <input type="url" class="text" name="url" id="url" value="<?php echo esc_attr($comment_author_url); ?>" size="22">
+          <input type="url" class="text" name="url" id="url" class="span7" value="<?php echo esc_attr($comment_author_url); ?>" size="22">
         <?php endif; ?>
         <label for="comment"><?php _e('Comment', 'roots'); ?></label>
-        <textarea name="comment" id="comment" class="input-xlarge" rows="5" aria-required="true"></textarea>
-        <p><input name="submit" class="btn btn-primary" type="submit" id="submit" value="<?php _e('Submit Comment', 'roots'); ?>"></p>
+        <textarea name="comment" id="comment" class="input-xlarge span9" rows="5" aria-required="true"></textarea>
+        <p><input name="submit" class="btn-u" type="submit" id="submit" value="<?php _e('Submit Comment', 'roots'); ?>"></p>
         <?php comment_id_fields(); ?>
         <?php do_action('comment_form', $post->ID); ?>
       </form>

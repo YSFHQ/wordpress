@@ -1,7 +1,7 @@
 <?php while (have_posts()) : the_post(); ?>
   <article <?php post_class(); ?>>
     <header>
-      <h3 class="entry-title"><?php the_title(); ?></h3>
+      <h3 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
       <?php get_template_part('templates/entry-meta'); ?>
     </header>
     <div class="entry-content">

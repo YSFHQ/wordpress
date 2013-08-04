@@ -1,11 +1,10 @@
 <!--=== Breadcrumbs ===-->
-<div class="breadcrumbs margin-bottom-20">
+<div class="crumb-header margin-bottom-40">
 	<div class="container">
         <h1 class="pull-left"><?php echo roots_title(); ?></h1>
-        <ul class="pull-right breadcrumb">
-            <li><a href="<?php echo home_url(); ?>/">Home</a> <span class="divider">/</span></li>
-            <li class="active"><?php echo roots_title(); ?></li>
-        </ul>
+        <div class="pull-right">
+        	<?php the_widget('bcn_widget', array('type'=> 'list', 'linked' => true), array()); ?>
+        </div>
     </div><!--/container-->
 </div><!--/breadcrumbs-->
 <!--=== End Breadcrumbs ===-->

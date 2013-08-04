@@ -79,6 +79,8 @@ function roots_title() {
     } else {
       single_cat_title();
     }
+  } elseif (is_single()) {
+    _e('Blog Post', 'roots');
   } elseif (is_search()) {
     printf(__('Search Results for %s', 'roots'), get_search_query());
   } elseif (is_404()) {

@@ -7,7 +7,7 @@
 .loginbar {
 	margin:0;
 	padding:0;
-	z-index:9999;
+	z-index:250;
 	list-style:none;
 	position:relative;
 }
@@ -127,7 +127,7 @@
 /*Header (logo and menu)
 ------------------------------------*/
 .header {
-	z-index:999;
+	z-index:250;
 	position:relative;
 	border-bottom:solid 2px #eee;
 }
