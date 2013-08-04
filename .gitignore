@@ -26,12 +26,12 @@ sitemap.xml
 wp-content/cache/
 wp-content/plugins/*/cache/*
 wp-content/w3tc-config/*
+wp-content/db.php
 wp-content/backups/
 sitemap.xml.gz
 
 # Development environment #
 ###########################
-.gitignore
 .vagrant
 Vagrantfile
 *.sublime*
