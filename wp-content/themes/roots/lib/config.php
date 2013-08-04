@@ -21,7 +21,7 @@ define('POST_EXCERPT_LENGTH', 40);
 function roots_main_class() {
   if (roots_display_sidebar()) {
     // Classes on pages with the sidebar
-    $class = 'span8';
+    $class = 'span9';
   } else {
     // Classes on full width pages
     $class = 'span12';
@@ -34,7 +34,7 @@ function roots_main_class() {
  * .sidebar classes
  */
 function roots_sidebar_class() {
-  return 'span4';
+  return 'span3';
 }
 
 /**
@@ -56,14 +56,15 @@ function roots_display_sidebar() {
      */
     array(
       'is_404',
-      'is_front_page'
+      'is_front_page',
+      'is_page'
     ),
     /**
      * Page template checks (via is_page_template())
      * Any of these page templates that return true won't show the sidebar
      */
     array(
-      'template-custom.php'
+      'template-home.php'
     )
   );
 

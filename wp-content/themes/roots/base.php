@@ -7,12 +7,15 @@
     do_action('get_header');
     // Use Bootstrap's navbar if enabled in config.php
     if (current_theme_supports('bootstrap-top-navbar')) {
-      get_template_part('templates/header-top-navbar');
+      get_template_part('templates/header-custom');
     } else {
       get_template_part('templates/header');
     }
   ?>
 
+<?php if (strpos(roots_template_path(), 'template-home.php')!==false) include roots_template_path();
+else { ?>
+  <?php get_template_part('templates/page', 'header'); ?>
   <div class="wrap container" role="document">
     <div class="content row">
       <div class="main <?php echo roots_main_class(); ?>" role="main">
@@ -25,6 +28,7 @@
       <?php endif; ?>
     </div><!-- /.content -->
   </div><!-- /.wrap -->
+<?php } ?>
 
   <?php get_template_part('templates/footer'); ?>
 

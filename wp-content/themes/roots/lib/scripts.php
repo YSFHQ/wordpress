@@ -12,7 +12,13 @@
  * 3. /theme/assets/js/main.min.js (in footer)
  */
 function roots_scripts() {
-  wp_enqueue_style('roots_main', get_template_directory_uri() . '/assets/css/main.min.css', false, 'e4423dd59a4a4f6e6b2db6774086dee2');
+  //wp_enqueue_style('roots_main', get_template_directory_uri() . '/assets/css/main.min.css', false, 'fb33cbb593881bbf367156f2cf7c19c8');
+  wp_enqueue_style('bootstrap', 'http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap.no-responsive.no-icons.min.css');
+  wp_enqueue_style('font-awesome', 'http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css');
+  wp_enqueue_style('main-style', get_template_directory_uri() . '/assets/css/style.css');
+  wp_enqueue_style('main-header', get_template_directory_uri() . '/assets/css/header.css');
+  wp_enqueue_style('bootstrap-responsive', 'http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css');
+  wp_enqueue_style('main-responsive', get_template_directory_uri() . '/assets/css/style_responsive.css');
 
   // Load style.css from child theme
   if (is_child_theme()) {
@@ -24,7 +30,7 @@ function roots_scripts() {
   // It's kept in the header instead of footer to avoid conflicts with plugins.
   if (!is_admin() && current_theme_supports('jquery-cdn')) {
     wp_deregister_script('jquery');
-    wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js', false, null, false);
+    wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js', false, null, false);
     add_filter('script_loader_src', 'roots_jquery_local_fallback', 10, 2);
   }
 
@@ -33,7 +39,7 @@ function roots_scripts() {
   }
 
   wp_register_script('modernizr', get_template_directory_uri() . '/assets/js/vendor/modernizr-2.6.2.min.js', false, null, false);
-  wp_register_script('roots_scripts', get_template_directory_uri() . '/assets/js/scripts.min.js', false, '8b9f4205f4a36229fdc83067ea78e79e', true);
+  wp_register_script('roots_scripts', get_template_directory_uri() . '/assets/js/scripts.min.js', false, 'ed1334a95d283ce14765f2ac3f23b4c1', true);
   wp_enqueue_script('modernizr');
   wp_enqueue_script('jquery');
   wp_enqueue_script('roots_scripts');

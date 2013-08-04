@@ -33,6 +33,7 @@ sitemap.xml.gz
 .vagrant
 Vagrantfile
 *.sublime*
+node_modules
 
 # OS generated files #
 ######################
