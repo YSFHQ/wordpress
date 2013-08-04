@@ -468,6 +468,15 @@ blockquote:hover {
 	background:none;
 	text-shadow:none;
 }
+.footer .widget .form-inline input {
+	-moz-box-sizing: content-box;
+	-ms-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box;
+	clear: none !important;
+	display: inline-block !important;
+	width: 150px !important;
+}
 
 /*Blog Posts*/
 .footer .posts {
