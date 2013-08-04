@@ -18,12 +18,14 @@ test.php
 # Wordpress files #
 ###################
 .htaccess
+nginx.conf
 wp-config.php
 wp-content/upgrade/
 sitemap.xml
 *.log
 wp-content/cache/
 wp-content/plugins/*/cache/*
+wp-content/w3tc-config/*
 wp-content/backups/
 sitemap.xml.gz
 
