@@ -13,8 +13,8 @@
             <li class="devider">&nbsp;</li>
             <li><a href="#" class="login-btn">Help</a></li>
             <li class="devider">&nbsp;</li>-->
-            <li><?php if (is_user_logged_in()) { ?><a href="<?php echo wp_logout_url(); ?>" class="login-btn"><strong>Logout</strong></a><?php } else { ?><a href="<?php echo wp_login_url(); ?>" class="login-btn"><strong>Login</strong></a><?php } ?></li>
-            <?php if (!is_user_logged_in()) { ?><li class="devider">&nbsp;</li>
+            <li><?php if (is_user_logged_in()) { ?><a href="<?php echo wp_logout_url( home_url() ); ?>" class="login-btn"><strong>Logout</strong></a><?php } else { ?><a href="<?php echo home_url().'/login/?redirect_to='.urlencode(get_permalink()); ?>" class="login-btn"><strong>Login</strong></a><?php } ?></li>
+            <?php if (!is_user_logged_in() && strlen(wp_register('', '', false))>0) { ?><li class="devider">&nbsp;</li>
             <li><a href="<?php echo wp_register('', '', false); ?>" class="login-btn"><strong>Join</strong></a></li><?php } ?>
         </ul>
     </div>
