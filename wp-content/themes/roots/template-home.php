@@ -28,8 +28,8 @@ for ($i=0; $i<5; $i++) {
                 <h4>Want to learn more? Check out these awesome videos:</h4>
                 <ul id="moreVideos">
                     <li><a href="//www.youtube.com/embed/qo2mcV5EnME?rel=0&amp;autoplay=1&amp;wmode=transparent"><i class="icon-youtube-play"></i>Combat</a></li>
-                    <li><a href="//www.youtube.com/embed/9WEo-j9mEZQ?rel=0&amp;autoplay=1&amp;wmode=transparent"><i class="icon-youtube-play"></i>Aerobatics</a></li>
                     <li><a href="//www.youtube.com/embed/yhGmXz0_L1s?rel=0&amp;autoplay=1&amp;wmode=transparent"><i class="icon-youtube-play"></i>Civilian</a></li>
+                    <li><a href="//www.youtube.com/embed/JT_mvKac9q4?rel=0&amp;autoplay=1&amp;wmode=transparent"><i class="icon-youtube-play"></i>Aerobatics</a></li>
                 </ul>
             </div><!--/span3-->
             <!-- Video Promo -->
@@ -87,7 +87,7 @@ for ($i=0; $i<5; $i++) {
             <span><em>YSFlight is the only <strong>free</strong> flight simulator where anything is possible.</em> Download YSFlight and join our community today!</span>
             <p>YSFlight is a free flight simulator that places the user in control. <em>Basic avionics, forgiving flight models, and uncomplicated weapons systems make YSFlight easy to learn, while a vibrant modding and online flight community draws new fans in and holds veterans' attention.</em> Try this amazing free flight simulation today and you too will find that though this simulator may not have the world’s greatest graphics, it is like nothing else the world has ever seen - and it’s all FREE.</p>
         </div>
-        <a href="#" class="btn-buy hover-effect"><i class="icon-download-alt"></i> Download YSFlight<br><small>For Windows, Mac OS X, and Linux</small></a>
+        <a href="http://ysflight.in.coocan.jp/ysflight/ysflight/e.html#DOWNLOAD" class="btn-buy hover-effect"><i class="icon-download-alt"></i> Download YSFlight<br><small>For Windows, Mac OS X, and Linux</small></a>
     </div>
 </div><!--/row-fluid-->
 <!-- End Purchase Block -->
@@ -101,7 +101,13 @@ for ($i=0; $i<5; $i++) {
                 <i class="icon-fighter-jet"></i>
                 <div class="desc">
                     <h4>For combat pilots</h4>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus etiam sem...</p>
+                    <p>Challenge enemies head-on with a variety of weapons.</p>
+                    <ul>
+                        <li>Take on your opponents in air combat, on singleplayer mode or online</li>
+                        <li>Defend the airport against enemy bombers and attack aircraft</li>
+                        <li>Fly low to eliminate hostile targets and clear a path for friendly forces</li>
+                        <li>Rise to the top of the blacklist and become the most wanted player online</li>
+                    </ul>
                     <div class="btn-u hover-effect">Visit Combat HQ</div>
                     <a href="<?php echo home_url(); ?>/community/combat-hq/"></a>
                 </div>
@@ -112,19 +118,31 @@ for ($i=0; $i<5; $i++) {
                 <i class="icon-plane"></i>
                 <div class="desc">
                     <h4>For civilian pilots</h4>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus etiam sem...</p>
+                    <p>Take a flight along the coast, or around the world.</p>
+                    <ul>
+                        <li>Earn your virtual airline money by accumulating flight hours</li>
+                        <li>Take part in real Air Traffic Control sessions online</li>
+                        <li>Take off in a small single-engine plane, or a massive jumbo jet</li>
+                        <li>Battle weather effects as you fly towards your destination</li>
+                    </ul>
                     <div class="btn-u hover-effect">Visit Civilian HQ</div>
                     <a href="<?php echo home_url(); ?>/community/civilian-hq/"></a>
                 </div>
             </div>
         </div>
 
-        <div class="span4" onclick='window.location.assign("<?php echo home_url(); ?>/community//")'>
+        <div class="span4" onclick='window.location.assign("<?php echo home_url(); ?>/community/aerobatic-hq/")'>
             <div class="service clearfix">
                 <i class="icon-trophy"></i>
                 <div class="desc">
                     <h4>For aerobatic pilots</h4>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus etiam sem...</p>
+                    <p>Perform maneuvers that no other simulator can achieve.</p>
+                    <ul>
+                        <li>Improve your formation flying skills offline or online</li>
+                        <li>Compete in air races with fellow YSFlight pilots</li>
+                        <li>Perform at airshows hosted throughout the year</li>
+                        <li>Become the most skilled aerobatic pilot in YSFlight</li>
+                    </ul>
                     <div class="btn-u hover-effect">Visit Aerobatic HQ</div>
                     <a href="<?php echo home_url(); ?>/community/aerobatic-hq/"></a>
                 </div>
@@ -148,7 +166,7 @@ for ($i=0; $i<5; $i++) {
                     <i class="icon-comments"></i>
                     <div class="desc">
                         <h4><strong>YSFHQ Forums</strong></h4>
-                        <p>Donec id elit non mi porta gravida at eget metus.</p>
+                        <p>The heart of the YSFlight community is on the forum. Join in on the fun here.</p>
                         <div class="btn-u hover-effect">Visit the forum</div>
                         <a href="http://forum.ysfhq.com/"></a>
                     </div>
@@ -159,7 +177,7 @@ for ($i=0; $i<5; $i++) {
                     <i class="icon-book"></i>
                     <div class="desc">
                         <h4>YSFlight Wiki</h4>
-                        <p>Donec id elit non mi porta gravida at eget metus.</p>
+                        <p>Visit the official wiki to find all kinds of information on YSFlight. Tutorials, links, and more!</p>
                         <div class="btn-u hover-effect">Read the wiki</div>
                         <a href="http://ysflightsim.wikia.com/"></a>
                     </div>
@@ -170,7 +188,7 @@ for ($i=0; $i<5; $i++) {
                     <i class="icon-download-alt"></i>
                     <div class="desc">
                         <h4>YSUpload Addons</h4>
-                        <p>Donec id elit non mi porta gravida at eget metus.</p>
+                        <p>Download all kinds of YSFlight addons for free on YSUpload.com, the official addon host for YSFHQ.</p>
                         <div class="btn-u hover-effect">Download some addons</div>
                         <a href="http://www.ysupload.com/"></a>
                     </div>
@@ -180,12 +198,15 @@ for ($i=0; $i<5; $i++) {
         </div>
         <div class="row-fluid">
             <!-- YSFHQ News -->
-            <div class="headline"><h3>YSFlight HQ News</h3></div>
-            <h4 class="title"><a href="#" class="read-more">A new YSFlight Headquarters is coming!</a></h4>
-            <h5>Posted on <a href="#">June 29, 2013</a> by <a href="#">Eric</a></h5>
-            <div class="story">
-                <p><strong>CHICAGO, Illinois, U.S.A. (June 28, 2013)</strong> — Last Friday, YSFlight Headquarters' (YSFHQ) Chief Information Officer Eric Tendian launched <strong>Project Kaizen</strong>"Kaizen" is Japanese for improvement, and refers to the practice of continuous improvement in many industries. Project Kaizen aims to improve the YSFlight (YS) community through <a href="#" class="read-more">&hellip; READ MORE</a></p>
-            </div>
+            <div class="headline"><h3>YSFlight Headquarters News</h3></div>
+            <?php
+            $args = array('numberposts' => 3);
+            $lastposts = get_posts($args);
+            foreach ($lastposts as $post): setup_postdata($post); ?>
+                <h4 class="title"><a href="<?php the_permalink(); ?>" class="read-more"><?php the_title(); ?></a></h4>
+                <h5>Posted on <time class="updated" datetime="<?php echo get_the_time('c'); ?>" pubdate><?php echo get_the_date(); ?></time> by <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" rel="author" class="fn"><?php echo get_the_author(); ?></a></h5>
+                <div class="story"><?php the_excerpt(); ?></div>
+            <?php endforeach; ?>
             <!-- //End YSFHQ News -->
         </div>
     </div>
@@ -194,7 +215,8 @@ for ($i=0; $i<5; $i++) {
         <div class="span6">
             <!-- Featured Addons -->
             <div class="headline"><h3>Featured Addons</h3></div>
-            <ul class="thumbnails">
+            <h4><em>Coming Soon</em></h4>
+            <!--<ul class="thumbnails">
                 <li class="span3">
                     <div class="thumbnail-style thumbnail-kenburn">
                         <div class="thumbnail-img">
@@ -215,14 +237,15 @@ for ($i=0; $i<5; $i++) {
                         <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem.</p>
                     </div>
                 </li>
-            </ul><!--/thumbnails-->
+            </ul>--><!--/thumbnails-->
             <!-- //End Featured Addons -->
         </div>
         <div class="span6">
             <!-- Upcoming Events -->
             <div id="w" class="home">
-                <div class="headline"><h3>Upcoming Events</h3></div> 
-                <ul class="portfolio recent-work clearfix"> 
+                <div class="headline"><h3>Upcoming Events</h3></div>
+                <br><h4><em>Coming Soon</em></h4>
+                <!--<ul class="portfolio recent-work clearfix"> 
                     <li data-id="id-1">
                         <a href="portfolio_item.html">
                             <em class="overflow-hidden"><img src="http://placehold.it/270x171" alt="" /></em>
@@ -241,7 +264,7 @@ for ($i=0; $i<5; $i++) {
                             </span>
                         </a>
                     </li>
-                </ul>
+                </ul>-->
             </div>
             <!-- //End Upcoming Events -->
         </div>

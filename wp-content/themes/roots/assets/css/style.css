@@ -159,6 +159,10 @@ h4.title {
 	font-size:22px;
 	line-height:25px;
 }
+.service .desc p {
+	font-size:16px;
+	line-height:1.4;
+}
 .service a {
 	position: absolute;
 	width: 100%;
@@ -183,6 +187,27 @@ h4.title {
 }
 .blue .service:hover .btn-u {
 	background:#202c5e;
+}
+.blue .service .desc p {
+	margin: 0;
+}
+.blue .service ul {
+	margin: 0 0 10px 0;
+}
+.blue .service ul > li {
+	font-size: 14px;
+	text-shadow: 1px 1px rgba(0,0,0,0.1);
+	list-style-type: none;
+	text-indent: -0.9em;
+	line-height: 1.25;
+	padding-left: .85em;
+}
+.blue .service ul > li::before {
+	font-size: 1.1em;
+	content: "\203A";
+	text-shadow: none;
+	padding-right: 8px;
+	font-weight: normal;
 }
 
 .ie7 .service .circle i  {
@@ -1671,7 +1696,8 @@ a.read-more:hover {
 	color:#fff !important;
 	text-decoration:none !important;
 }
-.btn-u:hover {
+.btn-u:hover,
+.service:hover .btn-u {
 	color:#fff;
 	background: #b22832;
 	text-decoration:none;
