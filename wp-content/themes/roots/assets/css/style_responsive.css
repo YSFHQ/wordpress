@@ -5,6 +5,27 @@
 	}
 }
 
+@media (max-width: 767px) {
+	.promo {
+		width: 100%;
+		margin-left:-20px;
+	}
+	.footer {
+		width: 100%;
+		margin-left: -20px;
+		padding: 20px;
+	}
+	.copyright {
+		width: 100%;
+		margin-left: -20px;
+		padding: 5px 20px;
+	}
+	#alert-message {
+		margin-left: -20px;
+		padding: 0 20px;
+	}
+}
+
 /*For Portfolio Page*/
 @media (max-width: 1200px) {
 	.portfolio-responsive h2 {

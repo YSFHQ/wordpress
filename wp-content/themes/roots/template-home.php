@@ -34,7 +34,7 @@ for ($i=0; $i<5; $i++) {
             </div><!--/span3-->
             <!-- Video Promo -->
             <div class="span6">
-                <iframe width="480" height="360" src="//www.youtube.com/embed/yyb85ANIHIM?rel=0&amp;wmode=transparent" seamless allowfullscreen></iframe>
+                <iframe width="480" height="360" src="//www.youtube.com/embed/yyb85ANIHIM?rel=0&amp;wmode=transparent" allowfullscreen></iframe>
             </div><!--/span6-->
             <!-- Featured Screenshots -->
             <div class="span3">
@@ -204,7 +204,7 @@ for ($i=0; $i<5; $i++) {
             $lastposts = get_posts($args);
             foreach ($lastposts as $post): setup_postdata($post); ?>
                 <h4 class="title"><a href="<?php the_permalink(); ?>" class="read-more"><?php the_title(); ?></a></h4>
-                <h5>Posted on <time class="updated" datetime="<?php echo get_the_time('c'); ?>" pubdate><?php echo get_the_date(); ?></time> by <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" rel="author" class="fn"><?php echo get_the_author(); ?></a></h5>
+                <h5>Posted on <time class="updated" datetime="<?php echo get_the_time('c'); ?>"><?php echo get_the_date(); ?></time> by <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" rel="author" class="fn"><?php echo get_the_author(); ?></a></h5>
                 <div class="story"><?php the_excerpt(); ?></div>
             <?php endforeach; ?>
             <!-- //End YSFHQ News -->

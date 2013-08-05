@@ -1863,12 +1863,6 @@ a.read-more:hover {
 	background: rgba(40, 53, 121, 0.6);
 	position:relative;
 }
-@media (max-width: 767px) {
-	.promo {
-		width: 100%;
-		margin-left:-20px;
-	}
-}
 .promo .background {
 	background: #283579;
 	background-size: cover;
@@ -1902,6 +1896,7 @@ a.read-more:hover {
 	margin-right: 10px;
 }
 .promo iframe {
+	display: block;
 	margin: 0 auto;
 	max-width: 100%;
 	border: none;
@@ -2259,3 +2254,23 @@ ul.blog-tags a:hover i {
  
 html[xmlns] .clearfix { display: block; }
 * html .clearfix { height: 1%; }
+
+
+/* alert message */
+#alert-message {
+	width: 100%;
+    position: relative;
+    background: #ff4;
+    border-bottom: 2px solid #ddd;
+}
+#alert-message p {
+	line-height: 2;
+	margin: 0;
+	text-align: center;
+	font-weight: bold;
+	color: #333;
+}
+#alert-message a {
+	margin-right: 10px;
+	margin-top: -22px;
+}
