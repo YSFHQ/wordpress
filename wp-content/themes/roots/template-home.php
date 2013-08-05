@@ -6,6 +6,18 @@ Template Name: Home Template
 
 <!--=== Video Promo ===-->
 <div class="promo">
+<?php
+function random_pic() {
+    $upload_dir = wp_upload_dir();
+    $files = glob($upload_dir['path'].'/promo-bg' . '/*.*');
+    $file = array_rand($files);
+    return $upload_dir['url'].'/promo-bg/'.basename($files[$file]);
+}
+$pictures = array();
+for ($i=0; $i<5; $i++) {
+    $pictures[] = random_pic();
+}
+?>
     <div class="container">
         <div class="row-fluid">
             <!-- What is YS -->
@@ -30,22 +42,28 @@ Template Name: Home Template
                 <div id="myCarousel" class="carousel slide">
                     <div class="carousel-inner">
                       <div class="item active">
-                        <img src="http://placehold.it/973x615" alt="">
-                        <div class="carousel-caption">
-                          <p>Cras justo odio, dapibus ac facilisis in, egestas.</p>
-                        </div>
+                        <img src="<?php echo $pictures[0]; ?>" alt="">
+                        <!--<div class="carousel-caption">
+                          <p></p>
+                        </div>-->
                       </div>
                       <div class="item">
-                        <img src="http://placehold.it/973x615" alt="">
-                        <div class="carousel-caption">
-                          <p>Cras justo odio, dapibus ac facilisis in, egestas.</p>
-                        </div>
+                        <img src="<?php echo $pictures[1]; ?>" alt="">
+                        <!--<div class="carousel-caption">
+                          <p></p>
+                        </div>-->
                       </div>
                       <div class="item">
-                        <img src="http://placehold.it/973x615" alt="">
-                        <div class="carousel-caption">
-                          <p>Cras justo odio, dapibus ac facilisis in, egestas.</p>
-                        </div>
+                        <img src="<?php echo $pictures[2]; ?>" alt="">
+                        <!--<div class="carousel-caption">
+                          <p></p>
+                        </div>-->
+                      </div>
+                      <div class="item">
+                        <img src="<?php echo $pictures[3]; ?>" alt="">
+                        <!--<div class="carousel-caption">
+                          <p></p>
+                        </div>-->
                       </div>
                     </div>
                     
@@ -58,6 +76,7 @@ Template Name: Home Template
             </div><!--/span4-->
         </div>
     </div>
+    <div class="background" style="background-image: url(<?php echo $pictures[4]; ?>);"></div>
 </div>
 <!--=== End Video Promo ===-->
 

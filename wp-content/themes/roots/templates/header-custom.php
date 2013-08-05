@@ -2,7 +2,7 @@
 <div class="top">
     <div class="container"> 
         <ul class="loginbar pull-right">
-            <li><i class="icon-globe"></i><a>Languages <i class="icon-sort-up"></i></a>
+            <!--<li><i class="icon-globe"></i><a>Languages <i class="icon-sort-up"></i></a>
                 <ul class="nav-list">
                     <li class="active"><a href="#">English</a> <i class="icon-ok"></i></li>
                     <li><a href="#">Spanish</a></li>
@@ -11,8 +11,8 @@
                 </ul>
             </li> 
             <li class="devider">&nbsp;</li>
-            <li><a href="page_faq.html" class="login-btn">Help</a></li>
-            <li class="devider">&nbsp;</li>
+            <li><a href="#" class="login-btn">Help</a></li>
+            <li class="devider">&nbsp;</li>-->
             <li><?php if (is_user_logged_in()) { ?><a href="<?php echo wp_logout_url(); ?>" class="login-btn"><strong>Logout</strong></a><?php } else { ?><a href="<?php echo wp_login_url(); ?>" class="login-btn"><strong>Login</strong></a><?php } ?></li>
             <?php if (!is_user_logged_in()) { ?><li class="devider">&nbsp;</li>
             <li><a href="<?php echo wp_register('', '', false); ?>" class="login-btn"><strong>Join</strong></a></li><?php } ?>

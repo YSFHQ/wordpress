@@ -370,7 +370,7 @@
 .navbar .nav > li > a.search {
 	color:#aaa;
 	cursor:pointer;
-	background:#f7f7f7;
+	background:#f7f7f7 !important;
 	padding:8px 12px 10px;
 	border-bottom-color:#aaa;
 }
