@@ -1335,6 +1335,8 @@ article ul.blog-tags a {
 	width:64px;
 	height:64px;
 	position:relative;
+	margin-right: 10px;
+	float: left;
 }
 .comment h4.media-heading {
 	position:relative;
