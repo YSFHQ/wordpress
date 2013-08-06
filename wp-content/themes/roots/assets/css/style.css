@@ -1330,10 +1330,10 @@ article ul.blog-tags a {
 
 /*Blog Item Page
 ------------------------------------*/
-.comment img.media-object {
+.comment img.avatar {
 	top:3px;
-	width:54px;
-	height:54px;
+	width:64px;
+	height:64px;
 	position:relative;
 }
 .comment h4.media-heading {
