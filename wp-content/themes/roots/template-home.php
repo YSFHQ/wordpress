@@ -29,7 +29,7 @@ for ($i=0; $i<5; $i++) {
                 <ul id="moreVideos">
                     <li><a href="//www.youtube.com/embed/qo2mcV5EnME?rel=0&amp;autoplay=1&amp;wmode=transparent"><i class="icon-youtube-play"></i>Combat</a></li>
                     <li><a href="//www.youtube.com/embed/yhGmXz0_L1s?rel=0&amp;autoplay=1&amp;wmode=transparent"><i class="icon-youtube-play"></i>Civilian</a></li>
-                    <li><a href="//www.youtube.com/embed/JT_mvKac9q4?rel=0&amp;autoplay=1&amp;wmode=transparent"><i class="icon-youtube-play"></i>Aerobatics</a></li>
+                    <li><a href="//www.youtube.com/embed/v2ow5QA-ptc?rel=0&amp;autoplay=1&amp;wmode=transparent"><i class="icon-youtube-play"></i>Aerobatics</a></li>
                 </ul>
             </div><!--/span3-->
             <!-- Video Promo -->
