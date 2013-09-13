@@ -1094,7 +1094,7 @@ span.mce_image:before {
 }
 
 .wp-editor-tools {
-	padding: 0 10px 0 0;
+	padding: 0;
 }
 
 .rtl .wp-editor-tools {
@@ -1110,19 +1110,19 @@ span.mce_image:before {
 
 .quicktags-toolbar,
 .wp_themeSkin tr.mceFirst td.mceToolbar {
-	border-bottom: 1px solid #eee;
+	border-bottom: 1px solid #dedede;
 	background: #f5f5f5;
 }
 
 .wp-switch-editor {
-	background: #e0e0e0;
-	border: none !important;
+	background: #ebebeb;
+	border: 1px solid #dedede;
 	color: #777;
 	cursor: pointer;
 	float: right;
-	font: 13px/18px "Open Sans", sans-serif;
-	height: 17px;
-	margin: 5px 5px 0 0;
+	font: 13px/19px "Open Sans", sans-serif;
+	height: 19px;
+	margin: 5px 0 0 5px;
 	padding: 3px 8px 4px;
 }
 
@@ -1136,6 +1136,7 @@ html[dir="rtl"] .wp-switch-editor {
 
 .wp-switch-editor:hover {
 	text-decoration: none !important;
+	background: #fff;
 }
 
 .js .tmce-active .wp-editor-area {
@@ -1148,17 +1149,15 @@ html[dir="rtl"] .wp-switch-editor {
 
 .tmce-active .switch-tmce,
 .html-active .switch-html {
-	border: none;
 	background: #f5f5f5;
 	color: #555;
-
-	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.13);
-	box-shadow: 0 -1px 2px rgba(0,0,0,0.05);
+	height: 20px;
+	border-bottom: none;
 }
 
 .wp-media-buttons .button {
 	margin-right: 5px;
-	margin-bottom: 5px;
+	margin-bottom: 4px;
 	padding-left: 7px;
 	padding-right: 7px;
 }
@@ -1191,8 +1190,8 @@ html[dir="rtl"] .wp-switch-editor {
 .wp-media-buttons span.wp-media-buttons-icon,
 .wp-media-buttons span.jetpack-contact-form-icon {
 	display: inline-block;
-	width: 16px;
-	height: 16px;
+	width: 18px;
+	height: 18px;
 	vertical-align: text-top;
 	margin: 0 2px;
 }
@@ -1204,7 +1203,7 @@ html[dir="rtl"] .wp-switch-editor {
 
 .wp-media-buttons .add_media span.wp-media-buttons-icon:before,
 .wp-media-buttons #insert-jetpack-contact-form span.jetpack-contact-form-icon:before {
-	font: normal 14px/1 'dashicons';
+	font: normal 18px/1 'dashicons';
 	speak: none;
 	-webkit-font-smoothing: antialiased;
 }

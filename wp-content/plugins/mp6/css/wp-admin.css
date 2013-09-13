@@ -330,13 +330,6 @@ input[type=radio]:checked:before {
 	}
 }
 
-/* Selects */
-
-#wpbody select {
-	line-height: 24px;
-	height: 24px;
-}
-
 /* Search */
 input[type="search"] {
 	-webkit-appearance: textfield;
@@ -453,7 +446,7 @@ q:after {
 
 p,
 .wp_attachment_details label[for="content"] {
-	font-size: 14px;
+	font-size: 13px;
 	line-height: 1.5;
 	margin: 1em 0;
 }
@@ -1079,6 +1072,21 @@ h2 .nav-tab,
 	background-image: none !important;
 }
 
+/* hide images in admin menu items */
+.wp-submenu img,
+.wp-menu-image img {
+	display: none;
+}
+
+.wp-menu-image {
+	background-image: none !important;
+}
+
+/* set 'generic' default icon */
+.wp-menu-image:before {
+	content: '\f111';
+}
+
 .key-labels label {
 	line-height: 24px;
 }
@@ -1115,7 +1123,8 @@ p.install-help {
 
 .wp-admin select {
 	padding: 2px;
-	height: 2em;
+	line-height: 28px;
+	height: 28px;
 }
 
 .wp-admin select[multiple] {
@@ -1285,7 +1294,7 @@ p.search-box {
 #search-plugins input[name="s"],
 .tagsdiv .newtag {
 	float: left;
-	height: 24px;
+	height: 28px;
 	margin: 0 4px 0 0;
 }
 
@@ -1336,14 +1345,14 @@ ul#add-to-blog-users {
 ------------------------------------------------------------------------------*/
 
 #major-publishing-actions {
-	padding: 10px 10px 8px;
+	padding: 10px;
 	clear: both;
-	border-top: 1px solid #f5f5f5;
-	margin-top: -2px;
+	border-top: 1px solid #dedede;
+	background: #f5f5f5;
 }
 
 #delete-action {
-	line-height: 25px;
+	line-height: 28px;
 	vertical-align: middle;
 	text-align: left;
 	float: left;
@@ -1365,8 +1374,6 @@ ul#add-to-blog-users {
 
 .misc-pub-section {
 	padding: 6px 10px 8px;
-	border-width: 1px 0;
-	border-style: solid;
 }
 
 .misc-pub-section:first-child {
@@ -1378,15 +1385,8 @@ ul#add-to-blog-users {
 }
 
 #minor-publishing-actions {
-	padding: 10px 10px 2px 8px;
+	padding: 10px 10px 0 10px;
 	text-align: right;
-}
-
-#minor-publishing {
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-	-webkit-box-shadow: 0 1px 0 #fff;
-	box-shadow: 0 1px 0 #fff;
 }
 
 #save-post {
@@ -1542,7 +1542,7 @@ form.upgrade .hint {
 #screen-meta {
 	display: none;
 	font-size: 14px;
-	margin: 0 20px -2px 0px;
+	margin: 0 20px -1px 0px;
 	position: relative;
 }
 
@@ -1562,7 +1562,7 @@ form.upgrade .hint {
 
 #screen-meta-links a.show-settings {
 	display: block;
-	font-size: 14px;
+	font-size: 13px;
 	height: 22px;
 	line-height: 22px;
 	padding: 1px 0 0 10px;
@@ -1784,8 +1784,6 @@ form.upgrade .hint {
 #adminmenu .wp-submenu,
 .folded #adminmenu a.wp-has-current-submenu:focus + .wp-submenu,
 .folded #adminmenu .wp-has-current-submenu .wp-submenu {
-	margin-top: 1px;
-	margin-right: -1px;
 	padding: 7px 0 8px;
 	z-index: 9999;
 }
@@ -1821,9 +1819,8 @@ form.upgrade .hint {
 .folded #adminmenu a.menu-top:focus + .wp-submenu,
 .folded #adminmenu .wp-has-current-submenu a.menu-top:focus + .wp-submenu,
 .no-js.folded #adminmenu .wp-has-submenu:hover .wp-submenu  {
-	top: -1px;
+	top: 0;
 	left: 36px;
-	margin-top: 2px;
 }
 
 .folded #adminmenu a.wp-has-current-submenu:focus + .wp-submenu,
@@ -1900,7 +1897,7 @@ form.upgrade .hint {
 	text-align: center;
 }
 
-#adminmenu div.wp-menu-image:before {
+div.wp-menu-image:before {
 	font: normal 20px/1 'dashicons' !important;
 	speak: none;
 	color: #999;
@@ -2018,20 +2015,12 @@ ul#adminmenu > li.current > a.current:after {
 	font-weight: 400;
 	font-size: 14px;
 	padding: 8px 4px 8px 11px;
-	margin: -8px 0px 4px;
+	margin: -7px 0px 4px;
 }
 
 #adminmenu li.current,
 .folded #adminmenu li.wp-menu-open {
 	border: 0 none;
-}
-
-.folded #adminmenu li.wp-has-current-submenu {
-	margin-bottom: 1px;
-}
-
-.folded #adminmenu .wp-has-current-submenu.menu-top-last {
-	margin-bottom: 0;
 }
 
 #adminmenu .awaiting-mod,
@@ -2142,16 +2131,14 @@ ul#adminmenu > li.current > a.current:after {
 	.auto-fold #adminmenu .wp-has-current-submenu.opensub .wp-submenu,
 	.auto-fold #adminmenu a.menu-top:focus + .wp-submenu,
 	.auto-fold #adminmenu .wp-has-current-submenu a.menu-top:focus + .wp-submenu  {
-		top: -1px;
+		top: 0px;
 		left: 36px;
-		margin-top: 2px;
 	}
 
 	.auto-fold #adminmenu a.wp-has-current-submenu:focus + .wp-submenu,
 	.auto-fold #adminmenu .wp-has-current-submenu .wp-submenu {
 		position: absolute;
 		top: -1000em;
-		margin-top: 1px;
 		margin-right: -1px;
 		padding: 7px 0 8px;
 		z-index: 9999;
@@ -2193,10 +2180,6 @@ ul#adminmenu > li.current > a.current:after {
 
 	.auto-fold #adminmenu li.wp-menu-open {
 		border: 0 none;
-	}
-
-	.auto-fold #adminmenu li.wp-has-current-submenu {
-		margin-bottom: 1px;
 	}
 
 	.auto-fold #adminmenu .wp-has-current-submenu.menu-top-last {
@@ -2578,8 +2561,6 @@ html.wp-toolbar {
 .postbox h3,
 .stuffbox h3 {
 	margin-top: 1px;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	user-select: none;
@@ -2592,7 +2573,7 @@ html.wp-toolbar {
 
 .postbox .inside,
 .stuffbox .inside {
-	font-size: 14px;
+	font-size: 13px;
 	line-height: 1.4em;
 	padding: 0 12px 12px;
 }
@@ -3622,10 +3603,8 @@ input#link_url {
 	padding: 1px 2px;
 }
 
-.submitbox .submitdelete,
 .submitbox .submit a:hover {
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
+	text-decoration: underline;
 }
 
 .submitbox .submit input {
@@ -3699,7 +3678,7 @@ ul.category-tabs li,
 
 #side-sortables .add-menu-item-tabs,
 .wp-tab-bar {
-	margin-bottom: 3px;
+	margin-bottom: 2px;
 }
 
 #normal-sortables .postbox #replyrow .submit {
@@ -3753,7 +3732,11 @@ ul.wp-tab-bar li {
 	padding: 3px 5px 5px;
 }
 
-/* positioning etc. */
+#postimagediv .inside img {
+	max-width: 100%;
+	height: auto;
+}
+
 form#tags-filter {
 	position: relative;
 }
@@ -3826,7 +3809,7 @@ td.plugin-title p {
 }
 
 #post-body .postarea .wp_themeSkin .mceStatusbar a.mceResize {
-	top: 20px;
+	top: 22px;
 }
 
 #content-resize-handle {
@@ -4626,7 +4609,7 @@ label.post-format-icon {
 	position: relative;
 	display: inline-block;
 	margin-right: 7px;
-	font: normal 18px/1 'dashicons';
+	font: normal 20px/1 'dashicons';
 	speak: none;
 	-webkit-font-smoothing: antialiased;
 }
@@ -4830,13 +4813,17 @@ span.description,
   13.0 - Tags
 ------------------------------------------------------------------------------*/
 
+.tagsdiv {
+	margin-top: -8px;
+}
+
 #poststuff .taghint {
 	color: #aaa;
 	margin: 15px 0 -24px 12px;
 }
 
 #poststuff .tagsdiv .howto {
-	margin: 0 0 6px 8px;
+	margin: 0 0 6px 0;
 }
 
 .ajaxtag .newtag {
@@ -5619,12 +5606,6 @@ span.imgedit-scale-warn {
 	width: auto;
 }
 
-.form-table div.color-option {
-	display: block;
-	clear: both;
-	margin-top: 12px;
-}
-
 .form-table input.tog {
 	margin-top: 2px;
 	margin-right: 2px;
@@ -5652,20 +5633,6 @@ span.imgedit-scale-warn {
 	margin-top: -4px;
 	margin-right: 4px;
 	float: none;
-}
-
-.form-table table.color-palette {
-	vertical-align: bottom;
-	float: left;
-	margin: -12px 3px 11px;
-}
-
-.form-table .color-palette td {
-	border-width: 1px 1px 0;
-	border-style: solid solid none;
-	height: 10px;
-	line-height: 20px;
-	width: 10px;
 }
 
 .commentlist li {
@@ -6164,9 +6131,9 @@ h3.nav-tab-wrapper {
 }
 
 h2 .nav-tab {
-	padding: 4px 10px 6px;
-	font-weight: 200;
-	font-size: 20px;
+	padding: 6px 10px;
+	font-weight: bold;
+	font-size: 15px;
 	line-height: 24px;
 
 }
@@ -7206,15 +7173,14 @@ table.form-table td .updated {
 
 #poststuff h3,
 .metabox-holder h3 {
-	font-size: 15px;
-	font-weight: normal;
+	font-size: 14px;
 	padding: 7px 12px;
 	margin: 0;
 	line-height: 1.4;
 }
 
 #poststuff .inside {
-	margin: 6px 0 8px;
+	margin: 6px 0 0 0;
 }
 
 #poststuff .inside #parent_id,
@@ -8327,11 +8293,7 @@ body.interim-login {
 }
 
 #nav-menu-header .menu-name-label {
-	margin-top: 2px;
-}
-
-#nav-menu-footer {
-	border-top: 1px solid;
+	margin-top: 4px;
 }
 
 .nav-menus-php #post-body div.updated,
@@ -8461,7 +8423,7 @@ body.interim-login {
 .nav-menus-php .submitcancel {
 	display: block;
 	float: left;
-	margin: 4px 0;
+	margin: 6px 0;
 	line-height: 15px;
 }
 
@@ -8834,7 +8796,7 @@ body.menu-max-depth-11 { min-width: 1280px !important; }
 /* Major/minor publishing actions (classes) */
 .nav-menus-php .major-publishing-actions {
 	clear: both;
-	padding: 3px 0 5px;
+	padding: 3px 0 6px;
 }
 
 .nav-menus-php .major-publishing-actions .publishing-action {
@@ -9408,10 +9370,6 @@ input.newtag:focus ~ div.taghint {
 	margin: 0;
 }
 
-h3 span {
-	font-weight: normal;
-}
-
 #template textarea {
 	font-family: Consolas, Monaco, monospace;
 	font-size: 13px;
@@ -9679,6 +9637,7 @@ a.widget-action {
 	display: block;
 	width: 24px;
 	height: 26px;
+	text-decoration: none;
 }
 
 #available-widgets a.widget-action {
@@ -9928,7 +9887,7 @@ a.widget-control-edit {
 	display: none;
 	padding: 10px 20px 15px;
 	overflow: hidden;
-	background: #fdfdfd;
+	background: #fff;
 	border-left: 1px solid #dfdfdf;
 	border-right: 1px solid #dfdfdf;
 }
@@ -9977,7 +9936,7 @@ a.widget-control-edit {
 	border-left: none;
 	border-right: none;
 	border-bottom: none !important;
-	padding: 10px 10px 10px 14px;
+	padding: 10px 10px 11px 14px;
 	font-size: 15px;
 	font-family: "Open Sans", sans-serif;
 	font-weight: normal;

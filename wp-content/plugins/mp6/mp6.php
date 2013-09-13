@@ -3,13 +3,15 @@
 Plugin Name: MP6
 Plugin URI: http://wordpress.org/extend/plugins/mp6/
 Description: This is a plugin to break the wp-admin UI, and is not recommended for non-savvy users.
-Version: 1.9
-Author:
+Version: 2.0
+Author: MP6 Team
 Author URI: http://wordpress.org
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
+if ( ! defined( 'MP6' ) )
+	define( 'MP6', true );
 
 // load the responsive component of MP6
 if ( ( ! defined( 'IFRAME_REQUEST' ) || IFRAME_REQUEST !== true ) && ! isset( $_GET[ 'iframe' ] ) )
@@ -18,10 +20,8 @@ if ( ( ! defined( 'IFRAME_REQUEST' ) || IFRAME_REQUEST !== true ) && ! isset( $_
 // load the sticky admin menu component
 require_once( plugin_dir_path(__FILE__) . 'components/sticky-menu/sticky-menu.php' );
 
-// define color scheme name (in your `wp-config.php`)
-# define( 'MP6_COLOR_SCHEME', 'blue' );
 // load the color schemes component
-# require_once( plugin_dir_path(__FILE__) . 'components/color-schemes/colors.php' );
+require_once( plugin_dir_path(__FILE__) . 'components/color-schemes/colors.php' );
 
 
 // register Open Sans stylesheet
@@ -47,27 +47,30 @@ function mp6_register_dashicons() {
 }
 
 // register MP6 admin color scheme
-add_action( 'admin_init', 'mp6_register_admin_color_scheme' );
+add_action( 'admin_init', 'mp6_register_admin_color_scheme', 5 );
 function mp6_register_admin_color_scheme() {
 
 	global $wp_styles, $_wp_admin_css_colors;
 
-	// remove classic and fresh color schemes, to prevent confusion
-	unset( $_wp_admin_css_colors[ 'classic' ] );
-	unset( $_wp_admin_css_colors[ 'fresh' ] );
-
 	wp_admin_css_color(
 		'mp6',
-		_x( 'MP6', 'admin color scheme' ),
+		'MP6',
 		plugins_url( 'css/colors-mp6.css', __FILE__ ),
-		array( '#333', '#444', '#0074a2', '#2ea2cc' )
+		array( '#222', '#333', '#0074a2', '#2ea2cc' )
 	);
+	$_wp_admin_css_colors[ 'mp6' ]->icon_colors = array( 'base' => '#999', 'focus' => '#2ea2cc', 'current' => '#fff' );
 
-	// set colors-mp6.css's modification time
+	// set modification time
 	$wp_styles->registered[ 'colors' ]->ver = filemtime( plugin_dir_path( __FILE__ ) . 'css/colors-mp6.css' );
+
+	// set dependencies
 	$wp_styles->registered[ 'colors' ]->deps[] = 'open-sans';
 	$wp_styles->registered[ 'colors' ]->deps[] = 'dashicons';
+
 }
+
+// remove WP's default color schemes
+remove_action( 'admin_init', 'register_admin_color_schemes', 1);
 
 // load MP6 css on login screen
 add_action( 'login_init', 'mp6_replace_wp_default_styles' );
@@ -83,7 +86,7 @@ function mp6_fix_login_color_scheme() {
 
 }
 
-// replace default admin-bar.css with MP6's
+// replace default `admin-bar.css` with MP6's
 add_action( 'init', 'mp6_replace_admin_bar_style' );
 function mp6_replace_admin_bar_style() {
 
@@ -125,12 +128,12 @@ function mp6_replace_wp_default_styles() {
 
 }
 
-// load our very own dialog.css
+// load MP6's `dialog.css`
 add_filter( 'tiny_mce_before_init', 'mp6_mce_init' );
 function mp6_mce_init( $mce_init ) {
 
 	// make sure we don't override other custom `content_css` files
-	$content_css = plugins_url( 'css/tinymce-dialog.css', __FILE__ );
+	$content_css = plugins_url( 'css/tinymce-content.css', __FILE__ );
 	if ( isset( $mce_init[ 'content_css' ] ) )
 		$content_css .= ',' . $mce_init[ 'content_css' ];
 
@@ -141,19 +144,40 @@ function mp6_mce_init( $mce_init ) {
 
 }
 
-// load our wp-admin.css if it's force printed: `wp_admin_css( 'wp-admin', true );`
+// load MP6's `wp-admin.css` if it's force printed
 add_filter( 'style_loader_tag', 'mp6_fix_style_tag_href' );
 function mp6_fix_style_tag_href( $handle ) {
+
+	// fix force print in `wp-mce-help.php`
 	if ( strpos( $handle, admin_url( '/css/wp-admin.css' ) ) !== false ) {
 		$handle = str_replace( admin_url( '/css/wp-admin.css' ), plugins_url( 'css/wp-admin.css', __FILE__ ), $handle );
 	}
+
 	return $handle;
+
 }
 
-// force the MP6 color-scheme setting on to use the new CSS
+// load SVG painter script
+add_action( 'admin_enqueue_scripts', 'mp6_enqueue_svg_painter' );
+function mp6_enqueue_svg_painter() {
+	$modtime = filemtime( plugin_dir_path( __FILE__ ) . 'js/svg-painter.js' );
+	wp_register_script( 'mp6-svg-painter', plugins_url( 'js/svg-painter.js', __FILE__ ), false, $modtime );
+	wp_enqueue_script( 'mp6-svg-painter' );
+}
+
+// fix user color-scheme setting
 add_filter( 'get_user_option_admin_color', 'mp6_force_admin_color' );
 function mp6_force_admin_color( $color_scheme ) {
-	return 'mp6';
+
+	global $_wp_admin_css_colors;
+
+	// if setting is `fresh`, `classic` or doesn't exist, change it to `mp6`
+	if ( ! isset( $_wp_admin_css_colors[ $color_scheme ] ) ) {
+		$color_scheme = 'mp6';
+	}
+
+	return $color_scheme;
+
 }
 
 // Add an `mp6` body class to the front-end
@@ -173,7 +197,7 @@ function mp6_add_body_class_backend( $classes ) {
 	if ( is_network_admin() )
 		$classes .= ' network-admin';
 
-	return $classes . ' mp6 ';
+	return $classes . ' mp6 no-svg ';
 
 }
 
