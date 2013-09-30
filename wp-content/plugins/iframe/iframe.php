@@ -22,7 +22,7 @@ if ( ! function_exists( 'iframe_unqprfx_embed_shortcode' ) ) :
 			'src' => 'http://www.youtube.com/embed/A3PDXmYoF5U',
 			'width' => '100%',
 			'height' => '480',
-			'scrolling' => 'no',
+			'scrolling' => 'yes',
 			'class' => 'iframe-class',
 			'frameborder' => '0'
 		);

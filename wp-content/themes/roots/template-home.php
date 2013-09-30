@@ -87,7 +87,7 @@ for ($i=0; $i<5; $i++) {
             <span><em>YSFlight is the only <strong>free</strong> flight simulator where anything is possible.</em> Download YSFlight and join our community today!</span>
             <p>YSFlight is a free flight simulator that places the user in control. <em>Basic avionics, forgiving flight models, and uncomplicated weapons systems make YSFlight easy to learn, while a vibrant modding and online flight community draws new fans in and holds veterans' attention.</em> Try this amazing free flight simulation today and you too will find that though this simulator may not have the world’s greatest graphics, it is like nothing else the world has ever seen - and it’s all FREE.</p>
         </div>
-        <a href="http://www.ysupload.com/downloadYSF.php" class="btn-buy hover-effect"><i class="icon-download-alt"></i> Download YSFlight<br><small>For Windows, Mac OS X, and Linux</small></a>
+        <a href="<?php echo home_url(); ?>/ysflight/download/" class="btn-buy hover-effect"><i class="icon-download-alt"></i> Download YSFlight<br><small>For Windows, Mac OS X, and Linux</small></a>
     </div>
 </div><!--/row-fluid-->
 <!-- End Purchase Block -->
