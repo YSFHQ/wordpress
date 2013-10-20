@@ -3,7 +3,7 @@
 Plugin Name: CloudFlare
 Plugin URI: http://www.cloudflare.com/wiki/CloudFlareWordPressPlugin
 Description: CloudFlare integrates your blog with the CloudFlare platform.
-Version: 1.3.10
+Version: 1.3.11
 Author: Ian Pye, Jerome Chen, James Greene (CloudFlare Team)
 License: GPLv2
 */
@@ -41,7 +41,7 @@ function cloudflare_init() {
     $cf_api_host = "ssl://www.cloudflare.com";
     $cf_api_port = 443;
     
-    $is_cf = ($_SERVER["HTTP_CF_CONNECTING_IP"])? TRUE: FALSE;    
+    $is_cf = (isset($_SERVER["HTTP_CF_CONNECTING_IP"]))? TRUE: FALSE;    
 
     if (strpos($_SERVER["REMOTE_ADDR"], ":") === FALSE) {
         $cf_ip_ranges = array("204.93.240.0/24","204.93.177.0/24","199.27.128.0/21","173.245.48.0/20","103.21.244.0/22","103.22.200.0/22","103.31.4.0/22","141.101.64.0/18","108.162.192.0/18","190.93.240.0/20","188.114.96.0/20","197.234.240.0/22","198.41.128.0/17","162.158.0.0/15");
