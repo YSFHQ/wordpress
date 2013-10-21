@@ -16,7 +16,7 @@ module.exports = function(grunt) {
         },
         files : {
           '<%= meta.colors %>/picker/style.css'           : '<%= meta.colors %>/picker/style.scss',
-          '<%= meta.customizer %>/customize-controls.css' : '<%= meta.customizer %>/scss/customize-controls.scss',
+          '<%= meta.customizer %>/customizer.css' : '<%= meta.customizer %>/scss/customizer.scss',
         }
       },
       colors: {

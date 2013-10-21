@@ -110,6 +110,38 @@ input[type=radio]:checked:before {
 	color: #2ea2cc;
 }
 
+
+/* Helper classes for pulling MP6 colors */
+
+.mp6-primary {
+	color: #fff;
+	background-color: #333;
+}
+.mp6-text-primary {
+	color: #333;
+}
+
+.mp6-highlight {
+	color: white;
+	background-color: #1e8cbe;
+}
+.mp6-text-highlight {
+	color: #1e8cbe;
+}
+
+.mp6-notification {
+	color: #fff;
+	background-color: #D54E21;
+}
+.mp6-text-notification {
+	color: #D54E21;
+}
+
+.mp6-text-icon {
+	color: #999;
+}
+
+
 #adminmenu .wp-has-current-submenu .wp-submenu,
 .no-js li.wp-has-current-submenu:hover .wp-submenu,
 #adminmenu a.wp-has-current-submenu:focus + .wp-submenu,
@@ -1914,6 +1946,12 @@ h2.nav-tab-wrapper, h3.nav-tab-wrapper {
 	border-color: #ccc;
 }
 
+.about-wrap .feature-section .col-2:before,
+.about-wrap .feature-section .col-2:after,
+.about-wrap .feature-section.two-col p:before {
+	color: #1e8cbe;
+}
+
 .about-wrap .point-releases {
 	border-bottom: 1px solid #dfdfdf;
 }
@@ -2134,7 +2172,8 @@ body.login {
 }
 
 /* Flyout Menu Arrow */
-.rtl #adminmenu li.wp-has-submenu.wp-not-current-submenu:hover:after {
+.rtl #adminmenu li.wp-has-submenu.wp-not-current-submenu:hover:after,
+.rtl #adminmenu li.wp-has-submenu.wp-not-current-submenu.opensub:hover:after {
 	border-right-color: transparent;
 	border-left-color: #333;
 }
@@ -2155,10 +2194,22 @@ body.login {
 	border-left: none;
 	border-right: 4px solid #2ea2cc;
 }
+
 .rtl .plugins .update th.check-column,
 .rtl tr.plugin-update-tr .plugin-update {
 	border-left: none;
 	border-right: 4px solid #d54e21;
+}
+
+.rtl #the-comment-list .unapproved th.check-column,
+.rtl #dashboard_recent_comments #the-comment-list .unapproved {
+    border-left: none;
+    border-right: 4px solid #d54e21;
+}
+
+.rtl #dashboard_recent_comments #the-comment-list .unapproved .avatar {
+	margin-left: 10px;
+    margin-right: -4px;
 }
 
 

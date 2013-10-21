@@ -25,9 +25,6 @@ sitemap.xml
 *.log
 wp-content/cache/
 wp-content/plugins/*/cache/*
-wp-content/w3tc-config/*
-wp-content/advanced-cache.php
-wp-content/db.php
 wp-content/backups/
 sitemap.xml.gz
 

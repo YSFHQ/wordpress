@@ -290,6 +290,7 @@ class Mixin_Fs_Instance_Methods extends Mixin
 
             // determine if each piece should be appended to $retval
             foreach ($pieces as $ndx => $val) {
+                if ($val === '') continue;
                 $one = array_search($val, $retval);
                 $two = array_search($val, $pieces);
                 $one = (FALSE === $one ? 0 : count($one) + 1);

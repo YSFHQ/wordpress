@@ -1,5 +1,7 @@
 /* Variables */
 /* Mixins */
+/* Dashicons mixin use: @include dashicons( '\f140' ); */
+/* Button mixin- creates 3d-ish button effect with correct  highlights/shadows, based on a base color. */
 /** Styles pulled from wp-admin.css This should either be merged into wp-admin.css later, or that  section (23.0) should be removed + moved into customize-controls.scss */
 .control-section .accordion-section-title { background: #fff; }
 
@@ -23,9 +25,8 @@ body.full-overlay-active { overflow: hidden; }
 
 .wp-full-overlay-main { position: absolute; left: 0; right: 0; top: 0; bottom: 0; height: 100%; }
 
-.wp-full-overlay-sidebar .wp-full-overlay-header { position: absolute; left: 0; right: 0; height: 45px; padding: 0 20px; line-height: 45px; z-index: 10; margin: 0; }
-
-.wp-full-overlay-sidebar .wp-full-overlay-header { border-top: none; -webkit-box-shadow: none; box-shadow: none; }
+.wp-full-overlay-sidebar .wp-full-overlay-header { position: absolute; left: 0; right: 0; height: 45px; padding: 0 20px; line-height: 45px; z-index: 10; margin: 0; border-top: none; -webkit-box-shadow: none; box-shadow: none; }
+.wp-full-overlay-sidebar .wp-full-overlay-header a.back { margin-top: 10px; }
 
 .wp-full-overlay-sidebar .wp-full-overlay-footer { bottom: 0; border-bottom: none; border-top: none; -webkit-box-shadow: none; box-shadow: none; }
 

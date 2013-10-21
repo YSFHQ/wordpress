@@ -1489,6 +1489,12 @@ th .comment-grey-bubble:before {
 	right: -4px;
 }
 
+#the-comment-list .unapproved th.check-column input {
+	margin-left: 0;
+	margin-right: 4px;
+}
+
+
 /*------------------------------------------------------------------------------
   16.0 - Themes
 ------------------------------------------------------------------------------*/
@@ -2283,7 +2289,7 @@ a.rsswidget,
 
 /* Recent Comments */
 #the-comment-list .comment-item {
-	padding: 1em 70px 1em 10px;
+	padding: 1em 10px 1em 10px;
 }
 
 #the-comment-list .comment-item .avatar {

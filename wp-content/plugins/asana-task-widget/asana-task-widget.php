@@ -33,7 +33,7 @@ function load_jquery_ui() {
     $ui = $wp_scripts->query('jquery-ui-core');
  
     // tell WordPress to load the Smoothness theme from Google CDN
-    $url = "https://ajax.googleapis.com/ajax/libs/jqueryui/{$ui->ver}/themes/smoothness/jquery.ui.all.css";
+    $url = "https://ajax.googleapis.com/ajax/libs/jqueryui/{$ui->ver}/themes/smoothness/jquery-ui.min.css";
     wp_enqueue_style('jquery-ui-smoothness', $url, false, $ui->ver);
 }
  

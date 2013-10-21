@@ -2,23 +2,7 @@
 
 
 @import 'variables';
-
-
-// Customizer stuff
-
-/* Mixins */
-@mixin dashicons($icon) {
-	content: $icon;
-	font: normal 20px/1 'dashicons';
-	speak: none;
-	display: block;
-	padding: 0;
-	text-indent: 0;
-	text-align: center;
-	position: relative;
-	-webkit-font-smoothing: antialiased;
-	text-decoration: none !important;
-}
+@import 'mixins';
 
 @import "../../../customizer/scss/overlay";
 

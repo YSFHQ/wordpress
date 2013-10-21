@@ -1,6 +1,32 @@
 NextGEN Gallery
 by Photocrati Media
 
+= V2.0.33 - 10.21.2013 =
+* NEW:     Requests /ngg_tag/[tagname] will create a displayed gallery
+* NEW:     Option added to "Import Gallery" tab to use original images
+* Fixed:   Links are broken on the ngg_tags-sitemap.xml file by WordPress SEO
+* Fixed:   PHP notice: Attempt to assign property of non-object
+* Fixed:   Undefined property warnings when using NextGEN Basic Thumbnails
+* Fixed:   Detect if an applying a transient to a displayed gallery was successful
+* Fixed:   Compatibility issues with BJ-Lazy-Load and Colorbox
+* Fixed:   Pagination conflicts for multiple Imagebrowsers on the same page
+* Fixed:   Ability to display previous exception with debug mode
+* Fixed:   Tagclouds not working in multisite instances
+* Fixed:   Load widgets.css when a widget is being used
+* Fixed:   Installer should remove all instances of the component factory
+* Fixed:   Widget settings interface not intuitive
+* Fixed:   Inability to upload images in some Windows host environments
+* Fixed:   Sorting images/galleries using the Attach To Post interface
+* Fixed:   Fix detection of HTTPS (pull request by Leonhardt Wille)
+* Fixed:   Compilation errors of regular expressions
+* Fixed:   Pro galleries wouldn't display in environments using PHP 5.3.3 or less
+* Fixed:   Scanning of router slug is now limited to the uri, not the url
+* Fixed:   Show slideshow link isn't required for thumbnail/imagebrowser integration
+* Fixed:   WordPress media-upload with 'singlepic' image size
+* Fixed:   Use target=_blank when the link setting is provided for NextGEN Basic Singlepic
+* Fixed:   Only display rendering errors if WP_DEBUG is enabled
+
+
 = V2.0.31 - 10.03.2013 =
 * NEW:     Restored AJAX pagination for NextGEN Basic ImageBrowser display type
 * Fixed:   Compatibility with WordPress Local SEO by Yoast

@@ -3,18 +3,7 @@ $blue-bg: #0074a2;
 $blue-text: #2ea2cc;
 
 /* Mixins */
-@mixin dashicons($icon) {
-	content: $icon;
-	font: normal 20px/1 'dashicons';
-	speak: none;
-	display: block;
-	padding: 0;
-	text-indent: 0;
-	text-align: center;
-	position: relative;
-	-webkit-font-smoothing: antialiased;
-	text-decoration: none !important;
-}
+@import "../../color-schemes/schemes/mixins";
 
 @import "overlay";
 

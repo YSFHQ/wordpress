@@ -97,12 +97,13 @@ body.full-overlay-active {
 	line-height: 45px;
 	z-index: 10;
 	margin: 0;
-}
-
-.wp-full-overlay-sidebar .wp-full-overlay-header {
 	border-top: none;
 	-webkit-box-shadow: none;
 	box-shadow: none;
+	
+	a.back {
+		margin-top: 10px;
+	}
 }
 
 .wp-full-overlay-sidebar .wp-full-overlay-footer {

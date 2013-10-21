@@ -1,0 +1,17 @@
+
+.wpvl_auto_thumb_box{
+    position: relative;
+    width: 200px;
+    height: 150px;
+}
+
+.wpvl_auto_thumb_play{
+	position: absolute;
+	left: 75px;
+	top: 50px;
+}
+
+.video_lightbox_auto_anchor_image{
+	width: 200px;
+	height: 150px;
+}

@@ -202,7 +202,12 @@ class Mixin_Displayed_Gallery_Renderer extends Mixin
                 // Display!
                 return $this->object->render($displayed_gallery, TRUE, $mode);
             }
-            else $retval =  "Invalid Displayed Gallery".var_dump($displayed_gallery->get_errors());
+            else {
+                if (C_NextGEN_Bootstrap::$debug)
+                    $retval = "Invalid Displayed Gallery" . var_dump($displayed_gallery->get_errors());
+                else
+                    $retval = "Gallery not found. Please <strong>check your settings</strong>.";
+            }
         }
         else {
             $retval = "Invalid Displayed Gallery";

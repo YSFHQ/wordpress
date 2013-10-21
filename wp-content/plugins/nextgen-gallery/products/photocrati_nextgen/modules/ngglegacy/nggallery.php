@@ -264,10 +264,6 @@ if (!class_exists('nggLoader')) {
 			require_once (dirname (__FILE__) . '/nggfunctions.php');		        // n.a.
 			require_once (dirname (__FILE__) . '/lib/shortcodes.php'); 		        // 92.664
 
-			//Just needed if you access remote to WordPress
-			if ( defined('XMLRPC_REQUEST') )
-				require_once (dirname (__FILE__) . '/lib/xmlrpc.php');
-
 			// We didn't need all stuff during a AJAX operation
 			if ( defined('DOING_AJAX') )
 				require_once (dirname (__FILE__) . '/admin/ajax.php');

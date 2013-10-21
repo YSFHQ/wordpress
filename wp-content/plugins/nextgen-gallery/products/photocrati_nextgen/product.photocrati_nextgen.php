@@ -43,7 +43,9 @@ class P_Photocrati_NextGen extends C_Base_Product
 		'photocrati-nextgen_basic_singlepic',
 		'photocrati-nextgen_basic_tagcloud',
 		'photocrati-nextgen_basic_album',
-		'photocrati-widget'
+		'photocrati-widget',
+        'photocrati-third_party_compat',
+		'photocrati-nextgen_xmlrpc'
 	);
 
 	function define()
@@ -52,7 +54,7 @@ class P_Photocrati_NextGen extends C_Base_Product
 			'photocrati-nextgen',
 			'Photocrati NextGEN',
 			'Photocrati NextGEN',
-			'2.0.31',
+			'2.0.33',
 			'http://www.nextgen-gallery.com',
 			'Photocrati Media',
 			'http://www.photocrati.com'

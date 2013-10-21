@@ -168,13 +168,14 @@ class Mixin_Displayed_Gallery_Queries extends Mixin
 					$select,
 					$image_key,
 					$sortorder_set,
-					'sortorder',
+					'new_sortorder',
 					TRUE
 				);
 				// A user might want to sort the results by the order of
 				// images that they specified to be included. For that,
 				// we need some trickery by reversing the order direction
 				$sort_direction = $this->object->order_direction == 'ASC' ? 'DESC' : 'ASC';
+				$sort_by = 'new_sortorder';
 			}
 
 			// Add exclude column
@@ -204,10 +205,11 @@ class Mixin_Displayed_Gallery_Queries extends Mixin
 					$select,
 					$image_key,
 					$this->object->sortorder,
-					'sortorder',
+					'new_sortorder',
 					TRUE
 				);
 				$sort_direction = $this->object->order_direction == 'ASC' ? 'DESC' : 'ASC';
+				$sort_by = 'new_sortorder';
 			}
 			$mapper->select($select);
 
@@ -239,10 +241,11 @@ class Mixin_Displayed_Gallery_Queries extends Mixin
 					$select,
 					$image_key,
 					$this->object->sortorder,
-					'sortorder',
+					'new_sortorder',
 					TRUE
 				);
 				$sort_direction = $this->object->order_direction == 'ASC' ? 'DESC' : 'ASC';
+				$sort_by = 'new_sortorder';
 			}
 
 			// Mark each result as excluded
@@ -909,7 +912,12 @@ class Mixin_Displayed_Gallery_Instance_Methods extends Mixin
      */
     function apply_transient($transient_id)
     {
-		if (($transient = C_Photocrati_Cache::get($transient_id, 'displayed_galleries')))
+		$retval = FALSE;
+		if (($transient = C_Photocrati_Cache::get($transient_id, FALSE, 'displayed_galleries'))) {
 			$this->object->_stdObject = $transient;
+			$retval = TRUE;
+		}
+
+		return $retval;
     }
 }
