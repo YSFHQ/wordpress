@@ -11,6 +11,7 @@ Author: Shashwat Srivastava, Shubham Gupta - iFlyChat Team
 Version: 1.1.13
 Author URI: https://iflychat.com/
 */
+if ($_SERVER['SERVER_NAME']!="forum.ysfhq.com") {
 
 define('DRUPALCHAT_EXTERNAL_HOST', 'http://api'.get_option('iflychat_ext_d_i').'.iflychat.com');
 define('DRUPALCHAT_EXTERNAL_PORT', '80');
@@ -968,4 +969,5 @@ function iflychat_check_chat_admin() {
   return FALSE;
 }
 
+}
 ?>
