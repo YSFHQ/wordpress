@@ -27,6 +27,7 @@ wp-content/cache/
 wp-content/plugins/*/cache/*
 wp-content/backups/
 sitemap.xml.gz
+media/*
 
 # Development environment #
 ###########################
