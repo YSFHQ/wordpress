@@ -25,6 +25,27 @@ else { ?>
       <?php if (roots_display_sidebar()) : ?>
       <aside class="sidebar <?php echo roots_sidebar_class(); ?>" role="complementary">
         <?php include roots_sidebar_path(); ?>
+        <div>
+<!-- ysfhq-wp-blog -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-1211687588041162"
+     data-ad-slot="7610455242"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        </div>
+      </aside><!-- /.sidebar -->
+      <?php else: ?>
+      <aside class="sidebar span2" role="complementary">
+        <!-- ysfhq-wp-vspacer -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:160px;height:600px"
+             data-ad-client="ca-pub-1211687588041162"
+             data-ad-slot="1703522446"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
       </aside><!-- /.sidebar -->
       <?php endif; ?>
     </div><!-- /.content -->

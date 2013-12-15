@@ -150,7 +150,16 @@ for ($i=0; $i<5; $i++) {
         </div>
     </div><!--/row-fluid-->
     <!-- //End Pilot Blocks -->
-    
+    <div class="row-fluid"><div class="span12">
+<!-- ysfhq-wp-hspacer -->
+<ins class="adsbygoogle"
+     style="display:block;width:970px;height:90px;margin:10px auto"
+     data-ad-client="ca-pub-1211687588041162"
+     data-ad-slot="1843123249"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    </div></div>
     <!-- Information Blocks -->
     <div class="hero-unit">
         <div class="row-fluid">
@@ -210,7 +219,16 @@ for ($i=0; $i<5; $i++) {
             <!-- //End YSFHQ News -->
         </div>
     </div>
-
+    <div class="row-fluid"><div class="span12">
+<!-- ysfhq-wp-hspacer -->
+<ins class="adsbygoogle"
+     style="display:block;width:970px;height:90px;margin:0 auto"
+     data-ad-client="ca-pub-1211687588041162"
+     data-ad-slot="1843123249"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    </div></div>
     <div class="row">
         <div class="span6">
             <!-- Featured Addons -->

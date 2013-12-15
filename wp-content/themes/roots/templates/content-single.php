@@ -13,3 +13,11 @@
     <?php comments_template('/templates/comments.php'); ?>
   </article>
 <?php endwhile; ?>
+<!-- ysfhq-wp-hspacer2 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-1211687588041162"
+     data-ad-slot="7052052046"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
