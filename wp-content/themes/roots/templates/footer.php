@@ -5,15 +5,16 @@
             <div class="span4">
                 <?php dynamic_sidebar('sidebar-footer-left'); ?>
             </div><!--/span4--> 
-            <div class="span8"><div class="row-fluid">
-            <div class="span6">
-                <?php dynamic_sidebar('sidebar-footer-center'); ?>
-            </div><!--/span4-->
-
-            <div class="span6">
-                <?php dynamic_sidebar('sidebar-footer-right'); ?>
-            </div><!--/span4-->
-            </div><div class="row-fluid">
+            <div class="span8">
+                <div class="row-fluid">
+                    <div class="span6">
+                        <?php dynamic_sidebar('sidebar-footer-center'); ?>
+                    </div><!--/span6-->
+                    <div class="span6">
+                        <?php dynamic_sidebar('sidebar-footer-right'); ?>
+                    </div><!--/span6-->
+                </div>
+<?php if (!is_first_class()): ?><div class="row-fluid">
 <!-- ysfhq-wp-footer-banner -->
 <ins class="adsbygoogle"
      style="display:inline-block;width:728px;height:90px"
@@ -22,7 +23,8 @@
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-            </div></div>
+                </div><?php endif; ?>
+            </div>
         </div><!--/row-fluid-->
     </div><!--/container-->
 </div><!--/footer-->
@@ -39,7 +41,7 @@
                 <a href="<?php echo home_url(); ?>/"><img id="logo-footer" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_text.png" alt="<?php bloginfo('name'); ?>" class="pull-right"></a>
             </div>
         </div><!--/row-fluid-->
-        <div class="row-fluid">
+<?php if (!is_first_class()): ?><div class="row-fluid">
             <div class="span12">
 <!-- ysfhq-wp-footer-text-lg -->
 <ins class="adsbygoogle"
@@ -50,7 +52,7 @@
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
             </div>
-        </div>
+        </div><?php endif; ?>
     </div><!--/container--> 
 </div><!--/copyright--> 
 <!--=== End Copyright ===-->
@@ -61,6 +63,6 @@
         App.initSliders();
     });
 </script>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<?php if (!is_first_class()): ?><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><?php endif; ?>
 
 <?php wp_footer(); ?>

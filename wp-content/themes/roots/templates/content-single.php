@@ -13,6 +13,7 @@
     <?php comments_template('/templates/comments.php'); ?>
   </article>
 <?php endwhile; ?>
+<?php if (!is_first_class()): ?>
 <!-- ysfhq-wp-hspacer2 -->
 <ins class="adsbygoogle"
      style="display:inline-block;width:728px;height:90px"
@@ -21,3 +22,4 @@
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
+<?php endif; ?>

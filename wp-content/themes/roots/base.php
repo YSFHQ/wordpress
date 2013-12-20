@@ -22,10 +22,10 @@ else { ?>
       <div class="main <?php echo roots_main_class(); ?>" role="main">
         <?php include roots_template_path(); ?>
       </div><!-- /.main -->
-      <?php if (roots_display_sidebar()) : ?>
+      <?php if (roots_display_sidebar()) { ?>
       <aside class="sidebar <?php echo roots_sidebar_class(); ?>" role="complementary">
         <?php include roots_sidebar_path(); ?>
-        <div>
+<?php if (!is_first_class()): ?><div>
 <!-- ysfhq-wp-blog -->
 <ins class="adsbygoogle"
      style="display:inline-block;width:300px;height:250px"
@@ -34,9 +34,9 @@ else { ?>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-        </div>
+        </div><?php endif; ?>
       </aside><!-- /.sidebar -->
-      <?php else: ?>
+      <?php } else if (!is_first_class()) { ?>
       <aside class="sidebar span2" role="complementary">
         <!-- ysfhq-wp-vspacer -->
         <ins class="adsbygoogle"
@@ -47,7 +47,7 @@ else { ?>
         (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </aside><!-- /.sidebar -->
-      <?php endif; ?>
+      <?php } ?>
     </div><!-- /.content -->
   </div><!-- /.wrap -->
 <?php } ?>

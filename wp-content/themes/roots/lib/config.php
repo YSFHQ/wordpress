@@ -22,6 +22,9 @@ function roots_main_class() {
   if (roots_display_sidebar()) {
     // Classes on pages with the sidebar
     $class = 'span9';
+  } else if (is_first_class()) {
+    // Classes on full width pages
+    $class = 'span12';
   } else {
     // Classes on full width pages
     $class = 'span10';

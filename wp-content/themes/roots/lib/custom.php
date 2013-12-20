@@ -29,3 +29,12 @@ function of_get_option($name, $default = false) {
 	}
 }
 }
+
+if ( !function_exists( 'is_first_class' ) ) {
+    function is_first_class() {
+        $members = array("Ace Lord", "Gunny", "Midnight Rambler", "OfficerFlake", "TB1", "Vic Viper", "VNAF ONE", "wingzfan99", "Eric");
+        $user_info = get_userdata(get_current_user_id());
+        $username = $user_info->user_login;
+        return in_array($username, $members);
+    }
+}
