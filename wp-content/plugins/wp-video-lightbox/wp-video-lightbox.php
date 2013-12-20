@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: WP Video Lightbox
-Version: 1.6.3
+Version: 1.6.5
 Plugin URI: http://www.tipsandtricks-hq.com/?p=2700
 Author: Tips and Tricks HQ, Ruhul Amin
 Author URI: http://www.tipsandtricks-hq.com/
@@ -13,7 +13,7 @@ if (!class_exists('WP_Video_Lightbox'))
 {
     class WP_Video_Lightbox
     {
-        var $version = '1.6.3';
+        var $version = '1.6.5';
         var $db_version = '1.0';
         var $plugin_url;
         var $plugin_path;
@@ -59,6 +59,7 @@ if (!class_exists('WP_Video_Lightbox'))
         
         function activate_handler(){//Will run when the plugin activates only
             //initialize settings
+            add_option('wpvl_plugin_version', $this->version);
             add_option('wpvl_enable_jquery', '1');
             add_option('wpvl_enable_prettyPhoto', '1');
             $wpvl_prettyPhoto = WP_Video_Lightbox_prettyPhoto::get_instance();
@@ -66,7 +67,16 @@ if (!class_exists('WP_Video_Lightbox'))
         }
 
         function do_db_upgrade_check(){
-                //NOP
+            //NOP
+            if(is_admin())
+            {
+                $wpvl_version = get_option('wpvl_plugin_version');
+                if(!isset($wpvl_version) || $wpvl_version != $this->version)
+                {
+                    $this->activate_handler();
+                    update_option('wpvl_plugin_version', $this->version);
+                }
+            }
         }
 
         function plugin_init(){
