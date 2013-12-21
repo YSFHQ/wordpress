@@ -209,7 +209,7 @@ for ($i=0; $i<5; $i++) {
             <!-- YSFHQ News -->
             <div class="headline"><h3>YSFlight Headquarters News</h3></div>
             <?php
-            $args = array('numberposts' => 3);
+            $args = array('numberposts' => 2);
             $lastposts = get_posts($args);
             foreach ($lastposts as $post): setup_postdata($post); ?>
                 <h4 class="title"><a href="<?php the_permalink(); ?>" class="read-more"><?php the_title(); ?></a></h4>
@@ -233,56 +233,56 @@ for ($i=0; $i<5; $i++) {
         <div class="span6">
             <!-- Featured Addons -->
             <div class="headline"><h3>Featured Addons</h3></div>
-            <h4><em>Coming Soon</em></h4>
-            <!--<ul class="thumbnails">
+            <!--<h4><em>Coming Soon</em></h4>-->
+            <ul class="thumbnails">
                 <li class="span3">
                     <div class="thumbnail-style thumbnail-kenburn">
                         <div class="thumbnail-img">
-                            <div class="overflow-hidden"><img src="http://placehold.it/973x615" alt="" /></div>
-                            <a class="btn-more hover-effect" href="#">download +</a>
+                            <div class="overflow-hidden"><img src="http://i.imgur.com/bMDmMg4.png" alt="" /></div>
+                            <a class="btn-more hover-effect" href="http://www.ysupload.com/download.php?id=1136">download +</a>
                         </div>
-                        <h3><a class="hover-effect" href="#">Aircraft Addon</a></h3>
-                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem.</p>
+                        <h3><a class="hover-effect" href="http://www.ysupload.com/download.php?id=1136">Project Sunderland</a></h3>
+                        <p>This pack contains Short Sunderlands from B Mk I all the way up to the GR Mk V. All aircraft have been created with panel lines and detailed cockpits as standard. Happy flying!</p>
                     </div>
                 </li>
                 <li class="span3">
                     <div class="thumbnail-style thumbnail-kenburn">
                         <div class="thumbnail-img">
-                            <div class="overflow-hidden"><img src="http://placehold.it/973x615" alt="" /></div>
-                            <a class="btn-more hover-effect" href="#">download +</a>
+                            <div class="overflow-hidden"><img src="http://i.imgur.com/nZkkScF.png" alt="" /></div>
+                            <a class="btn-more hover-effect" href="http://www.ysupload.com/download.php?id=1097">download +</a>
                         </div>
-                        <h3><a class="hover-effect" href="#">Map Addon</a></h3>
-                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem.</p>
+                        <h3><a class="hover-effect" href="http://www.ysupload.com/download.php?id=1097">Mh3w Scenery Pack A</a></h3>
+                        <p>Contains 15 maps including Chicago v3.0, Runway City, Chaos City, Red Planet, Raceway and etc.</p>
                     </div>
                 </li>
-            </ul>--><!--/thumbnails-->
+            </ul><!--/thumbnails-->
             <!-- //End Featured Addons -->
         </div>
         <div class="span6">
             <!-- Upcoming Events -->
             <div id="w" class="home">
                 <div class="headline"><h3>Upcoming Events</h3></div>
-                <br><h4><em>Coming Soon</em></h4>
-                <!--<ul class="portfolio recent-work clearfix"> 
+                <!--<br><h4><em>Coming Soon</em></h4>-->
+                <ul class="portfolio recent-work clearfix"> 
                     <li data-id="id-1">
-                        <a href="portfolio_item.html">
-                            <em class="overflow-hidden"><img src="http://placehold.it/270x171" alt="" /></em>
+                        <a href="http://forum.ysfhq.com/viewtopic.php?f=163&t=5709&p=69652#p69078">
+                            <em class="overflow-hidden"><img src="http://i1058.photobucket.com/albums/t417/aquanga/PERC601BB38D310_zpsc9ca4663.png" alt="Flyer" width="270" /></em>
                             <span>
-                                <strong>Happy New Year</strong>
-                                <i>Anim pariatur cliche reprehenderit</i>
+                                <strong>Seoul International ADEX (Dec 22nd)</strong>
+                                <i>The first airshow held by YSFLIGHT Korea, this Sunday at 12:00pm UTC! Feast your eyes on beautiful aerobatics.</i>
                             </span>
                         </a>
                     </li>
                     <li data-id="id-2">
-                        <a href="portfolio_item.html">
-                            <em class="overflow-hidden"><img src="http://placehold.it/270x171" alt="" /></em>
+                        <a href="http://forum.ysfhq.com/viewtopic.php?f=163&t=5718#p69152">
+                            <em class="overflow-hidden"><img src="http://i.imgur.com/LS6sA2w.png" alt="Flyer" width="270" /></em>
                             <span>
-                                <strong>Happy New Year</strong>
-                                <i>Anim pariatur cliche reprehenderit</i>
+                                <strong>YSFlight Internationale Sanicole Airshow (Jan 4th)</strong>
+                                <i>Join YSAA at the small aerodrome in Belgium called Sanicole for one of the best airshows in Belgium! The aerodrome may me small but includes big acts like F-16s and Rafales!</i>
                             </span>
                         </a>
                     </li>
-                </ul>-->
+                </ul>
             </div>
             <!-- //End Upcoming Events -->
         </div>

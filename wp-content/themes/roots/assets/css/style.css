@@ -10,7 +10,7 @@ body {
 	font-family: 'Lato', sans-serif;
     padding:0;
 	color:#333; 
-    font-size:13px;
+    font-size:14px;
     line-height:1.6;
 	background:#fff;
 }
@@ -2239,6 +2239,7 @@ ul.blog-tags a:hover i {
   float: left; 
   margin-right: 18px; 
   margin-bottom: 18px;
+  width: 270px;
 }
 .span6 .portfolio li { 
   margin-right: 30px;
