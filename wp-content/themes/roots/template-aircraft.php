@@ -33,7 +33,7 @@ for ($i=2; $i<count($folders); $i++) {
         $files = scandir($currfolder);
         for ($j=2; $j<count($files); $j+=2) {
             $folderurl = $dir.$folders[$i]."/";
-            $name = str_replace("_large.png", "", $files[$j]);
+            $name = substr($files[$j], 0, strpos($files[$j], "_large."));
         ?>
             <li>
                 <a class="thumbnail fancybox-button zoomer" data-rel="fancybox-button" title="<?php echo $name; ?>" href="/<?php echo $folderurl.$files[$j]; ?>">
