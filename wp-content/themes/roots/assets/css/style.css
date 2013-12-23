@@ -1330,7 +1330,7 @@ article ul.blog-tags a {
 
 /*Blog Item Page
 ------------------------------------*/
-.content a {
+.content p a {
 	text-decoration: underline !important;
 }
 
