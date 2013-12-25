@@ -26,7 +26,7 @@
     <div class="container"> 
         <!-- Logo --> 
         <div class="logo"> 
-            <a href="<?php echo home_url(); ?>/"><img id="logo-header" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="<?php bloginfo('name'); ?>"></a>
+            <a href="<?php echo home_url(); ?>/"><img id="logo-header" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo_christmas.png" alt="<?php bloginfo('name'); ?>"></a>
         </div><!-- /logo -->
 
         <!-- Menu -->

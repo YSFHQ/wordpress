@@ -34,7 +34,7 @@ if ( !function_exists( 'is_first_class' ) ) {
     function is_first_class() {
         $exceptions = array("/community/online-servers", "/login");
         foreach ($exceptions as $except) if (strpos($_SERVER["REQUEST_URI"], $except)!==false) return true;
-        $members = array("Ace Lord", "Gunny", "Midnight Rambler", "OfficerFlake", "TB1", "Vic Viper", "VNAF ONE", "wingzfan99", "Eric");
+        $members = array("Bombcat", "Ace Lord", "Gunny", "Midnight Rambler", "OfficerFlake", "TB1", "Vic Viper", "VNAF ONE", "wingzfan99", "Eric");
         $user_info = get_userdata(get_current_user_id());
         $username = $user_info->user_login;
         return in_array($username, $members);

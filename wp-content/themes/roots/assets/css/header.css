@@ -130,6 +130,7 @@
 	z-index:250;
 	position:relative;
 	border-bottom:solid 2px #eee;
+	margin-top: 10px;
 }
 
 .header .container {
@@ -138,7 +139,7 @@
 
 .logo {
 	position:absolute;
-	top:-43px;
+	/*top:-43px;*/top:-60px;
 	left:0;
 }
 .logo img {

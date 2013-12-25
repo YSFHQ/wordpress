@@ -44,6 +44,7 @@ module.exports = function(grunt) {
             'assets/js/plugins/bootstrap/bootstrap-tooltip.js',
             'assets/js/plugins/bootstrap/bootstrap-popover.js',
             'assets/js/plugins/bootstrap/bootstrap-scrollspy.js',
+            'assets/js/plugins/bootstrap/bootstrap-affix.js',
             'assets/js/plugins/bootstrap/bootstrap-tab.js',
             'assets/js/plugins/bootstrap/bootstrap-typehead.js',
             'assets/js/plugins/*.js',
