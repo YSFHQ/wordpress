@@ -1,0 +1,128 @@
+.pp-select-author input {
+vertical-align: top;
+}
+.pp-select-author  button {
+padding-top:0;
+}
+.pp-select-author button.pp_add {
+float: none;
+}
+.pp-select-author  h4 {
+margin-top: 0;
+margin-bottom: 5px;
+}
+.pp-select-author  .pp-agents-selection select{
+min-width: 170px;
+}
+
+
+
+.pp-exceptions table {
+margin-top: 5px;
+}
+.pp-item-exceptions-ui td {
+vertical-align: middle;
+}
+.pp-current-item-exceptions {
+vertical-align: top;
+}
+.pp-current-item-exceptions select {
+min-width: 130px;
+margin-right: 10px;
+margin-left: 10px;
+}
+.pp-current-item-exceptions td.pp-exc-agent {
+max-width: 200px;
+}
+
+
+.pp-exceptions .pp-def {
+color: #000;
+font-weight: normal;
+}
+.pp-exceptions .pp-no {
+color: #a00;
+font-weight: normal;
+}
+.pp-exceptions .pp-no2 {
+color: #a00;
+font-weight: bold;
+}
+.pp-exceptions .pp-yes {
+color: #090;
+font-weight: normal;
+}
+.pp-exceptions .pp-yes2 {
+color: #0a0;
+font-weight: bold;
+}
+
+
+.pp-no-exceptions {
+margin: 10px;
+margin-left: 5px;
+font-weight: bold;
+}
+.pp-exception-actions {
+padding: 10px;
+padding-left: 6px;
+}
+.pp-exception-actions a {
+text-decoration: none;
+}
+
+
+.pp-select-exception-agents input {
+vertical-align: top;
+}
+.pp-select-exception-agents  h4 {
+margin-top: 0;
+margin-bottom: 5px;
+}
+.pp-select-exception-agents  button {
+padding-top:0;
+vertical-align:top;
+}
+.pp-select-exception-agents button.pp_add {
+float: none;
+}
+.pp-select-exception-agents .pp-agents-selection tbody tr td {
+width: 175px;
+padding-right: 15px;
+}
+.pp-select-exception-agents .pp-agents-selection select{
+width: 170px;
+}
+
+.pp-agents-selection tbody tr td {
+padding-right: 50px;
+}
+
+.pp-exc-notes {
+color: #777;
+}
+.pp-exc-notes div{
+margin-top:0.3em;
+}
+
+/* Custom Statuses Publish Metabox (not required with PPS > 2.1.13) */
+div.item-condition-select {
+	line-height: 1.5em;
+	margin-top: 3px;
+}
+#submitdiv .pvt-custom {
+margin-left: 16px;
+}
+#submitdiv .pp-postsubmit-add-privacy {
+margin-left: 10px;
+}
+#visibility .pp-submitbox-customize {
+margin-left: 10px;
+}
+#ch_post-visibility-display {
+font-weight: bold;
+}
+
+.edit-tags-php #post-body-content #normal-sortables div.postbox {
+margin-right:15px;
+}

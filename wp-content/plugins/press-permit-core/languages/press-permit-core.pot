@@ -1,0 +1,2342 @@
+# Copyright (C) 2013 Press Permit Core
+# This file is distributed under the same license as the Press Permit Core package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Press Permit Core 2.1.37\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/press-permit-core\n"
+"POT-Creation-Date: 2013-12-18 20:08:54+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2013-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: admin/admin-help_pp.php:27
+msgid "Press Permit Help"
+msgstr ""
+
+#: admin/admin-help_pp.php:73
+msgid "%1$s Press Permit Documentation%2$s"
+msgstr ""
+
+#: admin/admin-help_pp.php:74
+msgid "%1$s Press Permit Support Forums%2$s"
+msgstr ""
+
+#: admin/admin-help_pp.php:75
+msgid "%1$s Press Permit Support Forums (with config data upload) *%2$s"
+msgstr ""
+
+#: admin/admin-help_pp.php:80
+msgid "%1$s Buy a Press Permit Support Key%2$s"
+msgstr ""
+
+#: admin/admin-help_pp.php:85
+msgid ""
+"* to control which configuration data is uploaded, see Permissions > "
+"Settings > Install > Help"
+msgstr ""
+
+#: admin/admin-load_pp.php:123 admin/ajax-exceptions_ui_pp.php:46
+msgid "Read"
+msgstr ""
+
+#: admin/admin-load_pp.php:123
+msgid "Reading"
+msgstr ""
+
+#: admin/admin-load_pp.php:138 admin/ajax-exceptions_ui_pp.php:79
+msgid "Only these:"
+msgstr ""
+
+#: admin/admin-load_pp.php:139 admin/ajax-exceptions_ui_pp.php:76
+msgid "Not these:"
+msgstr ""
+
+#: admin/admin-load_pp.php:140 admin/ajax-exceptions_ui_pp.php:73
+msgid "Also these:"
+msgstr ""
+
+#: admin/admin-plugins_pp.php:54
+msgid ""
+"Press Permit needs directions. Please go to %1$sPermissions > Settings%2$s "
+"and indicate which Post Types and Taxonomies should be filtered."
+msgstr ""
+
+#: admin/admin-plugins_pp.php:103
+msgid ""
+"Thanks for activating Press Permit Core. Please go to %1$sPermissions > "
+"Settings%2$s and indicate which Post Types and Taxonomies should be filtered."
+msgstr ""
+
+#: admin/admin-roles_pp.php:66
+msgid "(using default capabilities due to invalid %s definition)"
+msgstr ""
+
+#: admin/admin-roles_pp.php:86
+msgid "%1$s&nbsp;%2$s&nbsp;<span class=\"pp_nolink\">-&nbsp;%3$s</span>%4$s"
+msgstr ""
+
+#: admin/admin-roles_pp.php:88
+msgid "%1$s&nbsp;%2$s&nbsp;%3$s"
+msgstr ""
+
+#: admin/admin-ui-roles_pp.php:68 admin/permissions-ui_pp.php:823
+#: admin/permissions-ui_pp.php:825
+msgid "%1$s %2$s"
+msgstr ""
+
+#: admin/admin-ui-roles_pp.php:157
+#: admin/includes/class-pp-groups-list-table-base.php:53
+#: admin/item-exceptions-ui_pp.php:60 admin/permissions-ui_pp.php:862
+msgid "%1$s (%2$s)"
+msgstr ""
+
+#: admin/admin-ui-roles_pp.php:165
+#: admin/includes/class-pp-groups-list-table-base.php:32
+#: admin/includes/class-pp-groups-list-table-base.php:61
+msgid "%s, more..."
+msgstr ""
+
+#: admin/admin-ui_pp.php:170
+msgctxt "groups per page (screen options)"
+msgid "Groups"
+msgstr ""
+
+#: admin/admin-ui_pp.php:211
+msgid "Permissions"
+msgstr ""
+
+#: admin/admin-ui_pp.php:217 admin/users-ui_pp.php:11 pp_load.php:46
+msgid "Groups"
+msgstr ""
+
+#: admin/admin-ui_pp.php:220
+msgid "Add New Permission Group"
+msgstr ""
+
+#: admin/admin-ui_pp.php:224 admin/item-exceptions-ui_pp.php:33
+msgid "Users"
+msgstr ""
+
+#: admin/admin-ui_pp.php:230
+msgid "Settings"
+msgstr ""
+
+#: admin/admin-ui_pp.php:236
+msgid "Edit Permissions"
+msgstr ""
+
+#: admin/admin-ui_pp.php:243
+msgid "About Press Permit"
+msgstr ""
+
+#: admin/admin-ui_pp.php:243
+msgid "About"
+msgstr ""
+
+#: admin/admin-ui_pp.php:297
+msgid "Press Permit"
+msgstr ""
+
+#: admin/agents-ajax_pp.php:19
+msgctxt "user"
+msgid "Select &gt;"
+msgstr ""
+
+#: admin/agents-ajax_pp.php:19
+msgctxt "user"
+msgid "&lt; Unselect"
+msgstr ""
+
+#: admin/agents-ajax_pp.php:19
+msgid "Current Selections:"
+msgstr ""
+
+#: admin/agents-ajax_pp.php:31
+msgid "Select Users"
+msgstr ""
+
+#: admin/agents-ajax_pp.php:31
+msgid "Select Groups"
+msgstr ""
+
+#: admin/agents-ajax_pp.php:42
+msgid "(any WP role)"
+msgstr ""
+
+#: admin/agents-ajax_pp.php:99
+msgid ""
+"To set date limits on group membership, activate the PP Membership plugin."
+msgstr ""
+
+#: admin/agents-ajax_pp.php:101
+msgid ""
+"To set date limits on group membership, %1$sinstall%2$s the PP Membership "
+"plugin."
+msgstr ""
+
+#: admin/agents-ajax_pp.php:103
+msgid ""
+"To set date limits on group membership, %1$senter%2$s or %3$spurchase%4$s a "
+"support key and install the PP Membership plugin."
+msgstr ""
+
+#: admin/agents-checklist_pp.php:27
+msgid "eligible (%d):"
+msgstr ""
+
+#: admin/agents-checklist_pp.php:32
+msgid "current (%d):"
+msgstr ""
+
+#: admin/agents-checklist_pp.php:108
+msgid "view / edit group"
+msgstr ""
+
+#: admin/ajax-exceptions_ui_pp.php:44 admin/ajax-exceptions_ui_pp.php:64
+#: admin/ajax-exceptions_ui_pp.php:89 admin/ajax-exceptions_ui_pp.php:137
+#: admin/ajax-exceptions_ui_pp.php:164 admin/ajax-item_ui_pp.php:12
+#: admin/ajax-ui_pp.php:22 admin/ajax-ui_pp.php:42
+msgid "(login timed out)"
+msgstr ""
+
+#: admin/ajax-exceptions_ui_pp.php:56 admin/permissions-ui_pp.php:61
+msgid "select..."
+msgstr ""
+
+#: admin/ajax-exceptions_ui_pp.php:97
+msgid "selected:"
+msgstr ""
+
+#: admin/ajax-exceptions_ui_pp.php:143
+msgid "selected %s:"
+msgstr ""
+
+#: admin/ajax-exceptions_ui_pp.php:148
+msgid "sub-%s of:"
+msgstr ""
+
+#: admin/ajax-exceptions_ui_pp.php:170 admin/options-install_pp.php:476
+#: admin/permissions-ui_pp.php:68 admin/permissions-ui_pp.php:233
+#: admin/permissions-ui_pp.php:940
+msgid "(all)"
+msgstr ""
+
+#: admin/ajax-exceptions_ui_pp.php:181 admin/ajax-ui_pp.php:75
+msgid "%s Visibility"
+msgstr ""
+
+#: admin/ajax-ui_pp.php:36
+msgid "(invalid role definition)"
+msgstr ""
+
+#: admin/ajax-ui_pp.php:50 admin/permissions-ui_pp.php:126
+msgid "standard statuses"
+msgstr ""
+
+#: admin/defaults-admin_pp.php:6
+msgid "Subscribers"
+msgstr ""
+
+#: admin/defaults-admin_pp.php:6
+msgid "Subscriber"
+msgstr ""
+
+#: admin/defaults-admin_pp.php:7
+msgid "Contributors"
+msgstr ""
+
+#: admin/defaults-admin_pp.php:7
+msgid "Contributor"
+msgstr ""
+
+#: admin/defaults-admin_pp.php:8
+msgid "Authors"
+msgstr ""
+
+#: admin/defaults-admin_pp.php:8
+msgid "Author"
+msgstr ""
+
+#: admin/defaults-admin_pp.php:9
+msgid "Editors"
+msgstr ""
+
+#: admin/defaults-admin_pp.php:9
+msgid "Editor"
+msgstr ""
+
+#: admin/filters-update-core_pp.php:40
+msgid "%1$sPress Permit%2$s: %3$s%4$s update available%5$s"
+msgid_plural "%1$sPress Permit%2$s: %3$s%4$s updates available%5$s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: admin/includes/class-pp-groups-list-table.php:82
+msgid "No matching groups were found."
+msgstr ""
+
+#: admin/includes/class-pp-groups-list-table.php:93
+#: admin/includes/class-pp-groups-list-table.php:195
+msgid "Delete"
+msgstr ""
+
+#: admin/includes/class-pp-groups-list-table.php:105
+msgctxt "count"
+msgid "Users"
+msgstr ""
+
+#: admin/includes/class-pp-groups-list-table.php:106
+msgctxt "count"
+msgid "Roles"
+msgstr ""
+
+#: admin/includes/class-pp-groups-list-table.php:107
+msgctxt "count"
+msgid "Exceptions"
+msgstr ""
+
+#: admin/includes/item-menu_pp.php:115 admin/includes/item-menu_pp.php:341
+#: admin/includes/item-menu_pp.php:557
+msgid "No items."
+msgstr ""
+
+#: admin/includes/item-menu_pp.php:133 admin/includes/item-menu_pp.php:361
+#: admin/includes/item-menu_pp.php:573
+msgid "&laquo;"
+msgstr ""
+
+#: admin/includes/item-menu_pp.php:134 admin/includes/item-menu_pp.php:362
+#: admin/includes/item-menu_pp.php:574
+msgid "&raquo;"
+msgstr ""
+
+#: admin/includes/item-menu_pp.php:170 admin/includes/item-menu_pp.php:403
+msgid "Most Recent"
+msgstr ""
+
+#: admin/includes/item-menu_pp.php:171 admin/includes/item-menu_pp.php:404
+#: admin/includes/item-menu_pp.php:608
+msgid "View All"
+msgstr ""
+
+#: admin/includes/item-menu_pp.php:172 admin/includes/item-menu_pp.php:202
+#: admin/includes/item-menu_pp.php:204 admin/includes/item-menu_pp.php:609
+#: admin/includes/item-menu_pp.php:658 admin/includes/item-menu_pp.php:660
+msgid "Search"
+msgstr ""
+
+#: admin/includes/item-menu_pp.php:216 admin/includes/item-menu_pp.php:672
+#: admin/ui-helper_pp.php:79
+msgid "No results found."
+msgstr ""
+
+#: admin/includes/item-menu_pp.php:239 admin/includes/item-menu_pp.php:241
+#: admin/includes/item-menu_pp.php:551 admin/includes/item-menu_pp.php:553
+#: admin/permissions-ui_pp.php:680
+msgid "(none)"
+msgstr ""
+
+#: admin/includes/item-menu_pp.php:291 admin/includes/item-menu_pp.php:504
+#: admin/includes/item-menu_pp.php:687
+msgid "Select All"
+msgstr ""
+
+#: admin/includes/item-menu_pp.php:296 admin/includes/item-menu_pp.php:509
+#: admin/includes/item-menu_pp.php:692 admin/permissions-ui_pp.php:445
+#: admin/ui-helper_pp.php:46
+msgid "Add Exceptions"
+msgstr ""
+
+#: admin/includes/item-menu_pp.php:607
+msgid "Most Used"
+msgstr ""
+
+#: admin/item-exceptions-render-ui_pp.php:10
+msgid "(default access)"
+msgstr ""
+
+#: admin/item-exceptions-render-ui_pp.php:11
+msgid "(default: Yes)"
+msgstr ""
+
+#: admin/item-exceptions-render-ui_pp.php:12
+msgid "(default: No)"
+msgstr ""
+
+#: admin/item-exceptions-render-ui_pp.php:13
+msgid "(no setting)"
+msgstr ""
+
+#: admin/item-exceptions-render-ui_pp.php:14
+msgid "Enabled"
+msgstr ""
+
+#: admin/item-exceptions-render-ui_pp.php:15
+msgid "Blocked"
+msgstr ""
+
+#: admin/item-exceptions-render-ui_pp.php:16
+msgid "(Blocked)"
+msgstr ""
+
+#: admin/item-exceptions-render-ui_pp.php:17
+msgid "Unblocked"
+msgstr ""
+
+#: admin/item-exceptions-ui-hints_pp.php:5
+msgid ""
+"To block direct access to unreadable files, activate the PP File URL Filter "
+"plugin."
+msgstr ""
+
+#: admin/item-exceptions-ui-hints_pp.php:7
+msgid ""
+"To block direct access to unreadable files, %1$sinstall%2$s the PP File URL "
+"Filter plugin."
+msgstr ""
+
+#: admin/item-exceptions-ui-hints_pp.php:9
+msgid ""
+"To block direct access to unreadable files, %1$spurchase a support key%2$s "
+"and install the PP File URL Filter plugin."
+msgstr ""
+
+#: admin/item-exceptions-ui-hints_pp.php:16
+msgid ""
+"To customize editing permissions, activate the PP Collaborative Editing "
+"plugin."
+msgstr ""
+
+#: admin/item-exceptions-ui-hints_pp.php:18
+msgid ""
+"To customize editing permissions, %1$sinstall%2$s the PP Collaborative "
+"Editing plugin."
+msgstr ""
+
+#: admin/item-exceptions-ui-hints_pp.php:20
+msgid ""
+"To customize editing permissions, %1$spurchase a support key%2$s and install "
+"the PP Collaborative Editing plugin."
+msgstr ""
+
+#: admin/item-exceptions-ui_pp.php:31
+msgid "WP Roles"
+msgstr ""
+
+#: admin/item-exceptions-ui_pp.php:31 admin/pp-groups.php:177
+msgid "WP Role"
+msgstr ""
+
+#: admin/item-exceptions-ui_pp.php:33
+msgid "User"
+msgstr ""
+
+#: admin/item-exceptions-ui_pp.php:144
+msgid "This %s"
+msgstr ""
+
+#: admin/item-exceptions-ui_pp.php:149
+msgid "Sub-%s"
+msgstr ""
+
+#: admin/item-exceptions-ui_pp.php:176
+msgid "default all"
+msgstr ""
+
+#: admin/item-exceptions-ui_pp.php:176
+msgid "clear all"
+msgstr ""
+
+#: admin/item-exceptions-ui_pp.php:191
+msgid "No access customizations stored."
+msgstr ""
+
+#: admin/item-exceptions-ui_pp.php:199
+msgid "select users"
+msgstr ""
+
+#: admin/item-exceptions-ui_pp.php:199
+msgid "select groups"
+msgstr ""
+
+#: admin/item-exceptions-ui_pp.php:200
+msgid "close"
+msgstr ""
+
+#: admin/item-exceptions-ui_pp.php:204
+msgid "create group"
+msgstr ""
+
+#: admin/item-exceptions-ui_pp.php:223
+msgid ""
+"To customize <strong>for a specific post status</strong>, edit the desired "
+"role / group / user permissions directly (Permissions > Groups or Users)"
+msgstr ""
+
+#: admin/media-ui-hints_pp.php:4
+msgid ""
+"To block direct URL access to attachments of unreadable posts, activate the "
+"PP File URL Filter plugin."
+msgstr ""
+
+#: admin/media-ui-hints_pp.php:6
+msgid ""
+"To block direct URL access to attachments of unreadable posts, %1$sinstall"
+"%2$s the PP File URL Filter plugin."
+msgstr ""
+
+#: admin/media-ui-hints_pp.php:8
+msgid ""
+"To block direct URL access to attachments of unreadable posts, %1$senter%2$s "
+"or %3$spurchase%4$s a support key and install the PP File URL Filter plugin."
+msgstr ""
+
+#: admin/media-ui-hints_pp.php:14
+msgid "Block URL access"
+msgstr ""
+
+#: admin/options-advanced_ppx.php:18
+msgid "Advanced"
+msgstr ""
+
+#: admin/options-advanced_ppx.php:24
+msgid "Enable Advanced"
+msgstr ""
+
+#: admin/options-advanced_ppx.php:25
+msgid "File Filtering"
+msgstr ""
+
+#: admin/options-advanced_ppx.php:26
+msgid "Network-Wide Settings"
+msgstr ""
+
+#: admin/options-advanced_ppx.php:31
+msgid "Anonymous Users"
+msgstr ""
+
+#: admin/options-advanced_ppx.php:32
+msgid "Permissions Admin"
+msgstr ""
+
+#: admin/options-advanced_ppx.php:33
+msgid "PP Capabilities"
+msgstr ""
+
+#: admin/options-advanced_ppx.php:34
+msgid "Role Integration"
+msgstr ""
+
+#: admin/options-advanced_ppx.php:35
+msgid "Miscellaneous"
+msgstr ""
+
+#: admin/options-advanced_ppx.php:45
+msgid "Enable advanced settings"
+msgstr ""
+
+#: admin/options-advanced_ppx.php:49
+msgid "%1$sDisable%2$s all filtering for anonymous users"
+msgstr ""
+
+#: admin/options-advanced_ppx.php:50
+msgid "User Search: Filter by WP role"
+msgstr ""
+
+#: admin/options-advanced_ppx.php:51
+msgid "Display Administrative Hints"
+msgstr ""
+
+#: admin/options-advanced_ppx.php:52
+msgid "Display Extension Hints"
+msgstr ""
+
+#: admin/options-advanced_ppx.php:53
+msgid "Detect Dynamically Mapped WP Roles"
+msgstr ""
+
+#: admin/options-advanced_ppx.php:54
+msgid "Non-Administrators can set Reading Exceptions for their editable posts"
+msgstr ""
+
+#: admin/options-advanced_ppx.php:86
+msgid ""
+"<strong>Note:</strong> if you disable these settings, the stored values "
+"(including Role Usage adjustments) are retained but ignored."
+msgstr ""
+
+#: admin/options-advanced_ppx.php:88
+msgid ""
+"Most sites don't need advanced settings. But enable them if you need to work "
+"with custom WP Roles or apply performance tweaks."
+msgstr ""
+
+#: admin/options-advanced_ppx.php:118
+msgid ""
+"To filter access to attached files, install the Press Permit File URL Filter "
+"extension."
+msgstr ""
+
+#: admin/options-advanced_ppx.php:131
+msgid ""
+"Disable PP filtering for users who are not logged in. %1$sNote that this "
+"performance enhancement will make reading exceptions ineffective%2$s."
+msgstr ""
+
+#: admin/options-advanced_ppx.php:153
+msgid ""
+"If enabled, users with the pp_set_read_exceptions capability in the WP role "
+"can set reading exceptions for their editable posts."
+msgstr ""
+
+#: admin/options-advanced_ppx.php:173
+msgid ""
+"You can customize Press Permit administration capabilities %1$s for any WP "
+"role%2$s:"
+msgstr ""
+
+#: admin/options-advanced_ppx.php:175
+msgid ""
+"You can customize Press Permit administration capabilities by using a WP "
+"role editor such as %1$s:"
+msgstr ""
+
+#: admin/options-advanced_ppx.php:186
+msgid "Capability Name"
+msgstr ""
+
+#: admin/options-advanced_ppx.php:194
+msgid "Modify these Press Permit settings"
+msgstr ""
+
+#: admin/options-advanced_ppx.php:195
+msgid ""
+"Press Permit does not apply any supplemental roles or exceptions to limit or "
+"expand viewing or editing access"
+msgstr ""
+
+#: admin/options-advanced_ppx.php:196
+msgid ""
+"PP implicitly grants capabilities for all post types and statuses, but does "
+"not apply exceptions"
+msgstr ""
+
+#: admin/options-advanced_ppx.php:197
+msgid "Can create Permission Groups"
+msgstr ""
+
+#: admin/options-advanced_ppx.php:198
+msgid "Can edit all Permission Groups (barring Exceptions)"
+msgstr ""
+
+#: admin/options-advanced_ppx.php:199
+msgid "Can delete Permission Groups"
+msgstr ""
+
+#: admin/options-advanced_ppx.php:200
+msgid "If group editing is allowed, can also modify group membership"
+msgstr ""
+
+#: admin/options-advanced_ppx.php:201
+msgid ""
+"Assign supplemental Roles or Exceptions. Other capabilities may also be "
+"required."
+msgstr ""
+
+#: admin/options-advanced_ppx.php:202
+msgid ""
+"Set Reading Exceptions for editable posts on Edit Post/Term screen (for non-"
+"Administrators lacking edit_users capability; may be disabled by PP option)"
+msgstr ""
+
+#: admin/options-advanced_ppx.php:207 admin/options-advanced_ppx.php:210
+#: admin/options-advanced_ppx.php:213 admin/options-advanced_ppx.php:214
+#: admin/options-advanced_ppx.php:215 admin/options-advanced_ppx.php:216
+#: admin/options-advanced_ppx.php:217 admin/options-advanced_ppx.php:218
+#: admin/options-advanced_ppx.php:219 admin/options-advanced_ppx.php:226
+#: admin/options-advanced_ppx.php:227 admin/options-advanced_ppx.php:228
+#: admin/options-advanced_ppx.php:229 admin/options-advanced_ppx.php:230
+msgid "(PP Pro capability)"
+msgstr ""
+
+#: admin/options-advanced_ppx.php:254
+msgid ""
+"Display a role dropdown alongside the user search input box to narrow "
+"results."
+msgstr ""
+
+#: admin/options-advanced_ppx.php:257
+msgid "Display additional descriptions in role assignment and options UI."
+msgstr ""
+
+#: admin/options-advanced_ppx.php:260
+msgid ""
+"Display descriptive captions for additional functionality provided by "
+"missing or deactivated extension plugins (Press Permit Pro package)."
+msgstr ""
+
+#: admin/options-advanced_ppx.php:271
+msgid ""
+"Detect user roles which are appended dynamically but not stored to the WP "
+"database. May be useful for sites that sync with Active Directory or other "
+"external user registration systems."
+msgstr ""
+
+#: admin/options-advanced_ppx.php:288
+msgid ""
+"To modify one or more default settings network-wide, <strong>copy</strong> "
+"the following code into your theme&apos;s <strong>functions.php</strong> "
+"file (or some other file which is always executed and not auto-updated) and "
+"modify as desired:"
+msgstr ""
+
+#: admin/options-advanced_ppx.php:307
+msgid ""
+"To force the value of one or more settings network-wide, <strong>copy</"
+"strong> the following code into your theme&apos;s <strong>functions.php</"
+"strong> file (or some other file which is always executed and not auto-"
+"updated) and modify as desired:"
+msgstr ""
+
+#: admin/options-core_pp.php:16
+msgid "Core"
+msgstr ""
+
+#: admin/options-core_pp.php:22 admin/options-core_pp.php:37
+msgid "Filtered Taxonomies"
+msgstr ""
+
+#: admin/options-core_pp.php:23 admin/options-core_pp.php:38
+msgid "Filtered Post Types"
+msgstr ""
+
+#: admin/options-core_pp.php:24
+msgid "Front End"
+msgstr ""
+
+#: admin/options-core_pp.php:25
+msgid "User Management / Profile"
+msgstr ""
+
+#: admin/options-core_pp.php:26
+msgid "Database Maintenance"
+msgstr ""
+
+#: admin/options-core_pp.php:39
+msgid "Use create_posts capability"
+msgstr ""
+
+#: admin/options-core_pp.php:40
+msgid "Suppress \"Private:\" Caption"
+msgstr ""
+
+#: admin/options-core_pp.php:41
+msgid "Permission Groups on User Profile"
+msgstr ""
+
+#: admin/options-core_pp.php:42
+msgid "Supplemental Roles on User Profile"
+msgstr ""
+
+#: admin/options-core_pp.php:43
+msgid "Select Permission Groups at User creation"
+msgstr ""
+
+#: admin/options-core_pp.php:44
+msgid "Drop old PP database indexes for better performance"
+msgstr ""
+
+#: admin/options-core_pp.php:69
+msgid "Basic settings for content filtering, management and presentation."
+msgstr ""
+
+#: admin/options-core_pp.php:89
+msgid "Modify permissions for these Taxonomies:"
+msgstr ""
+
+#: admin/options-core_pp.php:100
+msgid "Modify permissions for these Post Types:"
+msgstr ""
+
+#: admin/options-core_pp.php:155
+msgid ""
+"<span class=\"pp-important\">Note</span>: Type-specific capability "
+"requirements (i.e. edit_things instead of edit_posts) will be imposed. If PP "
+"filters Media or a custom type, non-Administrators <span class=\"pp-important"
+"\">will need a corresponding %1$ssupplemental role%2$s for editing</span>. "
+"Adding the type-specific capabilities directly to a WP role definition also "
+"works."
+msgstr ""
+
+#: admin/options-core_pp.php:163
+msgid "To customize bbPress forum permissions, activate PP Compatibility Pack."
+msgstr ""
+
+#: admin/options-core_pp.php:165
+msgid ""
+"To customize bbPress forum permissions, activate your Press Permit Pro "
+"support key."
+msgstr ""
+
+#: admin/options-core_pp.php:174
+msgid ""
+"If enabled, the create_posts, create_pages, etc. capabilities will be "
+"enforced for all Filtered Post Types.  <strong>NOTE: You will also need to "
+"use a WordPress Role Editor</strong> such as Capability Manager Enhanced to "
+"add the create_posts capability to desired roles."
+msgstr ""
+
+#: admin/options-core_pp.php:188
+msgid "Remove the \"Private:\" and \"Protected\" prefix from Post, Page titles"
+msgstr ""
+
+#: admin/options-core_pp.php:204
+msgid "note: Groups and Roles are always displayed in \"Edit User\""
+msgstr ""
+
+#: admin/options-install_pp.php:16
+msgid "Install"
+msgstr ""
+
+#: admin/options-install_pp.php:22
+msgid "Support Key"
+msgstr ""
+
+#: admin/options-install_pp.php:23
+msgid "Version"
+msgstr ""
+
+#: admin/options-install_pp.php:24
+msgid "Extensions"
+msgstr ""
+
+#: admin/options-install_pp.php:25
+msgid "Beta Updates"
+msgstr ""
+
+#: admin/options-install_pp.php:36 admin/options-install_pp.php:39
+msgid "settings"
+msgstr ""
+
+#: admin/options-install_pp.php:37
+msgid "Receive update info from presspermit.com"
+msgstr ""
+
+#: admin/options-install_pp.php:38
+msgid "Receive beta version updates for extensions"
+msgstr ""
+
+#: admin/options-install_pp.php:72
+msgid "Configuration data was uploaded."
+msgstr ""
+
+#: admin/options-install_pp.php:76
+msgid "Configuration data is unchanged since last upload."
+msgstr ""
+
+#: admin/options-install_pp.php:80
+msgid "Configuration data could not be uploaded."
+msgstr ""
+
+#: admin/options-install_pp.php:86
+msgid "Version info was refreshed."
+msgstr ""
+
+#: admin/options-install_pp.php:131
+msgid ""
+"Your support key has expired. For information on renewal at a discounted "
+"rate, <a href=\"%s\">click here</a>."
+msgstr ""
+
+#: admin/options-install_pp.php:136
+msgid ""
+"Your support key (for plugin updates) will expire today. For information on "
+"renewal at a discounted rate, <a href=\"%2$s\">click here</a>."
+msgstr ""
+
+#: admin/options-install_pp.php:138
+msgid ""
+"Your support key (for plugin updates) will expire in %1$s days. For "
+"information on renewal at a discounted rate, <a href=\"%2$s\">click here</a>."
+msgstr ""
+
+#: admin/options-install_pp.php:141
+msgid ""
+"Activate your support key to install Pro extensions and access the member "
+"support forums. Available at <a href=\"%s\">presspermit.com</a>."
+msgstr ""
+
+#: admin/options-install_pp.php:150
+msgid "Key Expired"
+msgstr ""
+
+#: admin/options-install_pp.php:151 admin/options-install_pp.php:158
+#: admin/options-install_pp.php:534
+msgid "Deactivate Key"
+msgstr ""
+
+#: admin/options-install_pp.php:152
+msgid ""
+"note: Renewal does not require deactivation. If you do deactivate, re-entry "
+"of the support key will be required."
+msgstr ""
+
+#: admin/options-install_pp.php:155
+msgid "Key Activated"
+msgstr ""
+
+#: admin/options-install_pp.php:158 admin/options-install_pp.php:533
+msgid "Activate Key"
+msgstr ""
+
+#: admin/options-install_pp.php:168
+msgid ""
+"note: If you deactive, re-entry of the support key will be required for re-"
+"activation."
+msgstr ""
+
+#: admin/options-install_pp.php:170
+msgid "note: Your site URL and version info will be sent to presspermit.com"
+msgstr ""
+
+#: admin/options-install_pp.php:174
+msgid "reload extension links"
+msgstr ""
+
+#: admin/options-install_pp.php:222
+msgid "Press Permit Core Version: %1$s %2$s"
+msgstr ""
+
+#: admin/options-install_pp.php:224
+msgid "Database Schema Version: %s"
+msgstr ""
+
+#: admin/options-install_pp.php:228
+msgid "WordPress Version: %s"
+msgstr ""
+
+#: admin/options-install_pp.php:231
+msgid "PHP Version: %s"
+msgstr ""
+
+#: admin/options-install_pp.php:237
+msgid ""
+"Periodically query presspermit.com for available extensions. Your version "
+"info will be sent."
+msgstr ""
+
+#: admin/options-install_pp.php:249
+msgid "refresh"
+msgstr ""
+
+#: admin/options-install_pp.php:257
+msgid ""
+"Create your own WP roles or modify the capabilities defined for any WP Role."
+msgstr ""
+
+#: admin/options-install_pp.php:258
+msgid ""
+"Create your own WP roles or modify the capabilities defined for any WP Role. "
+"Not necessary for all installations, but PP interop is particularly "
+"important for bbPress and BuddyPress installations."
+msgstr ""
+
+#: admin/options-install_pp.php:277
+msgid "<strong>Change Log</strong> (since your current version)"
+msgstr ""
+
+#: admin/options-install_pp.php:279
+msgid "Active Extensions:"
+msgstr ""
+
+#: admin/options-install_pp.php:322
+msgid "%1$sInactive Extensions%2$s:"
+msgstr ""
+
+#: admin/options-install_pp.php:341
+msgid "Available Pro Extensions:"
+msgstr ""
+
+#: admin/options-install_pp.php:379
+msgid ""
+"To enable one-click installation and update of extensions, please activate "
+"your Press Permit Pro support key above."
+msgstr ""
+
+#: admin/options-install_pp.php:381
+msgid ""
+"Visit %1$spresspermit.com%2$s for further information on obtaining and "
+"installing extensions."
+msgstr ""
+
+#: admin/options-install_pp.php:387
+msgid "Press Permit Pro extensions supply:"
+msgstr ""
+
+#: admin/options-install_pp.php:389
+msgid ""
+"%1$sContent-specific editing permissions, with Edit Flow, Revisionary and "
+"Post Forking support%2$s"
+msgstr ""
+
+#: admin/options-install_pp.php:390
+msgid "%1$sCustom Post Statuses (for visibility or moderation)%2$s"
+msgstr ""
+
+#: admin/options-install_pp.php:391
+msgid "%1$sCustomize bbPress forum access%2$s"
+msgstr ""
+
+#: admin/options-install_pp.php:392
+msgid "%1$sFile URL filtering%2$s"
+msgstr ""
+
+#: admin/options-install_pp.php:393
+msgid "%1$sRole Scoper import script%2$s"
+msgstr ""
+
+#: admin/options-install_pp.php:394
+msgid "%1$s...and more%2$s"
+msgstr ""
+
+#: admin/options-install_pp.php:397
+msgid ""
+"For updated availability, enable the \"update info\" option above or visit "
+"%1$spresspermit.com%2$s."
+msgstr ""
+
+#: admin/options-install_pp.php:403
+msgid ""
+"Note: Hover over descriptions for more detail. Press Permit extensions can "
+"also be maintained on the Plugins screen."
+msgstr ""
+
+#: admin/options-install_pp.php:423
+msgid "Press Permit Documentation"
+msgstr ""
+
+#: admin/options-install_pp.php:425
+msgid "Press Permit Support Forums"
+msgstr ""
+
+#: admin/options-install_pp.php:427
+msgid "Upload site configuration to presspermit.com now"
+msgstr ""
+
+#: admin/options-install_pp.php:433
+msgid ""
+"%s Site configuration data selected below will be uploaded to presspermit."
+"com:"
+msgstr ""
+
+#: admin/options-install_pp.php:444
+msgid "Version info for server, WP, bbPress, BuddyPress, PP and all extensions"
+msgstr ""
+
+#: admin/options-install_pp.php:445
+msgid "PP Settings and related WP Settings"
+msgstr ""
+
+#: admin/options-install_pp.php:446
+msgid "Theme name, version and status"
+msgstr ""
+
+#: admin/options-install_pp.php:447
+msgid "Activated plugins list"
+msgstr ""
+
+#: admin/options-install_pp.php:448
+msgid "Inactive plugins list"
+msgstr ""
+
+#: admin/options-install_pp.php:449
+msgid "WordPress Roles, Capabilities, Post Types, Taxonomies and Post Statuses"
+msgstr ""
+
+#: admin/options-install_pp.php:450
+msgid "Role Assignments and Exceptions"
+msgstr ""
+
+#: admin/options-install_pp.php:451
+msgid "Group definitions"
+msgstr ""
+
+#: admin/options-install_pp.php:452
+msgid "Group Membership (id only)"
+msgstr ""
+
+#: admin/options-install_pp.php:453
+msgid "Role Scoper / PP 1.x Configuration and PP Import Results"
+msgstr ""
+
+#: admin/options-install_pp.php:454
+msgid ""
+"Post id, status, author id, parent id, and term ids and taxonomy name (when "
+"support accessed from post or term edit form)"
+msgstr ""
+
+#: admin/options-install_pp.php:455
+msgid "PHP Error Log (recent entries, no absolute paths)"
+msgstr ""
+
+#: admin/options-install_pp.php:480
+msgid ""
+"<strong>note:</strong> user data, absolute paths, database prefix, post "
+"title, post content and post excerpt are <strong>never</strong> uploaded"
+msgstr ""
+
+#: admin/options-install_pp.php:488
+msgid "Purchase of a support key enables access to the following resources:"
+msgstr ""
+
+#: admin/options-install_pp.php:492
+msgid "Pro Documentation on presspermit.com"
+msgstr ""
+
+#: admin/options-install_pp.php:493
+msgid "Pro Support Forums on presspermit.com"
+msgstr ""
+
+#: admin/options-install_pp.php:494
+msgid "Optional uploading of your site configuration to assist troubleshooting"
+msgstr ""
+
+#: admin/options-install_pp.php:501
+msgid ""
+"Note that these resources may be unavailable or incomplete during the "
+"project's initial beta phase."
+msgstr ""
+
+#: admin/options-install_pp.php:518
+msgid ""
+"If you have already received a beta update and want to switch back to the "
+"current production version, switch off this option and click Update. Then "
+"look for an update prompt in the Plugins list."
+msgstr ""
+
+#: admin/options-install_pp.php:535
+msgid "Connecting to presspermit.com server..."
+msgstr ""
+
+#: admin/options-install_pp.php:536
+msgid "The request could not be processed due to a connection failure."
+msgstr ""
+
+#: admin/options-install_pp.php:537
+msgid "Please enter the support key shown on your order receipt."
+msgstr ""
+
+#: admin/options-install_pp.php:538
+msgid "An unidentified error occurred."
+msgstr ""
+
+#: admin/options-install_pp.php:540
+msgid "The key has been deactivated."
+msgstr ""
+
+#: admin/options-install_pp.php:541
+msgid "The key has been activated."
+msgstr ""
+
+#: admin/options-install_pp.php:542
+msgid "The key has expired."
+msgstr ""
+
+#: admin/options-install_pp.php:543
+msgid "An unknown activation error occurred."
+msgstr ""
+
+#: admin/options-install_pp.php:544
+msgid "The key provided is not valid. Please double-check your entry."
+msgstr ""
+
+#: admin/options-install_pp.php:545
+msgid "This site is not valid to activate the key."
+msgstr ""
+
+#: admin/options-install_pp.php:546 admin/options-install_pp.php:552
+msgid "The key provided could not be validated by presspermit.com."
+msgstr ""
+
+#: admin/options-install_pp.php:547
+msgid "The key provided is already active on another site."
+msgstr ""
+
+#: admin/options-install_pp.php:548
+msgid "The key has already been activated on the allowed number of sites."
+msgstr ""
+
+#: admin/options-install_pp.php:549
+msgid "An unknown deactivation error occurred."
+msgstr ""
+
+#: admin/options-install_pp.php:550
+msgid "Unable to deactivate because the provided key is not valid."
+msgstr ""
+
+#: admin/options-install_pp.php:551
+msgid "This site is not valid to deactivate the key."
+msgstr ""
+
+#: admin/options-install_pp.php:553
+msgid "The key provided is not active on the specified site."
+msgstr ""
+
+#: admin/options-install_pp.php:558
+msgid "If this is incorrect, <a href=\"%s\">request activation help</a>."
+msgstr ""
+
+#: admin/options-install_pp.php:559
+msgid "Please save settings before uploading site configuration."
+msgstr ""
+
+#: admin/permissions-ui_pp.php:10
+msgid "Group Members"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:73
+msgid "n/a"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:79
+msgid "Copy Roles and Exceptions from:"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:96
+msgid "Do Clone"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:107 admin/permissions-ui_pp.php:192
+#: admin/permissions-ui_pp.php:370 admin/permissions-ui_pp.php:402
+msgid "Post Type"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:109
+msgid "for Statuses"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:129
+msgid "Status: Private"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:134
+msgid "Add Role"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:145
+msgid ""
+"To assign roles for custom post statuses, activate the PP Custom Post "
+"Statuses plugin."
+msgstr ""
+
+#: admin/permissions-ui_pp.php:147
+msgid ""
+"To assign roles for custom post statuses, %1$sinstall%2$s the PP Custom Post "
+"Statuses plugin."
+msgstr ""
+
+#: admin/permissions-ui_pp.php:149
+msgid ""
+"To assign roles for custom post statuses, %1$senter%2%s or %3$spurchase%4$s "
+"a support key and install the PP Custom Post Statuses plugin."
+msgstr ""
+
+#: admin/permissions-ui_pp.php:158
+msgid ""
+"To assign roles for bbPress forums, activate the PP Compatibility Pack "
+"plugin."
+msgstr ""
+
+#: admin/permissions-ui_pp.php:160
+msgid ""
+"To assign roles for bbPress forums, %1$sinstall%2$s the PP Compatibility "
+"Pack plugin."
+msgstr ""
+
+#: admin/permissions-ui_pp.php:162
+msgid ""
+"To assign roles for bbPress forums, %1$senter%2$s or %3$spurchase%4$s a "
+"support key and install the PP Compatibility Pack plugin."
+msgstr ""
+
+#: admin/permissions-ui_pp.php:171
+msgid ""
+"To assign Revisionary exceptions, activate the PP Collaborative Editing and "
+"PP Compatibility Pack plugins."
+msgstr ""
+
+#: admin/permissions-ui_pp.php:173
+msgid ""
+"To assign Revisionary exceptions, %1$sinstall%2$s the PP Collaborative "
+"Editing and PP Compatibility Pack plugins."
+msgstr ""
+
+#: admin/permissions-ui_pp.php:175
+msgid ""
+"To assign Revisionary exceptions, %1$senter%2$s or %3$spurchase%4$s a "
+"support key and install the PP Collaborative Editing and PP Compatibility "
+"Pack plugins."
+msgstr ""
+
+#: admin/permissions-ui_pp.php:193
+msgid "Post Operation"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:194 admin/permissions-ui_pp.php:404
+msgid "Adjustment"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:195 admin/permissions-ui_pp.php:405
+msgid "Qualification"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:196
+msgid "Statuses"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:224
+msgid "for item"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:245
+msgid ""
+"Warning: Content hidden by exceptions will be displayed if PP is "
+"deactivated. Consider setting a private Visibility on Edit Post screen "
+"instead."
+msgstr ""
+
+#: admin/permissions-ui_pp.php:273
+msgid ""
+"To assign exceptions for editing, parent selection or term assignment, "
+"activate the PP Collaborative Editing plugin."
+msgstr ""
+
+#: admin/permissions-ui_pp.php:275
+msgid ""
+"To assign exceptions for editing, parent selection or term assignment, "
+"%1$sinstall%2$s the PP Collaborative Editing plugin."
+msgstr ""
+
+#: admin/permissions-ui_pp.php:277
+msgid ""
+"To assign exceptions for editing, parent selection or term assignment, "
+"%1$senter%2$s or %3$spurchase%4$s a support key and install the PP "
+"Collaborative Editing plugin."
+msgstr ""
+
+#: admin/permissions-ui_pp.php:286
+msgid ""
+"To assign exceptions for bbPress forums, activate the PP Compatibility Pack "
+"plugin."
+msgstr ""
+
+#: admin/permissions-ui_pp.php:288
+msgid ""
+"To assign exceptions for bbPress forums, %1$sinstall%2$s the PP "
+"Compatibility Pack plugin."
+msgstr ""
+
+#: admin/permissions-ui_pp.php:290
+msgid ""
+"To assign exceptions for bbPress forums, %1$senter%2$s or %3$spurchase%4$s a "
+"support key and install the PP Compatibility Pack plugin."
+msgstr ""
+
+#: admin/permissions-ui_pp.php:321
+msgid "Select %s"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:372 admin/permissions-ui_pp.php:407
+msgid "Status"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:384
+msgid "Save Roles"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:403
+msgid "Operation"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:419
+msgid "Save Exceptions"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:443
+msgid "Add Supplemental Roles"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:455
+msgid "Clone"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:537
+msgid "Supplemental Roles %1$s(for user)%2$s"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:537
+msgid "Supplemental Roles"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:598
+msgid "Term Management"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:602 admin/permissions-ui_pp.php:605
+msgid "objects"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:603
+msgid "Direct-Assigned"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:606
+msgid "Disabled Type"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:611
+msgid "%s Roles"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:648 admin/permissions-ui_pp.php:968
+msgid "Apply"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:672 admin/profile_ui_pp.php:67
+msgid "Exceptions %1$s(for user)%2$s"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:672 admin/post-listing-ui_pp.php:56
+msgid "Exceptions"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:812
+msgid "(all post types)"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:821
+msgid "%1$s (%2$s: %3$s)"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:821
+msgid "%1$s %2$s %3$s"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:855
+msgid "unpublished"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:869
+msgid "* %s"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:892
+msgid "%s:"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:934
+msgid "edit"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:956
+msgid "Assign for selected and sub-%s"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:957
+msgid "Assign for selected %s only"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:958
+msgid "Assign for sub-%s only"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:960
+msgid "Assign for selected and sub-terms"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:961
+msgid "Assign for selected term only"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:962
+msgid "Assign for sub-terms only"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:978
+msgid ""
+"* = exceptions redundant due to a corresponding &quot;only these&quot; entry"
+msgstr ""
+
+#: admin/permissions-ui_pp.php:985
+msgid "note: Exceptions inherited from parent %s are not displayed."
+msgstr ""
+
+#: admin/permissions-ui_pp.php:987
+msgid "note: Exceptions inherited from parent %s or terms are not displayed."
+msgstr ""
+
+#: admin/plugin-update-watch_pp.php:31
+msgid ""
+"Bulk Update is not currently supported for Press Permit. Please use "
+"individual plugin update links in the %1$splugins list%2$s or %3$sPP Install "
+"tab%4$s instead."
+msgstr ""
+
+#: admin/plugin-update_pp.php:22
+msgid "You do not have sufficient permissions to update plugins for this site."
+msgstr ""
+
+#: admin/plugin-update_pp.php:35
+msgid "Upgrade %s"
+msgstr ""
+
+#: admin/plugin-update_pp.php:76
+msgid ""
+"You do not have sufficient permissions to install plugins for this site."
+msgstr ""
+
+#: admin/plugin-update_pp.php:312
+msgid "Reload Press Permit Install Screen"
+msgstr ""
+
+#: admin/plugin-update_pp.php:315
+msgid "Return to Plugins page"
+msgstr ""
+
+#: admin/plugin-update_pp.php:367
+msgid "Activate this plugin"
+msgstr ""
+
+#: admin/plugin-update_pp.php:367
+msgid "Activate Plugin"
+msgstr ""
+
+#: admin/plugin-update_pp.php:370
+msgid "Activate this plugin for all sites in this network"
+msgstr ""
+
+#: admin/plugin-update_pp.php:370
+msgid "Network Activate"
+msgstr ""
+
+#: admin/plugin-update_pp.php:374
+msgid "Reload PP Install Screen"
+msgstr ""
+
+#: admin/plugin_pp.php:264
+msgid ""
+"There is a new version of %1$s, but <a href=\"%2$s\">your support key</a> is "
+"not activated. No automatic update available. <a href=\"%3$s\">Purchase a "
+"Press Permit Pro support key</a> for one-click updates and support "
+"resources. <a href=\"%4$s\" class=\"thickbox\" title=\"%5$s\">View version "
+"%6$s details</a>."
+msgstr ""
+
+#: admin/plugin_pp.php:277
+msgid ""
+"Activate your <a href=\"%1$s\">support key</a> for Press Permit Pro "
+"extensions and support resources."
+msgstr ""
+
+#: admin/post-edit-ui-hints_pp.php:5
+msgid ""
+"To define custom privacy statuses, activate the PP Custom Post Statuses "
+"plugin."
+msgstr ""
+
+#: admin/post-edit-ui-hints_pp.php:7
+msgid ""
+"To define custom privacy statuses, %1$sinstall%2$s the PP Custom Post "
+"Statuses plugin."
+msgstr ""
+
+#: admin/post-edit-ui-hints_pp.php:9
+msgid ""
+"To define custom privacy statuses, %1$senter%2$s or %3$spurchase%4$s a "
+"support key and install the PP Custom Post Statuses plugin."
+msgstr ""
+
+#: admin/post-edit-ui-hints_pp.php:15
+msgid "define custom privacy"
+msgstr ""
+
+#: admin/post-edit-ui-hints_pp.php:39
+msgid "To define custom moderation statuses, %1$sactivate%2$s %3$s."
+msgstr ""
+
+#: admin/post-edit-ui-hints_pp.php:41
+msgid ""
+"To define custom moderation statuses, %1$senter%2$s or %3$spurchase%4$s a "
+"Press Permit support key. Then install %5$s."
+msgstr ""
+
+#: admin/post-edit-ui-hints_pp.php:47
+msgid "Customize"
+msgstr ""
+
+#: admin/post-edit-ui_pp.php:57 admin/pp-settings.php:71
+#: admin/term-edit-ui_pp.php:196
+msgid "Press Permit Settings"
+msgstr ""
+
+#: admin/post-edit-ui_pp.php:72
+msgid "%s Exceptions"
+msgstr ""
+
+#: admin/post-edit-ui_pp.php:104 admin/term-edit-ui_pp.php:216
+msgid "enable custom permissions for %s"
+msgstr ""
+
+#: admin/pp-about.php:14
+msgid "unselfish, benevolent love, born of the Spirit."
+msgstr ""
+
+#: admin/pp-about.php:17
+msgid "Agap&eacute; discerns needs and meets them unselfishly and effectively."
+msgstr ""
+
+#: admin/pp-about.php:20
+msgid ""
+"This WordPress plugin is part of my agap&eacute; try, %7$s a lifelong effort"
+"%8$s to love God and love people by rightly using the time and abilities He "
+"has leant me. As a husband, father, engineer, farmer and/or software "
+"developer, I have found this stewardship effort to be often fraught with "
+"contradiction. A wise and sustainable balancing of roles has seemed to elude "
+"me. Yet I want to keep trying, trusting that if God blesses and multiplies "
+"the effort, it will become agapetry, a creative arrangement motivated by "
+"benevolent love.  A fleeting childlike sketch of the beautiful %1$s chain-"
+"breaking agap&eacute;%2$s which %3$s Jesus Christ unleashed%4$s so %5$s "
+"freely%6$s and aptly on an enslaving, enslaved world."
+msgstr ""
+
+#: admin/pp-about.php:30
+msgid ""
+"Over that last five years, I&apos;ve discovered that WordPress permissions "
+"customization is a complex moving target that&apos;s not well-suited to a "
+"purely free+consulting model. To ensure commensurate funding for plugin "
+"development, documentation and support, I&apos;ve introduced Press Permit "
+"Pro. Your purchase provides access and 12 months of updates to a package of "
+"extension plugins which provide these and other features:"
+msgstr ""
+
+#: admin/pp-about.php:34
+msgid "Customize editing access for selected posts or terms"
+msgstr ""
+
+#: admin/pp-about.php:36
+msgid "Custom Privacy Statuses, integrated with WP capabilities and editing"
+msgstr ""
+
+#: admin/pp-about.php:38
+msgid "Custom Moderation Statuses, allowing multi-step moderation"
+msgstr ""
+
+#: admin/pp-about.php:40
+msgid "Use BuddyPress groups as Permission Groups"
+msgstr ""
+
+#: admin/pp-about.php:42
+msgid "Customize permissions for any bbPress Forum"
+msgstr ""
+
+#: admin/pp-about.php:44
+msgid "Regulate direct file URL access"
+msgstr ""
+
+#: admin/pp-about.php:46
+msgid "Hidden Content Teaser"
+msgstr ""
+
+#: admin/pp-about.php:48
+msgid "Schedule or expire Permission Group membership (date or X days)"
+msgstr ""
+
+#: admin/pp-about.php:52
+msgid ""
+"You also get access to the Pro Support Forums. If you would like to get a "
+"hold of this software or fund other development, there are several ways to "
+"proceed:"
+msgstr ""
+
+#: admin/pp-about.php:56
+msgid "%1$s by creating a 30 day evaluation site %2$sfor a nominal fee%3$s."
+msgstr ""
+
+#: admin/pp-about.php:60
+msgid ""
+"%1$sBuy%2$s %3$s for 12 months of access to %4$sextension plugins%5$s and "
+"support resources."
+msgstr ""
+
+#: admin/pp-about.php:64
+msgid "View Kevin&apos;s %1$s and submit a request."
+msgstr ""
+
+#: admin/pp-about.php:70
+msgid "If you just want to say thanks for past development and support, %s"
+msgstr ""
+
+#: admin/pp-about.php:74
+msgid ""
+"Although Press Permit&apos;s development was a maniacal hermit-like effort, "
+"it was only possible because of the clean and extensible %1$s WordPress code "
+"base%2$s developed by hundreds of core contributors.  Thanks for "
+"appreciating and supporting my own contributions to this content management "
+"landscape.  I hope they will assist you toward resolution and purpose in "
+"building excellent websites with a thankful heart toward your own Creator, "
+"who IS agap&eacute;."
+msgstr ""
+
+#: admin/pp-about.php:79
+msgid ""
+"If you need additional feature development or implementation assistance, I "
+"may be available for %1$spaid consulting%2$s."
+msgstr ""
+
+#: admin/pp-about.php:84
+msgid "Thanks again for your support,"
+msgstr ""
+
+#: admin/pp-agent-edit-handler.php:25 admin/pp-agent-edit-handler.php:95
+#: admin/pp-edit-permissions.php:30 admin/pp-edit-permissions.php:36
+#: admin/pp-edit-permissions.php:39 admin/pp-group-new.php:39
+#: admin/pp-permits-handler.php:33 admin/pp-permits-handler.php:76
+msgid "You are not permitted to do that."
+msgstr ""
+
+#: admin/pp-agent-edit-handler.php:262
+msgid "<strong>ERROR</strong>: Please enter a group name."
+msgstr ""
+
+#: admin/pp-agent-edit-handler.php:265
+msgid ""
+"<strong>ERROR</strong>: This group name is already registered. Please choose "
+"another one."
+msgstr ""
+
+#: admin/pp-edit-permissions.php:20
+msgid "No user/group specified."
+msgstr ""
+
+#: admin/pp-edit-permissions.php:33
+msgid "Invalid user ID."
+msgstr ""
+
+#: admin/pp-edit-permissions.php:42
+msgid "Invalid group ID."
+msgstr ""
+
+#: admin/pp-edit-permissions.php:78
+msgid "Roles updated."
+msgstr ""
+
+#: admin/pp-edit-permissions.php:81
+msgid "Exceptions updated."
+msgstr ""
+
+#: admin/pp-edit-permissions.php:84
+msgid "Group updated."
+msgstr ""
+
+#: admin/pp-edit-permissions.php:87 admin/pp-edit-permissions.php:99
+#: admin/pp-group-new.php:49
+msgid "Back to groups list"
+msgstr ""
+
+#: admin/pp-edit-permissions.php:96 admin/pp-group-new.php:47
+msgid "Group created."
+msgstr ""
+
+#: admin/pp-edit-permissions.php:117
+msgid "Edit User Permissions"
+msgstr ""
+
+#: admin/pp-edit-permissions.php:117
+msgid "Add User Permissions"
+msgstr ""
+
+#: admin/pp-edit-permissions.php:120
+msgid "Edit Permission Group (WP Role)"
+msgstr ""
+
+#: admin/pp-edit-permissions.php:123
+msgid "Edit Permission Group"
+msgstr ""
+
+#: admin/pp-edit-permissions.php:126
+msgid "Edit Permissions (%s)"
+msgstr ""
+
+#: admin/pp-edit-permissions.php:173
+msgid "Primary Role:"
+msgstr ""
+
+#: admin/pp-edit-permissions.php:196
+msgid "Update Group"
+msgstr ""
+
+#: admin/pp-edit-permissions.php:259
+msgid ""
+"Supplemental Roles %1$s(from primary role or %2$sgroup membership%3$s)%4$s"
+msgstr ""
+
+#: admin/pp-edit-permissions.php:279
+msgid "View currently stored user permissions:"
+msgstr ""
+
+#: admin/pp-edit-permissions.php:283 admin/pp-users.php:45
+msgid "%1$sUsers who have Supplemental Roles assigned directly%2$s"
+msgstr ""
+
+#: admin/pp-edit-permissions.php:284 admin/pp-users.php:46
+msgid "%1$sUsers who have Exceptions assigned directly%2$s"
+msgstr ""
+
+#: admin/pp-edit-permissions.php:285 admin/pp-users.php:47
+msgid "%1$sUsers who have Supplemental Roles or Exceptions directly%2$s"
+msgstr ""
+
+#: admin/pp-edit-permissions.php:294
+msgid "Exceptions Explained:"
+msgstr ""
+
+#: admin/pp-edit-permissions.php:296
+msgid ""
+"Not These : Specified items are not accessible unless an \"Also These\" "
+"exception is also stored."
+msgstr ""
+
+#: admin/pp-edit-permissions.php:297
+msgid ""
+"Only These : Item access as defined by user / group role(s) is further "
+"limited by these selections. Users will still need sufficient capabilities "
+"in their primary or supplemental roles."
+msgstr ""
+
+#: admin/pp-edit-permissions.php:298
+msgid ""
+"Also These : Specified items are accessible regardless of role(s) and other "
+"exceptions."
+msgstr ""
+
+#: admin/pp-edit-permissions.php:303
+msgid ""
+"Keep in mind that roles and exceptions can be assigned to WP Roles, "
+"BuddyPress Groups, Custom Groups and/or individual Users.  \"Not These\" and "
+"\"Only These\" exceptions are unavailable for groups in some contexts."
+msgstr ""
+
+#: admin/pp-group-new.php:67
+msgid "Create New Permission Group"
+msgstr ""
+
+#: admin/pp-group-new.php:69
+msgid "Create New %s"
+msgstr ""
+
+#: admin/pp-group-new.php:99
+msgid ""
+"Note: Supplemental Roles and other group settings can be configured here "
+"after the new group is created."
+msgstr ""
+
+#: admin/pp-group-new.php:106
+msgid "Create Group"
+msgstr ""
+
+#: admin/pp-groups.php:68
+msgid "Delete Groups"
+msgstr ""
+
+#: admin/pp-groups.php:69
+msgid "You have specified this group for deletion:"
+msgid_plural "You have specified these groups for deletion:"
+msgstr[0] ""
+msgstr[1] ""
+
+#: admin/pp-groups.php:80
+msgid "ID #%1s: %2s"
+msgstr ""
+
+#: admin/pp-groups.php:88
+msgid "Confirm Deletion"
+msgstr ""
+
+#: admin/pp-groups.php:90
+msgid "There are no valid groups selected for deletion."
+msgstr ""
+
+#: admin/pp-groups.php:108
+msgid "%s group deleted"
+msgid_plural "%s groups deleted"
+msgstr[0] ""
+msgstr[1] ""
+
+#: admin/pp-groups.php:111
+msgid "New group created."
+msgstr ""
+
+#: admin/pp-groups.php:137 admin/profile_ui_pp.php:170
+msgid "Permission Groups"
+msgstr ""
+
+#: admin/pp-groups.php:166
+msgid ""
+"Permission Groups are sets of users to which you may assign supplemental "
+"roles or exceptions. To customize permissions for an individual user "
+"instead, click their Role in the Users listing."
+msgstr ""
+
+#: admin/pp-groups.php:174
+msgid "Custom Group"
+msgstr ""
+
+#: admin/pp-groups.php:190
+msgid "%1$sGroup Type:%2$s %3$s"
+msgstr ""
+
+#: admin/pp-groups.php:194
+msgid "Search results for &#8220;%s&#8221;"
+msgstr ""
+
+#: admin/pp-groups.php:204
+msgid "Search Groups"
+msgstr ""
+
+#: admin/pp-groups.php:216
+msgid ""
+"To assign roles or exceptions to BuddyPress groups, activate the PP "
+"BuddyPress Role Groups"
+msgstr ""
+
+#: admin/pp-groups.php:218
+msgid ""
+"To assign roles or exceptions to BuddyPress groups, %1$sinstall%2$s the PP "
+"BuddyPress Role Groups plugin."
+msgstr ""
+
+#: admin/pp-groups.php:220
+msgid ""
+"To assign roles or exceptions to BuddyPress groups, %1$enter%2$s or "
+"%3$spurchase%4$s a support key and install the PP BuddyPress Role Groups "
+"plugin."
+msgstr ""
+
+#: admin/pp-permits-handler.php:64
+msgid "You can&#8217;t delete that group."
+msgstr ""
+
+#: admin/pp-settings.php:67 admin/pp-settings.php:148
+msgid "Save Changes"
+msgstr ""
+
+#: admin/pp-settings.php:120
+msgid "Settings were updated."
+msgstr ""
+
+#: admin/pp-settings.php:124
+msgid "Settings were reset to defaults."
+msgstr ""
+
+#: admin/pp-settings.php:152
+msgid ""
+"All settings in this form (including those on undisplayed tabs) will be "
+"reset to DEFAULTS.  Are you sure?"
+msgstr ""
+
+#: admin/pp-settings.php:156
+msgid "Revert to Defaults"
+msgstr ""
+
+#: admin/pp-users.php:9
+msgid "User Permissions"
+msgstr ""
+
+#: admin/pp-users.php:16
+msgid "Bulk-Add User Permissions"
+msgstr ""
+
+#: admin/pp-users.php:22
+msgid ""
+"%1$snote%2$s: If you need to assign the same role or exception to multiple "
+"users, grouping them into a WP Role or custom Permission Group usually leads "
+"to a cleaner configuration."
+msgstr ""
+
+#: admin/pp-users.php:30
+msgid "View / Edit User Permissions"
+msgstr ""
+
+#: admin/pp-users.php:37
+msgid ""
+"To assign supplemental roles and exceptions directly to a single user, click "
+"their \"Site Role\" cell on the %1$sUsers%2$s screen. The Users listing can "
+"be filtered by the following links:"
+msgstr ""
+
+#: admin/pp-users.php:41
+msgid "%1$sAll Users%2$s"
+msgstr ""
+
+#: admin/pp-users.php:51
+msgid "%1$sUsers who have Supplemental Roles (directly or via group)%2$s"
+msgstr ""
+
+#: admin/pp-users.php:52
+msgid "%1$sUsers who have Exceptions  (directly or via group)%2$s"
+msgstr ""
+
+#: admin/pp-users.php:53
+msgid ""
+"%1$sUsers who have Supplemental Roles or Exceptions  (directly or via "
+"group)%2$s"
+msgstr ""
+
+#: admin/pp-users.php:59
+msgid ""
+"%1$snote%2$s: If you don&apos;t see the Site Role column on the Users "
+"screen, make sure it is enabled in Screen Options. "
+msgstr ""
+
+#: admin/pro-promo_pp.php:2
+msgid "Show list of PP Pro features and screencasts"
+msgstr ""
+
+#: admin/pro-promo_pp.php:51
+msgid "Assign standard WP roles supplementally for a specific post type"
+msgstr ""
+
+#: admin/pro-promo_pp.php:55
+msgid ""
+"Assign custom WP roles supplementally for a specific post type <em>(Pro)</em>"
+msgstr ""
+
+#: admin/pro-promo_pp.php:59
+msgid "Customize reading permissions per-category or per-post"
+msgstr ""
+
+#: admin/pro-promo_pp.php:63
+msgid "Customize editing permissions per-category or per-post <em>(Pro)</em>"
+msgstr ""
+
+#: admin/pro-promo_pp.php:67
+msgid ""
+"Custom Post Visibility statuses, fully implemented throughout wp-admin <em>"
+"(Pro)</em>"
+msgstr ""
+
+#: admin/pro-promo_pp.php:71
+msgid ""
+"Custom Moderation statuses for access-controlled, multi-step publishing "
+"workflow <em>(Pro)</em>"
+msgstr ""
+
+#: admin/pro-promo_pp.php:75
+msgid "Regulate permissions for Edit Flow post statuses <em>(Pro)</em>"
+msgstr ""
+
+#: admin/pro-promo_pp.php:79
+msgid ""
+"Customize the moderated editing of published content with Revisionary or "
+"Post Forking <em>(Pro)</em>"
+msgstr ""
+
+#: admin/pro-promo_pp.php:83
+msgid ""
+"Grant Spectator, Participant or Moderator access to specific bbPress forums "
+"<em>(Pro)</em>"
+msgstr ""
+
+#: admin/pro-promo_pp.php:87
+msgid ""
+"Grant supplemental content permissions to a BuddyPress group <em>(Pro)</em>"
+msgstr ""
+
+#: admin/pro-promo_pp.php:91
+msgid "WPML integration to mirror permissions to translations <em>(Pro)</em>"
+msgstr ""
+
+#: admin/pro-promo_pp.php:95
+msgid "Member support forum"
+msgstr ""
+
+#: admin/pro-promo_pp.php:100
+msgid "Screencasts"
+msgstr ""
+
+#: admin/pro-promo_pp.php:102
+msgid "Feature Grid"
+msgstr ""
+
+#: admin/pro-promo_pp.php:104
+msgid "FAQs"
+msgstr ""
+
+#: admin/pro-promo_pp.php:106
+msgid "Pre-Sale Questions"
+msgstr ""
+
+#: admin/pro-promo_pp.php:108
+msgid "Purchase"
+msgstr ""
+
+#: admin/pro-promo_pp.php:110
+msgid "Hide"
+msgstr ""
+
+#: admin/profile_ui_pp.php:25
+msgid "Custom User Permissions"
+msgstr ""
+
+#: admin/profile_ui_pp.php:30
+msgid ""
+"Supplemental roles and exceptions assigned to a user's primary role or other "
+"Permission Groups are usually the cleanest way to customize permissions.  "
+"You can also %1$scustomize this user directly%2$s."
+msgstr ""
+
+#: admin/profile_ui_pp.php:65
+msgid "Supplemental Roles %1$s(for this user)%2$s"
+msgstr ""
+
+#: admin/profile_ui_pp.php:91
+msgid "Supplemental Roles %1$s(from primary role or group membership)%2$s"
+msgstr ""
+
+#: admin/profile_ui_pp.php:93
+msgid "Exceptions (from primary role or group membership)"
+msgstr ""
+
+#: admin/profile_ui_pp.php:188
+msgid "This user is not a member of any Permission Groups."
+msgstr ""
+
+#: admin/profile_ui_pp.php:191
+msgid "Edit this user&apos;s group membership"
+msgstr ""
+
+#: admin/profile_ui_pp.php:191
+msgid "add / edit membership"
+msgstr ""
+
+#: admin/profile_ui_pp.php:195
+msgid ""
+"note: BuddyPress Groups and other externally defined groups are not listed "
+"here, even if they modify permissions"
+msgstr ""
+
+#: admin/term-edit-ui_pp.php:76
+msgid "%1$s %2$s %3$s Exceptions"
+msgstr ""
+
+#: admin/term-edit-ui_pp.php:76
+msgid "%1$s %2$s Exceptions (all post types)"
+msgstr ""
+
+#: admin/term-edit-ui_pp.php:78
+msgid "%1$s %2$s Exceptions (all post statuses)"
+msgstr ""
+
+#: admin/term-edit-ui_pp.php:78
+msgid "%1$s Exceptions (all post types, statuses)"
+msgstr ""
+
+#: admin/term-edit-ui_pp.php:80
+msgid "%1$s %2$s Exceptions"
+msgstr ""
+
+#: admin/term-edit-ui_pp.php:80
+msgid "%1$s Exceptions (all post types)"
+msgstr ""
+
+#: admin/term-edit-ui_pp.php:138
+msgid "Update"
+msgstr ""
+
+#: admin/term-edit-ui_pp.php:176
+msgid ""
+"Displayed exceptions are those assigned for the \"%1$s\" type. You can also "
+"%2$sdefine universal %3$s exceptions which apply to all related post types"
+"%4$s."
+msgstr ""
+
+#: admin/term-listing-ui_pp.php:33
+msgid ""
+"Listed exceptions are those assigned for the \"%1$s\" type. You can also "
+"%2$sdefine universal %3$s exceptions which apply to all related post types"
+"%4$s."
+msgstr ""
+
+#: admin/term-listing-ui_pp.php:46
+msgid "Click to list/edit universal exceptions"
+msgstr ""
+
+#: admin/term-listing-ui_pp.php:48
+msgid "%1$s Exceptions %2$s*%3$s"
+msgstr ""
+
+#: admin/term-listing-ui_pp.php:50
+msgid "Universal Exceptions"
+msgstr ""
+
+#: admin/ui-helper_pp.php:20
+msgid "Add Roles"
+msgstr ""
+
+#: admin/ui-helper_pp.php:21 admin/ui-helper_pp.php:47
+msgid "clear"
+msgstr ""
+
+#: admin/ui-helper_pp.php:22
+msgid "No statuses selected!"
+msgstr ""
+
+#: admin/ui-helper_pp.php:23 admin/ui-helper_pp.php:48
+msgid "Review selection(s) below, then click Save."
+msgstr ""
+
+#: admin/ui-helper_pp.php:24
+msgid "Role already selected!"
+msgstr ""
+
+#: admin/ui-helper_pp.php:25 admin/ui-helper_pp.php:50
+msgid "No Action selected!"
+msgstr ""
+
+#: admin/ui-helper_pp.php:26
+msgid "Role submission in progress..."
+msgstr ""
+
+#: admin/ui-helper_pp.php:27
+msgid "Reload form for further changes to this role"
+msgstr ""
+
+#: admin/ui-helper_pp.php:49
+msgid "Exception already selected!"
+msgstr ""
+
+#: admin/ui-helper_pp.php:51
+msgid "Exception submission in progress..."
+msgstr ""
+
+#: admin/ui-helper_pp.php:52
+msgid "Reload form for further changes to this exception"
+msgstr ""
+
+#: admin/ui-helper_pp.php:53
+msgid "No Assignment Mode selected!"
+msgstr ""
+
+#: admin/ui-helper_pp.php:72
+msgid "No items selected!"
+msgstr ""
+
+#: admin/users-ui_pp.php:13
+msgid "Click to show only users who have supplemental roles"
+msgstr ""
+
+#: admin/users-ui_pp.php:14
+msgid "Roles %1$s*%2$s"
+msgstr ""
+
+#: admin/users-ui_pp.php:19
+msgid "Click to show only users who have exceptions"
+msgstr ""
+
+#: admin/users-ui_pp.php:20
+msgid "Exceptions %1$s*%2$s"
+msgstr ""
+
+#: admin/users-ui_pp.php:105
+msgid "%s&nbsp;more"
+msgstr ""
+
+#: eyes-only-helper_pp.php:4
+msgid "Permission Group"
+msgstr ""
+
+#: groups-retrieval_pp.php:238
+msgid "{Authenticated}"
+msgstr ""
+
+#: groups-retrieval_pp.php:241
+msgid "{Anonymous}"
+msgstr ""
+
+#: groups-retrieval_pp.php:244
+msgid "{All}"
+msgstr ""
+
+#: groups-retrieval_pp.php:248
+msgid "[WP %s]"
+msgstr ""
+
+#: groups-retrieval_pp.php:256
+msgid "Authenticated site users (logged in)"
+msgstr ""
+
+#: groups-retrieval_pp.php:259
+msgid "Anonymous users (not logged in)"
+msgstr ""
+
+#: groups-retrieval_pp.php:262
+msgid "All users (including anonymous)"
+msgstr ""
+
+#: groups-retrieval_pp.php:268
+msgid "All users with the WordPress role of %s"
+msgstr ""
+
+#: lib/debug.php:217
+msgid "%1$s queries in %2$s seconds. %3$s MB used."
+msgstr ""
+
+#: lib/error_pp.php:5
+msgid ""
+"%1$s won&#39;t work until you upgrade Press Permit Core to version %2$s or "
+"later."
+msgstr ""
+
+#: lib/error_pp.php:10
+msgid ""
+"%1$s won&#39;t work until you upgrade WordPress to version %2$s or later."
+msgstr ""
+
+#: lib/error_pp.php:15
+msgid ""
+"This version of %1$s cannot work with your current PP Core. Please upgrade "
+"it to %2$s or later."
+msgstr ""
+
+#: lib/error_pp.php:20
+msgid "Duplicate Press Permit extension activated (%1$s in folder %2$s)."
+msgstr ""
+
+#: pp_load.php:46
+msgid "Group"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Press Permit Core"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://presspermit.com"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Advanced yet accessible content permissions. Give users or groups type-"
+"specific roles. Enable or block access for specific posts or terms."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Agapetry Creations LLC"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://agapetry.com/"
+msgstr ""

@@ -1,0 +1,120 @@
+/* --- Colors used in settings table --- */
+.pp-important {
+font-weight: bold;
+color: #700;
+}
+.pp-warning {
+color: #c00;
+}
+.pp-success {
+color: #0b0;
+}
+.pp-backtan {
+background-color: #858585; /*#dfdfdf;*/ /*#FFFEEB;*/
+}
+
+#pp_settings_form ul.pp-list_horiz li.pp-backtan a {
+color: white;
+}
+
+/* --- Settings table layout --- */
+.pp-options {
+padding: 0 0.5em 1em 0.5em;
+border: 1px solid #ccc;
+margin-top:0;
+}
+.pp-form-table input {
+vertical-align: text-bottom;
+}
+.pp-options-table tr {
+border-bottom: 4px solid #e8e8e8; /*#FFFEEB;*/
+}
+.pp-options-table tr td {
+padding-top: 1em;
+padding-bottom: 1em;
+}
+.pp-options-wrapper .pp-options-table th {
+font-weight: bold;
+padding-top: 1em;
+padding-left: 10px;
+}
+.pp-form-table tr th span a {
+color: #333;
+background-color: #CFEBF7;
+}
+.pp-form-table tr th, .pp-form-table tr td {
+background-color: #f4f4f4; /*#CFEBF7;*/
+border-bottom: 4px solid #858585; /*#e8e8e8;*/ /*#FFFEEB;*/
+}
+.pp-vtight input {
+margin-top: 0.15em;
+}
+.pp-optionhint {
+margin-top: 0.5em;
+font-style: italic;
+color: white;
+}
+
+table.pp-options-table .pp-optionhint {
+color: #686868;
+}
+
+#pp_settings_form li.agp-selected_agent {
+border-bottom: none;
+}
+#pp_settings_form li.agp-selected_agent a{
+font-weight: bold;
+}
+
+/* --- Install Tab --- */
+#pp-install #support_key { width:325px }
+#pp-install .activating { border-width:1px;border-style:solid;padding:0 0.6em;margin:0.5em 0.5em 0 0;-moz-border-radius:3px;-khtml-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;background-color:#ffffe0;border-color:#e6db55; }
+#pp-install #activation-button{vertical-align: top}
+#pp-install .pp-key-active {font-weight:bold;color:#070;vertical-align:bottom;margin-right:0.5em}
+#pp-install .pp-key-exired {font-weight:bold;color:#c00;vertical-align:bottom;margin-right:0.5em}
+#pp-install .pp-key-warning {color:#c00; font-weight: normal}
+#pp-install .pp-install-list{margin:0.5em 0 1em 0}
+#pp-install .pp-install-list li{padding-left:1em}
+
+#pp-install #activation-status {text-align:center;margin-bottom:10px}
+
+#pp-install table.pp-extensions tr th, #pp-install table.pp-extensions tr td, #pp-install table.pp-extensions tr {
+margin-bottom: 1px;
+vertical-align: top;
+border-bottom: none;
+}
+#pp-install table.pp-extensions { margin-right: 20px; margin-top:2px; margin-left:0; }
+#pp-install table.pp-extensions tr th{ line-height: 8px }
+#pp-install table.pp-extensions tr td{ line-height: 15px; padding-left: 5px; background-color: #fff; padding: 8px; }
+
+#pp-install span.pp-ext-info {
+color: #777;
+font-style: italic;
+}
+
+#pp-install .support_data div {
+margin-bottom: 6px;
+vertical-align:bottom;
+}
+
+#pp-install .pp-bullet-list {
+list-style: disc;
+padding-left: 15px;
+}
+
+/* --- Advanced tab --- */
+#pp_cap_descripts { margin-left: 10px;margin-right: 10px }
+#pp_cap_descripts tr{ border-bottom: none }
+#pp_cap_descripts tr th{ border-bottom: none; line-height: 8px }
+#pp_cap_descripts tr td{ border-bottom: none; line-height: 15px; margin-bottom: 1px; padding-left: 5px; background-color: #fff; }
+#pp_cap_descripts th.cap-name{ text-align: center; }
+#pp_cap_descripts td.cap-name{ width: 22%; text-align: center; font-family: courier new, courier, monospace }
+
+
+/* --- PPFF Attachments Utility --- */
+.pp-instructions ol {
+list-style-type: decimal;
+}
+.pp-instructions ol li{
+margin: 1em 0 1em 2em;
+}
