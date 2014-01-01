@@ -21,7 +21,7 @@ require_once(dirname(__FILE__) . '/includes/block_direct_access.php');
 class bcn_breadcrumb_trail
 {
 	//Our member variables
-	private $version = '5.0.0';
+	private $version = '5.0.1';
 	//An array of breadcrumbs
 	public $breadcrumbs = array();
 	public $trail = array();
@@ -969,21 +969,17 @@ class bcn_breadcrumb_trail
 			//On the first run we need to add in a class for the home breadcrumb
 			if($trail_str === '<li')
 			{
-				$trail_str .= ' class="home';
 				$li_class .= ' class="home';
 				if($key === 0)
 				{
-					$trail_str .= ' current_item';
 					$li_class .= ' current_item';
 				}
-				$trail_str .= '"';
 				$li_class .= '"';
 			}
 			//If we are on the current item there are some things that must be done
 			else if($key === 0)
 			{
 				//Add in a class for current_item
-				$trail_str .= ' class="current_item"';
 				$li_class .= ' class="current_item"';
 			}
 			//Filter li_attributes adding attributes to the li element

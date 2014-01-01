@@ -139,7 +139,7 @@
 
 .logo {
 	position:absolute;
-	/*top:-43px;*/top:-60px;
+	top:-43px;
 	left:0;
 }
 .logo img {

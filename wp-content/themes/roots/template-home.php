@@ -22,12 +22,11 @@ for ($i=0; $i<5; $i++) {
         <div class="row-fluid">
             <!-- What is YS -->
             <div class="span3">
-                <div class="headline"><h3><!--What is YSFlight?-->Happy Holidays!</h3></div>
-                <h4><!--Watch the video to find out.-->Welcome to YSFlight Headquarters.</h4>
+                <div class="headline"><h3>What is YSFlight?</h3></div>
+                <h4>Watch the video to find out.</h4>
                 <hr class="hidden">
                 <h4>Want to learn more about YSFlight? Check out these awesome videos:</h4>
                 <ul id="moreVideos">
-                    <li><a href="//www.youtube.com/embed/OxeOJr9R5bs?rel=0&amp;autoplay=1&amp;wmode=transparent"><i class="icon-youtube-play"></i>YSFlight Promo</a></li>
                     <li><a href="//www.youtube.com/embed/qo2mcV5EnME?rel=0&amp;autoplay=1&amp;wmode=transparent"><i class="icon-youtube-play"></i>Combat</a></li>
                     <li><a href="//www.youtube.com/embed/yhGmXz0_L1s?rel=0&amp;autoplay=1&amp;wmode=transparent"><i class="icon-youtube-play"></i>Civilian</a></li>
                     <li><a href="//www.youtube.com/embed/v2ow5QA-ptc?rel=0&amp;autoplay=1&amp;wmode=transparent"><i class="icon-youtube-play"></i>Aerobatics</a></li>
@@ -35,7 +34,7 @@ for ($i=0; $i<5; $i++) {
             </div><!--/span3-->
             <!-- Video Promo -->
             <div class="span6">
-                <iframe width="480" height="360" src="//www.youtube.com/embed/RaxAzLvu4hg?rel=0&amp;wmode=transparent" allowfullscreen></iframe>
+                <iframe width="480" height="360" src="//www.youtube.com/embed/OxeOJr9R5bs?rel=0&amp;wmode=transparent" allowfullscreen></iframe>
             </div><!--/span6-->
             <!-- Featured Screenshots -->
             <div class="span3">
