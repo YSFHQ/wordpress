@@ -2,15 +2,15 @@
 <div class="top">
     <div class="container"> 
         <ul class="loginbar pull-right">
-            <!--<li><i class="icon-globe"></i><a>Languages <i class="icon-sort-up"></i></a>
+            <li><i class="icon-globe"></i><a>Languages <i class="icon-sort-up"></i></a>
                 <ul class="nav-list">
-                    <li class="active"><a href="#">English</a> <i class="icon-ok"></i></li>
-                    <li><a href="#">Spanish</a></li>
-                    <li><a href="#">Portuguese</a></li>
-                    <li><a href="#">Japanese</a></li>
+                    <li><a href="<?php echo get_site_url().$_SERVER["REQUEST_URI"]; ?>">English</a><!-- <i class="icon-ok"></i>--></li>
+                    <li><a href="http://www.google.com/translate?hl=es&ie=UTF8&sl=en&tl=es&u=<?php echo rawurlencode(get_site_url().$_SERVER["REQUEST_URI"]); ?>" title="Spanish">Español</a></li>
+                    <li><a href="http://www.google.com/translate?hl=pt&ie=UTF8&sl=en&tl=pt&u=<?php echo rawurlencode(get_site_url().$_SERVER["REQUEST_URI"]); ?>" title="Portuguese">português</a></li>
+                    <li><a href="http://www.google.com/translate?hl=ja&ie=UTF8&sl=en&tl=ja&u=<?php echo rawurlencode(get_site_url().$_SERVER["REQUEST_URI"]); ?>" title="Japanese">日本語</a></li>
                 </ul>
             </li> 
-            <li class="devider">&nbsp;</li>-->
+            <li class="devider">&nbsp;</li>
             <li><a href="/about-us/" class="login-btn">About YSFHQ</a></li>
             <li class="devider">&nbsp;</li>
             <li><?php if (is_user_logged_in()) { ?><a href="<?php echo wp_logout_url( home_url() ); ?>" class="login-btn"><strong>Logout</strong></a><?php } else { ?><a href="<?php echo home_url().'/login/?redirect_to='.urlencode(get_permalink()); ?>" class="login-btn"><strong>Login</strong></a><?php } ?></li>

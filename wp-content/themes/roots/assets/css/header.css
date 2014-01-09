@@ -7,7 +7,7 @@
 .loginbar {
 	margin:0;
 	padding:0;
-	z-index:250;
+	z-index:9999;
 	list-style:none;
 	position:relative;
 }

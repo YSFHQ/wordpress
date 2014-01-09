@@ -15,8 +15,8 @@ function roots_scripts() {
   //wp_enqueue_style('roots_main', get_template_directory_uri() . '/assets/css/main.min.css', false, 'fb33cbb593881bbf367156f2cf7c19c8');
   wp_enqueue_style('bootstrap', 'http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap.no-responsive.no-icons.min.css');
   wp_enqueue_style('font-awesome', 'http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css');
-  wp_enqueue_style('main-style', get_template_directory_uri() . '/assets/css/style.css');
-  wp_enqueue_style('main-header', get_template_directory_uri() . '/assets/css/header.css');
+  wp_enqueue_style('main-style', get_template_directory_uri() . '/assets/css/style.css', false, 'fb33cbb593881bbf367156f2cf7c19c8');
+  wp_enqueue_style('main-header', get_template_directory_uri() . '/assets/css/header.css', false, 'fb33cbb593881bbf367156f2cf7c19c8');
   wp_enqueue_style('bootstrap-responsive', 'http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css');
   wp_enqueue_style('main-responsive', get_template_directory_uri() . '/assets/css/style_responsive.css');
 

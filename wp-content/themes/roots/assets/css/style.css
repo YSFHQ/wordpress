@@ -80,7 +80,7 @@ h4.title {
 .purchase .container .span9 {
 	margin-right:20px;
 }
-.purchase span {
+.purchase p.large {
 	color:#666;
 	display:block;
 	font-size:32px;
