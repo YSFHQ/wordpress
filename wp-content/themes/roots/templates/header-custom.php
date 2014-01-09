@@ -8,6 +8,7 @@
                     <li><a href="http://www.google.com/translate?hl=es&ie=UTF8&sl=en&tl=es&u=<?php echo rawurlencode(get_site_url().$_SERVER["REQUEST_URI"]); ?>" title="Spanish">Español</a></li>
                     <li><a href="http://www.google.com/translate?hl=pt&ie=UTF8&sl=en&tl=pt&u=<?php echo rawurlencode(get_site_url().$_SERVER["REQUEST_URI"]); ?>" title="Portuguese">português</a></li>
                     <li><a href="http://www.google.com/translate?hl=ja&ie=UTF8&sl=en&tl=ja&u=<?php echo rawurlencode(get_site_url().$_SERVER["REQUEST_URI"]); ?>" title="Japanese">日本語</a></li>
+                    <li><a href="http://www.google.com/translate?hl=ko&amp;ie=UTF8&amp;sl=en&amp;tl=ko&amp;u=<?php echo rawurlencode(get_site_url().$_SERVER["REQUEST_URI"]); ?>" title="Korean">한국어</a></li>
                 </ul>
             </li> 
             <li class="devider">&nbsp;</li>
