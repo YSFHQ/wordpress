@@ -71,12 +71,12 @@
       <header class="banner navbar" role="banner">
         <div class="navbar-inner">
           <div class="container">
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse#navmain">
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </a>
-            <nav class="nav-main nav-collapse collapse" role="navigation">
+            <nav id="navmain" class="nav-main nav-collapse collapse" role="navigation">
               <ul id="menu-primary-navigation" class="nav top-2"><li class="menu-home"><a href="http://ysfhq.com/">Home</a></li>
                 <li class="active dropdown menu-ysflight"><a class="dropdown-toggle" data-toggle="dropdown" data-target="#" href="#">YSFlight <b class="caret"></b></a>
                   <ul class="dropdown-menu">
@@ -137,19 +137,22 @@
 
   <div class="crumb-header margin-bottom-20">
     <div class="container">
+      <div class="logo2">
+        <a href="http://ysfhq.com/"><img src="http://static.ysfhq.com/assets/img/logo_text.png" alt="YSFlight Headquarters" /></a>
+      </div>
       <div class="navbar">
         <div class="navbar-inner">
           <div class="container">
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse#navsub">
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </a>
-            <nav class="nav-main nav-collapse collapse" role="navigation">
+            <nav id="navsub" class="nav-main nav-collapse collapse" role="navigation">
               <ul id="menu-primary-navigation" class="nav">
-                <li class="menu-aircraft-vehicles"><a href="http://ysfhq.com/ysflight/aircraft-and-vehicles/">Aircraft &amp; Vehicles</a></li>
-                <li class="menu-scenery"><a href="http://ysfhq.com/ysflight/scenery/">Scenery</a></li>
                 <li class="menu-features"><a href="http://ysfhq.com/ysflight/features/">Features</a></li>
+                <li class="menu-aircraft-vehicles"><a href="http://ysfhq.com/ysflight/aircraft-and-vehicles/" title="Aircraft &amp; Vehicles">Aircraft</a></li>
+                <li class="menu-scenery"><a href="http://ysfhq.com/ysflight/scenery/">Scenery</a></li>
                 <li class="menu-screenshots"><a href="http://ysfhq.com/ysflight/media/screenshots/">Screenshots</a></li>
                 <li class="menu-videos"><a href="http://ysfhq.com/ysflight/media/videos/">Videos</a></li>
                 <li class="menu-testimonials"><a href="http://ysfhq.com/ysflight/testimonials/">Testimonials</a></li>
@@ -160,13 +163,19 @@
         </div>
       </div>
       <style type="text/css">
-      .crumb-header {
-        padding: 0;
-        background-image: url(http://static.ysfhq.com/assets/img/logo_text.png);
-        background-color: #fbfbfb;
-        background-position: 1% 50%;
-        background-size: 20%;
-        background-repeat: no-repeat;
+      @media (min-width: 979px) {
+        .crumb-header, .crumb-header .container {
+          padding: 0;
+        }
+        .crumb-header .logo2 {
+          margin-top: 5px;
+        }
+      }
+      .crumb-header .logo2 {
+        position: absolute;
+        left: 0;
+        margin-left: 6%;
+        opacity: 0.5;
       }
       .crumb-header ul.nav {
         background: rgba(251,251,251,0.75);
