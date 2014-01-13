@@ -117,7 +117,10 @@ class PP_AdminFilters
 	}
 	
 	function act_save_post( $post_id, $post ) {
-		if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) return;
+		if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) {
+			if ( ! pp_wp_ver( '3.8' ) || ( 'revision' == $post->post_type ) || ( 'draft' != $post->post_status ) )
+				return;
+		}
 	
 		require_once( dirname(__FILE__).'/post-save_pp.php');
 		PP_PostSave::act_save_item( 'post', $post_id, $post );

@@ -45,7 +45,7 @@ if ( 'user' == $agent_type ) {
 	}
 
 	$role_filter = sanitize_text_field($_GET['pp_role_search']);
-	$orderby = ( 0 === strpos( $orig_search_str, ' ' ) ) ? 'user_login' : 'user_registered';
+	$orderby = ( 0 === strpos( $orig_search_str, ' ' ) ) ? 'user_login' : 'user_registered DESC';
 	
 	if ( ! $search_str && ! $role_filter ) {
 		$results = $wpdb->get_results("SELECT ID, user_login, display_name FROM $wpdb->users $join ORDER BY $orderby LIMIT 1000");

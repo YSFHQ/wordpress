@@ -42,10 +42,10 @@ class PP_Exceptions {
 				if ( $append_clause = apply_filters( 'pp_append_query_clause', '', $post_type, $required_operation, $args ) ) {
 					$where .= $append_clause;
 				}
-					
+				
 				foreach( array( 'include' => 'IN', 'exclude' => 'NOT IN' ) as $mod => $logic ) {
 					if ( $ids = $pp_current_user->get_exception_posts( $required_operation, $mod, $exc_post_type ) ) {
-						$_args = compact( 'mod', 'ids', 'src_table', 'logic' );
+						$_args = array_merge( $args, compact( 'mod', 'ids', 'src_table', 'logic' ) );
 						$where .= " AND " . apply_filters( 'pp_exception_clause', "$src_table.ID $logic ('" . implode( "','", $ids ) . "')", $required_operation, $post_type, $_args );
 						break;  // don't use both include and exclude clauses
 					}

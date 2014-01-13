@@ -1007,7 +1007,7 @@ class PP_GroupsUI {
 				if ( ! empty($via_type_obj->hierarchical) ) {
 					$_caption = strtolower($via_type_obj->labels->name);
 					
-					if ( $any_both || $any_child_only ) :?>
+					if ( ! empty($any_both) || ! empty($any_child_only) ) :?>
 						<div class="pp-current-roles-note">
 
 						<?php 

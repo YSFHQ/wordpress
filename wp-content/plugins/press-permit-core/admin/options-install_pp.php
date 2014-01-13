@@ -119,9 +119,7 @@ class PP_Options_Install {
 					$activated = ( 1 == $opt_val[0] );
 					$expired = ( -1 == $opt_val[0] );
 					$key = $opt_val[1];
-                }
-
-                $activated = true;
+				}
 				
 				if ( isset( $opt_val['expire_date_gmt'] ) ) {
 					$expire_days = intval( ( strtotime($opt_val['expire_date_gmt']) - time() ) / 86400 );

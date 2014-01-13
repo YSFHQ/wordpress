@@ -56,7 +56,7 @@ class PP_Updater {
 			$url = "update.php?action={$slug}&plugin=" . $plugin;
 
 			$upgrader = new PP_Core_Upgrader( new PP_Upgrader_Skin( compact('title', 'nonce', 'url', 'plugin') ) );
-			$upgrader->upgrade($plugin);
+			$upgrader->upgrade_pp_package($plugin);
 
 			define('UPDATED_PP_PLUGIN', true);
 			
@@ -104,7 +104,7 @@ class PP_Updater {
 </style>
 <?php
 			$upgrader = new PP_Core_Upgrader( new PP_Installer_Skin( compact('title', 'url', 'nonce', 'plugin') ) );
-			$upgrader->install( $plugin, "http://presspermit.com/index.php?PPServerRequest=download&update=$slug&version=VERSION&key=KEY&site=URL" );
+			$upgrader->install_pp_package( $plugin, "http://presspermit.com/index.php?PPServerRequest=download&update=$slug&version=VERSION&key=KEY&site=URL" );
 		}
 	}
 
@@ -166,7 +166,7 @@ class PP_Upgrader extends Plugin_Upgrader {
  * @author Kevin Behrens
  **/
 class PP_Core_Upgrader extends PP_Upgrader {
-	function upgrade_strings($plugin) {
+	function upgrade_strings() {
 		$title = '';
 		
 		global $pp_extensions;
@@ -188,7 +188,7 @@ class PP_Core_Upgrader extends PP_Upgrader {
 		}
 	}
 	
-	function install_strings($plugin) {
+	function install_pp_strings($plugin) {
 		if ( $title = pp_pretty_slug( $plugin ) ) {
 			$this->strings['no_package'] = __ppw('Install package not available.');
 			$this->strings['downloading_package'] = sprintf(__ppw('Downloading install package from <span class="code">%s</span>&#8230;'),untrailingslashit('http://presspermit.com/'));
@@ -199,9 +199,9 @@ class PP_Core_Upgrader extends PP_Upgrader {
 		}
 	}
 	
-	function install( $slug, $package_url ) {
+	function install_pp_package( $slug, $package_url ) {
 		$this->init();
-		$this->install_strings($slug);
+		$this->install_pp_strings($slug);
 
 		add_filter('upgrader_source_selection', array(&$this, 'check_package') );
 
@@ -226,9 +226,9 @@ class PP_Core_Upgrader extends PP_Upgrader {
 		return true;
 	}
 
-	function upgrade($plugin) {
+	function upgrade_pp_package($plugin) {
 		$this->init();
-		$this->upgrade_strings($plugin);
+		$this->upgrade_strings();
 
 		$current = get_site_transient('ppc_update_info');
 	

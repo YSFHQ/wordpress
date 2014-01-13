@@ -5,7 +5,7 @@ Tags: restrict, access, permissions, cms, user, private, category, pages, privac
 License: GPLv3
 Requires at least: 3.4
 Tested up to: 3.8
-Stable tag: 2.1.38
+Stable tag: 2.1.39
 
 Advanced yet accessible content permissions. Give users or groups type-specific roles. Enable or block access for specific posts or terms.
 
@@ -48,6 +48,12 @@ Pro [extensions](http://presspermit.com/extensions) are [available](http://press
 Initial production release
 
 == Changelog ==
+
+= 2.1.39 - 9 Jan 2014 =
+* Fixed : Editing permissions were not propagated to newly created pages under some configurations on WP 3.8 (also requires PP Collaborative Editing 2.1.18)
+* Fixed : User search ajax submission with blank search box returned users by creation date with oldest first (should be newest first)
+* Fixed : Work around PHP Bug #52339 - SPL autoloader breaks class_exists()
+* Fixed : PHP Notices on when updating extension plugins with strict error reporting
 
 = 2.1.38 - 18 Dec 2013 =
 * Compat : WP 3.8 - styling corrections on Edit Permissions, Settings screens
