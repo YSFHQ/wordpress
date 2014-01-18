@@ -1157,7 +1157,7 @@ class WP_United_Plugin extends WP_United_Plugin_Main_Base {
 				if (!empty($obStatus['type']) && $obStatus['status']) {
 					ob_end_flush();
 				}
-			}
+      }
 		//}
 	}
 	

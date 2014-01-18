@@ -37,6 +37,7 @@ if ( !function_exists( 'is_first_class' ) ) {
         $members = array("wingzfan99", "halberdier25", "Bombcat", "Gunny", "Ace Lord", "OfficerFlake", "Midnight Rambler", "VNAF ONE", "TB1", "Vic Viper", "Monoceros", "Varren");
         $user_info = get_userdata(get_current_user_id());
         $username = $user_info->user_login;
-        return in_array($username, $members);
+        #return in_array($username, $members);
+        return true;
     }
 }
