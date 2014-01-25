@@ -1,9 +1,9 @@
-=== iFlyChat ===
-Contributors: darklrd
-Tags: chat
+=== iFlyChat - Real Time Chat WordPress Plugin ===
+Contributors: darklrd, shubhamgupta
+Tags: chat, real time, support chat, live chat, community chat, buddypress chat, social, buddypress, social chat, social community chat, facebook chat, web chat, sales chat, one to one chat, chat room, group chat, embed chat, popup chat, IM chat, php chat, ajax chat, cloud chat, free chat, google chat, network, team chat, social community, collaborative, visitor chat, customer engagement, wordpress live chat plugin, wordpress community chat plugin, online support, social widget, chat widget, html5 chat, multilingual
 Requires at least: 3.0
 Tested up to: 3.8
-Stable tag: 1.1.18
+Stable tag: 1.1.20
 License: GPLv2 or later
 
 iFlyChat provides one on one chat and multiple chat rooms for your website.
@@ -20,6 +20,7 @@ Features
 * Selectable list of Online Users (Once you choose a particular user to chat with, it creates a new tab adjacent to the chat bar along with an attached pop-up chat window)
 * Automatic integration with BuddyPress (shows BuddyPress user avatars and profile links, if present)
 * Automatic integration with WP User Avatar
+* Automatic integration with User Avatar
 * Automatic integration with Simple Local Avatars
 * Chat rooms can be embedded into the page instead of pop-up
 * Supports chat for anonymous users 
@@ -84,6 +85,12 @@ Integration with WP User Avatar. Improve Caching.
 = 1.1.18 =
 Update README file.
 
+= 1.1.19 =
+Integration with User Avatar.
+
+= 1.1.20 =
+Update README file.
+
 == Upgrade Notice ==
 
 = 1.1.7 =
@@ -120,4 +127,10 @@ After updating, go to iFlyChat Settings page and click on Update button.
 After updating, go to iFlyChat Settings page and click on Update button.
 
 = 1.1.18 =
+After updating, go to iFlyChat Settings page and click on Update button.
+
+= 1.1.19 =
+After updating, go to iFlyChat Settings page and click on Update button.
+
+= 1.1.20 =
 After updating, go to iFlyChat Settings page and click on Update button.
