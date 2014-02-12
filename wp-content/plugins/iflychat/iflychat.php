@@ -1,14 +1,14 @@
 <?php
 /**
  * @package iflychat
- * @version 1.1.20
+ * @version 1.2.2
  */
 /*
 Plugin Name: iFlyChat
 Plugin URI: http://wordpress.org/extend/plugins/iflychat/
 Description: One on one chat, Multiple chatrooms, Embedded chatrooms 
 Author: Shashwat Srivastava, Shubham Gupta - iFlyChat Team
-Version: 1.1.20
+Version: 1.2.2
 Author URI: https://iflychat.com/
 */
 
@@ -124,10 +124,7 @@ function iflychat_init() {
 	    'iup' => (get_option('iflychat_user_picture') == 'yes')?'1':'2',
 	    'open_chatlist_default' => (get_option('iflychat_minimize_chat_user_list')=='2')?'1':'2',
 	    'admin' => iflychat_check_chat_admin()?'1':'0',
-    ); 
-  if($my_settings['useStopWordList'] != "1") {
-    $my_settings['stopWordList'] = get_option('iflychat_stop_word_list');
-  }    
+    );   
 	if(iflychat_check_chat_admin()) {
 	  global $wp_roles;
 	  $my_settings['arole'] = $wp_roles->get_names(); 
@@ -889,11 +886,13 @@ function iflychat_settings() {
 	  'font_color' => get_option('iflychat_chat_font_color'),
 	  'chat_list_header' => get_option('iflychat_chat_list_header'),
 	  'public_chatroom_header' => get_option('iflychat_public_chatroom_header'),
-	  'version' => 'WP-1.1.20',
+	  'version' => 'WP-1.2.2',
 	  'show_admin_list' => (get_option('iflychat_show_admin_list') == "1")?'1':'2',
 	  'clear' => get_option('iflychat_allow_single_message_delete'),
-      'delmessage' => get_option('iflychat_allow_clear_room_history'),
+    'delmessage' => get_option('iflychat_allow_clear_room_history'),
 	  'ufc' => get_option('iflychat_allow_user_font_color'),
+    'use_stop_word_list' => get_option('iflychat_use_stop_word_list'),
+    'stop_word_list' => get_option('iflychat_stop_word_list'),
 	));
 	$options = array(
     'method' => 'POST',
@@ -1010,9 +1009,9 @@ function iflychat_check_chat_admin() {
   get_currentuserinfo();
   if(current_user_can('activate_plugins')) {
     return TRUE;
-  }
+  }  
   $a = get_option('iflychat_chat_admins_array');
-  if(!empty($a)) {
+  if(!empty($a) && ($current_user->ID)) {
     $a_names = explode(",", $a);
     foreach($a_names as $an) {
       $aa = trim($an);

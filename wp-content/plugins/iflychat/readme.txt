@@ -1,9 +1,15 @@
-=== iFlyChat - Real Time Chat WordPress Plugin ===
+=== iFlyChat - Real Time WordPress Chat Plugin ===
+
 Contributors: darklrd, shubhamgupta
-Tags: chat, real time, support chat, live chat, community chat, buddypress chat, social, buddypress, social chat, social community chat, facebook chat, web chat, sales chat, one to one chat, chat room, group chat, embed chat, popup chat, IM chat, php chat, ajax chat, cloud chat, free chat, google chat, network, team chat, social community, collaborative, visitor chat, customer engagement, wordpress live chat plugin, wordpress community chat plugin, online support, social widget, chat widget, html5 chat, multilingual
+
+Tags: chat, real time, support chat, live chat, community chat, buddypress chat, social, buddypress, social chat, social community chat, facebook chat, web chat, sales chat, one to one chat, chat room, group chat, embed chat, popup chat, IM chat, php chat, ajax chat, cloud chat, free chat, google chat, network, team chat, social community, collaborative, visitor chat, customer engagement, wordpress live chat plugin, wordpress community chat plugin, online support, social widget, chat widget, html5 chat, website chat
+
 Requires at least: 3.0
+
 Tested up to: 3.8
-Stable tag: 1.1.20
+
+Stable tag: 1.2.2
+
 License: GPLv2 or later
 
 iFlyChat provides one on one chat and multiple chat rooms for your website.
@@ -91,6 +97,18 @@ Integration with User Avatar.
 = 1.1.20 =
 Update README file.
 
+= 1.1.21 =
+Chat Admin Fix.
+
+= 1.2.0 =
+Stop Word List Filter update - very important.
+
+= 1.2.1 =
+Update README file.
+
+= 1.2.2 =
+Update README file.
+
 == Upgrade Notice ==
 
 = 1.1.7 =
@@ -133,4 +151,16 @@ After updating, go to iFlyChat Settings page and click on Update button.
 After updating, go to iFlyChat Settings page and click on Update button.
 
 = 1.1.20 =
+After updating, go to iFlyChat Settings page and click on Update button.
+
+= 1.1.21 =
+After updating, go to iFlyChat Settings page and click on Update button.
+
+= 1.2.0 =
+After updating, go to iFlyChat Settings page and click on Update button.
+
+= 1.2.1 =
+After updating, go to iFlyChat Settings page and click on Update button.
+
+= 1.2.2 =
 After updating, go to iFlyChat Settings page and click on Update button.
