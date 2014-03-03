@@ -31,6 +31,7 @@ sitemap.xml
 wp-content/cache/
 wp-content/plugins/*/cache/*
 wp-content/backups/
+wp-content/w3tc-config/master.php
 sitemap.xml.gz
 /media
 
