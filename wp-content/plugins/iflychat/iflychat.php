@@ -1,14 +1,14 @@
 <?php
 /**
  * @package iflychat
- * @version 1.2.2
+ * @version 1.2.6
  */
 /*
 Plugin Name: iFlyChat
 Plugin URI: http://wordpress.org/extend/plugins/iflychat/
 Description: One on one chat, Multiple chatrooms, Embedded chatrooms 
 Author: Shashwat Srivastava, Shubham Gupta - iFlyChat Team
-Version: 1.2.2
+Version: 1.2.6
 Author URI: https://iflychat.com/
 */
 
@@ -166,8 +166,11 @@ function iflychat_init() {
 	  $my_settings['default_team'] = plugin_dir_url( __FILE__ ) . 'themes/'.get_option('iflychat_theme').'/images/default_room.png';
 	}
 	if(function_exists("bp_core_get_userlink") && ($current_user->ID > 0)) {
-      $my_settings['upl'] = bp_core_get_userlink($current_user->ID, false, true);
-    }
+    $my_settings['upl'] = bp_core_get_userlink($current_user->ID, false, true);
+  }
+  else {
+    $my_settings['upl'] = 'javascript:void(0)';
+  }
 	
 	if($my_settings['polling_method'] == "3") {
 	  if (is_ssl()) {
@@ -307,6 +310,10 @@ function _iflychat_get_auth($name) {
   if(function_exists(bp_core_get_userlink) && ($current_user->ID > 0)) {
     $data['upl'] = bp_core_get_userlink($current_user->ID, false, true);
   }
+  else {
+    $data['upl'] = 'javascript:void(0)';
+  }
+  
   $data = json_encode($data);
   $options = array(
     'method' => 'POST',
@@ -886,7 +893,7 @@ function iflychat_settings() {
 	  'font_color' => get_option('iflychat_chat_font_color'),
 	  'chat_list_header' => get_option('iflychat_chat_list_header'),
 	  'public_chatroom_header' => get_option('iflychat_public_chatroom_header'),
-	  'version' => 'WP-1.2.2',
+	  'version' => 'WP-1.2.6',
 	  'show_admin_list' => (get_option('iflychat_show_admin_list') == "1")?'1':'2',
 	  'clear' => get_option('iflychat_allow_single_message_delete'),
     'delmessage' => get_option('iflychat_allow_clear_room_history'),
@@ -951,6 +958,8 @@ add_action( 'wp_ajax_nopriv_iflychat-offline-msg', 'iflychat_send_offline_messag
 add_action( 'wp_ajax_iflychat-offline-msg', 'iflychat_send_offline_message' );
 add_action( 'wp_login', 'iflychat_user_login' );
 add_action( 'wp_logout', 'iflychat_user_logout' );
+add_shortcode( 'iflychat_inbox', 'iflychat_get_inbox' );
+add_shortcode( 'iflychat_message_thread', 'iflychat_get_message_thread' );
 register_activation_hook(__FILE__,'iflychat_install');
 register_deactivation_hook( __FILE__, 'iflychat_uninstall');
 function iflychat_match_path($path, $patterns) {
@@ -1034,6 +1043,64 @@ function iflychat_user_logout() {
   setcookie("iflychat_key", "", time()-3600, "/");
   setcookie("iflychat_css", "", time()-3600, "/");
   setcookie("iflychat_time", "", time()-3600, "/");
+}
+
+function iflychat_get_inbox() {
+  $data = json_encode(array(
+    'uid' => iflychat_get_user_id(),
+    'api_key' => get_option('iflychat_api_key'),
+  ));
+  $options = array(
+    'method' => 'POST',
+    'body' => $data,
+    'timeout' => 15,
+    'headers' => array('Content-Type' => 'application/json'),
+	  'sslverify' => false,
+  );
+  $result = wp_remote_head(DRUPALCHAT_EXTERNAL_A_HOST . ':' . DRUPALCHAT_EXTERNAL_A_PORT .  '/r/', $options);
+  $output = '';
+  if($result['response']['code'] == 200) {
+    $query = json_decode($result['body']);
+    $timezone_offet = get_option( 'gmt_offset' );
+    $date_format = get_option( 'date_format' );
+    $time_format = get_option( 'time_format' );
+    foreach($query as $record) {
+      $rt = $record->timestamp + ($timezone_offet * 3600);
+      $output .= '<div style="display:block;border-bottom: 1px solid #ccc; padding: 10px;"><div style="font-size:130%; display: inline;">' . $record->name . '</div><div style="float:right;color:#AAA; font-size: 70%;">' . date( "{$date_format} {$time_format}", $rt ) . '</div><div style="display: block; padding: 10px;">' . $record->message . '</div></div>';
+    }
+  }
+  return $output;
+}
+
+function iflychat_get_message_thread($atts) {
+  extract( shortcode_atts( array(
+		'id' => 'c-0',
+	), $atts ) );
+  $data = json_encode(array(
+    'uid1' => iflychat_get_user_id(),
+    'uid2' => $id,
+    'api_key' => get_option('iflychat_api_key'),
+  ));
+  $options = array(
+    'method' => 'POST',
+    'body' => $data,
+    'timeout' => 15,
+    'headers' => array('Content-Type' => 'application/json'),
+	  'sslverify' => false,
+  );
+  $result = wp_remote_head(DRUPALCHAT_EXTERNAL_A_HOST . ':' . DRUPALCHAT_EXTERNAL_A_PORT .  '/q/', $options);
+  $output = '';
+  if($result['response']['code'] == 200) {
+    $query = json_decode($result['body']);
+    $timezone_offet = get_option( 'gmt_offset' );
+    $date_format = get_option( 'date_format' );
+    $time_format = get_option( 'time_format' );
+    foreach($query as $record) {
+      $rt = $record->timestamp + ($timezone_offet * 3600);
+      $output .= '<div style="display:block;border-bottom: 1px solid #ccc; padding: 1% 0% 1% 0%;"></div><div style="display:block; padding-top: 1%; padding-bottom: 0%"><div style="font-size:100%; display: inline;"><a href="#">' . $record->from_name . '</a></div><div style="float:right;font-size: 70%;">' . date( "{$date_format} {$time_format}", $rt ) . '</div><div style="display: block; padding-top: 1%; padding-bottom: 0%">' . $record->message . '</div></div>';
+    }
+  }
+  return $output;
 }
 
 ?>

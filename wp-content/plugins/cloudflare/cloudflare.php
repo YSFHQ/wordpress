@@ -3,8 +3,8 @@
 Plugin Name: CloudFlare
 Plugin URI: http://www.cloudflare.com/wiki/CloudFlareWordPressPlugin
 Description: CloudFlare integrates your blog with the CloudFlare platform.
-Version: 1.3.11
-Author: Ian Pye, Jerome Chen, James Greene (CloudFlare Team)
+Version: 1.3.12
+Author: Ian Pye, Jerome Chen, James Greene, Simon Moore (CloudFlare Team)
 License: GPLv2
 */
 
@@ -26,7 +26,9 @@ Plugin adapted from the Akismet WP plugin.
 
 */	
 
-define('CLOUDFLARE_VERSION', '1.3.10');
+define('CLOUDFLARE_VERSION', '1.3.12');
+define('CLOUDFLARE_API_URL', 'https://www.cloudflare.com/api_json.html'); 
+
 require_once("ip_in_range.php");
 
 // Make sure we don't expose any info if called directly
@@ -44,7 +46,7 @@ function cloudflare_init() {
     $is_cf = (isset($_SERVER["HTTP_CF_CONNECTING_IP"]))? TRUE: FALSE;    
 
     if (strpos($_SERVER["REMOTE_ADDR"], ":") === FALSE) {
-        $cf_ip_ranges = array("204.93.240.0/24","204.93.177.0/24","199.27.128.0/21","173.245.48.0/20","103.21.244.0/22","103.22.200.0/22","103.31.4.0/22","141.101.64.0/18","108.162.192.0/18","190.93.240.0/20","188.114.96.0/20","197.234.240.0/22","198.41.128.0/17","162.158.0.0/15");
+        $cf_ip_ranges = array("173.245.48.0/20","103.21.244.0/22","103.22.200.0/22","103.31.4.0/22","141.101.64.0/18","108.162.192.0/18","190.93.240.0/20","188.114.96.0/20","197.234.240.0/22","198.41.128.0/17","162.158.0.0/15","199.27.128.0/21");
         // IPV4: Update the REMOTE_ADDR value if the current REMOTE_ADDR value is in the specified range.
         foreach ($cf_ip_ranges as $range) {
             if (ipv4_in_range($_SERVER["REMOTE_ADDR"], $range)) {
@@ -104,6 +106,11 @@ function cloudflare_conf() {
         die(__('Cheatin&#8217; uh?'));
     global $cloudflare_api_key, $cloudflare_api_email, $is_cf;
     global $wpdb;
+    
+    $messages = array(
+        'dev_mode_on' => array('color' => '2d2', 'text' => __('Development mode is On. Happy blogging!')),
+        'dev_mode_off' => array('color' => 'aa0', 'text' => __('Development mode is Off. Happy blogging!'))
+    );
 
     // get raw domain - may include www.
     $urlparts = parse_url(site_url());
@@ -111,16 +118,24 @@ function cloudflare_conf() {
 
     $curl_installed = function_exists('curl_init');
 
+	$domain = null;
+
     if ($curl_installed) {
         // Attempt to get the matching host from CF
         $domain = get_domain($cloudflare_api_key, $cloudflare_api_email, $raw_domain);
+        
         // If not found, default to pulling the domain via client side.
-        if (!$domain) {
-             $domain = $raw_domain;
+        if (is_wp_error($domain)) {
+        	$messages['get_domain_failed'] = array('color' => 'FFA500', 'text' => __('Unable to get domain via CloudFlare API - ' . $domain->get_error_message()));
+            $ms[] = 'get_domain_failed';
+            $domain = null;
         }
     }
-    else {
-         $domain = $raw_domain;    
+    
+    if ($domain == null) {
+    	$domain = $raw_domain;
+    	$messages['domain_not_found'] = array('color' => 'FFA500', 'text' => __('Could not find your domain via CloudFlare API, assuming your CloudFlare domain is: ' . $domain));
+    	$ms[] = 'domain_not_found';    
     }
     
     define ("THIS_DOMAIN",  $domain);
@@ -137,59 +152,63 @@ function cloudflare_conf() {
 		$key = $_POST['key'];
 		$email = $_POST['email'];
         $dev_mode = esc_sql($_POST["dev_mode"]);
-
+        
 		if ( empty($key) ) {
 			$key_status = 'empty';
-			$ms[] = 'new_key_empty';
+			$key_message = 'Your key has been cleared.';
 			delete_option('cloudflare_api_key');
 		} else {
-            $ms[] = 'new_key_valid';
+			$key_message = 'Your key has been verified.';
 			update_option('cloudflare_api_key', esc_sql($key));
             update_option('cloudflare_api_key_set_once', "TRUE");
         }
 
 		if ( empty($email) || !is_email($email) ) {
 			$email_status = 'empty';
-			$ms[] = 'new_email_empty';
+			$email_message = 'Your email has been cleared.';
 			delete_option('cloudflare_api_email');
 		} else {
-			$ms[] = 'new_email_valid';
+			$email_message = 'Your email has been verified.';
 			update_option('cloudflare_api_email', esc_sql($email));
             update_option('cloudflare_api_email_set_once', "TRUE");
         }
 
-
-        $messages = array(
-                          'new_key_empty' => array('color' => 'aa0', 'text' => __('Your key has been cleared.')),
-                          'new_key_valid' => array('color' => '2d2', 'text' => __('Your key has been verified. Happy blogging!')),
-                          'new_email_empty' => array('color' => 'aa0', 'text' => __('Your email has been cleared.')),
-                          'new_email_valid' => array('color' => '2d2', 'text' => __('Your email has been verified. Happy blogging!'))
-                          );
-
         if ($curl_installed) {
             if ($key != "" && $email != "") {
-                set_dev_mode(esc_sql($key), esc_sql($email), THIS_DOMAIN, $dev_mode);
-                if ($dev_mode) {
-                    $ms[] = 'dev_mode_on';
-                }
-                else {
-                    $ms[] = 'dev_mode_off';
-                }
+                
+                $result = set_dev_mode(esc_sql($key), esc_sql($email), THIS_DOMAIN, $dev_mode);
+                
+                if (is_wp_error($result)) {
+					error_log($result->get_error_message());
+					$messages['set_dev_mode_failed'] = array('color' => 'FF0000', 'text' => __('Unable to set dev_mode - ' . $result->get_error_message()));
+            		$ms[] = 'set_dev_mode_failed';
+				}
+				else {
+					if ($dev_mode && $result->result == 'success') {
+                    	$ms[] = 'dev_mode_on';
+                	}
+                	else if (!$dev_mode && $result->result == 'success') {
+                    	$ms[] = 'dev_mode_off';
+                	}
+				}
+                
+                
             }
-        
-            $messages['dev_mode_on'] = array('color' => '2d2', 'text' => __('Development mode is On. Happy blogging!'));
-            $messages['dev_mode_off'] = array('color' => 'aa0', 'text' => __('Development mode is Off. Happy blogging!'));
         }
     }
     ?>
-    <?php if ( !empty($_POST['submit'] )) { ?>
-    <div id="message" class="updated fade"><p><strong><?php _e('Options saved.') ?></strong></p></div>
-    <?php } ?>
     <div class="wrap">
 
     <?php if ($is_cf) { ?>
         <h3>You are currently using CloudFlare!</h3>
     <?php } ?>
+    
+    <?php if ( !empty($_POST['submit'] )) { ?>
+    <div id="message" class="updated fade"><p><strong><?php _e('Options saved.') ?></strong></p></div>
+    <?php } ?>
+    <?php if ($ms) { foreach ( $ms as $m ) { ?>
+    <div id="message" class="updated fade"><p style="padding: .5em; color: #<?php echo $messages[$m]['color']; ?>; font-weight: bold;"><?php echo $messages[$m]['text']; ?></p></div>
+    <?php } } ?>
 
     <h4><?php _e('CLOUDFLARE WORDPRESS PLUGIN:'); ?></h4>
         <?php //    <div class="narrow"> ?>
@@ -224,7 +243,11 @@ CloudFlare is a service that makes websites load faster and protects sites from 
     <?php 
         if ($curl_installed) {
             $dev_mode = get_dev_mode_status($cloudflare_api_key, $cloudflare_api_email, THIS_DOMAIN);
-        }
+            if (is_wp_error($dev_mode)) {
+            	$messages['get_dev_mode_failed'] = array('color' => 'aa0', 'text' => __('Unable to get dev_mode status - ' . $dev_mode->get_error_message()));
+            	$ms[] = 'get_dev_mode_failed';
+            }
+        } 
     ?>
 
     <hr />
@@ -235,19 +258,24 @@ CloudFlare is a service that makes websites load faster and protects sites from 
     <?php } else { ?> 
         <p><?php printf(__('Input your API key from your CloudFlare Accounts Settings page here. To find your API key, log in to <a href="%1$s">CloudFlare</a> and go to \'Account\'.'), 'https://www.cloudflare.com/my-account.html'); ?></p>
     <?php } ?>
-    <?php if ($ms) { foreach ( $ms as $m ) { ?>
-    <p style="padding: .5em; color: #<?php echo $messages[$m]['color']; ?>; font-weight: bold;"><?php echo $messages[$m]['text']; ?></p>
-    <?php } } ?>
     <h3><label for="key"><?php _e('CloudFlare API Key'); ?></label></h3>
-    <p><input id="key" name="key" type="text" size="50" maxlength="48" value="<?php echo get_option('cloudflare_api_key'); ?>" style="font-family: 'Courier New', Courier, mono; font-size: 1.5em;" /> (<?php _e('<a href="https://www.cloudflare.com/my-account.html">Get this?</a>'); ?>)</p>
+    <p>
+    	<input id="key" name="key" type="text" size="50" maxlength="48" value="<?php echo get_option('cloudflare_api_key'); ?>" style="font-family: 'Courier New', Courier, mono; font-size: 1.5em;" /> (<?php _e('<a href="https://www.cloudflare.com/my-account.html">Get this?</a>'); ?>)
+    </p>
+    <?php if (isset($key_message)) echo sprintf('<p>%s</p>', $key_message); ?>
+    
     <h3><label for="email"><?php _e('CloudFlare API Email'); ?></label></h3>
-    <p><input id="email" name="email" type="text" size="50" maxlength="48" value="<?php echo get_option('cloudflare_api_email'); ?>" style="font-family: 'Courier New', Courier, mono; font-size: 1.5em;" /> (<?php _e('<a href="https://www.cloudflare.com/my-account.html">Get this?</a>'); ?>)
+    <p>
+    	<input id="email" name="email" type="text" size="50" maxlength="48" value="<?php echo get_option('cloudflare_api_email'); ?>" style="font-family: 'Courier New', Courier, mono; font-size: 1.5em;" /> (<?php _e('<a href="https://www.cloudflare.com/my-account.html">Get this?</a>'); ?>)
+    </p>
+    <?php if (isset($key_message)) echo sprintf('<p>%s</p>', $key_message); ?>
+    
     <h3><label for="dev_mode"><?php _e('Development Mode'); ?></label> <span style="font-size:9pt;">(<a href="https://support.cloudflare.com/entries/22280726-what-does-cloudflare-development-mode-mean" " target="_blank">What is this?</a>)</span></h3>
 
     <?php if ($curl_installed) { ?>
     <div style="font-family: 'Courier New', Courier, mono; font-size: 1.5em;">
-    <input type="radio" name="dev_mode" value="0" <? if ($dev_mode == "off") echo "checked"; ?>> Off
-    <input type="radio" name="dev_mode" value="1" <? if ($dev_mode == "on") echo "checked"; ?>> On
+    <input type="radio" name="dev_mode" value="0" <?php if ($dev_mode == "off") echo "checked"; ?>> Off
+    <input type="radio" name="dev_mode" value="1" <?php if ($dev_mode == "on") echo "checked"; ?>> On
     </div>
     <?php } else { ?>
     You cannot toggle development mode because cURL is not installed for your domain.  Please contact a server administrator for assistance with installing cURL.
@@ -264,7 +292,7 @@ CloudFlare is a service that makes websites load faster and protects sites from 
 
 function cloudflare_admin_warnings() {
     
-    global $cloudflare_api_key, $cloudflare_api_email; 
+    global $cloudflare_api_key, $cloudflare_api_email;
     load_cloudflare_keys();    
 }
 
@@ -308,27 +336,21 @@ function cloudflare_set_comment_status($id, $status) {
 add_action('wp_set_comment_status', 'cloudflare_set_comment_status', 1, 2);
 
 function get_dev_mode_status($token, $email, $zone) {
-    $url = 'https://www.cloudflare.com/api_json.html';
+    
     $fields = array(
-                'a'=>"zone_load",
-                'tkn'=>$token,
-                'email'=>$email,
-                'z'=>$zone
-              );
-
-    foreach($fields as $key=>$value) { 
-        $fields_string .= $key.'='.$value.'&';
-    }
-    rtrim($fields_string,'&');
-    $ch = curl_init();
-    curl_setopt($ch,CURLOPT_URL,$url);
-    curl_setopt($ch,CURLOPT_POST,count($fields));
-    curl_setopt($ch,CURLOPT_POSTFIELDS,$fields_string);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-    $result = curl_exec($ch);
-    $result = json_decode($result);
-    curl_close($ch);
-
+        'a'=>"zone_load",
+        'tkn'=>$token,
+        'email'=>$email,
+        'z'=>$zone
+    );
+    
+    $result = cloudflare_curl(CLOUDFLARE_API_URL, $fields, true);
+    
+    if (is_wp_error($result)) {
+    	error_log($result->get_error_message());
+    	return $result;
+	}
+	
     if ($result->response->zone->obj->zone_status_class == "status-dev-mode") {
         return "on";
     }
@@ -336,51 +358,41 @@ function get_dev_mode_status($token, $email, $zone) {
     return "off";
 }
 
-function set_dev_mode($token, $email, $zone, $value)
-{
-    $url = 'https://www.cloudflare.com/api_json.html';
+function set_dev_mode($token, $email, $zone, $value) {
+    
     $fields = array(
-            'a'=>"devmode",
-            'tkn'=>$token,
-            'email'=>$email,
-            'z'=>$zone,
-            'v'=>$value
-          );
-    foreach($fields as $key=>$value) { 
-        $fields_string .= $key.'='.$value.'&';
-    }
-    rtrim($fields_string,'&');
-    $ch = curl_init();
-    curl_setopt($ch,CURLOPT_URL,$url);
-    curl_setopt($ch,CURLOPT_POST,count($fields));
-    curl_setopt($ch,CURLOPT_POSTFIELDS,$fields_string);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-    $result = curl_exec($ch);
-    $result = json_decode($result);
-    curl_close($ch);
+    	'a'=>"devmode",
+        'tkn'=>$token,
+        'email'=>$email,
+        'z'=>$zone,
+        'v'=>$value
+	);
+	
+    $result = cloudflare_curl(CLOUDFLARE_API_URL, $fields, true);
+    
+    if (is_wp_error($result)) {
+    	error_log($result->get_error_message());
+		return $result;
+	}
+	
+	return $result;
 }
 
 function get_domain($token, $email, $raw_domain) {
-    $url = 'https://www.cloudflare.com/api_json.html';
+    
     $fields = array(
-                'a'=>"zone_load_multi",
-                'tkn'=>$token,
-                'email'=>$email
-              );
+    	'a'=>"zone_load_multi",
+        'tkn'=>$token,
+        'email'=>$email
+    );
 
-    foreach($fields as $key=>$value) { 
-        $fields_string .= $key.'='.$value.'&';
-    }
-    rtrim($fields_string,'&');
-    $ch = curl_init();
-    curl_setopt($ch,CURLOPT_URL,$url);
-    curl_setopt($ch,CURLOPT_POST,count($fields));
-    curl_setopt($ch,CURLOPT_POSTFIELDS,$fields_string);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-    $result = curl_exec($ch);
-    $result = json_decode($result);
-    curl_close($ch);
-
+	$result = cloudflare_curl(CLOUDFLARE_API_URL, $fields, true);
+	
+	if (is_wp_error($result)) {
+		error_log($result->get_error_message());
+		return $result;
+	}
+	
     $zone_count = $result->response->zones->count;
     if ($zone_count > 0) {
         for ($i = 0; $i < $zone_count; $i++) {
@@ -392,5 +404,53 @@ function get_domain($token, $email, $raw_domain) {
     }
     
     return null;
+}
+
+/**
+* @param $url		string		the URL to curl
+* @param $fields	array		an associative array of arguments for POSTing
+* @param $json 		boolean		attempt to decode response as JSON
+* 
+* @returns WP_ERROR|string|object in the case of an error, otherwise a $result string or JSON object
+*/
+function cloudflare_curl($url, $fields = array(), $json = true) {
+
+	$ch = curl_init();
+	
+    curl_setopt($ch,CURLOPT_URL,$url);
+
+	if (!empty($fields)) {
+	
+		$fields_string = '';
+		
+		foreach($fields as $key=>$value) { 
+        	$fields_string .= $key.'='.$value.'&';
+    	}
+    	rtrim($fields_string,'&');
+	
+		curl_setopt($ch,CURLOPT_POST,count($fields));
+    	curl_setopt($ch,CURLOPT_POSTFIELDS,$fields_string);
+	}
+
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+    
+    $result = curl_exec($ch);
+    
+    if ($result == false) {
+    	$curl_error = curl_error($ch);
+    	return new WP_Error('curl', sprintf('cURL request failed: %s', $curl_error));
+    }
+    
+    if ($json == true) {
+    	$result = json_decode($result);
+    	// not a perfect test, but better than nothing perhaps
+    	if ($result == null) {
+    		return new WP_Error('json_decode', sprintf('Unable to decode JSON response'), $result);
+    	}
+    }
+    
+    curl_close($ch);
+    
+    return $result;
 }
 ?>

@@ -2,13 +2,13 @@
 
 Contributors: darklrd, shubhamgupta
 
-Tags: chat, real time, support chat, live chat, community chat, buddypress chat, social, buddypress, social chat, social community chat, facebook chat, web chat, sales chat, one to one chat, chat room, group chat, embed chat, popup chat, IM chat, php chat, ajax chat, cloud chat, free chat, google chat, network, team chat, social community, collaborative, visitor chat, customer engagement, wordpress live chat plugin, wordpress community chat plugin, online support, social widget, chat widget, html5 chat, website chat
+Tags: chat, real time, support chat, live chat, community chat, buddypress chat, social, buddypress, social chat, social community chat, facebook chat, web chat, one to one chat, chat room, group chat, embed chat, popup chat, IM chat, php chat, ajax chat, cloud chat, google chat, team chat, social community, visitor chat, customer engagement, wordpress live chat plugin, wordpress community chat plugin, online support, social widget, chat widget, html5 chat, website chat
 
 Requires at least: 3.0
 
 Tested up to: 3.8
 
-Stable tag: 1.2.2
+Stable tag: 1.2.6
 
 License: GPLv2 or later
 
@@ -55,112 +55,136 @@ PS: You'll need an [iFlyChat.com API key](https://iflychat.com) to use it.
 
 == Changelog ==
 
-= 1.1.7 =
-iFlyChat Support Chat released. New emoticons added. Added Screenshots.
+= 1.2.6 =
+Add shortcode so that site-admins can view logs by using it.
 
-= 1.1.8 =
-iFlyChat Sync Release.
+= 1.2.5 =
+Disable aggressive caching.
 
-= 1.1.9 =
-iFlyChat Improved Caching.
+= 1.2.4 =
+Fix 404 profile link error if BuddyPress is not present. Update README file.
 
-= 1.1.10 =
-PHP mb_* fix
+= 1.2.3 =
+Fix 404 profile link error if BuddyPress is not present.
 
-= 1.1.11 =
-PHP mb_* fix
+= 1.2.2 =
+Update README file.
 
-= 1.1.12 =
-Add WP users as chat moderators
+= 1.2.1 =
+Update README file.
 
-= 1.1.13 =
-Add WP users as chat moderators
+= 1.2.0 =
+Stop Word List Filter update - very important.
 
-= 1.1.14 =
-Make plugin translatable
+= 1.1.21 =
+Chat Admin Fix.
 
-= 1.1.15 =
-Toggle on/off search bar and render images inline
-
-= 1.1.16 =
-Fix compatibility
-
-= 1.1.17 =
-Integration with WP User Avatar. Improve Caching.
-
-= 1.1.18 =
+= 1.1.20 =
 Update README file.
 
 = 1.1.19 =
 Integration with User Avatar.
 
-= 1.1.20 =
+= 1.1.18 =
 Update README file.
 
-= 1.1.21 =
-Chat Admin Fix.
+= 1.1.17 =
+Integration with WP User Avatar. Improve Caching.
 
-= 1.2.0 =
-Stop Word List Filter update - very important.
+= 1.1.16 =
+Fix compatibility
 
-= 1.2.1 =
-Update README file.
+= 1.1.15 =
+Toggle on/off search bar and render images inline
 
-= 1.2.2 =
-Update README file.
+= 1.1.14 =
+Make plugin translatable
+
+= 1.1.13 =
+Add WP users as chat moderators
+
+= 1.1.12 =
+Add WP users as chat moderators
+
+= 1.1.11 =
+PHP mb_* fix
+
+= 1.1.10 =
+PHP mb_* fix
+
+= 1.1.9 =
+iFlyChat Improved Caching.
+
+= 1.1.8 =
+iFlyChat Sync Release.
+
+= 1.1.7 =
+iFlyChat Support Chat released. New emoticons added. Added Screenshots.
 
 == Upgrade Notice ==
 
-= 1.1.7 =
+= 1.2.6 =
 After updating, go to iFlyChat Settings page and click on Update button.
 
-= 1.1.8 =
+= 1.2.5 =
 After updating, go to iFlyChat Settings page and click on Update button.
 
-= 1.1.9 =
+= 1.2.4 =
 After updating, go to iFlyChat Settings page and click on Update button.
 
-= 1.1.10 =
+= 1.2.3 =
 After updating, go to iFlyChat Settings page and click on Update button.
 
-= 1.1.11 =
+= 1.2.2 =
 After updating, go to iFlyChat Settings page and click on Update button.
 
-= 1.1.12 =
+= 1.2.1 =
 After updating, go to iFlyChat Settings page and click on Update button.
 
-= 1.1.13 =
+= 1.2.0 =
 After updating, go to iFlyChat Settings page and click on Update button.
 
-= 1.1.14 =
+= 1.1.21 =
 After updating, go to iFlyChat Settings page and click on Update button.
 
-= 1.1.15 =
-After updating, go to iFlyChat Settings page and click on Update button.
-
-= 1.1.16 =
-After updating, go to iFlyChat Settings page and click on Update button.
-
-= 1.1.17 =
-After updating, go to iFlyChat Settings page and click on Update button.
-
-= 1.1.18 =
+= 1.1.20 =
 After updating, go to iFlyChat Settings page and click on Update button.
 
 = 1.1.19 =
 After updating, go to iFlyChat Settings page and click on Update button.
 
-= 1.1.20 =
+= 1.1.18 =
 After updating, go to iFlyChat Settings page and click on Update button.
 
-= 1.1.21 =
+= 1.1.17 =
 After updating, go to iFlyChat Settings page and click on Update button.
 
-= 1.2.0 =
+= 1.1.16 =
 After updating, go to iFlyChat Settings page and click on Update button.
 
-= 1.2.1 =
+= 1.1.15 =
 After updating, go to iFlyChat Settings page and click on Update button.
 
-= 1.2.2 =
+= 1.1.14 =
+After updating, go to iFlyChat Settings page and click on Update button.
+
+= 1.1.13 =
+After updating, go to iFlyChat Settings page and click on Update button.
+
+= 1.1.12 =
+After updating, go to iFlyChat Settings page and click on Update button.
+
+= 1.1.11 =
+After updating, go to iFlyChat Settings page and click on Update button.
+
+= 1.1.10 =
+After updating, go to iFlyChat Settings page and click on Update button.
+
+= 1.1.9 =
+After updating, go to iFlyChat Settings page and click on Update button.
+
+= 1.1.8 =
+After updating, go to iFlyChat Settings page and click on Update button.
+
+= 1.1.7 =
 After updating, go to iFlyChat Settings page and click on Update button.

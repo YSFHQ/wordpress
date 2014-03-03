@@ -35,7 +35,7 @@ for ($i=0; $i<5; $i++) {
             <!-- Video Promo -->
             <div class="span6">
                 <!--<iframe width="480" height="360" src="//www.youtube.com/embed/OxeOJr9R5bs?rel=0&amp;wmode=transparent" allowfullscreen></iframe>-->
-                <iframe width="560" height="360" src="//www.youtube.com/embed/1Z77lkSlNLo?rel=0&amp;wmode=transparent" allowfullscreen></iframe>
+                <iframe width="560" height="360" src="//www.youtube.com/embed/wp37r4PgchE?rel=0&amp;wmode=transparent" allowfullscreen></iframe>
             </div><!--/span6-->
             <!-- Featured Screenshots -->
             <div class="span3">
@@ -266,20 +266,20 @@ for ($i=0; $i<5; $i++) {
                 <!--<br><h4><em>Coming Soon</em></h4>-->
                 <ul class="portfolio recent-work clearfix"> 
                     <li data-id="id-1">
-                        <a href="http://forum.ysfhq.com/viewtopic.php?f=163&t=5709&p=69652#p69078">
-                            <em class="overflow-hidden"><img src="http://i1058.photobucket.com/albums/t417/aquanga/PERC601BB38D310_zpsc9ca4663.png" alt="Flyer" width="270" /></em>
+                        <a href="http://forum.ysfhq.com/viewtopic.php?f=163&t=5890">
+                            <em class="overflow-hidden"><img src="http://i.imgur.com/i5qs4P7.png" alt="Flyer" height="500" width="270" /></em>
                             <span>
-                                <strong>Seoul International ADEX (Dec 22nd)</strong>
-                                <i>The first airshow held by YSFLIGHT Korea, this Sunday at 12:00pm UTC! Feast your eyes on beautiful aerobatics.</i>
+                                <strong>Cherokee Valley Airshow (3/15)</strong>
+                                <i>Prepare for one of the best aerial events of the year... YS Air Shows is pleased to announce the Cherokee Valley Air Show on March 15th! Prepare for a virtual aviation spectacle unmatched by any other flight simulator community in the world!</i>
                             </span>
                         </a>
                     </li>
                     <li data-id="id-2">
-                        <a href="http://forum.ysfhq.com/viewtopic.php?f=163&t=5718#p69152">
-                            <em class="overflow-hidden"><img src="http://i.imgur.com/LS6sA2w.png" alt="Flyer" width="270" /></em>
+                        <a href="http://forum.ysfhq.com/viewtopic.php?f=163&t=5829">
+                            <em class="overflow-hidden"><img src="http://i.imgur.com/VR1CHY0.png" alt="Flyer" height="500" width="270" /></em>
                             <span>
-                                <strong>YSFlight Internationale Sanicole Airshow (Jan 4th)</strong>
-                                <i>Join YSAA at the small aerodrome in Belgium called Sanicole for one of the best airshows in Belgium! The aerodrome may me small but includes big acts like F-16s and Rafales!</i>
+                                <strong>YSFlight Phillip Island International Airshow (4/19-20)</strong>
+                                <i>It is with great pleasure that Pacific Airshows brings you the YSFlight Phillip Island International Airshow 2014. Set on a small island south of Melbourne, Victoria, Phillip Island provides breath taking scenery, great fish, and an adreniline pumping Motorcycle Grand Prix every year.</i>
                             </span>
                         </a>
                     </li>

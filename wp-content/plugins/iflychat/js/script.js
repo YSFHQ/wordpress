@@ -107,7 +107,7 @@ function drupalchatLoad(data) {
 	  Drupal.settings = {};
 	  Drupal.settings.drupalchat = iflychat;
 	  Drupal.settings.basePath = Drupal.settings.drupalchat.basePath;
-	  if(drupalchatReadCookie('iflychat_key') && drupalchatReadCookie('iflychat_css') && (Drupal.settings.drupalchat.chat_type === '2')) {
+	  if(false && drupalchatReadCookie('iflychat_key') && drupalchatReadCookie('iflychat_css') && (Drupal.settings.drupalchat.chat_type === '2')) {
       var data = {key: drupalchatReadCookie('iflychat_key'), css: drupalchatReadCookie('iflychat_css'), cache: '1'};
       drupalchatCheckUrl(Drupal.settings.drupalchat.external_a_host + ':' + Drupal.settings.drupalchat.external_a_port + '/i/' + drupalchatReadCookie('iflychat_css') + '/cache.css', data);
     }
