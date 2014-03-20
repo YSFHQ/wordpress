@@ -1,6 +1,10 @@
 // Self-executing function to create and register the TinyMCE plugin
 (function(siteurl) {
 
+    tinyMCE.addI18n('en.ngg_attach_to_post', {
+        title: 'Attach NextGEN Gallery to Post'
+    });
+
 	// Create the plugin. We'll register it afterwards
 	tinymce.create('tinymce.plugins.NextGEN_AttachToPost', {
 
@@ -14,7 +18,7 @@
 		 */
 		getInfo: function() {
 			return {
-				longname:	'NextGen - Attach Gallery',
+				longname:	'NextGEN Gallery',
 				author:		'Photocrati Media',
 				authorurl:	'http://www.photocrati.com',
 				infourl:	'http://www.nextgen-gallery.com',
@@ -36,7 +40,7 @@
 
 			// Add a button to trigger the above command
 			editor.addButton('NextGEN_AttachToPost', {
-				title:	'NextGEN Gallery - Attach To Post',
+				title:	'ngg_attach_to_post.title',
 				cmd:	'ngg_attach_to_post',
 				image:	plugin_url+'/nextgen.gif'
 			});

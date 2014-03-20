@@ -2,13 +2,13 @@
 
 Contributors: darklrd, shubhamgupta
 
-Tags: chat, real time, support chat, live chat, community chat, buddypress chat, social, buddypress, social chat, social community chat, facebook chat, web chat, one to one chat, chat room, group chat, embed chat, popup chat, IM chat, php chat, ajax chat, cloud chat, google chat, team chat, social community, visitor chat, customer engagement, wordpress live chat plugin, wordpress community chat plugin, online support, social widget, chat widget, html5 chat, website chat
+Tags: chat, real time, support chat, live chat, community chat, buddypress chat, social, buddypress, social chat, social community chat, facebook chat, web chat, one to one chat, chat room, group chat, embed chat, popup chat, IM chat, cloud chat, google chat, team chat, social community, visitor chat, customer engagement, wordpress live chat plugin, wordpress community chat plugin, online support, social widget, chat widget, html5 chat, website chat
 
 Requires at least: 3.0
 
 Tested up to: 3.8
 
-Stable tag: 1.2.6
+Stable tag: 1.2.9
 
 License: GPLv2 or later
 
@@ -16,7 +16,7 @@ iFlyChat provides one on one chat and multiple chat rooms for your website.
 
 == Description ==
 
-iFlyChat (also known as DrupalChat) allows visitors of your Wordpress site to chat with each other privately or together in chat rooms. This plugin enables sites to provide online support for their products/services, and thereby increases user engagement. Also, it is useful for social networking sites, forums, blogs, etc. It logs the user conversations so that they can be later viewed in message inbox. You can try it out live [here](https://iflychat.com).
+iFlyChat (also known as DrupalChat) allows visitors of your Wordpress site to chat with each other privately or together in chat rooms. This plugin enables sites to provide online support for their products/services, and thereby increases user engagement. Also, it is useful for social networking sites, forums, blogs, etc. It logs the user conversations so that they can be later viewed in message inbox. You can try it out live [here](https://iflychat.com/features).
 
 Features
 
@@ -29,6 +29,7 @@ Features
 * Automatic integration with User Avatar
 * Automatic integration with Simple Local Avatars
 * Chat rooms can be embedded into the page instead of pop-up
+* Chat works on tablets and mobile devices
 * Supports chat for anonymous users 
 * Provides chat logging and message inbox functionality
 * Supports smilieys (detects them automatically in chat messages)
@@ -38,14 +39,14 @@ Features
 * Supports translation
 
 
-PS: You'll need an [iFlyChat.com API key](https://iflychat.com) to use it.
+PS: You'll need an [iFlyChat.com API key](https://iflychat.com/installation/wordpress-chat-plugin) to use it.
 
 == Installation ==
 
 * Upload the iFlyChat plugin to your WordPress site.
 * Activate it.
 * Get [iFlyChat.com API key](https://iflychat.com).
-* Detailed installation steps - https://iflychat.com/installation-wordpress.
+* Detailed installation steps - https://iflychat.com/installation/wordpress-chat-plugin.
 * You're done!
 
 == Screenshots ==
@@ -53,7 +54,43 @@ PS: You'll need an [iFlyChat.com API key](https://iflychat.com) to use it.
 1. **Popup Format** - Open multiple chat windows (both rooms and one-to-one) next to each other and chat simultaneously. This screenshot shows a website with 700+ concurrent users.
 2. **Embed Format** - Make your chat (room) larger and roomier by embedding it into a page. Fully customizable CSS.
 
+== Frequently Asked Questions ==
+
+= Is it free to use? =
+
+We offer lifetime free plan for upto 10 simultaneous users in chat. It also includes all standard features. 
+For advanced features (such as embed chat, group chat, etc) and scalability, we offer paid plans - [https://iflychat.com/pricing](https://iflychat.com/pricing). 
+
+= Do I have to install any software on my website server for this to work? =
+
+This is a cloud based chat. You don’t need to install anything apart from iFlyChat plugin.
+
+= How do you provide support? =
+
+Please visit our website [iflychat.com](https://iflychat.com) for any query. We provide support via live chat on our website. Additionally, you may contact us by filling up this form - [https://iflychat.com/contact](https://iflychat.com/contact). 
+
+= Do you have any knowledge base where I can see some documentation? =
+
+Yes, you may view our knowledge base here - [https://iflychat.com/documentation](https://iflychat.com/documentation).
+
+= Does iFlyChat work on mobile and tablet? =
+
+Yes, our chat works across all mobile platforms. 
+
+= Does iFlyChat require Java or Flash client? =
+
+No, our chat works by utilizing HTML, JS and CSS.
+
 == Changelog ==
+
+= 1.2.9 =
+Fix README.
+
+= 1.2.8 =
+Ability to change notification sound.
+
+= 1.2.7 =
+Initial code for mobile version.
 
 = 1.2.6 =
 Add shortcode so that site-admins can view logs by using it.
@@ -122,6 +159,15 @@ iFlyChat Sync Release.
 iFlyChat Support Chat released. New emoticons added. Added Screenshots.
 
 == Upgrade Notice ==
+
+= 1.2.9 =
+After updating, go to iFlyChat Settings page and click on Update button.
+
+= 1.2.8 =
+After updating, go to iFlyChat Settings page and click on Update button.
+
+= 1.2.7 =
+After updating, go to iFlyChat Settings page and click on Update button.
 
 = 1.2.6 =
 After updating, go to iFlyChat Settings page and click on Update button.

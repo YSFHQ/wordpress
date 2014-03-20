@@ -33,6 +33,8 @@ class C_NggLegacy_Installer
 
 	function uninstall($hard=FALSE)
 	{
+		include_once('admin/install.php');
+
 		delete_option('ngg_init_check');
 		delete_option('ngg_update_exists');
 		delete_option( 'ngg_options' );
@@ -101,6 +103,6 @@ class C_NggLegacy_Installer
 		$sql = str_replace($charset_collate, '', str_replace(';', '', $sql));
 
 		// Execute the query
-		dbDelta($sql. ' '. $charset_collate. ';');
+		return dbDelta($sql. ' '. $charset_collate. ';');
 	}
 }

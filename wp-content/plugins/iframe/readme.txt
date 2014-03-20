@@ -3,10 +3,10 @@ Contributors: webvitaly
 Donate link: http://web-profile.com.ua/donate/
 Tags: iframe, embed, youtube, vimeo, google-map, google-maps
 Requires at least: 3.0
-Tested up to: 3.5.1
-Stable tag: 2.7
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tested up to: 3.8.1
+Stable tag: 2.8
+License: GPLv3
+License URI: http://www.gnu.org/licenses/gpl.html
 
 [iframe src="http://www.youtube.com/embed/A3PDXmYoF5U" width="100%" height="480"] shortcode
 
@@ -57,6 +57,9 @@ If you need to embed content from YouTube, Vimeo, SlideShare, SoundCloud, Twitte
 1. [iframe] shortcode
 
 == Changelog ==
+
+= 2.8 - 2014-03-14 =
+* remove fix for google maps
 
 = 2.7 - 2013-06-09 =
 * minor changes

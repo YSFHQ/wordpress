@@ -35,7 +35,7 @@ for ($i=0; $i<5; $i++) {
             <!-- Video Promo -->
             <div class="span6">
                 <!--<iframe width="480" height="360" src="//www.youtube.com/embed/OxeOJr9R5bs?rel=0&amp;wmode=transparent" allowfullscreen></iframe>-->
-                <iframe width="560" height="360" src="//www.youtube.com/embed/wp37r4PgchE?rel=0&amp;wmode=transparent" allowfullscreen></iframe>
+                <iframe width="560" height="360" src="//www.youtube.com/embed/tig1ISqjaSQ?rel=0&amp;wmode=transparent" allowfullscreen></iframe>
             </div><!--/span6-->
             <!-- Featured Screenshots -->
             <div class="span3">

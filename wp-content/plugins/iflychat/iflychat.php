@@ -1,14 +1,14 @@
 <?php
 /**
  * @package iflychat
- * @version 1.2.6
+ * @version 1.2.9
  */
 /*
 Plugin Name: iFlyChat
 Plugin URI: http://wordpress.org/extend/plugins/iflychat/
 Description: One on one chat, Multiple chatrooms, Embedded chatrooms 
 Author: Shashwat Srivastava, Shubham Gupta - iFlyChat Team
-Version: 1.2.6
+Version: 1.2.9
 Author URI: https://iflychat.com/
 */
 
@@ -113,6 +113,7 @@ function iflychat_init() {
       'newMessage' => __('New chat message!', 'iflychat'),
       'images' => plugin_dir_url( __FILE__ ) . 'themes/light/images/',
       'sound' => plugin_dir_url( __FILE__ ) . '/swf/sound.swf',
+      'soundFile' => plugin_dir_url( __FILE__ ) . 'wav/notification.mp3',
       'noUsers' => "<div class=\"item-list\"><ul><li class=\"drupalchatnousers even first last\">No users online</li></ul></div>",
       'smileyURL' => plugin_dir_url( __FILE__ ) . 'smileys/very_emotional_emoticons-png/png-32x32/',
       'addUrl' => " ",
@@ -228,10 +229,11 @@ function iflychat_init() {
 		$my_settings['text_support_chat_offline_message_desc'] = get_option('iflychat_support_chat_offline_message_desc');
 		$my_settings['text_support_chat_init_label_off'] = get_option('iflychat_support_chat_init_label_off');
 	  }
-    $protocol = isset($_SERVER["HTTPS"]) ? 'https://' : 'http://';
-    $my_settings['geturl'] = admin_url('admin-ajax.php', $protocol);
-	$my_settings['soffurl'] = admin_url('admin-ajax.php', $protocol);
-	$my_settings['chat_type'] = get_option('iflychat_show_admin_list');
+    $_iflychat_protocol = isset($_SERVER["HTTPS"]) ? 'https://' : 'http://';
+    $my_settings['geturl'] = admin_url('admin-ajax.php', $_iflychat_protocol);
+	  $my_settings['soffurl'] = admin_url('admin-ajax.php', $_iflychat_protocol);
+    $my_settings['mobileWebUrl'] = plugin_dir_url( __FILE__ ) . 'mobile-chat.php';
+	  $my_settings['chat_type'] = get_option('iflychat_show_admin_list');
     wp_enqueue_script( 'iflychat-emotify', plugin_dir_url( __FILE__ ) . 'js/ba-emotify.js', array('jquery'));	
     wp_enqueue_script( 'iflychat-titlealert', plugin_dir_url( __FILE__ ) . 'js/jquery.titlealert.min.js', array('jquery'));	
     wp_enqueue_script( 'iflychat-ajax', plugin_dir_url( __FILE__ ) . 'js/script.js', array('jquery'));
@@ -346,7 +348,7 @@ function iflychat_submit_uth() {
       $json = _iflychat_get_auth($user_name);
       if(isset($json->_i) && (get_option('iflychat_ext_d_i')!=$json->_i)) {
 	    update_option('iflychat_ext_d_i',$json->_i);
-      }		
+      }	      
       $json->name = $user_name;
 	  $json->uid = $tid;
     }
@@ -893,7 +895,7 @@ function iflychat_settings() {
 	  'font_color' => get_option('iflychat_chat_font_color'),
 	  'chat_list_header' => get_option('iflychat_chat_list_header'),
 	  'public_chatroom_header' => get_option('iflychat_public_chatroom_header'),
-	  'version' => 'WP-1.2.6',
+	  'version' => 'WP-1.2.9',
 	  'show_admin_list' => (get_option('iflychat_show_admin_list') == "1")?'1':'2',
 	  'clear' => get_option('iflychat_allow_single_message_delete'),
     'delmessage' => get_option('iflychat_allow_clear_room_history'),

@@ -3,7 +3,7 @@
 Plugin Name: CloudFlare
 Plugin URI: http://www.cloudflare.com/wiki/CloudFlareWordPressPlugin
 Description: CloudFlare integrates your blog with the CloudFlare platform.
-Version: 1.3.12
+Version: 1.3.13
 Author: Ian Pye, Jerome Chen, James Greene, Simon Moore (CloudFlare Team)
 License: GPLv2
 */
@@ -26,7 +26,7 @@ Plugin adapted from the Akismet WP plugin.
 
 */	
 
-define('CLOUDFLARE_VERSION', '1.3.12');
+define('CLOUDFLARE_VERSION', '1.3.13');
 define('CLOUDFLARE_API_URL', 'https://www.cloudflare.com/api_json.html'); 
 
 require_once("ip_in_range.php");
@@ -108,9 +108,16 @@ function cloudflare_conf() {
     global $wpdb;
     
     $messages = array(
+        'ip_restore_on' => array('color' => '000', 'text' => __('Plugin Status: True visitor IP is being restored')),
+        'comment_spam_on' => array('color' => '000', 'text' => __('Plugin Status: CloudFlare will be notified when you mark comments as spam')),
+        'curl_not_installed' => array('color' => 'FFA824', 'text' => __('Plugin Status: cURL is not installed/enabled on your server. You will not be able to toggle <a href="https://support.cloudflare.com/entries/22280726-what-does-cloudflare-development-mode-mean" target="_blank">development mode</a> via this plugin. If you wish to do this, please contact your server administrator or hosting provider for assistance with installing cURL.')),
         'dev_mode_on' => array('color' => '2d2', 'text' => __('Development mode is On. Happy blogging!')),
-        'dev_mode_off' => array('color' => 'aa0', 'text' => __('Development mode is Off. Happy blogging!'))
+        'dev_mode_off' => array('color' => 'aa0', 'text' => __('Development mode is Off. Happy blogging!')),
     );
+    
+    $ms = array();
+    $ms[] = 'ip_restore_on';
+    $ms[] = 'comment_spam_on';
 
     // get raw domain - may include www.
     $urlparts = parse_url(site_url());
@@ -120,22 +127,26 @@ function cloudflare_conf() {
 
 	$domain = null;
 
+    if (!$curl_installed) $ms[] = 'curl_not_installed';
+
     if ($curl_installed) {
         // Attempt to get the matching host from CF
         $domain = get_domain($cloudflare_api_key, $cloudflare_api_email, $raw_domain);
         
         // If not found, default to pulling the domain via client side.
         if (is_wp_error($domain)) {
-        	$messages['get_domain_failed'] = array('color' => 'FFA500', 'text' => __('Unable to get domain via CloudFlare API - ' . $domain->get_error_message()));
+        	$messages['get_domain_failed'] = array('color' => 'FFA824', 'text' => __('Unable to get domain via CloudFlare API - ' . $domain->get_error_message()));
             $ms[] = 'get_domain_failed';
             $domain = null;
         }
+        else if ($domain == null) {
+        	$messages['domain_not_found'] = array('color' => 'FFA824', 'text' => __('Could not find your domain via CloudFlare API, assuming your CloudFlare domain is: ' . $raw_domain));
+    		$ms[] = 'domain_not_found'; 
+    	}
     }
     
     if ($domain == null) {
-    	$domain = $raw_domain;
-    	$messages['domain_not_found'] = array('color' => 'FFA500', 'text' => __('Could not find your domain via CloudFlare API, assuming your CloudFlare domain is: ' . $domain));
-    	$ms[] = 'domain_not_found';    
+    	$domain = $raw_domain;   
     }
     
     define ("THIS_DOMAIN",  $domain);
@@ -180,7 +191,7 @@ function cloudflare_conf() {
                 
                 if (is_wp_error($result)) {
 					error_log($result->get_error_message());
-					$messages['set_dev_mode_failed'] = array('color' => 'FF0000', 'text' => __('Unable to set dev_mode - ' . $result->get_error_message()));
+					$messages['set_dev_mode_failed'] = array('color' => 'FFA824', 'text' => __('Unable to set dev_mode - ' . $result->get_error_message() . ' - try logging into cloudflare.com to set development mode'));
             		$ms[] = 'set_dev_mode_failed';
 				}
 				else {
@@ -217,6 +228,7 @@ CloudFlare has developed a plugin for WordPress. By using the CloudFlare WordPre
 <ol>
 <li>Correct IP Address information for comments posted to your site</li>
 <li>Better protection as spammers from your WordPress blog get reported to CloudFlare</li>
+<li>If cURL is installed, you can enter your CloudFlare API details so you can toggle <a href="https://support.cloudflare.com/entries/22280726-what-does-cloudflare-development-mode-mean" target="_blank">Development mode</a> on/off using the form below</li>
 </ol>
 
 <h4>VERSION COMPATIBILITY:</h4>
@@ -277,10 +289,7 @@ CloudFlare is a service that makes websites load faster and protects sites from 
     <input type="radio" name="dev_mode" value="0" <?php if ($dev_mode == "off") echo "checked"; ?>> Off
     <input type="radio" name="dev_mode" value="1" <?php if ($dev_mode == "on") echo "checked"; ?>> On
     </div>
-    <?php } else { ?>
-    You cannot toggle development mode because cURL is not installed for your domain.  Please contact a server administrator for assistance with installing cURL.
     <?php } ?>
-    
     </p>
     <p class="submit"><input type="submit" name="submit" value="<?php _e('Update options &raquo;'); ?>" /></p>
     </form>
@@ -438,7 +447,16 @@ function cloudflare_curl($url, $fields = array(), $json = true) {
     
     if ($result == false) {
     	$curl_error = curl_error($ch);
-    	return new WP_Error('curl', sprintf('cURL request failed: %s', $curl_error));
+    	$curl_error_number = curl_errno($ch);
+    	
+    	// Attempt to detect a possible invalid cert bundle on the server - CURLE_SSL_CACERT (60)
+    	// Ref: http://curl.haxx.se/libcurl/c/libcurl-errors.html
+    	if ($curl_error_number == 60) {
+    		return new WP_Error('curl', sprintf('cURL returned an SSL related error when contacting the CloudFlare API using HTTPS. It is possible that your server\'s CA cert bundle is out of date. You should contact your server administrator or hosting provider and ask them to check that you have the latest CA Cert bundle installed. cURL Error: %d - %s', $curl_error_number, $curl_error), $curl_error_number);
+    	}
+    	else {
+    		return new WP_Error('curl', sprintf('cURL request failed: %d - %s', $curl_error_number, $curl_error), $curl_error_number);
+    	}
     }
     
     if ($json == true) {
