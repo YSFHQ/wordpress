@@ -161,7 +161,7 @@ class C_NggLegacy_Thumbnail {
         }
         
 		// increase memory-limit if possible, GD needs this for large images
-		@ini_set('memory_limit', '512M');
+        if (!extension_loaded('suhosin')) @ini_set('memory_limit', '512M');
         
 		if($this->error == false) { 
         // Check memory consumption if file exists
@@ -341,30 +341,24 @@ class C_NggLegacy_Thumbnail {
      * @param int $height
      */
     function calcImageSize($width,$height) {
-        $newSize = array('newWidth'=>$width,'newHeight'=>$height);
+        // $width and $height are the CURRENT image resolutions
+        $ratio_w = $this->maxWidth / $width;
+        $ratio_h = $this->maxHeight / $height;
 
-        if($this->maxWidth > 0) {
-
-            $newSize = $this->calcWidth($width,$height);
-
-            if($this->maxHeight > 0 && $newSize['newHeight'] > $this->maxHeight) {
-                $newSize = $this->calcHeight($newSize['newWidth'],$newSize['newHeight']);
-            }
-
-            //$this->newDimensions = $newSize;
+        if ($ratio_w >= $ratio_h)
+        {
+            $width = $this->maxWidth;
+            $height = (int)round($height * $ratio_h, 0);
+        }
+        else {
+            $height = $this->maxHeight;
+            $width = (int)round($width * $ratio_w, 0);
         }
 
-        if($this->maxHeight > 0) {
-            $newSize = $this->calcHeight($width,$height);
-
-            if($this->maxWidth > 0 && $newSize['newWidth'] > $this->maxWidth) {
-                $newSize = $this->calcWidth($newSize['newWidth'],$newSize['newHeight']);
-            }
-
-            //$this->newDimensions = $newSize;
-        }
-
-        $this->newDimensions = $newSize;
+        $this->newDimensions = array(
+            'newWidth' => $width,
+            'newHeight' => $height,
+        );
     }
 
     /**

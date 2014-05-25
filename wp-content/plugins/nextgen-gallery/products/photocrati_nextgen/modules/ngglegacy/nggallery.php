@@ -60,12 +60,9 @@ if (!class_exists('nggLoader')) {
 
 			global $nggRewrite;
 
-			// Load the language file
-			$this->load_textdomain();
-
 			// All credits to the tranlator
-			$this->translator  = '<p class="hint">'. __('<strong>Translation by : </strong><a target="_blank" href="http://alexrabe.de/wordpress-plugins/nextgen-gallery/languages/">See here</a>', 'nggallery') . '</p>';
-			$this->translator .= '<p class="hint">'. __('<strong>This translation is not yet updated for Version 1.9.0</strong>. If you would like to help with translation, download the current po from the plugin folder and read <a href="http://alexrabe.de/wordpress-plugins/wordtube/translation-of-plugins/">here</a> how you can translate the plugin.', 'nggallery') . '</p>';
+			$this->translator  = '<p class="hint">'. __('<strong>Translation by : </strong><a target="_blank" href="http://www.nextgen-gallery.com/languages/">See here</a>', 'nggallery') . '</p>';
+			$this->translator .= '<p class="hint">'. __('<strong>This translation is not yet updated for Version 1.9.0</strong>. If you would like to help with translation, download the current po from the plugin folder and read <a href="http://www.nextgen-gallery.com/languages/">here</a> how you can translate the plugin.', 'nggallery') . '</p>';
 
 			// Content Filters
 			add_filter('ngg_gallery_name', 'sanitize_title');
@@ -273,12 +270,6 @@ if (!class_exists('nggLoader')) {
 					$this->nggAdminPanel = new nggAdminPanel();
 				}
 			}
-		}
-
-		function load_textdomain() {
-
-			load_plugin_textdomain('nggallery', false, NGGFOLDER . '/lang');
-
 		}
 
 		function load_thickbox_images() {

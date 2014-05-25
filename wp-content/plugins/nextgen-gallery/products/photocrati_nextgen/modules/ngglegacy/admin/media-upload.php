@@ -259,11 +259,11 @@ if ($chromeless)
 						</td>
 					</tr>
 					<tr class="image-size">
-						<th class="label"><label for="image[<?php echo $picid ?>][size]"><span class="alignleft"><?php esc_attr_e("Size") ; ?></span></label>
+						<th class="label"><label for="image[<?php echo $picid ?>][size]"><span class="alignleft"><?php esc_attr_e('Size', 'nggallery') ; ?></span></label>
 						</th>
 						<td class="field">
 							<input name="image[<?php echo $picid ?>][size]" id="image-size-thumb-<?php echo $picid ?>" type="radio" checked="checked" value="thumbnail" />
-							<label for="image-size-thumb-<?php echo $picid ?>"><?php esc_attr_e("Thumbnail") ; ?></label>
+							<label for="image-size-thumb-<?php echo $picid ?>"><?php esc_attr_e('Thumbnail', 'nggallery') ; ?></label>
 							<input name="image[<?php echo $picid ?>][size]" id="image-size-full-<?php echo $picid ?>" type="radio" value="full" />
 							<label for="image-size-full-<?php echo $picid ?>"><?php esc_attr_e("Full size") ; ?></label>
 							<input name="image[<?php echo $picid ?>][size]" id="image-size-singlepic-<?php echo $picid ?>" type="radio" value="singlepic" />

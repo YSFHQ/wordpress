@@ -38,7 +38,7 @@ function drupalchatCheckUrl(url, sdata){
     };
     xdr.onerror = function (e) {
       drupalchatForceLoad();
-    };          
+    };
     xdr.send();
   }
   else {
@@ -46,7 +46,7 @@ function drupalchatCheckUrl(url, sdata){
     request.open('GET', url, true);
     request.send();
     request.onreadystatechange = function(){
-      if(request.readyState==4 && request.status==200){       
+      if(request.readyState==4 && request.status==200){
         $('body').append('<style>'+request.responseText+'</style>');
         drupalchatLoad(sdata);
       }
@@ -68,18 +68,24 @@ function drupalchatForceLoad() {
         drupalchatCreateCookie('iflychat_time', new Date().getTime(), 30);
       }
 	  });
-  })(jQuery);  
+  })(jQuery);
 }
 
 function drupalchatLoad(data) {
   if(data && (typeof data.css != "undefined") && (typeof data.key != "undefined")) {
 	        Drupal.settings.drupalchat.session_key = data.key;
-		    if(typeof data.name != "undefined") {
-		      Drupal.settings.drupalchat.username = data.name
+		    if(typeof data.name !== "undefined") {
+		      Drupal.settings.drupalchat.username = data.name;
 		    }
-		    if(typeof data.uid != "undefined") {
-		      Drupal.settings.drupalchat.uid = data.uid
+		    if(typeof data.uid !== "undefined") {
+		      Drupal.settings.drupalchat.uid = data.uid;
 		    }
+				if(typeof data.up !== "undefined") {
+          Drupal.settings.drupalchat.up = data.up;
+        }
+				if(typeof data.upl !== "undefined") {
+          Drupal.settings.drupalchat.upl = data.upl;
+        }
 	      if(Drupal.settings.drupalchat.chat_type === '2') {
           if(typeof data.cache === "undefined") {
 		        LazyLoad.css(Drupal.settings.drupalchat.external_a_host + ':' + Drupal.settings.drupalchat.external_a_port + '/i/' + data.css + '/cache.css', function () {
@@ -91,7 +97,7 @@ function drupalchatLoad(data) {
             LazyLoad.js([Drupal.settings.drupalchat.external_a_host + ':' + Drupal.settings.drupalchat.external_a_port + '/j/cache.js', Drupal.settings.drupalchat.external_a_host + ':' + Drupal.settings.drupalchat.external_a_port + '/h/'+ data.css + '/cache.js'], function () {
             });
           }
-          
+
 		}
 		else {
 		  LazyLoad.css(Drupal.settings.drupalchat.external_a_host + ':' + Drupal.settings.drupalchat.external_a_port + '/i/' + data.css + '/s/'+((Drupal.settings.drupalchat.admin=="1")?('a/'):(''))+'cache.css', function () {

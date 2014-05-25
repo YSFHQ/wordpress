@@ -115,7 +115,7 @@ class Mixin_Form_Field_Generators extends Mixin
             array(
                 'display_type_name' => $display_type->name,
                 'name'    => $name,
-                'label'   => _($label),
+                'label'   => $label,
                 'options' => $options,
                 'value'   => $value,
                 'text'    => $text,
@@ -132,7 +132,7 @@ class Mixin_Form_Field_Generators extends Mixin
             array(
                 'display_type_name' => $display_type->name,
                 'name'   => $name,
-                'label'  => _($label),
+                'label'  => $label,
                 'value'  => $value,
                 'text'   => $text,
                 'hidden' => $hidden
@@ -156,7 +156,7 @@ class Mixin_Form_Field_Generators extends Mixin
             array(
                 'display_type_name' => $display_type->name,
                 'name'  => $name,
-                'label' => _($label),
+                'label' => $label,
                 'value' => $value,
                 'text' => $text,
                 'hidden' => $hidden,
@@ -175,7 +175,7 @@ class Mixin_Form_Field_Generators extends Mixin
             array(
                 'display_type_name' => $display_type->name,
                 'name'  => $name,
-                'label' => _($label),
+                'label' => $label,
                 'value' => $value,
                 'text' => $text,
                 'hidden' => $hidden,
@@ -192,7 +192,7 @@ class Mixin_Form_Field_Generators extends Mixin
             array(
                 'display_type_name' => $display_type->name,
                 'name'  => $name,
-                'label' => _($label),
+                'label' => $label,
                 'value' => $value,
                 'text' => $text,
                 'hidden' => $hidden,
@@ -209,7 +209,7 @@ class Mixin_Form_Field_Generators extends Mixin
             array(
                 'display_type_name' => $display_type->name,
                 'name'  => $name,
-                'label' => _($label),
+                'label' => $label,
                 'value' => $value,
                 'text' => $text,
                 'hidden' => $hidden
@@ -223,7 +223,7 @@ class Mixin_Form_Field_Generators extends Mixin
 		return $this->object->_render_radio_field(
 			$display_type,
 			'ajax_pagination',
-			_('Enable AJAX pagination'),
+			__('Enable AJAX pagination', 'nggallery'),
 			isset($display_type->settings['ajax_pagination']) ? $display_type->settings['ajax_pagination'] : FALSE
 		);
 	}
@@ -235,9 +235,9 @@ class Mixin_Form_Field_Generators extends Mixin
         $override_field = $this->_render_radio_field(
             $display_type,
             'override_thumbnail_settings',
-            'Override thumbnail settings',
+            __('Override thumbnail settings', 'nggallery'),
             isset($display_type->settings['override_thumbnail_settings']) ? $display_type->settings['override_thumbnail_settings'] : FALSE,
-			"This does not affect existing thumbnails; overriding the thumbnail settings will create an additional set of thumbnails. To change the size of existing thumbnails please visit 'Manage Galleries' and choose 'Create new thumbnails' for all images in the gallery."
+			__("This does not affect existing thumbnails; overriding the thumbnail settings will create an additional set of thumbnails. To change the size of existing thumbnails please visit 'Manage Galleries' and choose 'Create new thumbnails' for all images in the gallery.", 'nggallery')
         );
 
         $dimensions_field = $this->object->render_partial(
@@ -245,7 +245,7 @@ class Mixin_Form_Field_Generators extends Mixin
             array(
                 'display_type_name' => $display_type->name,
                 'name' => 'thumbnail_dimensions',
-                'label'=> _('Thumbnail dimensions'),
+                'label'=> __('Thumbnail dimensions', 'nggallery'),
                 'thumbnail_width' => isset($display_type->settings['thumbnail_width']) ? $display_type->settings['thumbnail_width'] : 0,
                 'thumbnail_height'=> isset($display_type->settings['thumbnail_height']) ? $display_type->settings['thumbnail_height'] : 0,
                 'hidden' => $hidden ? 'hidden' : '',
@@ -254,37 +254,41 @@ class Mixin_Form_Field_Generators extends Mixin
             TRUE
         );
 
+        /*
         $qualities = array();
         for ($i = 100; $i > 40; $i -= 5) { $qualities[$i] = "{$i}%"; }
         $quality_field = $this->_render_select_field(
             $display_type,
             'thumbnail_quality',
-            'Thumbnail quality',
+            __('Thumbnail quality', 'nggallery'),
             $qualities,
             isset($display_type->settings['thumbnail_quality']) ? $display_type->settings['thumbnail_quality'] : 100,
             '',
             $hidden
         );
+        */
 
         $crop_field = $this->_render_radio_field(
             $display_type,
             'thumbnail_crop',
-            'Thumbnail crop',
+            __('Thumbnail crop', 'nggallery'),
             isset($display_type->settings['thumbnail_crop']) ? $display_type->settings['thumbnail_crop'] : FALSE,
             '',
             $hidden
         );
 
+        /*
         $watermark_field = $this->_render_radio_field(
             $display_type,
             'thumbnail_watermark',
-            'Thumbnail watermark',
+            __('Thumbnail watermark', 'nggallery'),
             isset($display_type->settings['thumbnail_watermark']) ? $display_type->settings['thumbnail_watermark'] : FALSE,
             '',
             $hidden
         );
+        */
 
-        $everything = $override_field . $dimensions_field . $quality_field . $crop_field . $watermark_field;
+        $everything = $override_field . $dimensions_field . $crop_field;
 
         return $everything;
     }
@@ -303,9 +307,9 @@ class Mixin_Form_Field_Generators extends Mixin
         $override_field = $this->_render_radio_field(
             $display_type,
             'override_image_settings',
-            'Override image settings',
+            __('Override image settings', 'nggallery'),
             isset($display_type->settings['override_image_settings']) ? $display_type->settings['override_image_settings'] : 0,
-			'Overriding the image settings will create an additional set of images'
+			__('Overriding the image settings will create an additional set of images', 'nggallery')
         );
 
         $qualities = array();
@@ -313,7 +317,7 @@ class Mixin_Form_Field_Generators extends Mixin
         $quality_field = $this->_render_select_field(
             $display_type,
             'image_quality',
-            'Image quality',
+            __('Image quality', 'nggallery'),
             $qualities,    
             $display_type->settings['image_quality'],
             '',
@@ -323,7 +327,7 @@ class Mixin_Form_Field_Generators extends Mixin
         $crop_field = $this->_render_radio_field(
             $display_type,
             'image_crop',
-            'Image crop',
+            __('Image crop', 'nggallery'),
             $display_type->settings['image_crop'],
             '',
             $hidden
@@ -332,7 +336,7 @@ class Mixin_Form_Field_Generators extends Mixin
         $watermark_field = $this->_render_radio_field(
             $display_type,
             'image_watermark',
-            'Image watermark',
+            __('Image watermark', 'nggallery'),
             $display_type->settings['image_watermark'],
             '',
             $hidden
@@ -356,13 +360,13 @@ class Mixin_Form_Field_Generators extends Mixin
             array(
                 'display_type_name' => $display_type->name,
                 'name' => 'width',
-                'label' => 'Gallery width',
+                'label' => __('Gallery width', 'nggallery'),
                 'value' => $display_type->settings['width'],
-                'text' => 'An empty or "0" setting will make the gallery full width',
-                'placeholder' => '(optional)',
+                'text' => __('An empty or 0 setting will make the gallery full width', 'nggallery'),
+                'placeholder' => __('(optional)', 'nggallery'),
                 'unit_name' => 'width_unit',
                 'unit_value' => $display_type->settings['width_unit'],
-                'options' => array('px' => 'Pixels', '%' => 'Percent')
+                'options' => array('px' => __('Pixels', 'nggallery'), '%' => __('Percent', 'nggallery'))
             ),
             TRUE
         );

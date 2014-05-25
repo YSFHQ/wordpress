@@ -186,10 +186,6 @@ function ngg_ajax_dashboard() {
     	ngg_overview_news();
     	break;
 
-    case 'ngg_locale' :
-    	ngg_locale();
-    	break;
-
     case 'dashboard_plugins' :
     	ngg_related_plugins();
     	break;

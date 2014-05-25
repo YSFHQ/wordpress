@@ -23,7 +23,7 @@ class C_Photocrati_Resource_Manager
 	{
 		// Validate the request
 		$this->validate_request();
-		add_action('init', array(&$this, 'start_buffer'), 1);
+		add_action('init', array(&$this, 'start_buffer'), -1);
         add_action('wp_footer', array(&$this, 'print_marker'), -1);
 	}
 
@@ -52,6 +52,7 @@ class C_Photocrati_Resource_Manager
 		else if (isset($_GET['display_gallery_iframe'])) 				  $retval = FALSE;
         else if (defined('WP_ADMIN') && WP_ADMIN && defined('DOING_AJAX') && DOING_AJAX) $retval = FALSE;
 		else if (preg_match("/(js|css|xsl|xml|kml)$/", $_SERVER['REQUEST_URI'])) $retval = FALSE;
+        else if (preg_match("#/feed(/?)$#i", $_SERVER['REQUEST_URI']) || !empty($_GET['feed'])) $retval = FALSE;
 		elseif (preg_match("/\\.(\\w{3,4})$/", $_SERVER['REQUEST_URI'], $match)) {
 			if (!in_array($match[1], array('htm', 'html', 'php'))) {
 				$retval = FALSE;

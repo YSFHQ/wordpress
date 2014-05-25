@@ -371,7 +371,9 @@ class Mixin_CustomPost_DataMapper_Driver extends Mixin
         $post = $this->object->_convert_entity_to_post($entity);
 		$primary_key = $this->object->get_primary_key_column();
 
-		if (($post_id = wp_insert_post($post))) {
+        // TODO: unsilence this. Wordpress 3.9-beta2 is generating an error that should be corrected before its
+        // final release.
+		if (($post_id = @wp_insert_post($post))) {
 
 			$new_entity = $this->object->find($post_id, TRUE);
 			foreach ($new_entity->get_entity() as $key => $value) $entity->$key = $value;

@@ -124,10 +124,14 @@ class Mixin_Display_Type_Controller extends Mixin
 
 	function enqueue_ngg_styles()
 	{
-		wp_enqueue_style(
-			'nggallery',
-			C_NextGen_Style_Manager::get_instance()->get_selected_stylesheet_url()
-		);
+        $settings = C_NextGen_Settings::get_instance();
+        if ((!is_multisite() || (is_multisite() && $settings->wpmuStyle)) && $settings->activateCSS)
+        {
+            wp_enqueue_style(
+                'nggallery',
+                C_NextGen_Style_Manager::get_instance()->get_selected_stylesheet_url()
+            );
+        }
 	}
 	
 	function get_render_mode()

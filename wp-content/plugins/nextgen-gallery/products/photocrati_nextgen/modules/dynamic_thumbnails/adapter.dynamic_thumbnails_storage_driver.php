@@ -69,7 +69,7 @@ class A_Dynamic_Thumbnails_Storage_Driver extends Mixin
 		// Try generating the thumbnail
 		if ($retval == null) {
 			$params = array('watermark' => false, 'reflection' => false, 'crop' => true);
-			$result = $this->generate_thumbnail($image, $params);
+			$result = $this->generate_image_size($image, $size, $params);
 			if ($result) $retval = $this->call_parent('get_image_url', $image, $size, $check_existance);
 		}
 

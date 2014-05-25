@@ -65,7 +65,8 @@ class M_NextGen_Basic_Tagcloud extends C_Base_Module
 			'A_NextGen_Basic_TagCloud_Urls'
 		);
 
-        if (is_admin()) {
+        if (M_Attach_To_Post::is_atp_url() || is_admin())
+        {
             // Adds a display settings form
             $this->get_registry()->add_adapter(
                 'I_Form',

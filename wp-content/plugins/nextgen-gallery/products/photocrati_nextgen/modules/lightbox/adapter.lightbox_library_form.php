@@ -31,7 +31,7 @@ class A_Lightbox_Library_Form extends Mixin
         return $this->_render_text_field(
             $lightbox,
             'code',
-            'Code',
+            __('Code', 'nggallery'),
             $lightbox->code
         );
     }
@@ -45,7 +45,7 @@ class A_Lightbox_Library_Form extends Mixin
         return $this->_render_textarea_field(
             $lightbox,
             'styles',
-            'Stylesheet URL',
+            __('Stylesheet URL', 'nggallery'),
             $lightbox->styles
         );
     }
@@ -59,7 +59,7 @@ class A_Lightbox_Library_Form extends Mixin
         return $this->_render_textarea_field(
             $lightbox,
             'scripts',
-            'Javascript URL',
+            __('Javascript URL', 'nggallery'),
             $lightbox->scripts
         );
     }

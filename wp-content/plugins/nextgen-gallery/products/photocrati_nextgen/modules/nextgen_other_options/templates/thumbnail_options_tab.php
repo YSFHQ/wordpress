@@ -45,6 +45,7 @@
 			<p class="description"><?php echo_h($thumbnail_crop_help); ?></p>
 		</td>
 	</tr>
+    <?php /*
 	<tr>
 		<td>
 			<label for="thumbnail_quality">
@@ -62,6 +63,7 @@
 			<p class="description"><?php echo_h($thumbnail_quality_help)?></p>
 		</td>
 	</tr>
+    */ ?>
 	<tr>
 		<td>
 			<label for="size_list">

@@ -27,15 +27,14 @@ for ($i=0; $i<5; $i++) {
                 <hr class="hidden">
                 <h4>Want to learn more about YSFlight? Check out these awesome videos:</h4>
                 <ul id="moreVideos">
-                    <li><a href="//www.youtube.com/embed/qo2mcV5EnME?rel=0&amp;autoplay=1&amp;wmode=transparent"><i class="icon-youtube-play"></i>Combat</a></li>
-                    <li><a href="//www.youtube.com/embed/yhGmXz0_L1s?rel=0&amp;autoplay=1&amp;wmode=transparent"><i class="icon-youtube-play"></i>Civilian</a></li>
-                    <li><a href="//www.youtube.com/embed/v2ow5QA-ptc?rel=0&amp;autoplay=1&amp;wmode=transparent"><i class="icon-youtube-play"></i>Aerobatics</a></li>
+                <?php foreach (get_post_meta(get_the_ID(), 'aux_video') as $video): ?>
+                    <li><?php echo $video; ?></li>
+                <?php endforeach; ?>
                 </ul>
             </div><!--/span3-->
             <!-- Video Promo -->
             <div class="span6">
-                <!--<iframe width="480" height="360" src="//www.youtube.com/embed/OxeOJr9R5bs?rel=0&amp;wmode=transparent" allowfullscreen></iframe>-->
-                <iframe width="560" height="360" src="//www.youtube.com/embed/tig1ISqjaSQ?rel=0&amp;wmode=transparent" allowfullscreen></iframe>
+            <?php echo get_post_meta(get_the_ID(), 'main_video', true); ?>
             </div><!--/span6-->
             <!-- Featured Screenshots -->
             <div class="span3">
@@ -216,7 +215,7 @@ for ($i=0; $i<5; $i++) {
                 <h4 class="title"><a href="<?php the_permalink(); ?>" class="read-more"><?php the_title(); ?></a></h4>
                 <h5>Posted on <time class="updated" datetime="<?php echo get_the_time('c'); ?>"><?php echo get_the_date(); ?></time> by <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" rel="author" class="fn"><?php echo get_the_author(); ?></a></h5>
                 <div class="story"><?php the_excerpt(); ?></div>
-            <?php endforeach; ?>
+            <?php endforeach; wp_reset_postdata(); ?>
             <!-- //End YSFHQ News -->
         </div>
     </div>
@@ -236,27 +235,12 @@ for ($i=0; $i<5; $i++) {
             <div class="headline"><h3>Featured Addons</h3></div>
             <!--<h4><em>Coming Soon</em></h4>-->
             <ul class="thumbnails">
+            <?php foreach (get_post_meta(get_the_ID(), 'featured_addon') as $addon): ?>
                 <li class="span3">
-                    <div class="thumbnail-style thumbnail-kenburn">
-                        <div class="thumbnail-img">
-                            <div class="overflow-hidden"><img src="http://i.imgur.com/bMDmMg4.png" alt="" /></div>
-                            <a class="btn-more hover-effect" href="http://www.ysupload.com/download.php?id=1136">download +</a>
-                        </div>
-                        <h3><a class="hover-effect" href="http://www.ysupload.com/download.php?id=1136">Project Sunderland</a></h3>
-                        <p>This pack contains Short Sunderlands from B Mk I all the way up to the GR Mk V. All aircraft have been created with panel lines and detailed cockpits as standard. Happy flying!</p>
-                    </div>
+                <?php echo $addon; ?>
                 </li>
-                <li class="span3">
-                    <div class="thumbnail-style thumbnail-kenburn">
-                        <div class="thumbnail-img">
-                            <div class="overflow-hidden"><img src="http://i.imgur.com/nZkkScF.png" alt="" /></div>
-                            <a class="btn-more hover-effect" href="http://www.ysupload.com/download.php?id=1097">download +</a>
-                        </div>
-                        <h3><a class="hover-effect" href="http://www.ysupload.com/download.php?id=1097">Mh3w Scenery Pack A</a></h3>
-                        <p>Contains 15 maps including Chicago v3.0, Runway City, Chaos City, Red Planet, Raceway and etc.</p>
-                    </div>
-                </li>
-            </ul><!--/thumbnails-->
+            <?php endforeach; ?>
+            </ul>
             <!-- //End Featured Addons -->
         </div>
         <div class="span6">
@@ -264,25 +248,12 @@ for ($i=0; $i<5; $i++) {
             <div id="w" class="home">
                 <div class="headline"><h3>Upcoming Events</h3></div>
                 <!--<br><h4><em>Coming Soon</em></h4>-->
-                <ul class="portfolio recent-work clearfix"> 
-                    <li data-id="id-1">
-                        <a href="http://forum.ysfhq.com/viewtopic.php?f=163&t=5890">
-                            <em class="overflow-hidden"><img src="http://i.imgur.com/i5qs4P7.png" alt="Flyer" height="500" width="270" /></em>
-                            <span>
-                                <strong>Cherokee Valley Airshow (3/15)</strong>
-                                <i>Prepare for one of the best aerial events of the year... YS Air Shows is pleased to announce the Cherokee Valley Air Show on March 15th! Prepare for a virtual aviation spectacle unmatched by any other flight simulator community in the world!</i>
-                            </span>
-                        </a>
+                <ul class="portfolio recent-work clearfix">
+                <?php foreach (get_post_meta(get_the_ID(), 'upcoming_event') as $i=>$event): ?>
+                    <li data-id="id-<?php echo $i; ?>">
+                    <?php echo $event; ?>
                     </li>
-                    <li data-id="id-2">
-                        <a href="http://forum.ysfhq.com/viewtopic.php?f=163&t=5829">
-                            <em class="overflow-hidden"><img src="http://i.imgur.com/VR1CHY0.png" alt="Flyer" height="500" width="270" /></em>
-                            <span>
-                                <strong>YSFlight Phillip Island International Airshow (4/19-20)</strong>
-                                <i>It is with great pleasure that Pacific Airshows brings you the YSFlight Phillip Island International Airshow 2014. Set on a small island south of Melbourne, Victoria, Phillip Island provides breath taking scenery, great fish, and an adreniline pumping Motorcycle Grand Prix every year.</i>
-                            </span>
-                        </a>
-                    </li>
+                <?php endforeach; ?>
                 </ul>
             </div>
             <!-- //End Upcoming Events -->

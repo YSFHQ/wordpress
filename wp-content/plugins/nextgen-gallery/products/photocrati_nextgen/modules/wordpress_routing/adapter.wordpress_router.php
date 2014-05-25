@@ -2,9 +2,6 @@
 
 class A_WordPress_Router extends Mixin
 {
-	var $_site_url = FALSE;
-    var $_home_url = FALSE;
-
 	function initialize()
 	{
 		// Set context to path if subdirectory install
@@ -76,22 +73,12 @@ class A_WordPress_Router extends Mixin
 	{
         $retval = NULL;
         if ($site_url)
-        {
-            if (!$this->_site_url) {
-				$this->_site_url = $this->_add_index_dot_php_to_url(site_url());
-            }
-            $retval = $this->_site_url;
-        }
-        else {
-            if (!$this->_home_url) {
-                $this->_home_url = $this->_add_index_dot_php_to_url(home_url());
-            }
-            $retval = $this->_home_url;
-        }
-        
-		if ($this->object->is_https()) {
+            $retval = $this->_add_index_dot_php_to_url(site_url());
+        else
+            $retval = $this->_add_index_dot_php_to_url(home_url());
+
+		if ($this->object->is_https())
 			$retval = preg_replace('/^http:\\/\\//i', 'https://', $retval, 1);
-		}
 
 		return $retval;
 	}

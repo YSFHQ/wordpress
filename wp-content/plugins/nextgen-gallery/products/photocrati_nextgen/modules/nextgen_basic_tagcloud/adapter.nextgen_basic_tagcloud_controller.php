@@ -21,8 +21,10 @@ class A_NextGen_Basic_Tagcloud_Controller extends Mixin
                         ->display_images(
                 array(
                     'source' => 'tags',
-                    'container_ids' => array(esc_attr($tag)),
-                    'display_type' => $display_settings['display_type']
+                    'container_ids'         => array(esc_attr($tag)),
+                    'display_type'          => $display_settings['display_type'],
+                    'original_display_type' => $displayed_gallery->display_type,
+                    'original_settings'     => $display_settings
                 )
             );
         }

@@ -4,7 +4,7 @@ class A_Roles_Form extends Mixin
 {
 	function get_title()
 	{
-		return 'Roles & Capabilities';
+		return __('Roles & Capabilities', 'nggallery');
 	}
 
 	function render()

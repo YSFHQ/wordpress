@@ -49,7 +49,8 @@ class A_NextGen_Basic_Album_Controller extends Mixin
                     'source'				=> 'galleries',
                     'container_ids'			=> array($gallery),
                     'display_type'			=> $display_settings['gallery_display_type'],
-					'original_display_type'	=> $displayed_gallery->display_type
+					'original_display_type'	=> $displayed_gallery->display_type,
+                    'original_settings'     => $display_settings
                 ),
                 $return
             );
@@ -170,9 +171,9 @@ class A_NextGen_Basic_Album_Controller extends Mixin
             $image_gen_params = array(
                 'width'     => $displayed_gallery->display_settings['thumbnail_width'],
                 'height'    => $displayed_gallery->display_settings['thumbnail_height'],
-                'quality'   => $displayed_gallery->display_settings['thumbnail_quality'],
-                'crop'      => $displayed_gallery->display_settings['thumbnail_crop'],
-                'watermark' => $displayed_gallery->display_settings['thumbnail_watermark']
+                'quality'   => isset($displayed_gallery->display_settings['thumbnail_quality']) ? $displayed_gallery->display_settings['thumbnail_quality'] : 100,
+                'crop'      => isset($displayed_gallery->display_settings['thumbnail_crop']) ? $displayed_gallery->display_settings['thumbnail_crop'] : NULL,
+                'watermark' => isset($displayed_gallery->display_settings['thumbnail_watermark']) ? $displayed_gallery->display_settings['thumbnail_watermark'] : NULL
             );
         }
 

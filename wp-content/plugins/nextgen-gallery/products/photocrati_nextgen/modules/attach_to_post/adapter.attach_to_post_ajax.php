@@ -154,9 +154,9 @@ class A_Attach_To_Post_Ajax extends Mixin
 					// name of the gallery or album
 					if (($image = $image_mapper->find($entity->previewpic))) {
 						if ($entity->is_album)
-							$image->alttext = _('Album: ').$entity->name;
+							$image->alttext = sprintf(__('Album: %s', 'nggallery'), $entity->name);
 						else
-							$image->alttext = _('Gallery: ').$entity->title;
+							$image->alttext = sprintf(__('Gallery: %s', 'nggallery'), $entity->title);
 					}
 
 					// Prefix the id of an album with 'a'
@@ -174,7 +174,7 @@ class A_Attach_To_Post_Ajax extends Mixin
 			}
 		}
 		else {
-			$response['error'] = _('Missing parameters');
+			$response['error'] = __('Missing parameters', 'nggallery');
 		}
 		return $response;
 	}
@@ -210,10 +210,10 @@ class A_Attach_To_Post_Ajax extends Mixin
 			}
 			else
 			{
-				$response['error'] = _('Displayed gallery does not exist');
+				$response['error'] = __('Displayed gallery does not exist', 'nggallery');
 			}
 		}
-		else $response['error'] = _('Invalid request');
+		else $response['error'] = __('Invalid request', 'nggallery');
 
 		return $response;
 	}

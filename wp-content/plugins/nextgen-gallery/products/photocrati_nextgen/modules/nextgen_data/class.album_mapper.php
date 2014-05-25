@@ -72,6 +72,7 @@ class Mixin_Album_Mapper extends Mixin
 	{
 		$retval = $this->call_parent('_save_entity', $entity);
 		if ($retval) {
+            do_action('ngg_album_updated', $entity);
 			C_Photocrati_Cache::flush('displayed_gallery_rendering');
 		}
 		return $retval;

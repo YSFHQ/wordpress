@@ -40,11 +40,17 @@ class M_Attach_To_Post extends C_Base_Module
 		include_once('class.attach_to_post_installer.php');
 		C_Photocrati_Installer::add_handler($this->module_id, 'C_Attach_To_Post_Installer');
 		
-		$uri = strtolower($_SERVER['REQUEST_URI']);
-		
-		if (strpos($uri, '/nextgen-attach_to_post') !== false) {
-			define('WP_ADMIN', true);
-        }
+        // Set WP_ADMIN=true for better compatibility with certain themes & plugins.
+        // Unfortunately as of 3.9 in a multisite environment this causes problems.
+        if (self::is_atp_url() && (!defined('MULTISITE') || (defined('MULTISITE') && !MULTISITE)))
+            define('WP_ADMIN', true);
+    }
+
+    // We only register our display-type settings forms when IS_ADMIN, but Wordpress 3.9 introduced a problem
+    // with doing this on multisite sub-sites. Now we register our forms when is_atp_url() is true OR is_admin()
+    static function is_atp_url()
+    {
+        return (strpos(strtolower($_SERVER['REQUEST_URI']), '/nextgen-attach_to_post') !== false) ? TRUE : FALSE;
     }
 
     /**
@@ -269,8 +275,15 @@ class M_Attach_To_Post extends C_Base_Module
 	 */
 	function add_attach_to_post_tinymce_plugin($plugins)
 	{
-		$router = $this->get_registry()->get_utility('I_Router');
-		$plugins[$this->attach_to_post_tinymce_plugin] = $router->get_static_url('photocrati-attach_to_post#ngg_attach_to_post_tinymce_plugin.js');
+        global $wp_version;
+        $router = $this->get_registry()->get_utility('I_Router');
+
+        if ($wp_version >= 3.9)
+            $file = $router->get_static_url('photocrati-attach_to_post#ngg_attach_to_post_tinymce_plugin.js');
+        else
+            $file = $router->get_static_url('photocrati-attach_to_post#ngg_attach_to_post_tinymce_plugin_wp38_compat.js');
+
+		$plugins[$this->attach_to_post_tinymce_plugin] = $file;
 		return $plugins;
 	}
 

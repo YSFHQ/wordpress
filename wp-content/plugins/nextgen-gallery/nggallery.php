@@ -4,7 +4,7 @@ if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You 
 /**
  * Plugin Name: NextGEN Gallery by Photocrati
  * Description: The most popular gallery plugin for WordPress and one of the most popular plugins of all time with over 9 million downloads.
- * Version: 2.0.59
+ * Version: 2.0.66
  * Author: Photocrati Media
  * Plugin URI: http://www.nextgen-gallery.com
  * Author URI: http://www.photocrati.com
@@ -218,9 +218,9 @@ class C_NextGEN_Bootstrap
 		$this->_registry->add_module_path(NGG_PRODUCT_DIR, true, false);
 		$this->_registry->load_all_products();
 
-	        // Give third-party plugins that opportunity to include their own products
-        	// and modules
-	        do_action('load_nextgen_gallery_modules', $this->_registry);
+        // Give third-party plugins that opportunity to include their own products
+        // and modules
+        do_action('load_nextgen_gallery_modules', $this->_registry);
 
 		// Initializes all loaded modules
 		$this->_registry->initialize_all_modules();
@@ -235,13 +235,6 @@ class C_NextGEN_Bootstrap
 	 */
 	function _register_hooks()
 	{
-		// Load text domain
-		load_plugin_textdomain(
-			NGG_I8N_DOMAIN,
-			false,
-			$this->directory_path('lang')
-		);
-
 		// Register the activation routines
 		add_action('activate_'.NGG_PLUGIN_BASENAME, array(get_class(), 'activate'));
 
@@ -431,14 +424,13 @@ class C_NextGEN_Bootstrap
 		define('NGG_PLUGIN_BASENAME', plugin_basename(__FILE__));
 		define('NGG_PLUGIN_DIR', $this->directory_path());
 		define('NGG_PLUGIN_URL', $this->path_uri());
-		define('NGG_I8N_DOMAIN', 'nggallery');
 		define('NGG_TESTS_DIR',   implode(DIRECTORY_SEPARATOR, array(rtrim(NGG_PLUGIN_DIR, "/\\"), 'tests')));
         define('NGG_PRODUCT_DIR', implode(DIRECTORY_SEPARATOR, array(rtrim(NGG_PLUGIN_DIR, "/\\"), 'products')));
         define('NGG_MODULE_DIR', implode(DIRECTORY_SEPARATOR, array(rtrim(NGG_PRODUCT_DIR, "/\\"), 'photocrati_nextgen', 'modules')));
 		define('NGG_PRODUCT_URL', path_join(str_replace("\\", '/', NGG_PLUGIN_URL), 'products'));
 		define('NGG_MODULE_URL', path_join(str_replace("\\", '/', NGG_PRODUCT_URL), 'photocrati_nextgen/modules'));
 		define('NGG_PLUGIN_STARTED_AT', microtime());
-		define('NGG_PLUGIN_VERSION', '2.0.59');
+		define('NGG_PLUGIN_VERSION', '2.0.66');
 
 		if (!defined('NGG_HIDE_STRICT_ERRORS')) {
 			define('NGG_HIDE_STRICT_ERRORS', TRUE);
@@ -459,10 +451,6 @@ class C_NextGEN_Bootstrap
 		// User definable constants
 		if (!defined('NGG_IMPORT_ROOT')) {
 			$path = WP_CONTENT_DIR;
-			if (is_multisite()) {
-				$uploads = wp_upload_dir();
-				$path = $uploads['path'];
-			}
 			define('NGG_IMPORT_ROOT', $path);
 		}
 

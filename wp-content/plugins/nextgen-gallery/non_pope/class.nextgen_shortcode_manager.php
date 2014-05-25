@@ -46,8 +46,16 @@ class C_NextGen_Shortcode_Manager
 	 */
 	private function __construct()
 	{
-		add_filter('the_content', array(&$this, 'deactivate_all'), -(PHP_INT_MAX-1));
-		add_filter('the_content', array(&$this, 'parse_content'), PHP_INT_MAX-1);
+        // For theme & plugin compatibility and to prevent the output of our shortcodes from being
+        // altered we disable our shortcodes at the beginning of the_content and enable them at the end
+        // however a bug in Wordpress (see comments in deactivate_all() below) causes another issue
+        // of compatibility causing our shortcodes to not be registered at the time the_content is run.
+        // This disables that at the risk that themes may alter our HTML output in an attempt to sanitize it.
+        if (defined('NGG_DISABLE_FILTER_THE_CONTENT') && NGG_DISABLE_FILTER_THE_CONTENT)
+            return;
+
+        add_filter('the_content', array(&$this, 'deactivate_all'), -(PHP_INT_MAX-1));
+        add_filter('the_content', array(&$this, 'parse_content'), PHP_INT_MAX-1);
 	}
 
 	/**
@@ -72,7 +80,7 @@ class C_NextGen_Shortcode_Manager
         if ($this->_runlevel > 1 && defined('WP_DEBUG') && WP_DEBUG && !is_admin() && !$this->_has_warned)
         {
             $this->_has_warned = TRUE;
-            error_log('Sorry, but recursing filters on "the_content" breaks NextGEN Gallery. Please see https://core.trac.wordpress.org/ticket/17817');
+            error_log('Sorry, but recursing filters on "the_content" breaks NextGEN Gallery. Please see https://core.trac.wordpress.org/ticket/17817 and NGG_DISABLE_FILTER_THE_CONTENT');
         }
 
 		foreach (array_keys($this->_shortcodes) as $shortcode) {

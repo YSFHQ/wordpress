@@ -138,7 +138,8 @@ class Mixin_NextGen_Table_Extras extends Mixin
 	function get_generated_query()
 	{
 		// Add extras column
-		if ($this->object->is_select_statement()) {
+        if ($this->object->is_select_statement() && stripos($this->object->_select_clause, 'count(') === FALSE)
+        {
 			global $wpdb;
 			$table_name = $this->object->get_table_name();
 			$primary_key = "{$table_name}.{$this->object->get_primary_key_column()}";

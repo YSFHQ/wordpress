@@ -50,7 +50,7 @@ class M_NextGen_AddGallery_Page extends C_Base_Module
     {
         if (is_admin()) {
             $router = $this->_get_registry()->get_utility('I_Router');
-            wp_register_script('browserplus', 'http://bp.yahooapis.com/2.4.21/browserplus-min.js');
+            wp_register_script('browserplus', $router->get_static_url('photocrati-nextgen_addgallery_page#browserplus-2.4.21.min.js'));
             wp_register_script('ngg.plupload.moxie', $router->get_static_url('photocrati-nextgen_addgallery_page#plupload-2.1.1/moxie.min.js'));
             wp_register_script('ngg.plupload.full',  $router->get_static_url('photocrati-nextgen_addgallery_page#plupload-2.1.1/plupload.full.min.js'), array('ngg.plupload.moxie'));
             wp_register_script('ngg.plupload.queue', $router->get_static_url('photocrati-nextgen_addgallery_page#plupload-2.1.1/jquery.plupload.queue/jquery.plupload.queue.min.js'), array('ngg.plupload.full'));

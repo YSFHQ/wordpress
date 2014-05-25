@@ -56,7 +56,8 @@ class M_NextGen_Basic_Gallery extends C_Base_Module
    
     function _register_adapters()
     {
-        if (is_admin()) {
+        if (M_Attach_To_Post::is_atp_url() || is_admin())
+        {
             // Provides the display type forms
             $this->get_registry()->add_adapter(
                 'I_Form',
@@ -106,7 +107,8 @@ class M_NextGen_Basic_Gallery extends C_Base_Module
             'A_NextGen_Basic_Gallery_Routes'
         );
 
-        if (is_admin()) {
+        if (M_Attach_To_Post::is_atp_url() || is_admin())
+        {
             // Adds the settings forms
             $this->get_registry()->add_adapter(
                 'I_Form_Manager',

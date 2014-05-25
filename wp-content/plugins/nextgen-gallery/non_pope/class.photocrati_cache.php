@@ -87,7 +87,7 @@ class C_Photocrati_Cache
 	 */
 	static function flush($group=NULL, $expired_only=FALSE)
 	{
-        ini_set('memory_limit', -1);
+        if (!extension_loaded('suhosin')) ini_set('memory_limit', -1);
 		$retval = 0;
 
 		if (self::$enabled) {

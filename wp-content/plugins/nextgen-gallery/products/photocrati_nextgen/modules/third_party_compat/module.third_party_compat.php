@@ -34,7 +34,7 @@ class M_Third_Party_Compat extends C_Base_Module
             'NEXTGEN_GALLERY_BASIC_SLIDESHOW'              => 'NGG_BASIC_SLIDESHOW',
             'NEXTGEN_GALLERY_BASIC_THUMBNAILS'             => 'NGG_BASIC_THUMBNAILS',
             'NEXTGEN_GALLERY_CHANGE_OPTIONS_CAP'           => 'NGG_CHANGE_OPTIONS_CAP',
-            'NEXTGEN_GALLERY_I8N_DOMAIN'                   => 'NGG_I8N_DOMAIN',
+            'NEXTGEN_GALLERY_I18N_DOMAIN'                  => 'NGG_I18N_DOMAIN',
             'NEXTGEN_GALLERY_IMPORT_ROOT'                  => 'NGG_IMPORT_ROOT',
             'NEXTGEN_GALLERY_MODULE_DIR'                   => 'NGG_MODULE_DIR',
             'NEXTGEN_GALLERY_MODULE_URL'                   => 'NGG_MODULE_URL',
@@ -63,6 +63,11 @@ class M_Third_Party_Compat extends C_Base_Module
                 define($old, constant($new));
             }
         }
+
+        // Resolve problems with zlib compression: https://core.trac.wordpress.org/ticket/18525
+        if (PHP_MAJOR_VERSION == 5 && PHP_MINOR_VERSION == 4) {
+            @ini_set('zlib.output_compression', 'Off');
+        }
     }
 
     function _register_adapters()
@@ -76,14 +81,33 @@ class M_Third_Party_Compat extends C_Base_Module
         add_action('wp',   array(&$this, 'bjlazyload'), PHP_INT_MAX);
 
         add_action('plugins_loaded', array(&$this, 'wpml'), PHP_INT_MAX);
+        add_action('plugins_loaded', array(&$this, 'wpml_translation_management'), PHP_INT_MAX);
 
         add_filter('headway_gzip', array(&$this, 'headway_gzip'), (PHP_INT_MAX - 1));
-        add_filter('get_translatable_documents', array(&$this, 'wpml_translatable_documents'));
+        add_filter('ckeditor_external_plugins', array(&$this, 'ckeditor_plugins'), 11);
         add_filter('the_content', array(&$this, 'check_weaverii'), -(PHP_INT_MAX-2));
         add_action('wp', array(&$this, 'check_for_jquery_lightbox'));
 
         // TODO: Only needed for NGG Pro 1.0.10 and lower
         add_action('the_post', array(&$this, 'add_ngg_pro_page_parameter'));
+    }
+
+    /**
+     * CKEditor features a custom NextGEN shortcode generator that unfortunately relies on parts of the NextGEN
+     * 1.9x API that has been deprecated in NextGEN 2.0
+     *
+     * @param $plugins
+     * @return mixed
+     */
+    function ckeditor_plugins($plugins)
+    {
+        if (!class_exists('add_ckeditor_button'))
+            return $plugins;
+
+        if (!empty($plugins['nextgen']))
+            unset($plugins['nextgen']);
+
+        return $plugins;
     }
 
     function check_for_jquery_lightbox()
@@ -145,7 +169,7 @@ class M_Third_Party_Compat extends C_Base_Module
 
             $object = $filter['function'][0];
 
-            if (get_class($object) != 'SitePress')
+            if (is_object($object) && get_class($object) != 'SitePress')
                 continue;
 
             remove_action('init', array($object, 'js_load'), 2);
@@ -153,28 +177,32 @@ class M_Third_Party_Compat extends C_Base_Module
     }
 
     /**
-     * NextGEN stores some data in custom posts that MUST NOT be automatically translated by WPML
-     *
-     * @param array $icl_post_types
-     * @return array $icl_post_types without any NextGEN custom posts
+     * WPML Translation Management has a similar problem to plain ol' WPML
      */
-    function wpml_translatable_documents($icl_post_types = array())
+    function wpml_translation_management()
     {
-        $nextgen_post_types = array(
-            'ngg_album',
-            'ngg_gallery',
-            'ngg_pictures',
-            'displayed_gallery',
-            'display_type',
-            'gal_display_source',
-            'lightbox_library',
-            'photocrati-comments'
-        );
-        foreach ($icl_post_types as $ndx => $post_type) {
-            if (in_array($post_type->name, $nextgen_post_types))
-                unset($icl_post_types[$ndx]);
+        if (!class_exists('WPML_Translation_Management'))
+            return;
+
+        if (FALSE === strpos(strtolower($_SERVER['REQUEST_URI']), '/nextgen-attach_to_post'))
+            return;
+
+        global $wp_filter;
+
+        if (empty($wp_filter['init'][10]))
+            return;
+
+        foreach ($wp_filter['init'][10] as $id => $filter) {
+            if (!strpos($id, 'init'))
+                continue;
+
+            $object = $filter['function'][0];
+
+            if (is_object($object) && get_class($object) != 'WPML_Translation_Management')
+                continue;
+
+            remove_action('init', array($object, 'init'), 10);
         }
-        return $icl_post_types;
     }
 
     /**
@@ -230,7 +258,7 @@ class M_Third_Party_Compat extends C_Base_Module
 
             $object = $filter['function'][0];
 
-            if (get_class($object) != 'JQueryColorboxFrontend')
+            if (is_object($object) && get_class($object) != 'JQueryColorboxFrontend')
                 continue;
 
             remove_filter('the_content', array($object, 'addColorboxGroupIdToImages'), 100);
@@ -264,7 +292,7 @@ class M_Third_Party_Compat extends C_Base_Module
 
             $object = $filter['function'][0];
 
-            if (get_class($object) != 'Flattr')
+            if (is_object($object) && get_class($object) != 'Flattr')
                 continue;
 
             remove_filter('the_content', array($object, 'injectIntoTheContent'), $level);
@@ -293,7 +321,7 @@ class M_Third_Party_Compat extends C_Base_Module
 
             $object = $filter['function'][0];
 
-            if (get_class($object) != 'BJLL')
+            if (is_object($object) && get_class($object) != 'BJLL')
                 continue;
 
             remove_filter('the_content', array($object, 'filter'), 200);

@@ -59,7 +59,8 @@ class M_NextGen_Basic_ImageBrowser extends C_Base_Module
 			'I_Routing_App',			'A_NextGen_Basic_ImageBrowser_Urls'
 		);
 
-        if (is_admin()) {
+        if (M_Attach_To_Post::is_atp_url() || is_admin())
+        {
             // Provide the imagebrowser form
             $this->get_registry()->add_adapter(
                 'I_Form',

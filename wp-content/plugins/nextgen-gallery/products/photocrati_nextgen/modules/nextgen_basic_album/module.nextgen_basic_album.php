@@ -60,7 +60,8 @@ class M_NextGen_Basic_Album extends C_Base_Module
 			'A_NextGen_Basic_Album_Routes'
 		);
 
-        if (is_admin()) {
+        if (M_Attach_To_Post::is_atp_url() || is_admin())
+        {
             // Add a display settings form for each display type
             $this->get_registry()->add_adapter(
                 'I_Form',
@@ -80,7 +81,8 @@ class M_NextGen_Basic_Album extends C_Base_Module
             'A_NextGen_Basic_Album_Urls'
         );
 
-        if (is_admin()) {
+        if (M_Attach_To_Post::is_atp_url() || is_admin())
+        {
             $this->get_registry()->add_adapter(
                 'I_Form_Manager',
                 'A_NextGen_Basic_Album_Forms'

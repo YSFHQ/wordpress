@@ -245,7 +245,7 @@ class Mixin_Attach_To_Post extends Mixin
 	 */
 	function _get_page_title()
 	{
-		return _('NextGEN Gallery - Attach To Post');
+		return __('NextGEN Gallery - Attach To Post', 'nggallery');
 	}
 
 
@@ -263,35 +263,35 @@ class Mixin_Attach_To_Post extends Mixin
         if ($sec_actor->is_allowed('NextGEN Manage gallery')) {
             $retval['displayed_tab']    = array(
                 'content'   => $this->object->_render_display_tab(),
-                'title'     => _('Display Galleries')
+                'title'     => __('Display Galleries', 'nggallery')
             );
         }
 
         if ($sec_actor->is_allowed('NextGEN Upload images')) {
             $retval['create_tab']       = array(
                 'content'   =>  $this->object->_render_create_tab(),
-                'title'     =>  _('Add Gallery / Images')
+                'title'     =>  __('Add Gallery / Images', 'nggallery')
             );
         }
 
         if ($sec_actor->is_allowed('NextGEN Manage others gallery') && $sec_actor->is_allowed('NextGEN Manage gallery')) {
             $retval['galleries_tab']    = array(
                 'content'   =>  $this->object->_render_galleries_tab(),
-                'title'     =>  _('Manage Galleries')
+                'title'     =>  __('Manage Galleries', 'nggallery')
             );
         }
 
         if ($sec_actor->is_allowed('NextGEN Edit album')) {
             $retval['albums_tab']       = array(
                 'content'   =>  $this->object->_render_albums_tab(),
-                'title'     =>  _('Manage Albums')
+                'title'     =>  __('Manage Albums', 'nggallery')
             );
         }
 
         if ($sec_actor->is_allowed('NextGEN Manage tags')) {
             $retval['tags_tab']         = array(
                 'content'   =>  $this->object->_render_tags_tab(),
-                'title'     =>  _('Manage Tags')
+                'title'     =>  __('Manage Tags', 'nggallery')
             );
         }
 

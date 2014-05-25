@@ -126,9 +126,9 @@ if ( ! class_exists( 'WPSEO_Breadcrumbs' ) ) {
 			// Remember the last used before/after for use in case the object goes __toString()
 			self::$before = $before;
 			self::$after  = $after;
-			
-			$output = $before . "\n" . self::$instance->output . "\n" . $after;
-			
+
+			$output = $before . self::$instance->output . $after;
+
 			if ( $display === true ) {
 				echo $output;
 				return true;
@@ -297,7 +297,7 @@ if ( ! class_exists( 'WPSEO_Breadcrumbs' ) ) {
 			$this->maybe_add_blog_crumb();
 
 			if ( ( $this->show_on_front === 'page' && is_front_page() ) || ( $this->show_on_front === 'posts' && is_home() ) ) {
-				return;
+				// do nothing
 			}
 			elseif ( $this->show_on_front == 'page' && is_home() ) {
 				$this->add_blog_crumb();
@@ -589,7 +589,7 @@ if ( ! class_exists( 'WPSEO_Breadcrumbs' ) ) {
 				$date = get_the_date();
 			}
 			else {
-				$date = mysql2date( get_option( 'date_format' ), $date );
+				$date = mysql2date( get_option( 'date_format' ), $date, true );
 				$date = apply_filters( 'get_the_date', $date, '' );
 			}
 
@@ -694,7 +694,7 @@ if ( ! class_exists( 'WPSEO_Breadcrumbs' ) ) {
 			}
 			else {
 				$post_type_obj = get_post_type_object( $pt );
-				if( is_object( $post_type_obj ) ) {
+				if ( is_object( $post_type_obj ) ) {
 					if ( isset( $post_type_obj->label ) && $post_type_obj->label !== '' ) {
 						$archive_title = $post_type_obj->label;
 					}
@@ -847,7 +847,7 @@ if ( ! class_exists( 'WPSEO_Breadcrumbs' ) ) {
 		 * @deprecated 1.5.0
 		 */
 		public function breadcrumb_output() {
-			_deprecated_function( __FUNCTION__, '1.5.0', 'yoast_breadcrumb' );
+			_deprecated_function( __CLASS__ . '::' . __METHOD__, '1.5.0', 'yoast_breadcrumb' );
 			self::breadcrumb( '<div id="wpseobreadcrumb">', '</div>' );
 		}
 

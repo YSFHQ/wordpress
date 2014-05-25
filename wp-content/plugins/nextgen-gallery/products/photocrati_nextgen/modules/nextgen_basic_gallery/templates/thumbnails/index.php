@@ -80,7 +80,7 @@ $this->start_element('nextgen_gallery.gallery_container', 'container', $displaye
 
 			?>
 
-        <?php if ($number_of_columns > 0): ?>
+        <?php if ($number_of_columns > 0 && empty($show_all_in_lightbox)): ?>
             <?php if ((($i + 1) % $number_of_columns) == 0 ): ?>
                 <br style="clear: both" />
             <?php endif; ?>

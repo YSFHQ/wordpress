@@ -597,9 +597,9 @@ class Mixin_DataMapper_Driver_Base extends Mixin
 	function cast_columns($entity)
 	{
 		foreach ($this->object->_columns as $key => $properties) {
-			$value = isset($entity->$key) ? $entity->$key : NULL;
+            $value = property_exists($entity, $key) ? $entity->$key : NULL;
 			$default_value = $properties['default_value'];
-			if ($value && $value != $default_value) {
+			if (!is_null($value) && $value !== $default_value) {
 				$column_type = $this->object->_columns[$key]['type'];
 				if (preg_match("/varchar|text/i", $column_type)) {
 					if (!is_array($value) && !is_object($value))

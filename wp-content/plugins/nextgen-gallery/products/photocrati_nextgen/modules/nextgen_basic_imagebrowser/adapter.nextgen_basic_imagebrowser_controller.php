@@ -65,7 +65,7 @@ class A_NextGen_Basic_ImageBrowser_Controller extends Mixin_NextGen_Basic_Galler
         // Determine which image in the list we need to display
         if (!empty($pid))
         {
-            if (is_numeric($pid))
+            if (is_numeric($pid) && !empty($picture_list[$pid]))
             {
                 $numeric_pid = intval($pid);
             }

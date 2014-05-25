@@ -2,17 +2,17 @@
 Contributors: photocrati
 Tags:gallery,image,images,photo,photos,picture,pictures,slideshow,flash,media,thumbnails,photo-albums,nextgen-gallery,nextgen
 Requires at least: 3.6.1
-Tested up to: 3.8.1
+Tested up to: 3.9.1
 Stable tag: trunk
 License: GPLv2
 
-The most popular WordPress gallery plugin and one of the most popular plugins of all time with over 9 million downloads.
+The most popular WordPress gallery plugin and one of the most popular plugins of all time with over 10 million downloads.
 
 == Description ==
 
 = WordPress Gallery Plugin =
 
-NextGEN Gallery is the most popular **WordPress gallery plugin**, and one of the most popular WordPress plugins of all time, with over 9 million downloads.
+NextGEN Gallery is the most popular **WordPress gallery plugin**, and one of the most popular WordPress plugins of all time, with over 10 million downloads.
 
 It provides a powerful engine for uploading and managing galleries of images, with the ability to batch upload, import meta data, add/delete/rearrange/sort images, edit thumbnails, group galleries into albums, and more. It also provides two front-end display styles (slideshows and thumbnail galleries), both of which come with a wide array of options for controlling size, style, timing, transitions, controls, lightbox effects, and more.
 
@@ -198,6 +198,54 @@ For more information, feel free to visit the official website for the NextGEN Ga
 
 
 == Changelog ==
+
+= V2.0.66 - 05.20.2014 =
+* Secured: Check mime type of image files using a variety of mechanisms
+
+= V2.0.65 - 05.04.2014 =
+* Secured: Limit uploads to images and zips
+
+= V2.0.63 - 04.29.2014 =
+* NEW:     Translation ready
+* NEW: 	   Including German translation by Roland Stumpp
+* NEW:	   Including Czech translation by Separatista
+* NEW:     Including Finnish translation by Vesa Tiirikainen
+* NEW:     WPML / qTranslate support
+* NEW:	   Bundled Browser+ JavaScript library
+* NEW:     Added NGG_DISABLE_FILTER_THE_CONTENT constant to manage conflicts
+* Changed: Moved jquery.nextgen_radio_toggle.js to NextGEN Admin Module
+* Changed: Original display settings are passed to secondary display types
+* Fixed:   Thumbnail dimension calculations are inaccurate by 1px when maintaining aspect ratio
+* Fixed:   Copy IPTC data from original to new image when creating new sizes / thumbnails
+* Fixed:   Use correct absolute path when importing images in a multisite environment
+* Fixed:   Incorrect display of disk space quotas in multisite environments
+* Fixed:   Removed redundant roles form in multisite environments
+* Fixed:   Insert Gallery Window support for multisite environments
+* Fixed:   Incorrect handling of NextGEN Styles in multisite environments
+* Fixed:   Not honouring NGG_IMPORT_ROOT constant
+* Fixed:   Fixed inability to edit gallery properties using XMLRPC's edit_gallery method
+* Fixed:   Alignment issues in Basic Compact Albums caused by subalbums not displaying image 'counter'
+* Fixed:   Display setting forms compatibility issue with WordPress 3.9
+* Fixed;   Compability with jQuery Dialogs in WordPress 3.9
+* Fixed:   Maximum entity code should be a displayed gallery property for recent/random sources only
+* Fixed:   Problems with zlib compression: https://core.trac.wordpress.org/ticket/18525
+* Fixed:   Support for web servers which use a document root of '//'
+* Fixed:   Compatibility with WPML Translation Management
+* Fixed:   use 'del' for function name in ngg_store.js, 'delete' is a reserved keyword
+* Fixed:   Enqueue fontawesome only when necessary
+* Fixed:   Suhosin compatibility issue when overriding PHP memory limit
+* Fixed:   Handle images of wrong image type correctly when trying to create cropped thumbnails
+* Fixed:   Datamapper entities not allowed to have properties with a value of 0
+* Fixed:   Resource manager is manipulating feeds
+* Fixed:   Convert absolute urls to relative urls for lightboxes
+* Fixed:   Start the resource manager as early as we can within the init action
+* Fixed:   Routing problem for galleries with images named 1.jpg, 2.jpg, 3.jpg, etc.
+* Fixed:   Added tooltips to basic slideshow settings
+* Fixed:   Remove CKEditor's NextGEN button, which is incompatible with NextGEN Gallery 2.x
+
+= V2.0.61 - 04.01.2014 =
+* Fixed:   Compatibility with WP 3.9
+* Fixed:   Exception thrown when using Reset button
 
 = V2.0.59 - 03.18.2014 =
 * Changed: Separated pope_module_list from ngg_options record in options table

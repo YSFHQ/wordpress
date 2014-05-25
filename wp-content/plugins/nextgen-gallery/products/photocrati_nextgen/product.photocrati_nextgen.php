@@ -12,6 +12,7 @@ class P_Photocrati_NextGen extends C_Base_Product
 {
 	static $modules = array(
 		'photocrati-fs',
+        'photocrati-i18n',
 		'photocrati-validation',
 		'photocrati-router',
 		'photocrati-wordpress_routing',

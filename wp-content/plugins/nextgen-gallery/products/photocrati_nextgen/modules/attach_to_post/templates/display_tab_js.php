@@ -69,7 +69,8 @@ jQuery(function($){
 
 		text_field: 'title',
 
-        initialize: function(){
+        initialize: function(options) {
+            this.options = options || {};
 			_.each(this.options, function(value, key){
 				this[key] = value;
 			}, this);
@@ -145,7 +146,8 @@ jQuery(function($){
 
             model: null,
 
-            initialize: function(){
+            initialize: function(options) {
+                this.options = options || {};
 				_.each(this.options, function(value, key){
 					this[key] = value;
 				}, this);
@@ -170,7 +172,8 @@ jQuery(function($){
 	Ngg.Views.Chosen								= Backbone.View.extend({
 		tagName: 'span',
 
-		initialize: function(){
+		initialize: function(options) {
+            this.options = options || {};
 			this.collection = this.options.collection;
 			if (!this.options.multiple) this.options.include_blank = true;
 			this.select_tag = new Ngg.Views.SelectTag(this.options);
@@ -609,7 +612,7 @@ jQuery(function($){
 				width: 500
 			});
 
-            this.$el.html('<tr><td><label>Sources</label></td><td id="source_column"></td></tr>');
+            this.$el.html('<tr><td><label><?php _e('Sources', 'nggallery'); ?></label></td><td id="source_column"></td></tr>');
             this.$el.find('#source_column').append(chosen.render().el);
 
             var selected = this.sources.selected();
@@ -643,7 +646,7 @@ jQuery(function($){
                 type: 'text',
                 name: 'slug',
                 value: this.slug,
-                placeholder: '(optional)',
+                placeholder: '<?php _e('(optional)', 'nggallery'); ?>',
                 id: 'field_slug'
             });
 
@@ -651,8 +654,8 @@ jQuery(function($){
                 self.displayed_gallery.set('slug', $(this).val());
             });
 
-            var tooltip = 'Sets an SEO-friendly name to this gallery for URLs. Currently only in use by the Pro Lightbox.';
-            this.$el.append('<tr><td id="slug_label"><label for="field_slug" class="tooltip" title="' + tooltip + '">Slug</label></td><td id="slug_column"></td></tr>');
+            var tooltip = '<?php _e('Sets an SEO-friendly name to this gallery for URLs. Currently only in use by the Pro Lightbox.', 'nggallery'); ?>';
+            this.$el.append('<tr><td id="slug_label"><label for="field_slug" class="tooltip" title="' + tooltip + '"><?php _e('Slug', 'nggallery'); ?></label></td><td id="slug_column"></td></tr>');
             this.$el.find('#slug_column').append(input);
 
             return this;
@@ -857,7 +860,7 @@ jQuery(function($){
 
 		render_no_images_notice: function(){
 			this.$el.empty();
-			this.$el.append("<p class='no_entities'>No entities to display for this source.</p>");
+			this.$el.append("<p class='no_entities'><?php _e('No entities to display for this source.', 'nggallery'); ?></p>");
 		},
 
 		render: function(){
@@ -920,7 +923,8 @@ jQuery(function($){
 				this.entities.reset();
 			},
 
-			initialize: function(){
+			initialize: function(options) {
+                this.options = options || {};
 				_.each(this.options, function(value, key){
 					this[key] = value;
 				}, this);
@@ -938,7 +942,8 @@ jQuery(function($){
 		ExcludeButtons: Backbone.View.extend({
 			className: 'header_row',
 
-			initialize: function(){
+			initialize: function(options) {
+                this.options = options || {};
 				_.each(this.options, function(value, key){
 					this[key] = value;
 				}, this);
@@ -974,7 +979,8 @@ jQuery(function($){
 					click: 'clicked'
 				},
 
-				initialize: function(){
+				initialize: function(options) {
+                    this.options = options || {};
 					_.each(this.options, function(value, key){
 						this[key] = value;
 					}, this);
@@ -997,7 +1003,8 @@ jQuery(function($){
 		SortButtons: Backbone.View.extend({
 			className: 'header_row',
 
-			initialize: 		function(){
+			initialize: function(options) {
+                this.options = options || {};
 				_.each(this.options, function(value, key){
 					this[key] = value;
 				}, this);
@@ -1137,7 +1144,8 @@ jQuery(function($){
 			Button: Backbone.View.extend({
 				tagName: 'a',
 
-				initialize: function(){
+				initialize: function(options) {
+                    this.options = options || {};
 					_.each(this.options, function(value, key){
 						this[key] = value;
 					}, this);
@@ -1172,7 +1180,8 @@ jQuery(function($){
 				drop: 'item_dropped'
 			},
 
-			initialize: function(){
+			initialize: function(options) {
+                this.options = options || {};
 				_.each(this.options, function(value, key){
 					this[key] = value;
 				}, this);
@@ -1228,7 +1237,8 @@ jQuery(function($){
 					this.model.set('exclude', e.target.checked);
 				},
 
-				initialize: function(){
+				initialize: function(options) {
+                    this.options = options || {};
 					_.each(this.options, function(value, key){
 						this[key] = value;
 					}, this);
@@ -1261,11 +1271,11 @@ jQuery(function($){
 		render: function(){
 			var select = new Ngg.Views.Chosen({
 				collection: this.galleries,
-				placeholder: 'Select a gallery',
+				placeholder: '<?php _e('Select a gallery', 'nggallery'); ?>',
 				multiple: true,
 				width: 500
 			});
-			var html = $('<tr><td><label>Galleries</label></td><td class="galleries_column"></td></tr>');
+			var html = $('<tr><td><label><?php _e('Galleries', 'nggallery'); ?></label></td><td class="galleries_column"></td></tr>');
 			this.$el.empty();
 			this.$el.append(html);
 			this.$el.find('.galleries_column').append(select.render().el);
@@ -1289,7 +1299,7 @@ jQuery(function($){
 				width: 500
 			});
 			this.$el.empty();
-			this.$el.append('<tr><td><label>Albums</label></td><td class="albums_column"></td></tr>');
+			this.$el.append('<tr><td><label><?php _e('Albums', 'nggallery'); ?></label></td><td class="albums_column"></td></tr>');
 			this.$el.find('.albums_column').append(album_select.render().el);
 			return this;
 		}

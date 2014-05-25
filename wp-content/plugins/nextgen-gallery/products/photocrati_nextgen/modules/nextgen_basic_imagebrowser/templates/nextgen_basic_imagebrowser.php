@@ -1,5 +1,5 @@
 <?php $this->start_element('nextgen_gallery.gallery_container', 'container', $displayed_gallery); ?>
-	<div class='ngg-imagebrowser' id='<?php echo $anchor; ?>'>
+	<div class='ngg-imagebrowser' id='<?php echo $anchor; ?>' data-nextgen-gallery-id="<?php echo $displayed_gallery->id(); ?>">
 
     <h3><?php echo esc_attr($image->alttext); ?></h3>
 
@@ -69,7 +69,7 @@
 	jQuery(function($){
 		new NggPaginatedGallery(
 			'<?php echo $displayed_gallery->id() ?>',
-			$('#<?php echo $anchor ?>'),
+			$('.ngg-imagebrowser'),
 			$('#<?php echo $anchor ?> .ngg-browser-prev, #<?php echo $anchor ?> .ngg-browser-next')
 		)
 	});

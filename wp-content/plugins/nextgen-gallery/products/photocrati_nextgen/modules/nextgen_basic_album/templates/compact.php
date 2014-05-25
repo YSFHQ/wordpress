@@ -24,9 +24,13 @@
                     <?php echo_safe_html($gallery->title); ?>
                 </a>
             </h4>
-            <?php if (isset($gallery->counter) && $gallery->counter > 0) { ?>
-                <p><strong><?php echo $gallery->counter; ?></strong>&nbsp;<?php _e('Photos', 'nggallery'); ?></p>
-            <?php } ?>
+            <p>
+                <?php if (isset($gallery->counter) && $gallery->counter > 0) { ?>
+                    <strong><?php echo $gallery->counter; ?></strong>&nbsp;<?php _e('Photos', 'nggallery'); ?>
+                <?php } else { ?>
+                    &nbsp;
+                <?php } ?>
+            </p>
         </div>
     <?php } ?>
     <br class="ngg-clear"/>

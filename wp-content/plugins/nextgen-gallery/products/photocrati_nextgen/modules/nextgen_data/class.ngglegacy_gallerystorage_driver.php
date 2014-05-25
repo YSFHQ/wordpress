@@ -207,12 +207,20 @@ class Mixin_NggLegacy_GalleryStorage_Driver extends Mixin
             if ($this->object->is_zip()) {
                 $retval = $this->object->upload_zip($gallery);
             }
-            else {
+            else if ($this->is_image_file()) {
                 $retval = $this->object->upload_base64_image(
                     $gallery,
                     file_get_contents($file['tmp_name']),
                     $filename ? $filename : (isset($file['name']) ? $file['name'] : FALSE)
                 );
+            }
+            else {
+                // Remove the non-valid (and potentially insecure) file from the PHP upload directory
+                if (isset($_FILES['file']['tmp_name'])) {
+                    $filename = $_FILES['file']['tmp_name'];
+                    @unlink($filename);
+                }
+                throw new E_UploadException(__('Invalid image file. Acceptable formats: JPG, GIF, and PNG.', 'nggallery'));
             }
 		}
 		elseif ($data) {
@@ -568,7 +576,8 @@ class Mixin_NggLegacy_GalleryStorage_Driver extends Mixin
 				// Get the paths to fullsize and thumbnail files
 				$abspaths = array(
                     $this->object->get_full_abspath($image),
-                    $this->object->get_thumb_abspath($image)
+                    $this->object->get_thumb_abspath($image),
+                    $this->object->get_backup_abspath($image)
                 );
 
 				if (isset($image->meta_data))

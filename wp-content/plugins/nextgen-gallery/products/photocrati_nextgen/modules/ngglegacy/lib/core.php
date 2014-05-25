@@ -361,20 +361,6 @@ class nggGallery {
 		return $in;
 	}
 
-    /**
-     * This function register strings for the use with WPML plugin (see http://wpml.org/ )
-     *
-     * @param object $image
-     * @return void
-     */
-    static function RegisterString($image) {
-        if (function_exists('icl_register_string')) {
-            global $wpdb;
-            icl_register_string('plugin_ngg', 'pic_' . $image->pid . '_description', $image->description, TRUE);
-            icl_register_string('plugin_ngg', 'pic_' . $image->pid . '_alttext', $image->alttext, TRUE);
-        }
-    }
-
 	/**
 	 * Check the memory_limit and calculate a recommended memory size
 	 *

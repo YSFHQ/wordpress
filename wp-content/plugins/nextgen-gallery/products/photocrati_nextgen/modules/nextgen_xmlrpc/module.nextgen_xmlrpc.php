@@ -368,7 +368,7 @@ class M_NextGen_XmlRpc extends C_Base_Module
 		$title		= strval($args[5]);
 		$galdesc    = strval($args[6]);
 		$image_id	= intval($args[7]);
-		$properties = isset($args[8]) ? (array) $args[7] : array();
+		$properties = isset($args[8]) ? (array) $args[8] : array();
 
 		// Authenticate the user
 		if ($this->_login($username, $password, $blog_id)) {

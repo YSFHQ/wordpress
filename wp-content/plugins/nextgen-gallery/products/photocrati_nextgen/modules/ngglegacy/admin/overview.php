@@ -36,7 +36,6 @@ function nggallery_admin_overview()  {
         	// These widgets are sometimes populated via ajax
         	ajaxWidgets = [
         		'dashboard_primary',
-        		'ngg_locale',
         		'dashboard_plugins'
         	];
 
@@ -84,8 +83,6 @@ function nggallery_admin_overview()  {
  */
 add_meta_box('dashboard_right_now', __('Welcome to NextGEN Gallery !', 'nggallery'), 'ngg_overview_right_now', 'ngg_overview', 'left', 'core');
 add_meta_box('ngg_meta_box', __('Do you like this Plugin?', 'nggallery'), 'ngg_likeThisMetaBox', 'ngg_overview', 'right', 'core');
-if ( !(get_locale() == 'en_US') )
-	add_meta_box('ngg_locale', __('Translation', 'nggallery'), 'ngg_widget_locale', 'ngg_overview', 'right', 'core');
 //add_meta_box('dashboard_primary', __('Latest News', 'nggallery'), 'ngg_widget_overview_news', 'ngg_overview', 'left', 'core');
 add_meta_box('ngg_about_meta_box', __('About', 'nggallery'), 'ngg_AboutMetaBox', 'ngg_overview', 'left', 'core');
 //add_meta_box('ngg_lastdonators', __('Recent donators', 'nggallery'), 'ngg_widget_overview_donators', 'ngg_overview', 'right', 'core');
@@ -344,8 +341,12 @@ function ngg_dashboard_quota() {
     if ( !wpmu_enable_function('wpmuQuotaCheck') )
         return;
 
+    $settings = C_NextGen_Settings::get_instance();
+    $fs = C_Fs::get_instance();
+    $dir = $fs->join_paths($fs->get_document_root(), $settings->gallerypath);
+
 	$quota = get_space_allowed();
-	$used = get_dirsize( BLOGUPLOADDIR ) / 1024 / 1024;
+	$used = get_dirsize( $dir ) / 1024 / 1024;
 
 	if ( $used > $quota )
 		$percentused = '100';
@@ -375,82 +376,6 @@ function ngg_dashboard_quota() {
 	</div>
 	<br class="clear" />
 	<?php
-}
-
-/**
- * Looks up for translation file
- *
- * @return void
- */
-function ngg_widget_locale() {
-
-	require_once(NGGALLERY_ABSPATH . '/lib/locale.php');
-
-	$locale = new ngg_locale();
-
-	$overview_url = admin_url() . 'admin.php?page=' . NGGFOLDER;
-
-	// Check if someone would like to update the translation file
-	if ( isset($_GET['locale']) && $_GET['locale'] == 'update' ) {
-		check_admin_referer('ngg_update_locale');
-
-		$result = $locale->download_locale();
-
-		if ($result == true) {
-		?>
-		<p class="hint"><?php _e('Translation file successful updated. Please reload page.', 'nggallery'); ?></p>
-		<p class="textright">
-			<a class="button" href="<?php echo nextgen_esc_url(strip_tags($overview_url)); ?>"><?php _e('Reload page', 'nggallery'); ?></a>
-		</p>
-		<?php
-		} else {
-		?>
-		<p class="hint"><?php _e('Translation file couldn\'t be updated', 'nggallery'); ?></p>
-		<?php
-		}
-
-		return;
-	}
-
-    echo '<p class="widget-loading hide-if-no-js">' . __( 'Loading&#8230;' ) . '</p><p class="describe hide-if-js">' . __('This widget requires JavaScript.') . '</p>';
-}
-
-function ngg_locale() {
-	global $ngg;
-
-	require_once(NGGALLERY_ABSPATH . '/lib/locale.php');
-
-	$locale = new ngg_locale();
-	$overview_url = admin_url() . 'admin.php?page=' . NGGFOLDER;
-    $result = $locale->check();
-	$update_url    = wp_nonce_url ( $overview_url . '&amp;locale=update', 'ngg_update_locale');
-
-	//Translators can change this text via gettext
-	if ($result == 'installed') {
-		echo $ngg->translator;
-		if ( !is_wp_error($locale->response) && $locale->response['response']['code'] == '200') {
-		?>
-		<p class="textright">
-			<a class="button" href="<?php echo nextgen_esc_url( strip_tags($update_url) ); ?>"><?php _e('Update', 'nggallery'); ?></a>
-		</p>
-		<?php
-		}
-	}
-
-	//Translators can change this text via gettext
-	if ($result == 'available') {
-		?>
-		<p><strong>Download now your language file !</strong></p>
-		<p class="textright">
-			<a class="button" href="<?php echo nextgen_esc_url( strip_tags($update_url) ); ?>"><?php _e('Download', 'nggallery'); ?></a>
-		</p>
-		<?php
-	}
-
-
-	if ($result == 'not_exist')
-		echo '<p class="hint">'. sprintf( '<strong>Would you like to help translating this plugin?</strong> <a target="_blank" href="%s">Download</a> the current pot file and read <a href="http://www.nextgen-gallery.com/translating-nextgen-gallery/">here</a> how you can translate the plugin.', NGGALLERY_URLPATH . 'lang/nggallery.pot').'</p>';
-
 }
 
 /**
@@ -572,136 +497,3 @@ function ngg_check_for_PHP5() {
     <?php
 }
 
-/**
- * ngg_get_phpinfo() - Extract all of the data from phpinfo into a nested array
- *
- * @author jon@sitewizard.ca
- * @return array
- */
-function ngg_get_phpinfo() {
-
-	ob_start();
-	phpinfo();
-	$phpinfo = array('phpinfo' => array());
-
-	if ( preg_match_all('#(?:<h2>(?:<a name=".*?">)?(.*?)(?:</a>)?</h2>)|(?:<tr(?: class=".*?")?><t[hd](?: class=".*?")?>(.*?)\s*</t[hd]>(?:<t[hd](?: class=".*?")?>(.*?)\s*</t[hd]>(?:<t[hd](?: class=".*?")?>(.*?)\s*</t[hd]>)?)?</tr>)#s', ob_get_clean(), $matches, PREG_SET_ORDER) )
-	    foreach($matches as $match) {
-	        if(strlen($match[1]))
-	            $phpinfo[$match[1]] = array();
-	        elseif(isset($match[3]))
-	            $phpinfo[end(array_keys($phpinfo))][$match[2]] = isset($match[4]) ? array($match[3], $match[4]) : $match[3];
-	        else
-	            $phpinfo[end(array_keys($phpinfo))][] = $match[2];
-	    }
-
-	return $phpinfo;
-}
-
-function ngg_list_contributors()	{
-/* The list of my contributors. Thanks to all of them !*/
-
-	$contributors = array(
-	'Anty (Code contributor)' => 'http://www.anty.at/',
-	'Bjoern von Prollius (Code contributor)' => 'http://www.prollius.de/',
-	'Simone Fumagalli (Code contributor)' => 'http://www.iliveinperego.com/',
-	'Vincent Prat (Code contributor)' => 'http://www.vincentprat.info',
-	'Frederic De Ranter (AJAX code contributor)' => 'http://li.deranter.com/',
-	'Christian Arnold (Code contributor)' => 'http://blog.arctic-media.de/',
-	'Thomas Matzke (Album code contributor)' => 'http://mufuschnu.mu.funpic.de/',
-	'KeViN (Sidebar Widget developer)' => 'http://www.kev.hu/',
-	'Lazy (German Translation)' => 'http://www.lazychris.de/',
-	'Lise (French Translation)' => 'http://liseweb.fr/',
-	'Anja (Dutch Translation)' => 'http://www.werkgroepen.net/wordpress',
-	'Adrian (Indonesian Translation)' => 'http://adrian.web.id/',
-	'Gaspard Tseng / SillyCCSmile (Chinese Translation)' => '',
-	'Mika Pennanen (Finnish Translation)' => 'http://kapsi.fi/~penni',
-	'Wojciech Owczarek (Polish Translation)' => 'http://www.owczi.net',
-	'Dilip Ramirez (Spanish Translation)' => 'http://jmtd.110mb.com/blog',
-	'Oleinikov Vedmak Evgeny (Russian Translation)' => 'http://ka-2-03.mirea.org/',
-	'Sebastien MALHERBE	(Logo design)' => 'http://www.7vision.com/',
-	'Claudia (German documentation)' => 'http://www.blog-werkstatt.de/',
-	'Robert (German documentation)' => 'http://www.curlyrob.de/',
-	'Pierpaolo Mannone (Italian Translation)' => 'http://www.interscambiocasa.com/',
-	'Mattias Tengblad (Swedish Translation)' => 'http://wp-support.se/',
-	'M&uuml;fit Kiper (Swedish Translation)' => 'http://www.kiper.se/',
-	'Gil Yaker (Documentation)' => 'http://bamboosoup.com/',
-	'Morten Johansen (Danish Translation)' => 'http://www.fr3ak.dk/',
-	'Vidar Seland (Norwegian Translation)' => 'http://www.viidar.net/',
-	'Emre G&uuml;ler (Turkish Translation)' => 'http://www.emreguler.com/',
-	'Emilio Lauretti (Italian Translation)' => '',
-	'Jan Angelovic (Czech Translation)' => 'http://www.angelovic.cz/',
-	'Laki (Slovak Translation)' => 'http://www.laki.sk/',
-	'Rowan Crane (WPMU support)' => 'http://blog.rowancrane.com/',
-	'Kuba Zwolinski (Polish Translation)' => 'http://kubazwolinski.com/',
-	'Rina Jiang (Chinese Translation)' => 'http://http://mysticecho.net/',
-	'Anthony (Chinese Translation)' => 'http://www.angryouth.com/',
-	'Milan Vasicek (Czech Translation)' => 'http://www.NoWorkTeam.cz/',
-	'Joo Gi-young (Korean Translation)' => 'http://lombric.linuxstudy.pe.kr/wp/',
-	'Oleg A. Safonov (Russian Translation)' => 'http://blog.olart.ru',
-	'AleXander Kirichev (Bulgarian Translation)' => 'http://xsakex.art-bg.org/',
-	'Richer Yang (Chinese Translation)' => 'http://fantasyworld.idv.tw/',
-	'Bill Jones (Forums contributor)' => 'http://jonesphoto.bluehorizoninternet.com/',
-	'TheDonSansone (Forums contributor)' => 'http://abseiling.200blogs.co.uk/',
-	'Komyshov (Russian Translation)' => 'http://kf-web.ru/',
-	'aleX Zhang (Chinese Translation)' => 'http://zhangfei.info/',
-	'TheSoloist (Chinese Translation)' => 'http://www.soloist-ic.cn/',
-	'Nica Luigi Cristian (Romanian Translation)' => 'http://www.cristiannica.com/',
-	'Zdenek Hatas (Czech Translation)' => '',
-	'David Potter (Documentation and Help)' => 'http://dpotter.net/',
-	'Carlale Chen (Chinese Translation)' => 'http://0-o-0.cc/',
-	'Nica Luigi Cristian (Romanian Translation)' => 'http://www.cristiannica.com/',
-	'Igor Shevkoplyas (Russian Translation)' => 'http://www.russian-translation-matters.com',
-	'Alexandr Kindras (Code contributor)' => 'http://www.fixdev.com',
-	'Manabu Togawa (Japanese Translation)' => 'http://www.churadesign.com/',
-	'Serhiy Tretyak (Ukrainian Translation)' => 'http://designpoint.com.ua/',
-	'Janis Grinvalds (Latvian Translation)' => 'http://riga.bmxrace.lv/',
-	'Kristoffer Th&oslash;ring (Norwegian Translation)' => '',
-	'Flactarus (Italian Translation)' => 'http://www.giroevago.it',
-	'Felip Alfred Galit&oacute; i Trilla (Catalan Translation)' => 'http://www.bratac.cat',
-	'Luka Komac (Slovenian Translation)' => 'http://www.komac.biz',
-    'Dimitris Ikonomou / Nikos Mouratidis (Greek Translation)' => 'http://www.kepik.gr'
-	);
-
-	ksort($contributors);
-	$i = count($contributors);
-	foreach ($contributors as $name => $url)
-	{
-		if ($url)
-			echo "<a href=\"$url\" target=\"_blank\">$name</a>";
-		else
-			echo $name;
-		$i--;
-		if ($i == 1)
-			echo " & ";
-		elseif ($i)
-			echo ", ";
-	}
-}
-
-function ngg_list_support()	{
-/* The list of my supporters. Thanks to all of them !*/
-
-	global $ngg;
-
-	$supporter = nggAdminPanel::get_remote_array($ngg->donators);
-
-	// Ensure that this is a array
-	if ( !is_array($supporter) )
-		return _e('and all donators...', 'nggallery');
-
-	ksort($supporter);
-	$i = count($supporter);
-	foreach ($supporter as $name => $url)
-	{
-		if ($url)
-			echo "<a href=\"$url\" target=\"_blank\">$name</a>";
-		else
-			echo $name;
-		$i--;
-		if ($i == 1)
-			echo " & ";
-		elseif ($i)
-			echo ", ";
-	}
-}
-?>

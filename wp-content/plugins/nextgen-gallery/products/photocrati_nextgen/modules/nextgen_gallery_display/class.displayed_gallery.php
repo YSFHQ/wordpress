@@ -76,12 +76,17 @@ class Mixin_Displayed_Gallery_Validation extends Mixin
 				}
 			}
 
-			// If no maximum_entity_count has been given, then set a maximum
-			if (!isset($this->object->maximum_entity_count)) 
+            // Allow ONLY recent & random galleries to have their own maximum_entity_count
+            if (!empty($this->object->display_settings['maximum_entity_count'])
+            &&  in_array($this->object->source, array('random_images', 'recent_images', 'random', 'recent'))) {
+                $this->object->maximum_entity_count = $this->object->display_settings['maximum_entity_count'];
+            }
+
+            // If no maximum_entity_count has been given, then set a maximum
+			if (!isset($this->object->maximum_entity_count))
 			{
 				$this->object->maximum_entity_count = C_Photocrati_Settings_Manager::get('maximum_entity_count', 500);
 			}
-
 		}
 		else {
 			$this->object->add_error('Invalid display type', 'display_type');
@@ -119,27 +124,19 @@ class Mixin_Displayed_Gallery_Queries extends Mixin
 	{
 		$retval = array();
 
-		// If a maximum entity count has been set for the displayed gallery,
-		// then ensure that's honoured
-		if (isset($this->object->maximum_entity_count)) {
-			$max = intval($this->object->maximum_entity_count);
-			if (!$limit OR (is_numeric($limit) && $limit > $max)) {
-				$limit = $max;
-			}
-		}
-		
-		// Note: always use global setting, otherwise displayed galleries are going to "remember" how much the maximum was when they were created instead of how much the maximum is now -- this property is not even exposed in the UI so it'd be fairly difficult for the user to realize what's going on
-		$max = intval(C_Photocrati_Settings_Manager::get('maximum_entity_count', 500));
-		if ($max)
-		{
-			if (!$limit OR (is_numeric($limit) && $limit > $max)) {
-				$limit = $max;
-			}
-		}
+        // Honor the gallery 'maximum_entity_count' setting ONLY when dealing with random & recent galleries. All
+        // others will always obey the *global* 'maximum_entity_count' setting.
+        if (in_array($this->object->get_source()->name, array('random_images', 'recent_images', 'random', 'recent')))
+            $max = intval($this->object->maximum_entity_count);
+		else
+            $max = intval(C_NextGen_Settings::get_instance()->get('maximum_entity_count', 500));
+
+        if (!$limit || (is_numeric($limit) && $limit > $max))
+            $limit = $max;
 
 		// Ensure that all parameters have values that are expected
-		if ($this->object->_parse_parameters()) {
-
+		if ($this->object->_parse_parameters())
+        {
 			// Is this an image query?
 			$source_obj = $this->object->get_source();
 			if (in_array('image', $source_obj->returns)) {
@@ -597,7 +594,7 @@ class Mixin_Displayed_Gallery_Queries extends Mixin
 			array("{$gallery_key} IN %s", $gallery_ids)
 		)->order_by('ordered_by', 'DESC')->run_query();
 		$counts = $image_mapper->select('galleryid, COUNT(*) as counter')->where(
-			array("galleryid IN %s", $gallery_ids))->group_by('galleryid')->run_query();
+			array("galleryid IN %s", $gallery_ids))->group_by('galleryid')->run_query(FALSE, TRUE);
 		$albums		= $album_mapper->select($album_select)->where(
 			array("{$album_key} IN %s", $album_ids)
 		)->order_by('ordered_by', 'DESC')->run_query();
@@ -658,14 +655,12 @@ class Mixin_Displayed_Gallery_Queries extends Mixin
 			$retval = count($this->object->_get_album_and_gallery_entities($source_obj, FALSE, FALSE, TRUE, $returns));
 		}
 
-        if (isset($this->object->maximum_entity_count)) {
+        // Determine the correct maximum_entity_count
+        if (in_array($this->object->get_source()->name, array('random_images', 'recent_images', 'random', 'recent')))
             $max = intval($this->object->maximum_entity_count);
-            if ($retval > $max) {
-            	$retval = $max;
-            }
-        }
-				// Given maximum entity count can't be set, always use global setting to avoid confusion
-                $max = intval(C_NextGen_Settings::get_instance()->get('maximum_entity_count', 500));
+        else
+            $max = intval(C_NextGen_Settings::get_instance()->get('maximum_entity_count', 500));
+
         if ($retval > $max) {
         	$retval = $max;
         }

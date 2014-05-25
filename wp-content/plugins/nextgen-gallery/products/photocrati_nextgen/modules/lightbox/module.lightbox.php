@@ -19,8 +19,8 @@ class M_Lightbox extends C_Base_Module
         parent::define(
             'photocrati-lightbox',
             'Lightbox',
-            _("Provides integration with several JavaScript lightbox effect libraries"),
-            '0.8',
+            "Provides integration with several JavaScript lightbox effect libraries",
+            '0.12',
             'http://leandrovieira.com/projects/jquery/lightbox/',
             'Photocrati Media',
             'http://www.photocrati.com'
@@ -104,6 +104,9 @@ class M_Lightbox extends C_Base_Module
         &&  0 !== strpos($url, 'https://'))
         {
             $url = $router->get_static_url($url);
+        }
+        elseif (strpos($url, '/') === 0) {
+            $url = home_url($url);
         }
 
         return $url;

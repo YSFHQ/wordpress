@@ -213,7 +213,7 @@ if (!class_exists('C_Photocrati_Installer'))
 
 		static function refresh_cron()
 		{
-			@ini_set('memory_limit', -1);
+            if (!extension_loaded('suhosin')) @ini_set('memory_limit', -1);
 
 			// Remove all cron jobs created by NextGEN Gallery
 			$cron = _get_cron_array();

@@ -97,10 +97,10 @@ class Mixin_NextGen_Admin_Page_Instance_Methods extends Mixin
 		wp_register_script('iris', $this->get_router()->get_url('/wp-admin/js/iris.min.js', FALSE, TRUE), array('jquery-ui-draggable', 'jquery-ui-slider', 'jquery-touch-punch'));
 		wp_register_script('wp-color-picker', $this->get_router()->get_url('/wp-admin/js/color-picker.js', FALSE, TRUE), array('iris'));
 		wp_localize_script('wp-color-picker', 'wpColorPickerL10n', array(
-			'clear' => __( 'Clear' ),
-			'defaultString' => __( 'Default' ),
-			'pick' => __( 'Select Color' ),
-			'current' => __( 'Current Color' ),
+			'clear' => __('Clear', 'nggallery'),
+			'defaultString' => __('Default', 'nggallery'),
+			'pick' => __('Select Color', 'nggallery'),
+			'current' => __('Current Color', 'nggallery'),
 		));
 		wp_enqueue_script(
 			'nextgen_admin_page',
@@ -171,7 +171,7 @@ class Mixin_NextGen_Admin_Page_Instance_Methods extends Mixin
 
 	function get_success_message()
 	{
-		return "Saved successfully";
+		return __("Saved successfully", 'nggallery');
 	}
 
 	/**

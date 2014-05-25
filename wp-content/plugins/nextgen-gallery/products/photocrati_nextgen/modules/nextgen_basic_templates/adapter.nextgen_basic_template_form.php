@@ -43,8 +43,8 @@ class A_NextGen_Basic_Template_Form extends Mixin
             'photocrati-nextgen_basic_templates#nextgen_basic_templates_settings_template',
             array(
                 'display_type_name' => $display_type->name,
-                'template_label'    => _('Template'),
-                'template_text'     => _('Use a legacy template when rendering (not recommended).'),
+                'template_label'    => __('Template', 'nggallery'),
+                'template_text'     => __('Use a legacy template when rendering (not recommended).', 'nggallery'),
                 'chosen_file'       => $display_type->settings['template'],
                 'templates'         => $templates
             ),

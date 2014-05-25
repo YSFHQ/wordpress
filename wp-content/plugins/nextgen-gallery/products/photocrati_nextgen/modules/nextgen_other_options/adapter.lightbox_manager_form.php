@@ -9,7 +9,7 @@ class A_Lightbox_Manager_Form extends Mixin
 
 	function get_title()
 	{
-		return 'Lightbox Effects';
+		return __('Lightbox Effects', 'nggallery');
 	}
 
 	function render()
@@ -35,7 +35,7 @@ class A_Lightbox_Manager_Form extends Mixin
 		return $this->render_partial(
             'photocrati-nextgen_other_options#lightbox_library_tab',
             array(
-                'lightbox_library_label' => _('What effect would you like to use?'),
+                'lightbox_library_label' => __('What effect would you like to use?', 'nggallery'),
                 'libs'       => $mapper->find_all(),
                 'id_field'   => $mapper->get_primary_key_column(),
                 'selected'   => $this->object->get_model()->thumbEffect,

@@ -78,9 +78,8 @@ class nggManageGallery {
 			$image = $nggdb->find_image( $this->pid );
 			if ($image) {
 				if ($ngg->options['deleteImg']) {
-					@unlink($image->imagePath);
-					@unlink($image->thumbPath);
-					@unlink($image->imagePath . '_backup' );
+                    $storage = C_Component_Registry::get_instance()->get_utility('I_Gallery_Storage');
+                    $storage->delete_image($this->pid);
 				}
 				$mapper = C_Image_Mapper::get_instance();
 				$result = $mapper->destroy($this->pid);
@@ -153,27 +152,27 @@ class nggManageGallery {
 
 	function render_image_column_2_header()
 	{
-		return _('ID');
+		return __('ID', 'nggallery');
 	}
 
 	function render_image_column_3_header()
 	{
-		return _('Thumbnail');
+		return __('Thumbnail', 'nggallery');
 	}
 
 	function render_image_column_4_header()
 	{
-		return _('Filename');
+		return __('Filename', 'nggallery');
 	}
 
 	function render_image_column_5_header()
 	{
-		return _('Alt & Title Text / Description');
+		return __('Alt & Title Text / Description', 'nggallery');
 	}
 
 	function render_image_column_6_header()
 	{
-		return _('Tags');
+		return __('Tags', 'nggallery');
 	}
 
 	function render_image_column_1($output='', $picture=array())
@@ -211,7 +210,7 @@ class nggManageGallery {
 		$height			= $picture->meta_data['height'];
 		$pixels			= "{$width} x {$height} pixels";
 		$excluded		= checked($picture->exclude, 1, false);
-		$exclude_label	= _("Exclude ?");
+		$exclude_label	= __("Exclude ?", 'nggallery');
 
 		$output = array();
 
@@ -389,25 +388,25 @@ class nggManageGallery {
 		$fields['left'] = array(
 			'title'			=>	array(
 				'callback'	=>	array(&$this, 'render_gallery_title_field'),
-				'label'		=>	_('Title:'),
+				'label'		=>	__('Title:', 'nggallery'),
                 'tooltip'   =>  NULL,
 				'id'		=>	'gallery_title'
 			),
 			'description'	=>	array(
 				'callback'	=>	array(&$this, 'render_gallery_desc_field'),
-				'label'		=>	_('Description:'),
+				'label'		=>	__('Description:', 'nggallery'),
                 'tooltip'   =>  NULL,
 				'id'		=>	'gallery_desc'
 			),
 			'path'			=>	array(
 				'callback'	=>	array(&$this, 'render_gallery_path_field'),
-				'label'		=>	_('Gallery path:'),
+				'label'		=>	__('Gallery path:', 'nggallery'),
                 'tooltip'   =>  NULL,
 				'id'		=>	'gallery_path'
 			),
 			'gallery_author'=>	array(
 				'callback'	=>	array(&$this, 'render_gallery_author_field'),
-				'label'		=>	_('Author'),
+				'label'		=>	__('Author', 'nggallery'),
                 'tooltip'   =>  NULL,
 				'id'		=>	'gallery_author'
 			)
@@ -416,19 +415,19 @@ class nggManageGallery {
 		$fields['right'] = array(
 			'page_link_to'	=>	array(
 				'callback'	=>	array(&$this, 'render_gallery_link_to_page_field'),
-				'label'		=>	_('Link to page:'),
-                'tooltip'   =>  'Albums will link this gallery to the selected page',
+				'label'		=>	__('Link to page:', 'nggallery'),
+                'tooltip'   =>  __('Albums will link this gallery to the selected page', 'nggallery'),
 				'id'		=>	'gallery_page_link_to'
 			),
 			'preview_image'	=>	array(
 				'callback'	=>	array(&$this, 'render_gallery_preview_image_field'),
-				'label'		=>	_('Preview image:'),
+				'label'		=>	__('Preview image:', 'nggallery'),
                 'tooltip'   =>  NULL,
 				'id'		=>	'gallery_preview_image',
 			),
 			'create_page'	=>	array(
 				'callback'	=>	array(&$this, 'render_gallery_create_page_field'),
-				'label'		=>	_('Create new page:'),
+				'label'		=>	__('Create new page:', 'nggallery'),
                 'tooltip'   =>  NULL,
 				'id'		=>	'gallery_create_new_page'
 			)
@@ -585,17 +584,17 @@ class nggManageGallery {
                 			$gallery = nggdb::find_gallery($id);
                 			if ($gallery){
                 				//TODO:Remove also Tag reference, look here for ids instead filename
-                				$imagelist = $wpdb->get_col("SELECT filename FROM $wpdb->nggpictures WHERE galleryid = '$gallery->gid' ");
+                				$imagelist = $wpdb->get_col("SELECT pid FROM $wpdb->nggpictures WHERE galleryid = '$gallery->gid' ");
                 				if ($ngg->options['deleteImg']) {
+                                    $storage = C_Component_Registry::get_instance()->get_utility('I_Gallery_Storage');
                 					if (is_array($imagelist)) {
-                						foreach ($imagelist as $filename) {
-                							@unlink(ABSPATH . $gallery->path . '/thumbs/thumbs_' . $filename);
-                							@unlink(ABSPATH . $gallery->path .'/'. $filename);
-                                            @unlink(ABSPATH . $gallery->path .'/'. $filename . '_backup');
+                						foreach ($imagelist as $pid) {
+                                            $storage->delete_image($pid);
                 						}
                 					}
                 					// delete folder
                						@rmdir( ABSPATH . $gallery->path . '/thumbs' );
+                                    @rmdir( ABSPATH . $gallery->path . '/dynamic' );
                						@rmdir( ABSPATH . $gallery->path );
                 				}
                 			}
@@ -616,7 +615,7 @@ class nggManageGallery {
 			check_admin_referer('ngg_addgallery');
 
 			if ( !nggGallery::current_user_can( 'NextGEN Add new gallery' ))
-				wp_die(__('Cheatin&#8217; uh?'));
+				wp_die(__('Cheatin&#8217; uh?', 'nggallery'));
 
 			// get the default path for a new gallery
 			$defaultpath = $ngg->options['gallerypath'];
@@ -692,9 +691,8 @@ class nggManageGallery {
 							$image = $nggdb->find_image( $imageID );
 							if ($image) {
 								if ($ngg->options['deleteImg']) {
-									@unlink($image->imagePath);
-									@unlink($image->thumbPath);
-									@unlink($image->imagePath."_backup");
+                                    $storage = C_Component_Registry::get_instance()->get_utility('I_Gallery_Storage');
+                                    $storage->delete_image($image->pid);
 								}
                                 do_action('ngg_delete_picture', $image->pid);
 								$delete_pic = nggdb::delete_image( $image->pid );
@@ -721,7 +719,7 @@ class nggManageGallery {
 			update_option('ngg_options', $ngg->options);
 
 			$pic_ids  = explode(',', $_POST['TB_imagelist']);
-			nggAdmin::do_ajax_operation( 'resize_image' , $pic_ids, __('Resize images','nggallery') );
+			nggAdmin::do_ajax_operation( 'resize_image' , $pic_ids, __('Resize images', 'nggallery') );
 		}
 
 		if (isset ($_POST['TB_bulkaction']) && isset ($_POST['TB_NewThumbnail']))  {
@@ -737,7 +735,7 @@ class nggManageGallery {
 			ngg_refreshSavedSettings();
 
 			$pic_ids  = explode(',', $_POST['TB_imagelist']);
-			nggAdmin::do_ajax_operation( 'create_thumbnail' , $pic_ids, __('Create new thumbnails','nggallery') );
+			nggAdmin::do_ajax_operation( 'create_thumbnail' , $pic_ids, __('Create new thumbnails', 'nggallery') );
 		}
 
 		if (isset ($_POST['TB_bulkaction']) && isset ($_POST['TB_SelectGallery']))  {
@@ -839,7 +837,7 @@ class nggManageGallery {
 			//hook for other plugin to update the fields
 			do_action('ngg_update_gallery', $this->gid, $_POST);
 
-			nggGallery::show_message(__('Update successful',"nggallery"));
+			nggGallery::show_message(__('Update successful', 'nggallery'));
 		}
 
 		if (isset ($_POST['scanfolder']))  {
@@ -912,7 +910,7 @@ class nggManageGallery {
 		$post_id = wp_insert_post ($post);
 
 		if ($post_id != 0)
-            nggGallery::show_message( __('Published a new post','nggallery') );
+            nggGallery::show_message( __('Published a new post', 'nggallery') );
     }
 
 	function can_user_manage_gallery()

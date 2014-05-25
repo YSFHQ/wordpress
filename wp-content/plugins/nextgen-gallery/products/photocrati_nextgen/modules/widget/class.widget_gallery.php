@@ -104,7 +104,7 @@ class C_Widget_Gallery extends WP_Widget
         $view = $factory->create('mvc_view', '');
 
         // IE8 webslice support if needed
-        if ($instance['webslice'])
+        if (!empty($instance['webslice']))
         {
             $before_widget .= '<div class="hslice" id="ngg-webslice">';
             $before_title  = str_replace('class="' , 'class="entry-title ', $before_title);

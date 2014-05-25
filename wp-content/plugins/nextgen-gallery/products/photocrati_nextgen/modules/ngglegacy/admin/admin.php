@@ -32,10 +32,6 @@ class nggAdminPanel{
         //TODO: remove after release of Wordpress 3.3
 		add_filter('contextual_help', array(&$this, 'show_help'), 10, 2);
         add_filter('current_screen', array(&$this, 'edit_current_screen'));
-
-        // Add WPML hook to register description / alt text for translation
-        add_action('ngg_image_updated', array('nggGallery', 'RegisterString') );
-
 	}
 
 	function start_buffer()

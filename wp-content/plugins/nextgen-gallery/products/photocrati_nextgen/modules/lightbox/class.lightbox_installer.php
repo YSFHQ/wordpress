@@ -10,9 +10,9 @@ class C_Lightbox_Installer
     }
 
 
-    function set_attr(&$obj, $key, $val)
+    function set_attr(&$obj, $key, $val, $force=FALSE)
     {
-        if (!isset($obj->$key))
+        if (!isset($obj->$key) OR $force)
             $obj->$key = $val;
     }
 
@@ -24,7 +24,7 @@ class C_Lightbox_Installer
      * @param array $script_paths
      * @param array $values
      */
-    function install_lightbox($name, $title, $code, $stylesheet_paths=array(), $script_paths=array(), $values=array())
+    function install_lightbox($name, $title, $code, $stylesheet_paths=array(), $script_paths=array(), $values=array(), $update=FALSE)
     {
         // Try to find the existing lightbox. If we can't find it, we'll create
         $lightbox		= $this->mapper->find_by_name($name);
@@ -33,13 +33,23 @@ class C_Lightbox_Installer
 
         // Set properties
         $lightbox->name	= $name;
-        $this->set_attr($lightbox, 'title', $title);
+        $this->set_attr($lightbox, 'title', $title, TRUE);
         $this->set_attr($lightbox, 'code', $code);
         $this->set_attr($lightbox, 'values', $values);
-        $this->set_attr($lightbox, 'styles', implode("\n", $stylesheet_paths));
-        $this->set_attr($lightbox, 'scripts', implode("\n", $script_paths));
+
+        // Overrides styles and scripts if localhost is used
+        if (isset($lightbox->styles) && strpos($lightbox->styles, 'localhost') !== FALSE)
+            $this->set_attr($lightbox, 'styles', implode("\n", $stylesheet_paths), TRUE);
+        else
+            $this->set_attr($lightbox, 'styles', implode("\n", $stylesheet_paths));
+
+        if (isset($lightbox->scripts) && strpos($lightbox->scripts, 'localhost') !== FALSE)
+            $this->set_attr($lightbox, 'scripts', implode("\n", $script_paths), TRUE);
+        else
+            $this->set_attr($lightbox, 'scripts', implode("\n", $script_paths));
 
         // Save the lightbox
+        // Note: the validation method will convert absolute urls to relative urls if needed
         $this->mapper->save($lightbox);
     }
 
@@ -55,41 +65,10 @@ class C_Lightbox_Installer
     }
 
     /**
-     * Given a newline separated list this turns absolute URL relative *if* they match includes_url()
-     *
-     * @param string $urls
-     * @return string $urls
-     */
-    function _convert_urls($urls)
-    {
-        $urls = explode("\n", $urls);
-        $site_url = site_url();
-        foreach ($urls as &$url) {
-            if (0 === strpos($url, includes_url()))
-            {
-                $count = 1;
-                $url = str_replace($site_url, '', $url, $count);
-            }
-        }
-
-        return implode("\n", $urls);
-    }
-
-    /**
      * Installs all of the lightbox provided by this module
      */
     function install()
     {
-        // scan existing libraries and replace absolute HTTP paths with relative paths
-        foreach ($this->mapper->find_all(TRUE) as $lightbox) {
-            if (!empty($lightbox->css_stylesheets))
-            {
-                $lightbox->styles = $this->_convert_urls($lightbox->css_stylesheets);
-                $lightbox->scripts = $this->_convert_urls($lightbox->scripts);
-            }
-            $lightbox->save();
-        }
-
         // Install "None" option
         $this->install_lightbox(
             'none',

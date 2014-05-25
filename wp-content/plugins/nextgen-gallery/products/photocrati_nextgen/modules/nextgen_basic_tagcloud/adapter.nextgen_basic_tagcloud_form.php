@@ -21,7 +21,7 @@ class A_NextGen_Basic_Tagcloud_Form extends Mixin_Display_Type_Form
         return $this->_render_number_field(
             $display_type,
             'number',
-            'Maximum number of tags',
+            __('Maximum number of tags', 'nggallery'),
             $display_type->settings['number']
         );
     }
@@ -43,10 +43,10 @@ class A_NextGen_Basic_Tagcloud_Form extends Mixin_Display_Type_Form
         return $this->_render_select_field(
             $display_type,
             'display_type',
-            'Display type',
+            __('Display type', 'nggallery'),
             $types,
             $display_type->settings['display_type'],
-            'The display type that the tagcloud will point its results to'
+            __('The display type that the tagcloud will point its results to', 'nggallery')
         );
     }
 }

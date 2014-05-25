@@ -17,7 +17,7 @@ window.Ngg_Store = {
         return this.driver.set(key, value);
     },
 
-    delete: function(key){
+    del: function(key){
         this.driver.remove(key);
         return !this.has(key);
     },

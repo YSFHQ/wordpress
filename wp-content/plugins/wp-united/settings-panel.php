@@ -819,6 +819,7 @@ function wpu_user_mapper() {
 				wpuSetupPermsMapper();
 			<?php } ?>
 			setupUserMapperPage();
+
 		}
 
 	// ]]>

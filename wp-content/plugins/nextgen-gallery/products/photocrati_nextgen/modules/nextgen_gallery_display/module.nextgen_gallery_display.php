@@ -97,6 +97,7 @@ class M_Gallery_Display extends C_Base_Module
 
 		$this->get_registry()->add_adapter('I_MVC_View', 'A_Gallery_Display_View');
         $this->get_registry()->add_adapter('I_MVC_View', 'A_Displayed_Gallery_Trigger_Element');
+        $this->get_registry()->add_adapter('I_Display_Type_Controller', 'A_Displayed_Gallery_Trigger_Resources');
 	}
 
 	/**
@@ -121,7 +122,7 @@ class M_Gallery_Display extends C_Base_Module
     function serve_fontawesome()
     {
         if (isset($_REQUEST['ngg_serve_fontawesome_woff'])) {
-            $fs = C_Fs::get_instance();
+            $fs = $this->get_registry()->get_utility('I_Fs');
             $abspath = $fs->find_static_abspath('photocrati-nextgen_gallery_display#fonts/fontawesome-webfont.woff');
             if ($abspath) {
                 header("Content-Type: application/x-font-woff");
@@ -130,11 +131,13 @@ class M_Gallery_Display extends C_Base_Module
             }
         }
         elseif (isset($_REQUEST['ngg_serve_fontawesome_css'])) {
-            $fs = C_Fs::get_instance();
+            $fs = $this->get_registry()->get_utility('I_Fs');
             $abspath = $fs->find_static_abspath('photocrati-nextgen_gallery_display#fontawesome/font-awesome.css');
             if ($abspath) {
+                $file_content = file_get_contents($abspath);
+                $file_content = str_replace('../fonts/fontawesome-webfont.woff', site_url('/?ngg_serve_fontawesome_woff=1'), $file_content);
                 header('Content-Type: text/css');
-                echo str_replace('fonts/fontawesome-webfont.woff', site_url('/?ngg_serve_fontawesome_woff=1'), file_get_contents($abspath));
+                echo $file_content;
                 throw new E_Clean_Exit();
             }
         }
@@ -282,36 +285,7 @@ class M_Gallery_Display extends C_Base_Module
         );
         wp_enqueue_style('nextgen_gallery_related_images');
 
-        wp_register_script(
-            'jquery.nextgen_radio_toggle',
-            $router->get_static_url('photocrati-nextgen_gallery_display#jquery.nextgen_radio_toggle.js'),
-            array('jquery')
-        );
-
         wp_register_script('ngg_common', $router->get_static_url('photocrati-nextgen_gallery_display#common.js'), array('jquery'));
-
-        $pro_active = FALSE;
-        if (defined('NGG_PRO_PLUGIN_VERSION'))
-            $pro_active = 'NGG_PRO_PLUGIN_VERSION';
-        if (defined('NEXTGEN_GALLERY_PRO_VERSION'))
-            $pro_active = 'NEXTGEN_GALLERY_PRO_VERSION';
-        if (!empty($pro_active))
-            $pro_active = constant($pro_active);
-        if (empty($pro_active) || version_compare($pro_active, '1.0.11') >= 0)
-        {
-            // Font Awesome
-            if (wp_style_is('fontawesome', 'registered')) {
-                wp_enqueue_style('fontawesome');
-            }
-            elseif (strpos(strtolower($_SERVER['SERVER_SOFTWARE']), 'microsoft-iis') !== FALSE) {
-                wp_enqueue_style('fontawesome', site_url('/?ngg_serve_fontawesome_css=1'));
-            }
-            else {
-                $router = C_Component_Registry::get_instance()->get_utility('I_Router');
-                wp_enqueue_style('fontawesome', $router->get_static_url('photocrati-nextgen_gallery_display#fontawesome/font-awesome.css'));
-            }
-        }
-
         wp_register_style('ngg_trigger_buttons', $router->get_static_url('photocrati-nextgen_gallery_display#trigger_buttons.css'));
     }
 
@@ -323,8 +297,8 @@ class M_Gallery_Display extends C_Base_Module
 	{
 		add_submenu_page(
 			NGGFOLDER,
-			_('NextGEN Gallery & Album Settings'),
-			_('Gallery Settings'),
+			__('NextGEN Gallery & Album Settings', 'nggallery'),
+			__('Gallery Settings', 'nggallery'),
 			'NextGEN Change options',
 			NGG_DISPLAY_SETTINGS_SLUG,
 			array(&$this->controller, 'index_action')
@@ -362,6 +336,7 @@ class M_Gallery_Display extends C_Base_Module
             'C_Displayed_Gallery_Trigger'           => 'class.displayed_gallery_trigger.php',
             'C_Displayed_Gallery_Trigger_Manager'   =>  'class.displayed_gallery_trigger_manager.php',
             'A_Displayed_Gallery_Trigger_Element'   =>  'adapter.displayed_gallery_trigger_element.php',
+            'A_Displayed_Gallery_Trigger_Resources' =>  'adapter.displayed_gallery_trigger_resources.php',
 			'A_Gallery_Display_Ajax'		=>	'adapter.gallery_display_ajax.php',
             'A_Display_Settings_Controller' => 'adapter.display_settings_controller.php',
             'A_Display_Settings_Page' 		=> 'adapter.display_settings_page.php',
