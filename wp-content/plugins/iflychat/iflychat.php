@@ -1,14 +1,14 @@
 <?php
 /**
  * @package iflychat
- * @version 2.1.0
+ * @version 2.1.1
  */
 /*
 Plugin Name: iFlyChat
 Plugin URI: http://wordpress.org/extend/plugins/iflychat/
 Description: One on one chat, Multiple chatrooms, Embedded chatrooms
 Author: Shashwat Srivastava, Shubham Gupta - iFlyChat Team
-Version: 2.1.0
+Version: 2.1.1
 Author URI: https://iflychat.com/
 */
 
@@ -225,8 +225,8 @@ function _iflychat_get_auth($name) {
   );
 
   $result = wp_remote_head(DRUPALCHAT_EXTERNAL_A_HOST . ':' . DRUPALCHAT_EXTERNAL_A_PORT .  '/p/', $options);
-
-  if($result['response']['code'] == 200) {
+  
+  if(!is_wp_error($result) && $result['response']['code'] == 200) {
     $result = json_decode($result['body']);
     return $result;
   }
@@ -749,7 +749,7 @@ function iflychat_settings() {
       	  'font_color' => iflychat_get_option('iflychat_chat_font_color'),
       	  'chat_list_header' => iflychat_get_option('iflychat_chat_list_header'),
       	  'public_chatroom_header' => iflychat_get_option('iflychat_public_chatroom_header'),
-      	  'version' => 'WP-2.1.0',
+      	  'version' => 'WP-2.1.1',
       	  'show_admin_list' => (iflychat_get_option('iflychat_show_admin_list') == "1")?'1':'2',
       	  'clear' => iflychat_get_option('iflychat_allow_single_message_delete'),
           'delmessage' => iflychat_get_option('iflychat_allow_clear_room_history'),
@@ -951,7 +951,7 @@ function iflychat_get_inbox() {
   );
   $result = wp_remote_head(DRUPALCHAT_EXTERNAL_A_HOST . ':' . DRUPALCHAT_EXTERNAL_A_PORT .  '/r/', $options);
   $output = '';
-  if($result['response']['code'] == 200) {
+  if(!is_wp_error($result) && $result['response']['code'] == 200) {
     $query = json_decode($result['body']);
     $timezone_offet = iflychat_get_option( 'gmt_offset' );
     $date_format = iflychat_get_option( 'date_format' );
@@ -982,7 +982,7 @@ function iflychat_get_message_thread($atts) {
   );
   $result = wp_remote_head(DRUPALCHAT_EXTERNAL_A_HOST . ':' . DRUPALCHAT_EXTERNAL_A_PORT .  '/q/', $options);
   $output = '';
-  if($result['response']['code'] == 200) {
+  if(!is_wp_error($result) && $result['response']['code'] == 200) {
     $query = json_decode($result['body']);
     $timezone_offet = iflychat_get_option( 'gmt_offset' );
     $date_format = iflychat_get_option( 'date_format' );

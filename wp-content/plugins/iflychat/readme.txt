@@ -8,7 +8,7 @@ Requires at least: 3.0
 
 Tested up to: 3.9
 
-Stable tag: 2.1.0
+Stable tag: 2.1.1
 
 License: GPLv2 or later
 
@@ -142,6 +142,9 @@ No, our chat works by utilizing HTML, JS and CSS.
 
 == Changelog ==
 
+= 2.1.1 =
+Handle WP error
+
 = 2.1.0 =
 File attachment in chat.
 Standalone browser based mobile chat application.
@@ -246,6 +249,9 @@ iFlyChat Sync Release.
 iFlyChat Support Chat released. New emoticons added. Added Screenshots.
 
 == Upgrade Notice ==
+
+= 2.1.1 =
+After updating, go to iFlyChat Settings page and click on Update button.
 
 = 2.1.0 =
 After updating, go to iFlyChat Settings page and click on Update button.

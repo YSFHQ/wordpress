@@ -3,7 +3,7 @@
 Plugin Name: iframe
 Plugin URI: http://wordpress.org/plugins/iframe/
 Description: [iframe src="http://www.youtube.com/embed/A3PDXmYoF5U" width="100%" height="480"] shortcode
-Version: 2.8
+Version: 2.9
 Author: webvitaly
 Author URI: http://web-profile.com.ua/wordpress/plugins/
 License: GPLv3
@@ -35,33 +35,35 @@ if ( ! function_exists( 'iframe_unqprfx_embed_shortcode' ) ) :
 		}
 
 		// get_params_from_url
-		if( isset( $atts["get_params_from_url"] ) && ( $atts["get_params_from_url"] == '1' || $atts["get_params_from_url"] == 1 || $atts["get_params_from_url"] == 'true' ) ) {
-			if( $_GET != NULL ){
-				if( strpos( $atts["src"], '?' ) ){ // if we already have '?' and GET params
+		if ( isset( $atts["get_params_from_url"] ) && ( $atts["get_params_from_url"] == '1' || $atts["get_params_from_url"] == 1 ) ) {
+			$encode_string = '';
+			if ( $_GET != NULL ) {
+				if ( strpos( $atts["src"], '?' ) ) { // if we already have '?' and GET params
 					$encode_string = '&';
-				}else{
+				} else {
 					$encode_string = '?';
 				}
-				foreach( $_GET as $key => $value ){
+				foreach( $_GET as $key => $value ) {
 					$encode_string .= $key.'='.$value.'&';
 				}
 			}
+			$encode_string = rtrim($encode_string, '&'); // remove last '&'
 			$atts["src"] .= $encode_string;
 		}
 
 		$html = '';
-		if( isset( $atts["same_height_as"] ) ){
+		if ( isset( $atts["same_height_as"] ) ) {
 			$same_height_as = $atts["same_height_as"];
-		}else{
+		} else {
 			$same_height_as = '';
 		}
 		
-		if( $same_height_as != '' ){
+		if ( $same_height_as != '' ) {
 			$atts["same_height_as"] = '';
-			if( $same_height_as != 'content' ){ // we are setting the height of the iframe like as target element
-				if( $same_height_as == 'document' || $same_height_as == 'window' ){ // remove quotes for window or document selectors
+			if ( $same_height_as != 'content' ) { // we are setting the height of the iframe like as target element
+				if ( $same_height_as == 'document' || $same_height_as == 'window' ) { // remove quotes for window or document selectors
 					$target_selector = $same_height_as;
-				}else{
+				} else {
 					$target_selector = '"' . $same_height_as . '"';
 				}
 				$html .= '
@@ -72,7 +74,7 @@ if ( ! function_exists( 'iframe_unqprfx_embed_shortcode' ) ) :
 					});
 					</script>
 				';
-			}else{ // set the actual height of the iframe (show all content of the iframe without scroll)
+			} else { // set the actual height of the iframe (show all content of the iframe without scroll)
 				$html .= '
 					<script>
 					jQuery(function($){
@@ -85,11 +87,11 @@ if ( ! function_exists( 'iframe_unqprfx_embed_shortcode' ) ) :
 				';
 			}
 		}
-        $html .= "\n".'<!-- iframe plugin v.2.8 wordpress.org/plugins/iframe/ -->'."\n";
+        $html .= "\n".'<!-- iframe plugin v.2.9 wordpress.org/plugins/iframe/ -->'."\n";
 		$html .= '<iframe';
         foreach( $atts as $attr => $value ) {
-			if( $attr != 'same_height_as' ){ // remove some attributes
-				if( $value != '' ) { // adding all attributes
+			if ( $attr != 'same_height_as' ) { // remove some attributes
+				if ( $value != '' ) { // adding all attributes
 					$html .= ' ' . $attr . '="' . $value . '"';
 				} else { // adding empty attributes
 					$html .= ' ' . $attr;
@@ -111,4 +113,4 @@ if ( ! function_exists( 'iframe_unqprfx_embed_shortcode' ) ) :
 	}
 	add_filter( 'plugin_row_meta', 'iframe_unqprfx_plugin_meta', 10, 2 );
 	
-endif; // end of if(function_exists('iframe_unqprfx_embed_shortcode'))
+endif; // end of (function_exists('iframe_unqprfx_embed_shortcode'))

@@ -3,8 +3,8 @@ Contributors: webvitaly
 Donate link: http://web-profile.com.ua/donate/
 Tags: iframe, embed, youtube, vimeo, google-map, google-maps
 Requires at least: 3.0
-Tested up to: 3.8.1
-Stable tag: 2.8
+Tested up to: 3.9
+Stable tag: 2.9
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -31,7 +31,7 @@ If you need to embed content from YouTube, Vimeo, SlideShare, SoundCloud, Twitte
 = Useful: =
 * ["Anti-spam" - block spam in comments](http://wordpress.org/plugins/anti-spam/ "no spam, no captcha")
 * ["Page-list" - show list of pages with shortcodes](http://wordpress.org/plugins/page-list/ "list of pages with shortcodes")
-* ["activetab" - responsive light theme](http://wordpress.org/themes/activetab "responsive light theme")
+* ["Security-protection" - blocks brute-force attacks](http://wordpress.org/plugins/security-protection/ "stops brute-force attacks")
 
 == Other Notes ==
 
@@ -57,6 +57,9 @@ If you need to embed content from YouTube, Vimeo, SlideShare, SoundCloud, Twitte
 1. [iframe] shortcode
 
 == Changelog ==
+
+= 2.9 - 2014-05-31 =
+* remove '&' from the end of the string in 'get_params_from_url' param
 
 = 2.8 - 2014-03-14 =
 * remove fix for google maps
