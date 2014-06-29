@@ -1,14 +1,14 @@
 <?php
 /**
  * @package iflychat
- * @version 2.1.1
+ * @version 2.2.0
  */
 /*
 Plugin Name: iFlyChat
 Plugin URI: http://wordpress.org/extend/plugins/iflychat/
 Description: One on one chat, Multiple chatrooms, Embedded chatrooms
 Author: Shashwat Srivastava, Shubham Gupta - iFlyChat Team
-Version: 2.1.1
+Version: 2.2.0
 Author URI: https://iflychat.com/
 */
 
@@ -749,7 +749,7 @@ function iflychat_settings() {
       	  'font_color' => iflychat_get_option('iflychat_chat_font_color'),
       	  'chat_list_header' => iflychat_get_option('iflychat_chat_list_header'),
       	  'public_chatroom_header' => iflychat_get_option('iflychat_public_chatroom_header'),
-      	  'version' => 'WP-2.1.1',
+      	  'version' => 'WP-2.2.0',
       	  'show_admin_list' => (iflychat_get_option('iflychat_show_admin_list') == "1")?'1':'2',
       	  'clear' => iflychat_get_option('iflychat_allow_single_message_delete'),
           'delmessage' => iflychat_get_option('iflychat_allow_clear_room_history'),
@@ -852,6 +852,7 @@ add_action( 'wp_login', 'iflychat_user_login' );
 add_action( 'wp_logout', 'iflychat_user_logout' );
 add_shortcode( 'iflychat_inbox', 'iflychat_get_inbox' );
 add_shortcode( 'iflychat_message_thread', 'iflychat_get_message_thread' );
+add_shortcode( 'iflychat_embed', 'iflychat_get_embed_code' );
 register_activation_hook(__FILE__,'iflychat_install');
 register_deactivation_hook( __FILE__, 'iflychat_uninstall');
 function iflychat_match_path($path, $patterns) {
@@ -995,15 +996,39 @@ function iflychat_get_message_thread($atts) {
   return $output;
 }
 
+function iflychat_get_embed_code($atts) {
+  extract( shortcode_atts( array(
+		'id' => 'c-0',
+    'hide_user_list' => 'no',
+    'hide_popup_chat' => 'no',
+    'height' => '550px',
+	), $atts ) );
+  $output = '<style>.drupalchat-embed-chatroom-content {height: '. $height .' !important;}';
+  if($hide_user_list == "yes") {
+    $output .= '#drupalchat-embed-user-list {display:none !important;}.drupalchat-embed-chatroom-content {width:95% !important;}';
+  }
+  $output .= '</style>';
+  $output .= '<script type="text/javascript">if(typeof(iflyembed) === "undefined") {iflyembed = {};iflyembed.settings = {};iflyembed.settings.ifly = {};}iflyembed.settings.ifly.embed = "1";iflyembed.settings.ifly.ur_hy = "1";iflyembed.settings.ifly.embed_msg = "Type your message here. Press Enter to send.";iflyembed.settings.ifly.embed_online_user_text = "Online Users";</script>';
+  $output .= '<div id="drupalchat-embed-chatroom-' . substr($id, 2) . '" class="drupalchat-embed-chatroom-container';
+  if($hide_popup_chat == "yes") {
+    $output .= ' drupalchat-hide-popup-chat';
+  }
+  $output .= '"></div>';
+  return $output;
+}
+
 function iflychat_get_user_pic_url() {
   global $current_user;
   get_currentuserinfo();
-  $url = "";
+  $url = 'http://www.gravatar.com/avatar/' . (($current_user->ID)?(md5(strtolower($current_user->user_email))):('00000000000000000000000000000000')) . '?d=mm&size=24';
   if(function_exists("bp_core_fetch_avatar") && ($current_user->ID > 0)) {
     $url = bp_core_fetch_avatar(array('item_id' => iflychat_get_user_id(),'html'=>false));
   }
   else if(function_exists("user_avatar_fetch_avatar") && ($current_user->ID > 0)) {
-    $url = user_avatar_fetch_avatar(array('html' => false, 'item_id' => $current_user->ID));
+    $local_url = user_avatar_fetch_avatar(array('html' => false, 'item_id' => $current_user->ID));
+    if($local_url) {
+      $url = $local_url;
+    }
   }
   else if(function_exists("get_wp_user_avatar_src") && ($current_user->ID > 0)) {
     $url = get_wp_user_avatar_src(iflychat_get_user_id());
@@ -1025,9 +1050,7 @@ function iflychat_get_user_pic_url() {
     }
     $url = $source[0];
   }
-  else {
-    $url = 'http://www.gravatar.com/avatar/' . (($current_user->ID)?(md5(strtolower($current_user->user_email))):('00000000000000000000000000000000')) . '?d=mm&size=24';
-  }
+  
   $pos = strpos($url, ':');
   if($pos !== false) {
     $url = substr($url, $pos+1);
