@@ -1,0 +1,127 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: iflychat\n"
+"POT-Creation-Date: 2013-11-28 01:14+0530\n"
+"PO-Revision-Date: 2014-07-14 14:58+0100\n"
+"Last-Translator: victor <moi@moi.com>\n"
+"Language-Team: iFlyChat <support@iflylabs.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: F:\\Dropbox\\websites\\wp\\wp-content\\plugins"
+"\\iflychat\n"
+
+#: F:\Dropbox\websites\wp\wp-content\plugins\iflychat/iflychat.php:113
+msgid "New chat message!"
+msgstr "Nouveau message"
+
+#: F:\Dropbox\websites\wp\wp-content\plugins\iflychat/iflychat.php:184
+msgid "drupalchat_user is currently offline."
+msgstr ""
+
+#: F:\Dropbox\websites\wp\wp-content\plugins\iflychat/iflychat.php:185
+msgid "drupalchat_user is typing..."
+msgstr ""
+
+#: F:\Dropbox\websites\wp\wp-content\plugins\iflychat/iflychat.php:186
+msgid "Close"
+msgstr "ouvrir"
+
+#: F:\Dropbox\websites\wp\wp-content\plugins\iflychat/iflychat.php:187
+msgid "Minimize"
+msgstr "Réduire"
+
+#: F:\Dropbox\websites\wp\wp-content\plugins\iflychat/iflychat.php:188
+msgid "Click to Mute"
+msgstr "Off/sound"
+
+#: F:\Dropbox\websites\wp\wp-content\plugins\iflychat/iflychat.php:189
+msgid "Click to Unmute"
+msgstr "ON/sound"
+
+#: F:\Dropbox\websites\wp\wp-content\plugins\iflychat/iflychat.php:190
+msgid "Available"
+msgstr "Disponible"
+
+#: F:\Dropbox\websites\wp\wp-content\plugins\iflychat/iflychat.php:191
+msgid "Idle"
+msgstr "Absent"
+
+#: F:\Dropbox\websites\wp\wp-content\plugins\iflychat/iflychat.php:192
+msgid "Busy"
+msgstr "Occupé"
+
+#: F:\Dropbox\websites\wp\wp-content\plugins\iflychat/iflychat.php:193
+msgid "Offline"
+msgstr "Hors ligne"
+
+#: F:\Dropbox\websites\wp\wp-content\plugins\iflychat/iflychat.php:194
+msgid "Load More Messages"
+msgstr "Voir plus de messages"
+
+#: F:\Dropbox\websites\wp\wp-content\plugins\iflychat/iflychat.php:195
+msgid "No More Messages"
+msgstr "Pas plus de messages"
+
+#: F:\Dropbox\websites\wp\wp-content\plugins\iflychat/iflychat.php:196
+msgid "Clear all messages"
+msgstr "Effacer les messages"
+
+#: F:\Dropbox\websites\wp\wp-content\plugins\iflychat/iflychat.php:197
+msgid "Type and Press Enter"
+msgstr ""
+
+#: F:\Dropbox\websites\wp\wp-content\plugins\iflychat/iflychat.php:198
+msgid "Type here to search"
+msgstr "Recherche"
+
+#: F:\Dropbox\websites\wp\wp-content\plugins\iflychat/iflychat.php:202
+msgid "Ban"
+msgstr "Bannir"
+
+#: F:\Dropbox\websites\wp\wp-content\plugins\iflychat/iflychat.php:203
+msgid "Ban IP"
+msgstr "Bannir Ip"
+
+#: F:\Dropbox\websites\wp\wp-content\plugins\iflychat/iflychat.php:204
+msgid "Kick"
+msgstr ""
+
+#: F:\Dropbox\websites\wp\wp-content\plugins\iflychat/iflychat.php:205
+msgid "Banned Users"
+msgstr "Utilisateurs Banni"
+
+#: F:\Dropbox\websites\wp\wp-content\plugins\iflychat/iflychat.php:206
+msgid "No users have been banned currently."
+msgstr "Aucun utilisateur n'a été banni"
+
+#: F:\Dropbox\websites\wp\wp-content\plugins\iflychat/iflychat.php:207
+msgid "Loading banned user list..."
+msgstr ""
+
+#: F:\Dropbox\websites\wp\wp-content\plugins\iflychat/iflychat.php:208
+msgid "Manage Rooms"
+msgstr ""
+
+#: F:\Dropbox\websites\wp\wp-content\plugins\iflychat/iflychat.php:209
+msgid "Unban"
+msgstr "Débannir"
+
+#: F:\Dropbox\websites\wp\wp-content\plugins\iflychat/iflychat.php:210
+msgid "Unban IP"
+msgstr "Débannir IP"
+
+#: F:\Dropbox\websites\wp\wp-content\plugins\iflychat/iflychat.php:815
+msgid "iFlyChat Settings"
+msgstr "iFlyChat Réglage"
+
+#: F:\Dropbox\websites\wp\wp-content\plugins\iflychat/iflychat.php:819
+msgid "Settings Updated"
+msgstr "Réglage Mise a jours"
+
+#: F:\Dropbox\websites\wp\wp-content\plugins\iflychat/iflychat.php:870
+msgid "Update"
+msgstr "Mise à jour"

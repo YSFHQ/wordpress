@@ -94,7 +94,7 @@ function ngg_AboutMetaBox()
 {
 	?>
     <div id="poststuff">
-        <p><?php _e("NextGEN Gallery is one of the most popular Wordpress plugins of all time with over 9 million downloads. It is developed and supported by Photocrati Media. We'd like to offer a special thanks to Alex Rabe, who first developed the plugin and maintained it through 2011.", 'nggallery'); ?></p>
+        <p><?php _e("NextGEN Gallery is one of the most popular Wordpress plugins of all time with over 10 million downloads.", 'nggallery'); __(" It is developed and supported by Photocrati Media. We'd like to offer a special thanks to Alex Rabe, who first developed the plugin and maintained it through 2011.", 'nggallery'); ?></p>
         <p><?php _e("<strong>NEED  HELP?</strong> If you need help or assistance please visit the <a href='http://wordpress.org/support/plugin/nextgen-gallery'>NextGEN Gallery forums on WordPress.org</a>. Please note that we actively monitor and  participate in the forums, but given that NextGEN Gallery is a free  product, we don't guarantee replies to support queries.", 'nggallery'); ?></p>
         <p><?php _e("<strong>EXTENDING NEXTGEN?</strong> There are many third party plugins that add displays and functionality for NextGEN Gallery. See our <a href='http://www.nextgen-gallery.com/nextgen-gallery-extension-plugins/'>Complete List of NextGEN Extension  Plugins</a>.", 'nggallery'); ?></p>
 	</div>
@@ -343,7 +343,7 @@ function ngg_dashboard_quota() {
 
     $settings = C_NextGen_Settings::get_instance();
     $fs = C_Fs::get_instance();
-    $dir = $fs->join_paths($fs->get_document_root(), $settings->gallerypath);
+    $dir = $fs->join_paths($fs->get_document_root('content'), $settings->gallerypath);
 
 	$quota = get_space_allowed();
 	$used = get_dirsize( $dir ) / 1024 / 1024;

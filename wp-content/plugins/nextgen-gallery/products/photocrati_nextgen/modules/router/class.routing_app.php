@@ -552,7 +552,7 @@ class Mixin_Routing_App extends Mixin
 			$retval = $this->object->get_routed_url();
 		}
 
-		return $retval;
+		return esc_url($retval);
 	}
 
 	/**
@@ -583,7 +583,7 @@ class Mixin_Routing_App extends Mixin
 
 		// Is the parameter already part of the request? If so, modify that
 		// parameter
-		if (($segment = $this->object->get_parameter_segment($key, $id, $url))) {
+		if (($segment = $this->object->get_parameter_segment($key, $id, $url)) && is_array($segment)) {
  			extract($segment);
 
 			if ($source == 'querystring') {
@@ -617,7 +617,7 @@ class Mixin_Routing_App extends Mixin
 
         $retval = rtrim($retval, ' ?&');
 
-		return $retval;
+		return esc_url($retval);
 	}
 
 

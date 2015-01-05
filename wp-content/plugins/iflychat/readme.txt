@@ -2,27 +2,27 @@
 
 Contributors: darklrd, shubhamgupta
 
-Tags: buddypress chat, chat, chat room, community chat, embed chat, group chat, html5 chat, one to one chat, popup chat, live chat, friends chat, mobile chat
+Tags: buddypress, chat, chat room, community, embed chat, friends, group chat, html5 chat, one to one chat, popup chat, live chat, mobile chat, wordpress chat
 
 Requires at least: 3.0
 
-Tested up to: 3.9
+Tested up to: 4.0
 
-Stable tag: 2.2.0
+Stable tag: 2.8.5
 
 License: GPLv2 or later
 
-iFlyChat allows visitors of your WordPress site to chat with each other privately (one-to-one chat) or together in chat rooms.
+Integrate chat into your WordPress website. Allow users to discuss in public and private chat rooms. Skyrocket user engagement by 200%.
 
 == Description ==
 
-iFlyChat is a real time **chat** plugin best suited for **community** and **social networking websites**. It helps in increasing user engagement of your WordPress site by enabling users to **chat with each other privately** (one to one private conversation), **group chat** or in **chat rooms**. Also, it is useful for forums, blogs, dating sites etc. It can also be configured to provide **online support** for products/services. It logs the user conversations so that they can be later viewed using shortcode. You can try it out live [here](https://iflychat.com/features).
+iFlyChat is a real time **chat** plugin best suited for **community** and **social networking websites**. It helps in increasing user engagement of your WordPress site by enabling users to **chat with each other privately** (one to one private conversation), **group chat** or in **chat rooms**. Also, it is useful for forums, blogs, dating sites etc. It can also be configured to provide **online support** for products/services. It logs the user conversations so that they can be later viewed using shortcode. You can try it out live [here](https://iflychat.com/features?refid=wp).
 
 ####Chat Features####
 
 * **One on one (private) chat**: Attractive Pop Up Chat. Interact with users and customers online using public and private rooms. Users can browse and chat simultaneously.
 
-* **Embedded Chat Room**: Make your chat room larger and roomier by embedding it to a page. Fully customizable CSS. [Try demo here](https://iflychat.com/embedded-chatroom-example-public-chatroom). (Premium feature)
+* **Embedded Chat Room**: Make different chat rooms into separate pages. Fully customisable CSS. [Try demo here](https://iflychat.com/embedded-chatroom-example-public-chatroom?refid=wp).
 
 * **Group Chat**: Group chat enables users to chat in groups. Users can chat with specific set of people simultaneously. (Premium feature)
 
@@ -50,29 +50,8 @@ iFlyChat is a real time **chat** plugin best suited for **community** and **soci
 
 * **Browser based Mobile Chat App**: We provide standalone browser based mobile chat application. Users can access both pop and embed chat in mobile devices, smartphones and tablets.
 
-* **Chat Logging**: Retrieve logs of your chat rooms using our custom [shortcode](https://iflychat.com/blog/2014/02/view-chat-room-logs-wordpress-using-shortcode).
+* **Chat Logging**: Retrieve logs of your chat rooms using our custom [shortcode](https://iflychat.com/blog/2014/02/view-chat-room-logs-wordpress-using-shortcode?refid=wp).
 
-* Multiple chat rooms
-
-* Provides a sleek chat bar at bottom right of the browser
-
-* Selectable list of Online Users (Once you choose a particular user to chat with, it creates a new tab adjacent to the chat bar along with an attached pop-up chat window)
-
-* Chat rooms can be embedded into the page instead of pop-up
-
-* Chat works on tablets and mobile devices
-
-* Supports chat for anonymous users
-
-* Renders Image and Youtube URLs inline.
-
-* Supports smileys (detects them automatically in chat messages)
-
-* Chat history is retained in between page loads
-
-* Provides notification sound when a new chat message is received
-
-* Notifies user by blinking browser title bar and chat popup when a new chat message is received
 
 ####BuddyPress Integration####
 
@@ -96,30 +75,40 @@ Our chat plugin automatically detects if you have a specific avatar plugin insta
 The chat plugin supports WordPress MultiSite feature. You can install chat globally across a WordPress Network.
 
 Our lifetime free plan supports upto 10 online users in chat at a time. It includes all standard features.
-For advanced features (such as embed chat, group chat, etc) and scalability, we offer paid plans - [https://iflychat.com/pricing](https://iflychat.com/pricing).
+For advanced features (such as embed chat, group chat, etc) and scalability, we offer paid plans - [https://iflychat.com/pricing](https://iflychat.com/pricing?refid=wp).
 
-PS: You'll need an [iFlyChat.com API key](https://iflychat.com/installation/wordpress-chat-plugin) to use chat.
+PS: You'll need an [iFlyChat.com API key](https://iflychat.com/installation/wordpress-chat-plugin?refid=wp) to use chat.
 
 == Installation ==
 
 * Upload the iFlyChat plugin to your WordPress site.
 * Activate it.
-* Get [iFlyChat.com API key](https://iflychat.com/iflyapi/index). You need to first create an account [here](https://iflychat.com/user/register).
-* Detailed installation steps - https://iflychat.com/installation/wordpress-chat-plugin.
+* Get [iFlyChat.com API key](https://iflychat.com/iflyapi/index?refid=wp). You need to first create an account [here](https://iflychat.com/user/register?refid=wp).
+* Detailed installation steps - [https://iflychat.com/installation/wordpress-chat-plugin](https://iflychat.com/installation/wordpress-chat-plugin?refid=wp).
 * You're done!
 
 == Screenshots ==
 
-1. **Popup Format** - Open multiple chat windows (both rooms and one-to-one) next to each other and chat simultaneously. This screenshot shows a website with 600+ concurrent users.
-2. **Embed Format** - Make your chat (room) larger and roomier by embedding it into a page. Fully customizable CSS.
-3. **Group Chat** - Group chat enables users to chat in groups. Users can chat with specific set of people simultaneously.
+01. **Popup Format** - Open multiple chat windows (both rooms and one-to-one) next to each other and chat simultaneously. This screenshot shows a website with 600+ concurrent users.
+02. **Embed Format** - Make your chat (room) larger and roomier by embedding it into a page. Fully customizable CSS.
+03. **Group Chat** - Group chat enables users to chat in groups. Users can chat with specific set of people simultaneously.
+04. **Theme Customisation** - Customise look and feel of the chat to match your website.
+05. **Chat Sound Notification** - You can control chat sound notification. If you are busy, just turn it off.
+06. **Tab Synchronisation** - Chat history is retained in between page navigation. Also, chat is in sync across multiple browsers/devices for the same user.
+07. **Chat Content Moderation** - Control abuse in public or private chat rooms. Spamming of URLs can also be stopped by setting up chat moderation at settings page.
+08. **Delete Chat Messages** - Chat Moderator or Admin can delete a single message or clear entire chat history of any conversation.
+09. **User Moderation** - Chat admins can kick or ban (including IP based ban) users who do not abide by the rules and regulation of the chat.
+10. **File Attachment** - Share files, images and documents of formats like pdf, docx, png etc with other chat users privately or in a public chat room.
+11. **Chat Content Engagement** - Auto render images and YouTube videos inline in chat.
+12. **Support Chat or Live Chat** - Support version allows support staff to chat with site visitors.
+
 
 == Frequently Asked Questions ==
 
 = Is it free to use? =
 
 We offer lifetime free plan for upto 10 simultaneous users in chat. It includes all standard features.
-For advanced features (such as embed chat, group chat, etc) and scalability, we offer paid plans - [https://iflychat.com/pricing](https://iflychat.com/pricing).
+For advanced features (such as embed chat, group chat, etc) and scalability, we offer paid plans - [https://iflychat.com/pricing](https://iflychat.com/pricing?refid=wp).
 
 = Do I have to install any software on my website server for this to work? =
 
@@ -127,11 +116,11 @@ This is a cloud based chat. You don’t need to install anything apart from iFly
 
 = How do you provide support? =
 
-Please visit our website [iflychat.com](https://iflychat.com) for any query. We provide support via live chat on our website. Additionally, you may contact us by filling up this form - [https://iflychat.com/contact](https://iflychat.com/contact).
+Please visit our website [iflychat.com](https://iflychat.com?refid=wp) for any query. We provide support via live chat on our website. Additionally, you may contact us by filling up this form - [https://iflychat.com/contact](https://iflychat.com/contact?refid=wp).
 
 = Do you have any knowledge base where I can see some documentation? =
 
-Yes, you may view our knowledge base here - [https://iflychat.com/documentation](https://iflychat.com/documentation).
+Yes, you may view our knowledge base here - [https://iflychat.com/docs](https://iflychat.com/docs?refid=wp).
 
 = Does iFlyChat work on mobile and tablet? =
 
@@ -141,7 +130,44 @@ Yes, our chat works across all mobile platforms.
 
 No, our chat works by utilizing HTML, JS and CSS.
 
+= How to show or hide chat on certain pages? =
+
+We provide a URL based filter on iFlyChat settings page to show/hide chat on/from specific pages of your WordPress website. More information here - [https://iflychat.com/documentation/chat-moderation/how-show-or-hide-popup-chat-certain-pages-wordpress](https://iflychat.com/documentation/chat-moderation/how-show-or-hide-popup-chat-certain-pages-wordpress?refid=wp).
+
 == Changelog ==
+
+= 2.8.5 =
+Allow user list to be filtered in chat based on user groups.
+
+= 2.8.4 =
+Fix fetch avatar url function in chat.
+
+= 2.8.3 =
+Render avatar from login plugin(s) in the chat.
+
+= 2.8.2 =
+Update README.
+
+= 2.8.1 =
+Minor backend update.
+
+= 2.8.0 =
+Add option to display name or username in chat. Translation for French and Italian.
+
+= 2.7.0 =
+Add filters to allow other plugins to set current user's profile URL and avatar URL in chat.
+
+= 2.6.0 =
+Add filter to allow other plugins to determine if the current user can access chat.
+
+= 2.5.0 =
+Allow unregistered users or guests to set their name in chat without logging into your website.
+
+= 2.4.0 =
+Use iFlyChat CDN for faster delivery. Added some translation strings.
+
+= 2.3.0 =
+Compress and add all JS files of the chat plugin into one for faster loading
 
 = 2.2.0 =
 Add iflychat_embed shortcode for embedding chat into a page
@@ -256,6 +282,39 @@ iFlyChat Sync Release.
 iFlyChat Support Chat released. New emoticons added. Added Screenshots.
 
 == Upgrade Notice ==
+
+= 2.8.5 =
+After updating, go to iFlyChat Settings page and click on Update button.
+
+= 2.8.4 =
+After updating, go to iFlyChat Settings page and click on Update button.
+
+= 2.8.3 =
+After updating, go to iFlyChat Settings page and click on Update button.
+
+= 2.8.2 =
+After updating, go to iFlyChat Settings page and click on Update button.
+
+= 2.8.1 =
+After updating, go to iFlyChat Settings page and click on Update button.
+
+= 2.8.0 =
+After updating, go to iFlyChat Settings page and click on Update button.
+
+= 2.7.0 =
+After updating, go to iFlyChat Settings page and click on Update button.
+
+= 2.6.0 =
+After updating, go to iFlyChat Settings page and click on Update button.
+
+= 2.5.0 =
+After updating, go to iFlyChat Settings page and click on Update button.
+
+= 2.4.0 =
+After updating, go to iFlyChat Settings page and click on Update button.
+
+= 2.3.0 =
+After updating, go to iFlyChat Settings page and click on Update button.
 
 = 2.2.0 =
 After updating, go to iFlyChat Settings page and click on Update button.

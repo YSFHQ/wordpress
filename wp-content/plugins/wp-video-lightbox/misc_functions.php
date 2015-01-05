@@ -8,8 +8,9 @@ function wp_vid_lightbox_vimeo5_handler($atts)
             'video_id' => '',
             'width' => '',	
             'height' => '',
+            'description' => '',
             'anchor' => '',	
-    		'auto_thumb' => '',
+            'auto_thumb' => '',
     ), $atts));
     if(empty($video_id) || empty($width) || empty($height)){
             return "<p>Error! You must specify a value for the Video ID, Width, Height and Anchor parameters to use this shortcode!</p>";
@@ -31,7 +32,7 @@ function wp_vid_lightbox_vimeo5_handler($atts)
     }    
     $href_content = 'http://vimeo.com/'.$video_id.'?width='.$width.'&amp;height='.$height;		
     $output = "";
-    $output .= '<a rel="'.WPVL_PRETTYPHOTO_REL.'" href="'.$href_content.'" title="">'.$anchor_replacement.'</a>';	
+    $output .= '<a rel="'.WPVL_PRETTYPHOTO_REL.'" href="'.$href_content.'" title="'.$description.'">'.$anchor_replacement.'</a>';	
     return $output;
 }
 
@@ -41,6 +42,7 @@ function wp_vid_lightbox_youtube_handler($atts)
             'video_id' => '',
             'width' => '',	
             'height' => '',
+            'description' => '',
             'anchor' => '',
             'auto_thumb' => '',
     ), $atts));
@@ -63,7 +65,7 @@ function wp_vid_lightbox_youtube_handler($atts)
     	$anchor_replacement = $anchor;
     }
     $href_content = 'https://www.youtube.com/watch?v='.$video_id.'&amp;width='.$width.'&amp;height='.$height;
-    $output = '<a rel="'.WPVL_PRETTYPHOTO_REL.'" href="'.$href_content.'" title="">'.$anchor_replacement.'</a>';
+    $output = '<a rel="'.WPVL_PRETTYPHOTO_REL.'" href="'.$href_content.'" title="'.$description.'">'.$anchor_replacement.'</a>';
     return $output;
 }
 

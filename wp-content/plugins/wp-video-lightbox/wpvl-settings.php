@@ -40,14 +40,18 @@ class Video_Lightbox_Settings_Page
         $content .= '</h2>';
         echo $content;
 
-        switch ($_GET['action'])
+        if(isset($_GET['action']))
+        { 
+            switch ($_GET['action'])
+            {
+               case 'prettyPhoto':
+                   $this->prettyPhoto_settings_section();
+                   break;
+            }
+        }
+        else
         {
-           case 'prettyPhoto':
-               $this->prettyPhoto_settings_section();
-               break;
-           default:
-               $this->general_settings_section();
-               break;
+            $this->general_settings_section();
         }
 
         echo '</div></div>';
@@ -73,7 +77,7 @@ class Video_Lightbox_Settings_Page
 
         <div style="background: none repeat scroll 0 0 #FFF6D5;border: 1px solid #D1B655;color: #3F2502;margin: 10px 0;padding: 5px 5px 5px 10px;text-shadow: 1px 1px #FFFFFF;">	
         <p><?php _e("For more information, updates, detailed documentation and video tutorial, please visit:", "WPVL"); ?><br />
-        <a href="http://www.tipsandtricks-hq.com/wordpress-video-lightbox-plugin-display-videos-in-a-fancy-lightbox-overlay-2700" target="_blank"><?php _e("WP Video Lightbox Homepage", "WPVL"); ?></a></p>
+        <a href="https://www.tipsandtricks-hq.com/wordpress-video-lightbox-plugin-display-videos-in-a-fancy-lightbox-overlay-2700" target="_blank"><?php _e("WP Video Lightbox Homepage", "WPVL"); ?></a></p>
         </div>
 
         <form method="post" action="<?php echo $_SERVER["REQUEST_URI"]; ?>">
@@ -143,7 +147,7 @@ class Video_Lightbox_Settings_Page
 
         <div style="background: none repeat scroll 0 0 #FFF6D5;border: 1px solid #D1B655;color: #3F2502;margin: 10px 0;padding: 5px 5px 5px 10px;text-shadow: 1px 1px #FFFFFF;">	
         <p><?php _e("For more information, updates, detailed documentation and video tutorial, please visit:", "WPVL"); ?><br />
-        <a href="http://www.tipsandtricks-hq.com/wordpress-video-lightbox-plugin-display-videos-in-a-fancy-lightbox-overlay-2700" target="_blank"><?php _e("WP Video Lightbox Homepage", "WPVL"); ?></a></p>
+        <a href="https://www.tipsandtricks-hq.com/wordpress-video-lightbox-plugin-display-videos-in-a-fancy-lightbox-overlay-2700" target="_blank"><?php _e("WP Video Lightbox Homepage", "WPVL"); ?></a></p>
         </div>
 
         <form method="post" action="<?php echo $_SERVER["REQUEST_URI"]; ?>">

@@ -7,7 +7,7 @@ class C_Attach_Controller extends C_NextGen_Admin_Page_Controller
 	var    $_marked_scripts;
 	var 	 $_is_rendering;
 
-	static function &get_instance($context)
+	static function &get_instance($context='all')
 	{
 		if (!isset(self::$_instances[$context])) {
 			$klass = get_class();
@@ -87,7 +87,7 @@ class Mixin_Attach_To_Post extends Mixin
 {
 	function _load_displayed_gallery()
 	{
-		$mapper = $this->get_registry()->get_utility('I_Displayed_Gallery_Mapper');
+		$mapper = C_Displayed_Gallery_Mapper::get_instance();
 		if (!($this->object->_displayed_gallery = $mapper->find($this->object->param('id'), TRUE))) {
 			$this->object->_displayed_gallery = $mapper->create();
 		}
@@ -101,6 +101,7 @@ class Mixin_Attach_To_Post extends Mixin
 	function enqueue_backend_resources()
 	{
 		$this->call_parent('enqueue_backend_resources');
+
         // Enqueue frame event publishing
 		wp_enqueue_script('frame_event_publisher');
 		$this->object->mark_script('frame_event_publisher');

@@ -21,7 +21,7 @@ require_once(dirname(__FILE__) . '/includes/block_direct_access.php');
 class bcn_breadcrumb_trail
 {
 	//Our member variables
-	private $version = '5.1.0';
+	private $version = '5.1.1';
 	//An array of breadcrumbs
 	public $breadcrumbs = array();
 	public $trail = array();
@@ -182,17 +182,21 @@ class bcn_breadcrumb_trail
 	 */
 	protected function do_author()
 	{
-		global $authordata;
+		if(get_query_var('author_name'))
+		{
+			$authordata = get_user_by('slug', get_query_var('author_name'));	
+		}
+		else
+		{
+			$authordata = get_userdata(get_query_var('author'));
+		}
 		//Setup array of valid author_name values
 		$valid_author_name = array('display_name', 'nickname', 'first_name', 'last_name');
-		//This translation allows us to easily select the display type later on
-		$author_name = $this->opt['Sauthor_name'];
 		//Make sure user picks only safe values
-		if(in_array($author_name, $valid_author_name))
+		if(in_array($this->opt['Sauthor_name'], $valid_author_name))
 		{
-			//TODO Evaluate the need for this filter call
 			//Place the breadcrumb in the trail, uses the constructor to set the title, prefix, and suffix, get a pointer to it in return
-			$breadcrumb = $this->add(new bcn_breadcrumb(apply_filters('the_author', $authordata->$author_name), $this->opt['Hauthor_template_no_anchor'], array('author', 'current-item'), NULL, $authordata->ID));
+			$breadcrumb = $this->add(new bcn_breadcrumb(get_the_author_meta($this->opt['Sauthor_name'], $authordata->ID), $this->opt['Hauthor_template_no_anchor'], array('author', 'current-item'), NULL, $authordata->ID));
 			//If we're paged, or allowing the current item to be linked, let's link to the first page
 			if($this->opt['bcurrent_item_linked'] || (is_paged() && $this->opt['bpaged_display']))
 			{
@@ -355,18 +359,24 @@ class bcn_breadcrumb_trail
 	 * 
 	 * @param $post WP_Post Instance of WP_Post object to create a breadcrumb for
 	 */
-	protected function do_post(WP_Post $post)
+	protected function do_post($post)
 	{
 		global $page;
+		//If we did not get a WP_Post object, warn developer and return early
+		if(!is_object($post) || get_class($post) !== 'WP_Post')
+		{
+			_doing_it_wrong(__CLASS__ . '::' . __FUNCTION__, __('$post global is not of type WP_Post', 'breadcrumb-navxt'), '5.1.1');
+			return;
+		}
 		//Place the breadcrumb in the trail, uses the bcn_breadcrumb constructor to set the title, template, and type
 		$breadcrumb = $this->add(new bcn_breadcrumb(get_the_title($post), $this->opt['Hpost_' . $post->post_type . '_template_no_anchor'], array('post', 'post-' . $post->post_type, 'current-item'), NULL, $post->ID));
 		//If the current item is to be linked, or this is a paged post, add in links
-		if($this->opt['bcurrent_item_linked'] || ($page > 1 && $this->opt['bpaged_display']))
+		if(is_attachment() || $this->opt['bcurrent_item_linked'] || ($page > 1 && $this->opt['bpaged_display']))
 		{
 			//Change the template over to the normal, linked one
 			$breadcrumb->set_template($this->opt['Hpost_' . $post->post_type . '_template']);
 			//Add the link
-			$breadcrumb->set_url(get_permalink());
+			$breadcrumb->set_url(get_permalink($post));
 		}
 		//If we have page, force it to go through the parent tree
 		if($post->post_type === 'page')
@@ -505,12 +515,12 @@ class bcn_breadcrumb_trail
 	protected function do_archive_by_post_type()
 	{
 		//Place the breadcrumb in the trail, uses the constructor to set the title, prefix, and suffix, get a pointer to it in return
-		$breadcrumb = $this->add(new bcn_breadcrumb(post_type_archive_title('', false), $this->opt['Hpost_' . get_post_type() . '_template_no_anchor'], array('archive', 'post-' . get_post_type() . '-archive', 'current-item')));
+		$breadcrumb = $this->add(new bcn_breadcrumb(post_type_archive_title('', false), $this->opt['Hpost_' . get_query_var('post_type') . '_template_no_anchor'], array('archive', 'post-' . get_query_var('post_type') . '-archive', 'current-item')));
 		if($this->opt['bcurrent_item_linked'] || is_paged() && $this->opt['bpaged_display'])
 		{
-			$breadcrumb->set_template($this->opt['Hpost_' . get_post_type() . '_template']);
+			$breadcrumb->set_template($this->opt['Hpost_' . get_query_var('post_type') . '_template']);
 			//Deal with the anchor
-			$breadcrumb->set_url(get_post_type_archive_link(get_post_type()));
+			$breadcrumb->set_url(get_post_type_archive_link(get_query_var('post_type')));
 		}
 	}
 	/**
@@ -769,7 +779,7 @@ class bcn_breadcrumb_trail
 	 */
 	public function fill()
 	{
-		global $wpdb, $post, $wp_query, $paged, $page;
+		global $wpdb, $wp_query, $paged, $page;
 		//Check to see if the trail is already populated
 		if(count($this->breadcrumbs) > 0)
 		{
